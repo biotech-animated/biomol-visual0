@@ -152,7 +152,7 @@ export default function ScientificTeamSection() {
                       }}
                     >
                       <img
-                        src={`/team/${member.name.toLowerCase()}.jpg`}
+                        src={`./team/${member.name.toLowerCase()}.jpg`}
                         alt={`${member.name} photo`}
                         style={{
                           width: '100%',

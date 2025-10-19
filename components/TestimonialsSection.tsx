@@ -10,7 +10,7 @@ export default function TestimonialsSection() {
       author: "David Barraclough",
       title: "CEO, Abcore",
       company: "Abcore",
-      logo: "/logos/Abcore.webp"
+      logo: "./logos/Abcore.webp"
     },
     {
       id: 2,
@@ -19,7 +19,7 @@ export default function TestimonialsSection() {
       author: "Tom Brown",
       title: "Professor of Nucleic Acid Chemistry, University of Oxford",
       company: "University of Oxford",
-      logo: "/logos/NIH.webp"
+      logo: "./logos/NIH.webp"
     },
     {
       id: 3,
@@ -28,7 +28,7 @@ export default function TestimonialsSection() {
       author: "James Campbell",
       title: "CEO, Patrys",
       company: "Patrys",
-      logo: "/logos/Patrys.webp"
+      logo: "./logos/Patrys.webp"
     },
     {
       id: 4,
@@ -37,7 +37,7 @@ export default function TestimonialsSection() {
       author: "Klaudyna Johnstone",
       title: "Marketing Manager, Innova Biosciences",
       company: "Innova Biosciences",
-      logo: "/logos/Innova Biosciences.webp"
+      logo: "./logos/Innova Biosciences.webp"
     },
     {
       id: 5,
@@ -46,7 +46,7 @@ export default function TestimonialsSection() {
       author: "Eddie Sullivan",
       title: "CEO, SAb Biotherapeutics",
       company: "SAb Biotherapeutics",
-      logo: "/logos/SAb Bio.webp"
+      logo: "./logos/SAb Bio.webp"
     }
   ];
 

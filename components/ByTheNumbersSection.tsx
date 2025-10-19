@@ -123,68 +123,6 @@ export default function ByTheNumbersSection() {
         </p>
       </div>
 
-      <style>{`
-        @keyframes rotate-border {
-          0% {
-            --angle: 0deg;
-          }
-          100% {
-            --angle: 360deg;
-          }
-        }
-
-        @property --angle {
-          syntax: '<angle>';
-          initial-value: 0deg;
-          inherits: false;
-        }
-
-        .metric-card {
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-          cursor: pointer;
-        }
-
-        .metric-card:hover {
-          transform: translateY(-2px);
-          box-shadow:
-            0 0 20px rgba(183, 148, 246, 0.4),
-            0 0 40px rgba(255, 107, 53, 0.3),
-            0 8px 32px rgba(0, 0, 0, 0.4);
-        }
-
-        .metric-card::before {
-          content: '';
-          position: absolute;
-          inset: 0;
-          border-radius: 12px;
-          padding: 2px;
-          background: conic-gradient(
-            from var(--angle),
-            rgb(255, 107, 53),
-            rgb(183, 148, 246),
-            rgb(142, 99, 232),
-            rgb(183, 148, 246),
-            rgb(255, 107, 53)
-          );
-          -webkit-mask:
-            linear-gradient(#fff 0 0) content-box,
-            linear-gradient(#fff 0 0);
-          -webkit-mask-composite: xor;
-          mask-composite: exclude;
-          opacity: 0;
-          transition: opacity 0.3s ease;
-          pointer-events: none;
-        }
-
-        .metric-card:hover::before {
-          opacity: 1;
-          animation: rotate-border 3s linear infinite;
-        }
-
-        .metric-card-glow {
-          display: none;
-        }
-      `}</style>
     </section>
   );
 }

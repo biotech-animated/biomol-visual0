@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { X, CheckCircle, AlertCircle } from 'lucide-react';
-import { submitLeadCapture } from '../lib/supabase';
 
 interface LeadCaptureModalProps {
   isOpen: boolean;
@@ -23,14 +22,14 @@ export default function LeadCaptureModal({ isOpen, onClose }: LeadCaptureModalPr
     setStatus('submitting');
     setErrorMessage('');
 
-    try {
-      await submitLeadCapture(formData);
-      setStatus('success');
-      setFormData({ name: '', email: '', interest: '' });
-    } catch (error) {
-      setStatus('error');
-      setErrorMessage(error instanceof Error ? error.message : 'An error occurred. Please try again.');
-    }
+  //   try {
+  //     await submitLeadCapture(formData);
+  //     setStatus('success');
+  //     setFormData({ name: '', email: '', interest: '' });
+  //   } catch (error) {
+  //     setStatus('error');
+  //     setErrorMessage(error instanceof Error ? error.message : 'An error occurred. Please try again.');
+  //   }
   };
 
   const handleClose = () => {

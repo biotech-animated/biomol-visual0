@@ -88,6 +88,7 @@ export default function Footer() {
                   key={index}
                   href={social.href}
                   aria-label={social.label}
+                  className="footer-social-link"
                   style={{
                     width: '36px',
                     height: '36px',
@@ -96,16 +97,7 @@ export default function Footer() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: 'var(--bmv-text-secondary)',
-                    transition: 'all 250ms'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'var(--bmv-purple)';
-                    e.currentTarget.style.color = 'white';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'var(--bmv-surface)';
-                    e.currentTarget.style.color = 'var(--bmv-text-secondary)';
+                    color: 'var(--bmv-text-secondary)'
                   }}
                 >
                   <social.icon size={18} />
@@ -132,13 +124,11 @@ export default function Footer() {
                 <li key={index}>
                   <a
                     href="#"
+                    className="footer-link"
                     style={{
                       fontSize: '14px',
-                      color: 'var(--bmv-text-secondary)',
-                      transition: 'color 200ms'
+                      color: 'var(--bmv-text-secondary)'
                     }}
-                    onMouseEnter={(e) => e.currentTarget.style.color = 'var(--bmv-purple-light)'}
-                    onMouseLeave={(e) => e.currentTarget.style.color = 'var(--bmv-text-secondary)'}
                   >
                     {service}
                   </a>
@@ -165,13 +155,11 @@ export default function Footer() {
                 <li key={index}>
                   <a
                     href="#"
+                    className="footer-link"
                     style={{
                       fontSize: '14px',
-                      color: 'var(--bmv-text-secondary)',
-                      transition: 'color 200ms'
+                      color: 'var(--bmv-text-secondary)'
                     }}
-                    onMouseEnter={(e) => e.currentTarget.style.color = 'var(--bmv-purple-light)'}
-                    onMouseLeave={(e) => e.currentTarget.style.color = 'var(--bmv-text-secondary)'}
                   >
                     {application}
                   </a>
@@ -198,13 +186,11 @@ export default function Footer() {
                 <li key={index}>
                   <a
                     href={link.href}
+                    className="footer-link"
                     style={{
                       fontSize: '14px',
-                      color: 'var(--bmv-text-secondary)',
-                      transition: 'color 200ms'
+                      color: 'var(--bmv-text-secondary)'
                     }}
-                    onMouseEnter={(e) => e.currentTarget.style.color = 'var(--bmv-purple-light)'}
-                    onMouseLeave={(e) => e.currentTarget.style.color = 'var(--bmv-text-secondary)'}
                   >
                     {link.label}
                   </a>

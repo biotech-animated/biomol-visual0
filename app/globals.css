@@ -386,6 +386,33 @@
       grid-column: span 1;
     }
   }
+
+  /* Navigation hover effects */
+  .nav-link {
+    transition: color 200ms;
+  }
+
+  .nav-link:hover {
+    color: var(--bmv-purple-hover) !important;
+  }
+
+  /* Footer hover effects */
+  .footer-social-link {
+    transition: all 250ms;
+  }
+
+  .footer-social-link:hover {
+    background: var(--bmv-purple) !important;
+    color: white !important;
+  }
+
+  .footer-link {
+    transition: color 200ms;
+  }
+
+  .footer-link:hover {
+    color: var(--bmv-purple-light) !important;
+  }
 }
 
 @layer base {

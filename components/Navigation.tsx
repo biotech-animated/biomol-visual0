@@ -60,13 +60,11 @@ export default function Navigation() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="font-medium transition-colors duration-200"
+                className="font-medium nav-link"
                 style={{
                   color: pathname === item.href ? 'var(--bmv-purple-hover)' : 'var(--bmv-text)',
                   fontSize: '16px'
                 }}
-                onMouseEnter={(e) => e.currentTarget.style.color = 'var(--bmv-purple-hover)'}
-                onMouseLeave={(e) => e.currentTarget.style.color = pathname === item.href ? 'var(--bmv-purple-hover)' : 'var(--bmv-text)'}
               >
                 {item.label}
               </Link>
@@ -103,13 +101,11 @@ export default function Navigation() {
                   key={item.label}
                   href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="font-medium text-left transition-colors duration-200"
+                  className="font-medium text-left nav-link"
                   style={{
                     color: pathname === item.href ? 'var(--bmv-purple-hover)' : 'var(--bmv-text)',
                     fontSize: '16px'
                   }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--bmv-purple-hover)'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = pathname === item.href ? 'var(--bmv-purple-hover)' : 'var(--bmv-text)'}
                 >
                   {item.label}
                 </Link>

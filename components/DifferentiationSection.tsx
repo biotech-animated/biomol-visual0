@@ -39,7 +39,9 @@ export default function DifferentiationSection() {
                 lineHeight: '1.7',
                 display: 'flex',
                 flexDirection: 'column',
-                gap: 'var(--space-3)'
+                gap: 'var(--space-3)',
+                fontFamily: "'Red Hat Display', sans-serif",
+                fontWeight: '300'
               }}
             >
             <p>

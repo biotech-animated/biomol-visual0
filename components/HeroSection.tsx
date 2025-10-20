@@ -279,12 +279,13 @@ export default function HeroSection() {
           height: '40px',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center'
+          paddingLeft: 'max(var(--space-5), calc((100vw - 1200px) / 2))',
+          paddingRight: 'var(--space-5)'
         }}
       >
         <p style={{
           fontSize: '14px',
-          color: 'var(--bmv-text-secondary)',
+          color: '#4A5568',
           margin: 0,
           letterSpacing: '0.02em'
         }}>

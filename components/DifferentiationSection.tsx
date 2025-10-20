@@ -7,7 +7,12 @@ export default function DifferentiationSection() {
     <section
       className="min-h-screen flex items-center justify-center"
       style={{
-        background: 'var(--bmv-bg-purple-dark)'
+        position: 'relative',
+        background: 'var(--bmv-bg-purple-dark)',
+        backgroundImage: 'url(/94cbb8ff-ce9f-4e10-8d08-4bb251d718ec.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
       }}
     >
       <div className="max-w-7xl mx-auto px-6">

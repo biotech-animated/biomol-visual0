@@ -160,10 +160,10 @@ export default function ByTheNumbersSection() {
                     <div
                       style={{
                         fontSize: 'clamp(32px, 5vw, 48px)',
-                        fontWeight: '700',
+                        fontWeight: '500',
                         color: 'var(--bmv-purple-light)',
                         marginBottom: 'var(--space-3)',
-                        fontFamily: "'Inter', sans-serif"
+                        fontFamily: "'Red Hat Display', sans-serif"
                       }}
                     >
                       {metric.number}

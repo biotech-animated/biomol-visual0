@@ -248,7 +248,7 @@ export default function LeadCaptureModal({ isOpen, onClose }: LeadCaptureModalPr
                       fontSize: '16px',
                       resize: 'none',
                       transition: 'border-color 200ms',
-                      fontFamily: "'IBM Plex Sans', 'Inter', sans-serif"
+                      fontFamily: "'Red Hat Text', sans-serif"
                     }}
                     placeholder="Tell us about your company, industry, and what you're looking to achieve..."
                     onFocus={(e) => e.currentTarget.style.borderColor = 'var(--bmv-purple-hover)'}

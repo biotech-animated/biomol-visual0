@@ -7,7 +7,7 @@ export default function DifferentiationSection() {
     <section
       className="min-h-screen flex flex-col"
       style={{
-        background: 'var(--bmv-bg-purple-dark)'
+        background: '#3D2415'
       }}
     >
       <div className="flex-1 flex items-center justify-center">

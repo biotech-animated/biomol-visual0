@@ -285,7 +285,7 @@ export default function HeroSection() {
       >
         <p style={{
           fontSize: '14px',
-          color: '#000000',
+          color: '#808080',
           margin: 0,
           letterSpacing: '0.02em'
         }}>

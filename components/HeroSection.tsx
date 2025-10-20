@@ -272,10 +272,31 @@ export default function HeroSection() {
       </div>
 
       <div
+        className="relative z-10 w-full"
+        style={{
+          background: 'rgba(138, 130, 130, 0.7)',
+          backdropFilter: 'blur(8px)',
+          height: '40px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+      >
+        <p style={{
+          fontSize: '14px',
+          color: 'rgba(255, 255, 255, 0.9)',
+          margin: 0,
+          letterSpacing: '0.02em'
+        }}>
+          Trusted by over 70 biopharma companies around the world
+        </p>
+      </div>
+
+      <div
         className="relative z-10 w-full overflow-hidden"
         style={{
-          paddingTop: 'var(--space-6)',
-          paddingBottom: 'var(--space-6)',
+          paddingTop: '20px',
+          paddingBottom: '20px',
           background: 'rgba(158, 150, 150, 0.7)',
           backdropFilter: 'blur(8px)',
           display: 'flex',

@@ -40,11 +40,7 @@ export default function CompetitivePositioningSection() {
               }}
             >
             <p>
-              The largest Scientific Communication Studios are built on a model of massive scale. You benefit from{' '}
-              <span style={{ fontWeight: '400', color: 'var(--bmv-purple-light)' }}>
-                radically lean operations by design
-              </span>
-              . We have obsessively engineered our entire process to be ruthlessly efficient—from software to business structure.
+              The largest Scientific Communication Studios are built on a model of massive scale. You benefit from radically lean operations by design. We have obsessively engineered our entire process to be ruthlessly efficient—from software to business model.
             </p>
 
             <p>

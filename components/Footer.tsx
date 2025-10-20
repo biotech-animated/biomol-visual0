@@ -34,7 +34,7 @@ export default function Footer() {
   return (
     <footer
       style={{
-        background: 'var(--bmv-purple-900)',
+        background: '#1B0A2E',
         paddingTop: 'var(--space-10)',
         paddingBottom: 'var(--space-6)',
         borderTop: '1px solid rgba(183, 148, 246, 0.1)'

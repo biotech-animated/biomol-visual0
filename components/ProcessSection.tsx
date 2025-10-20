@@ -38,7 +38,7 @@ export default function ProcessSection() {
     <section
       className="min-h-screen flex items-center justify-center"
       style={{
-        background: 'var(--bmv-bg-orange-dark)'
+        background: '#1B0A2E'
       }}
     >
       <div className="max-w-7xl mx-auto px-6">

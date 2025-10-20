@@ -68,7 +68,7 @@ export default function TestimonialsSection() {
     <section 
       className="py-20"
       style={{
-        background: 'var(--bmv-bg-orange-darker)'
+        background: '#1B0A2E'
       }}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

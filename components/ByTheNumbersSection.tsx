@@ -223,6 +223,7 @@ export default function ByTheNumbersSection() {
             {logos.map((logo, index) => (
               <div
                 key={`first-${index}`}
+                className="logo-container"
                 style={{
                   height: '100%',
                   display: 'flex',
@@ -235,12 +236,13 @@ export default function ByTheNumbersSection() {
                   src={logo.src}
                   alt={logo.alt}
                   style={{
-                    height: '80px',
+                    height: '60px',
                     width: 'auto',
                     maxWidth: '200px',
                     objectFit: 'contain',
                     filter: 'brightness(0) invert(1)',
-                    pointerEvents: 'none'
+                    opacity: '0.5',
+                    transition: 'opacity 0.3s ease'
                   }}
                 />
               </div>
@@ -248,6 +250,7 @@ export default function ByTheNumbersSection() {
             {logos.map((logo, index) => (
               <div
                 key={`second-${index}`}
+                className="logo-container"
                 style={{
                   height: '100%',
                   display: 'flex',
@@ -260,12 +263,13 @@ export default function ByTheNumbersSection() {
                   src={logo.src}
                   alt={logo.alt}
                   style={{
-                    height: '80px',
+                    height: '60px',
                     width: 'auto',
                     maxWidth: '200px',
                     objectFit: 'contain',
                     filter: 'brightness(0) invert(1)',
-                    pointerEvents: 'none'
+                    opacity: '0.5',
+                    transition: 'opacity 0.3s ease'
                   }}
                 />
               </div>

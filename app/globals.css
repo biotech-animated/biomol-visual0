@@ -241,7 +241,11 @@
   }
 
   .animate-scroll {
-    animation: scroll 120s linear infinite;
+    animation: scroll 240s linear infinite;
+  }
+
+  .logo-container:hover img {
+    opacity: 1 !important;
   }
 
   /* Rotating border animations for cards */

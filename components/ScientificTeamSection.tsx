@@ -43,7 +43,7 @@ export default function ScientificTeamSection() {
     {
       name: 'Benjamin',
       title: 'Founder & CEO',
-      bio: "Founded Biomol Visual after working in pharmaceutical business development, managing drug discovery partnerships. Built and retained an exceptional team of PhD and MSc specialists. Driven by the belief that entrepreneurship fuels scientific progress. He helps biotech founders turn innovations into funded realities. BSc Biotechnology with Honours from University College London. Still gets nightmares about Comic Sans in investor presentations.",
+      bio: "Founded Biomol Visual after working in pharmaceutical business development, managing drug discovery partnerships. Built and retained an exceptional team of PhD and MSc specialists. BSc Biotechnology with Honours from University College London. Still gets nightmares about Comic Sans in investor presentations.",
       credentials: 'BSc Biotechnology, University College London',
       expertise: 'Team Leadership, Business Strategy, Lean Operations',
       location: 'United States (Pacific Time)',

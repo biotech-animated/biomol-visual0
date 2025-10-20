@@ -276,7 +276,7 @@ export default function HeroSection() {
         style={{
           paddingTop: 'var(--space-6)',
           paddingBottom: 'var(--space-6)',
-          background: 'rgba(0, 0, 0, 0.3)',
+          background: 'rgba(158, 150, 150, 0.3)',
           backdropFilter: 'blur(8px)',
           display: 'flex',
           alignItems: 'center'

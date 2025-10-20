@@ -21,7 +21,7 @@ export default function Footer() {
   const links = [
     { label: 'Terms of Service', href: '#' },
     { label: 'Privacy Policy', href: '#' },
-    { label: 'Careers', href: '#' }
+    { label: 'Join Us', href: '#' }
   ];
 
   const socialLinks = [

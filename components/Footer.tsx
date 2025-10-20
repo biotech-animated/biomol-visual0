@@ -54,8 +54,9 @@ export default function Footer() {
                 <span
                   className="font-medium tracking-tight"
                   style={{
-                    fontFamily: "'Red Hat Display', sans-serif",
-                    fontSize: '24px'
+                    fontFamily: "'Inter', sans-serif",
+                    fontSize: '24px',
+                    fontWeight: 700
                   }}
                 >
                   <span style={{ color: 'var(--bmv-purple)' }}>BIOMOL</span>

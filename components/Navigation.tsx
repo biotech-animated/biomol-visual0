@@ -45,8 +45,9 @@ export default function Navigation() {
             <span
               className="font-medium tracking-tight"
               style={{
-                fontFamily: "'Red Hat Display', sans-serif",
-                fontSize: '30px'
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '30px',
+                fontWeight: 700
               }}
             >
               <span style={{ color: 'var(--bmv-purple)' }}>BIOMOL</span>

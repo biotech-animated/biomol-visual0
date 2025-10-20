@@ -16,7 +16,7 @@ export default function ScientificTeamSection() {
     {
       name: 'Isabel',
       title: 'Scientific Story Architect',
-      bio: "Writes your script. Creates your storyboard. Takes your 200-slide deck and turns it into a 3-minute story that gets funded. Eight publications. Over 100 projects since 2015. Quiet in meetings but comes back with visual solutions so clever you'll wonder if she's psychic.",
+      bio: "Writes your script. Creates your storyboard. Takes your 100-slide deck and turns it into a 2-minute story. Eight publications. Over 100 projects since 2015. Quiet in meetings but comes back with visual solutions so clever you'll wonder if she's psychic.",
       credentials: 'PhD Biomedical Sciences, UC San Diego',
       expertise: 'Scientific Storytelling, Scriptwriting, Storyboarding',
       location: 'United States (Pacific Time)',

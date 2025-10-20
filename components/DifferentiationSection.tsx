@@ -49,7 +49,7 @@ export default function DifferentiationSection() {
             </p>
 
             <p style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: '400', color: 'var(--bmv-text-heading)' }}>
-              We only do one thing: visually explain the molecular and cellular science that gets you funded. This singular focus is our advantage.
+              We only do one thing: <span style={{ color: 'var(--bmv-purple-light)' }}>visually explain the molecular and cellular science that gets you funded.</span> This singular focus is our advantage.
             </p>
 
             <p>

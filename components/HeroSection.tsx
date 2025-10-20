@@ -130,7 +130,7 @@ export default function HeroSection() {
                 maxWidth: '800px'
               }}
             >
-              We translate your complex molecular science into a 3-minute visual story designed to win investor confidence.
+              We translate your complex molecular science into a 2-minute visual story designed to win investor confidence.
             </p>
 
             <div

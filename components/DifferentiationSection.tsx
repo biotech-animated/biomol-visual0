@@ -29,7 +29,7 @@ export default function DifferentiationSection() {
             }}
           >
             <h2 style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: '500', fontSize: '32px', lineHeight: '1.2', marginBottom: '0' }}>
-              We Don't Animate Surgeries. We Visualize Molecular & Cellular Mechanisms of Action.
+              We Don't Animate Surgeries. We Show Molecular & Cellular Mechanisms of Action.
             </h2>
 
             <div
@@ -45,7 +45,7 @@ export default function DifferentiationSection() {
               }}
             >
             <p>
-              Generalist studios animate hip replacements on Monday. A dental procedure on Tuesday. And a new surgical tool on Wednesday. Then they attempt your complex molecular science on Thursday.
+              Generalist medical animation studios work on a medical device project on Monday. Showing a new dental procedure on Tuesday. Then they attempt to adapt their workflow for complex molecular science on Wednesday.
             </p>
 
             <p style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: '400', color: 'var(--bmv-text-heading)' }}>

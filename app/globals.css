@@ -229,7 +229,7 @@
   }
 
   .animate-scroll {
-    animation: scroll 60s linear infinite;
+    animation: scroll 120s linear infinite;
   }
 
   /* Rotating border animations for cards */

@@ -284,7 +284,7 @@ export default function HeroSection() {
       >
         <p style={{
           fontSize: '14px',
-          color: 'rgba(255, 255, 255, 0.9)',
+          color: 'var(--bmv-text-secondary)',
           margin: 0,
           letterSpacing: '0.02em'
         }}>

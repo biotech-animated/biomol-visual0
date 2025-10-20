@@ -236,12 +236,12 @@ export default function ByTheNumbersSection() {
                   src={logo.src}
                   alt={logo.alt}
                   style={{
-                    height: '60px',
+                    height: '48px',
                     width: 'auto',
                     maxWidth: '200px',
                     objectFit: 'contain',
                     filter: 'brightness(0) invert(1)',
-                    opacity: '0.5',
+                    opacity: '0.4',
                     transition: 'opacity 0.3s ease'
                   }}
                 />
@@ -263,12 +263,12 @@ export default function ByTheNumbersSection() {
                   src={logo.src}
                   alt={logo.alt}
                   style={{
-                    height: '60px',
+                    height: '48px',
                     width: 'auto',
                     maxWidth: '200px',
                     objectFit: 'contain',
                     filter: 'brightness(0) invert(1)',
-                    opacity: '0.5',
+                    opacity: '0.4',
                     transition: 'opacity 0.3s ease'
                   }}
                 />

@@ -73,7 +73,7 @@ export default function TestimonialsSection() {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-h2 font-display text-gray-200 mb-6">What Our Clients Say</h2>
+          <h2 style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: '500', fontSize: '32px', lineHeight: '1.2' }} className="text-gray-200 mb-6">What Our Clients Say</h2>
         </div>
 
         {/* Single Testimonial Slider */}
@@ -127,7 +127,7 @@ export default function TestimonialsSection() {
                             </div>
                           </div>
                           
-                          <blockquote className="text-2xl md:text-3xl font-bold text-gray-200 leading-tight">
+                          <blockquote style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: '500', fontSize: '24px', lineHeight: '1.2' }} className="text-gray-200">
                             "{testimonial.brief}"
                           </blockquote>
                         </div>
@@ -141,16 +141,16 @@ export default function TestimonialsSection() {
                             <svg className="w-16 h-16 text-purple-500" fill="currentColor" viewBox="0 0 24 24">
                               <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
                             </svg>
-                            <p className="text-body text-gray-300 text-left font-text">{testimonial.quote}</p>
+                            <p style={{ fontFamily: "'Red Hat Text', sans-serif", fontSize: '16px', fontWeight: '400', lineHeight: '1.6' }} className="text-gray-300 text-left">{testimonial.quote}</p>
                           </div>
                         </div>
 
                         {/* Author Info */}
                         <div className="border-t border-gray-600 pt-6">
-                          <div className="text-gray-200 font-semibold text-lg">
+                          <div style={{ fontFamily: "'Red Hat Text', sans-serif", fontSize: '16px', fontWeight: '400' }} className="text-gray-200">
                             {testimonial.author}
                           </div>
-                          <div className="text-gray-400 text-sm mt-1">
+                          <div style={{ fontFamily: "'Red Hat Text', sans-serif", fontSize: '14px', fontWeight: '300' }} className="text-gray-400 mt-1">
                             {testimonial.title}
                           </div>
                         </div>

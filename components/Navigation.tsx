@@ -43,10 +43,11 @@ export default function Navigation() {
             className="flex items-center group"
           >
             <span
-              className="font-medium tracking-tight"
+              className="tracking-tight"
               style={{
                 fontFamily: "'Red Hat Display', sans-serif",
-                fontSize: '30px'
+                fontSize: '30px',
+                fontWeight: '500'
               }}
             >
               <span style={{ color: 'var(--bmv-purple)' }}>BIOMOL</span>
@@ -60,8 +61,10 @@ export default function Navigation() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="font-medium nav-link"
+                className="nav-link"
                 style={{
+                  fontFamily: "'Red Hat Display', sans-serif",
+                  fontWeight: '500',
                   color: pathname === item.href ? 'var(--bmv-purple-hover)' : 'var(--bmv-text)',
                   fontSize: '16px'
                 }}
@@ -101,8 +104,10 @@ export default function Navigation() {
                   key={item.label}
                   href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="font-medium text-left nav-link"
+                  className="text-left nav-link"
                   style={{
+                    fontFamily: "'Red Hat Display', sans-serif",
+                    fontWeight: '500',
                     color: pathname === item.href ? 'var(--bmv-purple-hover)' : 'var(--bmv-text)',
                     fontSize: '16px'
                   }}

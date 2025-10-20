@@ -23,15 +23,17 @@ export default function CompetitivePositioningSection() {
               gap: 'var(--space-6)'
             }}
           >
-            <h2 style={{ fontSize: '42px', lineHeight: '1.2', marginBottom: '0' }}>
+            <h2 style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: '500', fontSize: '32px', lineHeight: '1.2', marginBottom: '0' }}>
               Why Pay for a Mega-Agency's Overhead?
             </h2>
 
             <div
               style={{
+                fontFamily: "'Red Hat Text', sans-serif",
                 fontSize: '16px',
+                fontWeight: '400',
                 color: 'var(--bmv-text)',
-                lineHeight: '1.7',
+                lineHeight: '1.6',
                 display: 'flex',
                 flexDirection: 'column',
                 gap: 'var(--space-4)'
@@ -39,7 +41,7 @@ export default function CompetitivePositioningSection() {
             >
             <p>
               The largest Scientific Communication Studios are built on a model of massive scale. You benefit from{' '}
-              <span style={{ fontWeight: '500', color: 'var(--bmv-purple-light)' }}>
+              <span style={{ fontWeight: '400', color: 'var(--bmv-purple-light)' }}>
                 radically lean operations by design
               </span>
               . We have obsessively engineered our entire process to be ruthlessly efficient—from software to business structure.
@@ -49,15 +51,17 @@ export default function CompetitivePositioningSection() {
               This means zero overhead bloat. Your investment goes directly to the senior talent working on your project.
             </p>
 
-            <p style={{ fontSize: '18px', fontWeight: '500', color: 'var(--bmv-text-heading)' }}>
+            <p style={{ fontFamily: "'Red Hat Text', sans-serif", fontSize: '18px', fontWeight: '400', lineHeight: '1.6', color: 'var(--bmv-text-heading)' }}>
               It's simple. You get a funding-grade result, without paying for mega-agency overhead.
             </p>
 
             <p
               style={{
+                fontFamily: "'Red Hat Text', sans-serif",
                 fontSize: '17px',
-                color: 'var(--bmv-purple-light)',
-                fontWeight: '500'
+                fontWeight: '400',
+                lineHeight: '1.6',
+                color: 'var(--bmv-purple-light)'
               }}
             >
               A level of value the larger studios simply can't touch.

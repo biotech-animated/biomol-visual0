@@ -42,7 +42,7 @@ export default function ProcessSection() {
       }}
     >
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-center" style={{ marginBottom: 'var(--space-8)' }}>
+        <h2 className="text-center" style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: '500', fontSize: '32px', lineHeight: '1.2', marginBottom: 'var(--space-8)' }}>
           A Simple 5-Phase System
         </h2>
 
@@ -119,6 +119,8 @@ export default function ProcessSection() {
                 </div>
                 <h4
                   style={{
+                    fontFamily: "'Red Hat Display', sans-serif",
+                    fontWeight: '400',
                     marginBottom: 'var(--space-3)',
                     color: 'var(--bmv-text-heading)',
                     fontSize: '16px',
@@ -129,7 +131,9 @@ export default function ProcessSection() {
                 </h4>
                 <p
                   style={{
+                    fontFamily: "'Red Hat Text', sans-serif",
                     fontSize: '13px',
+                    fontWeight: '400',
                     color: 'var(--bmv-text-secondary)',
                     lineHeight: '1.6'
                   }}
@@ -144,9 +148,11 @@ export default function ProcessSection() {
         <p
           className="text-center"
           style={{
+            fontFamily: "'Red Hat Text', sans-serif",
             fontSize: '17px',
+            fontWeight: '400',
             color: 'var(--bmv-text)',
-            lineHeight: '1.7'
+            lineHeight: '1.6'
           }}
         >
           A process designed for total clarity, giving you a transparent, real-time view of your project's progress.

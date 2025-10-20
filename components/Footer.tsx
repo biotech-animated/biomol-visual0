@@ -52,10 +52,11 @@ export default function Footer() {
             <div>
               <div className="flex items-center" style={{ marginBottom: 'var(--space-3)' }}>
                 <span
-                  className="font-medium tracking-tight"
+                  className="tracking-tight"
                   style={{
                     fontFamily: "'Red Hat Display', sans-serif",
-                    fontSize: '24px'
+                    fontSize: '24px',
+                    fontWeight: '500'
                   }}
                 >
                   <span style={{ color: 'var(--bmv-purple)' }}>BIOMOL</span>
@@ -65,7 +66,9 @@ export default function Footer() {
               </div>
               <p
                 style={{
+                  fontFamily: "'Red Hat Text', sans-serif",
                   fontSize: '14px',
+                  fontWeight: '300',
                   color: 'var(--bmv-text-secondary)',
                   marginBottom: 'var(--space-2)'
                 }}
@@ -75,7 +78,9 @@ export default function Footer() {
             </div>
             <p
               style={{
+                fontFamily: "'Red Hat Text', sans-serif",
                 fontSize: '14px',
+                fontWeight: '400',
                 color: 'var(--bmv-text-secondary)',
                 lineHeight: '1.6'
               }}
@@ -109,6 +114,7 @@ export default function Footer() {
           <div>
             <h4
               style={{
+                fontFamily: "'Red Hat Display', sans-serif",
                 fontSize: '14px',
                 fontWeight: '500',
                 color: 'var(--bmv-text-heading)',
@@ -126,7 +132,9 @@ export default function Footer() {
                     href="#"
                     className="footer-link"
                     style={{
+                      fontFamily: "'Red Hat Text', sans-serif",
                       fontSize: '14px',
+                      fontWeight: '400',
                       color: 'var(--bmv-text-secondary)'
                     }}
                   >
@@ -140,6 +148,7 @@ export default function Footer() {
           <div>
             <h4
               style={{
+                fontFamily: "'Red Hat Display', sans-serif",
                 fontSize: '14px',
                 fontWeight: '500',
                 color: 'var(--bmv-text-heading)',
@@ -157,7 +166,9 @@ export default function Footer() {
                     href="#"
                     className="footer-link"
                     style={{
+                      fontFamily: "'Red Hat Text', sans-serif",
                       fontSize: '14px',
+                      fontWeight: '400',
                       color: 'var(--bmv-text-secondary)'
                     }}
                   >
@@ -171,6 +182,7 @@ export default function Footer() {
           <div>
             <h4
               style={{
+                fontFamily: "'Red Hat Display', sans-serif",
                 fontSize: '14px',
                 fontWeight: '500',
                 color: 'var(--bmv-text-heading)',
@@ -188,7 +200,9 @@ export default function Footer() {
                     href={link.href}
                     className="footer-link"
                     style={{
+                      fontFamily: "'Red Hat Text', sans-serif",
                       fontSize: '14px',
+                      fontWeight: '400',
                       color: 'var(--bmv-text-secondary)'
                     }}
                   >
@@ -209,7 +223,9 @@ export default function Footer() {
         >
           <p
             style={{
+              fontFamily: "'Red Hat Text', sans-serif",
               fontSize: '14px',
+              fontWeight: '300',
               color: 'var(--bmv-text-secondary)'
             }}
           >

@@ -19,12 +19,14 @@ export default function ShowReelSection() {
             gap: 'var(--space-3)'
           }}
         >
-          <h2>2024 Showreel</h2>
+          <h2 style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: '500', fontSize: '32px', lineHeight: '1.2' }}>2024 Showreel</h2>
           <p
             className="max-w-3xl mx-auto"
             style={{
+              fontFamily: "'Red Hat Text', sans-serif",
               fontSize: '17px',
               fontWeight: '400',
+              lineHeight: '1.6',
               color: 'var(--bmv-text-secondary)'
             }}
           >

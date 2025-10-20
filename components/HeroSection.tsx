@@ -116,14 +116,16 @@ export default function HeroSection() {
       <div className="relative z-10 flex-1 flex items-end">
         <div className="w-full px-6 pb-16">
           <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-5)' }}>
-            <h1 style={{ lineHeight: '1.16', textAlign: 'left' }}>
+            <h1 style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: '500', fontSize: '44px', lineHeight: '1.2', textAlign: 'left' }}>
               Molecular & Cellular MOA Visualization That Gets You Funded
             </h1>
 
             <p
               style={{
+                fontFamily: "'Red Hat Text', sans-serif",
                 fontSize: '20px',
                 fontWeight: '400',
+                lineHeight: '1.6',
                 color: 'var(--bmv-text-heading)',
                 opacity: '0.95',
                 textAlign: 'left',
@@ -148,6 +150,7 @@ export default function HeroSection() {
                   href="/case-studies"
                   className="group"
                   style={{
+                    fontFamily: "'Red Hat Display', sans-serif",
                     padding: '14px 24px 14px 32px',
                     background: 'rgba(138, 92, 246, 0.65)',
                     color: 'white',
@@ -192,6 +195,7 @@ export default function HeroSection() {
                   href="/contact"
                   className="group cta-button"
                   style={{
+                    fontFamily: "'Red Hat Display', sans-serif",
                     padding: '14px 24px 14px 32px',
                     background: 'rgba(251, 146, 60, 0.65)',
                     color: 'white',

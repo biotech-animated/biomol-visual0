@@ -28,27 +28,27 @@ export default function DifferentiationSection() {
               gap: 'var(--space-5)'
             }}
           >
-            <h2 style={{ fontSize: '34px', lineHeight: '1.2', marginBottom: '0' }}>
+            <h2 style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: '500', fontSize: '32px', lineHeight: '1.2', marginBottom: '0' }}>
               We Don't Animate Surgeries. We Visualize Molecular & Cellular Mechanisms of Action.
             </h2>
 
             <div
               style={{
+                fontFamily: "'Red Hat Text', sans-serif",
                 fontSize: '16px',
                 color: 'var(--bmv-text)',
-                lineHeight: '1.7',
+                lineHeight: '1.6',
                 display: 'flex',
                 flexDirection: 'column',
                 gap: 'var(--space-3)',
-                fontFamily: "'Red Hat Display', sans-serif",
-                fontWeight: '300'
+                fontWeight: '400'
               }}
             >
             <p>
               Generalist studios animate hip replacements on Monday. A dental procedure on Tuesday. And a new surgical tool on Wednesday. Then they attempt your complex molecular science on Thursday.
             </p>
 
-            <p style={{ fontWeight: '500', color: 'var(--bmv-text-heading)' }}>
+            <p style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: '400', color: 'var(--bmv-text-heading)' }}>
               We only do one thing: Visually explain the molecular and cellular science that gets you funded. This singular focus is our advantage.
             </p>
 
@@ -66,15 +66,15 @@ export default function DifferentiationSection() {
                 marginBottom: 'var(--space-4)'
               }}
             >
-              <p style={{ fontSize: '18px', fontStyle: 'italic', marginBottom: 'var(--space-3)' }}>
+              <p style={{ fontFamily: "'Red Hat Text', sans-serif", fontSize: '18px', fontStyle: 'italic', marginBottom: 'var(--space-3)' }}>
                 "The team understands science and biotech, so communication is direct and effective – no wasting time bringing designers up to speed."
               </p>
-              <p style={{ fontSize: '14px', color: 'var(--bmv-text-secondary)' }}>
+              <p style={{ fontFamily: "'Red Hat Text', sans-serif", fontSize: '14px', fontWeight: '300', color: 'var(--bmv-text-secondary)' }}>
                 — Dr. James Campbell, CEO, Patrys
               </p>
             </div>
 
-            <p style={{ fontSize: '17px', fontWeight: '500', color: 'var(--bmv-purple-light)' }}>
+            <p style={{ fontFamily: "'Red Hat Text', sans-serif", fontSize: '17px', fontWeight: '400', color: 'var(--bmv-purple-light)' }}>
               Just a smarter process. And a more powerful result.
             </p>
             </div>

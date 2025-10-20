@@ -83,7 +83,7 @@ export default function ByTheNumbersSection() {
   const metrics = [
     [
       { number: '$500M+', label: 'Raised by Our Clients\nUsing Assets We Made' },
-      { number: '30+', label: 'Successful Rounds of Funding' },
+      { number: '30+', label: 'Successful Rounds of Funding\nUsing Our Work as a Key Asset' },
       { number: '70+', label: 'Biopharma Clients Served' }
     ],
     [

@@ -312,7 +312,7 @@ export default function HeroSection() {
                     width: 'auto',
                     maxWidth: '180px',
                     objectFit: 'contain',
-                    filter: 'grayscale(100%) brightness(0.75) opacity(0.49)',
+                    filter: 'grayscale(100%) brightness(1) opacity(0.49)',
                     pointerEvents: 'none'
                   }}
                 />
@@ -338,7 +338,7 @@ export default function HeroSection() {
                     width: 'auto',
                     maxWidth: '180px',
                     objectFit: 'contain',
-                    filter: 'grayscale(100%) brightness(0.75) opacity(0.49)',
+                    filter: 'grayscale(100%) brightness(1) opacity(0.49)',
                     pointerEvents: 'none'
                   }}
                 />

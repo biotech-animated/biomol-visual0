@@ -4,7 +4,7 @@ export default function ShowReelSection() {
   return (
     <section
       id="showreel"
-      className="md:min-h-screen h-auto flex items-center justify-center section-responsive !pt-0"
+      className="md:min-h-screen h-auto flex items-center justify-center section-responsive"
       style={{
         background: '#1B0A2E'
       }}

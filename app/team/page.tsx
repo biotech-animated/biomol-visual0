@@ -43,13 +43,13 @@ export default function TeamPage() {
       <div className="min-h-screen bg-[#101010] pt-24 pb-20 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
-            <h1 className="text-5xl md:text-6xl font-bold text-white">
+            <h1 className="text-5xl md:text-6xl font-bold text-white" style={{ fontFamily: "'Red Hat Display', sans-serif" }}>
               Meet The
               <span className="block mt-2 bg-gradient-to-r from-[#007bff] to-[#8A2BE2] bg-clip-text text-transparent">
                 Visionaries
               </span>
             </h1>
-            <p className="text-xl text-[#F0F0F0]/70 max-w-3xl mx-auto font-light">
+            <p className="text-xl text-[#F0F0F0]/70 max-w-3xl mx-auto font-light" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>
               A fusion of scientific expertise and creative excellence
             </p>
           </div>
@@ -66,21 +66,22 @@ export default function TeamPage() {
                       {member.name.split(' ').map(n => n[0]).join('')}
                     </span>
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-1">{member.name}</h3>
-                  <p className="text-[#007bff] font-medium">{member.role}</p>
+                  <h3 className="text-2xl font-bold text-white mb-1" style={{ fontFamily: "'Red Hat Display', sans-serif" }}>{member.name}</h3>
+                  <p className="text-[#007bff] font-medium" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>{member.role}</p>
                 </div>
 
-                <p className="text-[#F0F0F0]/70 mb-6 leading-relaxed">
+                <p className="text-[#F0F0F0]/70 mb-6 leading-relaxed" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>
                   {member.bio}
                 </p>
 
                 <div className="space-y-3">
-                  <p className="text-[#F0F0F0] font-semibold text-sm uppercase tracking-wide">Expertise</p>
+                  <p className="text-[#F0F0F0] font-semibold text-sm uppercase tracking-wide" style={{ fontFamily: "'Red Hat Display', sans-serif" }}>Expertise</p>
                   <div className="flex flex-wrap gap-2">
                     {member.expertise.map((skill, idx) => (
                       <span
                         key={idx}
                         className="px-3 py-1 bg-[#007bff]/20 text-[#007bff] rounded-full text-sm border border-[#007bff]/30"
+                        style={{ fontFamily: "'Red Hat Text', sans-serif" }}
                       >
                         {skill}
                       </span>
@@ -101,11 +102,11 @@ export default function TeamPage() {
           </div>
 
           <div className="bg-gradient-to-br from-[#007bff]/10 to-[#8A2BE2]/10 rounded-2xl p-12 border border-[#007bff]/20 text-center">
-            <h2 className="text-3xl font-bold text-white mb-4">Join Our Team</h2>
-            <p className="text-[#F0F0F0]/70 mb-8 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold text-white mb-4" style={{ fontFamily: "'Red Hat Display', sans-serif" }}>Join Our Team</h2>
+            <p className="text-[#F0F0F0]/70 mb-8 max-w-2xl mx-auto" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>
               We're always looking for talented individuals who share our passion for scientific visualization
             </p>
-            <button className="px-8 py-4 bg-gradient-to-r from-[#007bff] to-[#007bff]/90 text-white rounded-lg hover:shadow-lg hover:shadow-[#007bff]/50 transition-all duration-300 font-medium">
+            <button className="px-8 py-4 bg-gradient-to-r from-[#007bff] to-[#007bff]/90 text-white rounded-lg hover:shadow-lg hover:shadow-[#007bff]/50 transition-all duration-300 font-medium" style={{ fontFamily: "'Red Hat Display', sans-serif" }}>
               View Open Positions
             </button>
           </div>

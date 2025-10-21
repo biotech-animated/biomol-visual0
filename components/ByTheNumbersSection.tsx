@@ -173,7 +173,7 @@ export default function ByTheNumbersSection() {
           </div>
 
           <p
-            className="text-center text-responsive-sm"
+            className="text-center text-responsive-sm pb-6"
             style={{
               marginTop: 'var(--space-8)',
               color: 'var(--bmv-text-secondary)'

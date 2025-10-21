@@ -36,17 +36,16 @@ export default function Navigation() {
         background: isScrolled ? 'rgba(26, 10, 46, 0.95)' : 'transparent'
       }}
     >
-      <div className="max-w-7xl mx-auto px-6" style={{ paddingTop: 'var(--space-3)', paddingBottom: 'var(--space-3)' }}>
+      <div className="container-responsive !max-w-[1500px]" style={{ paddingTop: 'var(--space-3)', paddingBottom: 'var(--space-3)' }}>
         <div className="flex items-center justify-between">
           <Link
             href="/"
             className="flex items-center group"
           >
             <span
-              className="tracking-tight"
+              className="tracking-tight text-responsive-md"
               style={{
                 fontFamily: "'Red Hat Display', sans-serif",
-                fontSize: '30px',
                 fontWeight: '500'
               }}
             >

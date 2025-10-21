@@ -33,16 +33,15 @@ export default function Footer() {
 
   return (
     <footer
+      className="section-responsive !pb-8"
       style={{
         background: '#1B0A2E',
-        paddingTop: 'var(--space-10)',
-        paddingBottom: 'var(--space-6)',
         borderTop: '1px solid rgba(183, 148, 246, 0.1)'
       }}
     >
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="container-responsive">
         <div
-          className="grid md:grid-cols-2 lg:grid-cols-4"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
           style={{
             gap: 'var(--space-8)',
             marginBottom: 'var(--space-8)'
@@ -52,10 +51,9 @@ export default function Footer() {
             <div>
               <div className="flex items-center" style={{ marginBottom: 'var(--space-3)' }}>
                 <span
-                  className="tracking-tight"
+                  className="tracking-tight text-responsive-md"
                   style={{
                     fontFamily: "'Red Hat Display', sans-serif",
-                    fontSize: '24px',
                     fontWeight: '500'
                   }}
                 >
@@ -65,27 +63,27 @@ export default function Footer() {
                 </span>
               </div>
               <p
+                className="text-[14px]"
                 style={{
                   fontFamily: "'Red Hat Text', sans-serif",
-                  fontSize: '14px',
                   fontWeight: '300',
                   color: 'var(--bmv-text-secondary)',
-                  marginBottom: 'var(--space-2)'
+                  marginBottom: 'var(--space-1)'
                 }}
               >
                 Molecular and Cellular MOA & MOD Visualization Specialists
               </p>
             </div>
             <p
+              className="text-[14px]"
               style={{
                 fontFamily: "'Red Hat Text', sans-serif",
-                fontSize: '14px',
                 fontWeight: '400',
                 color: 'var(--bmv-text-secondary)',
                 lineHeight: '1.6'
               }}
             >
-              We create scientifically precise molecular and cellular mechanism of action visualizations for the world's most innovative biotech companies.
+              We create scientifically precise molecular and cellular mechanism of action visualizations for the world's most innovative biotech companies. Our dedicated team of scientific experts transforms complex science—from biotherapeutic mechanisms to platform technologies—into clear stories that secure funding and drive partnerships.
             </p>
             <div className="flex" style={{ gap: 'var(--space-3)' }}>
               {socialLinks.map((social, index) => (
@@ -217,7 +215,7 @@ export default function Footer() {
         <div
           style={{
             paddingTop: 'var(--space-6)',
-            borderTop: '1px solid rgba(183, 148, 246, 0.1)',
+            borderTop: '1px solid var(--bmv-text-secondary)',
             textAlign: 'center'
           }}
         >
@@ -226,7 +224,7 @@ export default function Footer() {
               fontFamily: "'Red Hat Text', sans-serif",
               fontSize: '14px',
               fontWeight: '300',
-              color: 'var(--bmv-text-secondary)'
+              color: 'var(--bmv-text-heading)'
             }}
           >
             © 2025 Biomol Visual | Clarity in Every MOA.

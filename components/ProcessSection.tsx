@@ -36,30 +36,23 @@ export default function ProcessSection() {
 
   return (
     <section
-      className="min-h-screen flex items-center justify-center"
+      className="min-h-screen flex items-center justify-center section-responsive"
       style={{
         background: '#1B0A2E'
       }}
     >
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-center" style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: '500', fontSize: '32px', lineHeight: '1.2', marginBottom: 'var(--space-8)' }}>
+      <div className="container-responsive">
+        <h2 className="text-center text-responsive-lg" style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: '500', marginBottom: 'var(--space-8)' }}>
           A Simple 5-Phase System
         </h2>
 
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-            gap: 'var(--space-5)',
-            marginBottom: 'var(--space-7)'
-          }}
-        >
+        <div className="grid-responsive-5" style={{ marginBottom: 'var(--space-7)' }}>
           {phases.map((phase, index) => (
             <div
               key={index}
               className="phase-card"
               style={{
-                padding: 'var(--space-5)',
+                padding: 'var(--space-4)',
                 background: 'var(--bmv-surface)',
                 borderRadius: '12px',
                 border: '1px solid rgba(183, 148, 246, 0.1)',
@@ -118,21 +111,20 @@ export default function ProcessSection() {
                   </div>
                 </div>
                 <h4
+                  className="text-responsive-sm"
                   style={{
                     fontFamily: "'Red Hat Display', sans-serif",
                     fontWeight: '400',
                     marginBottom: 'var(--space-3)',
-                    color: 'var(--bmv-text-heading)',
-                    fontSize: '16px',
-                    lineHeight: '1.3'
+                    color: 'var(--bmv-text-heading)'
                   }}
                 >
                   {phase.title}
                 </h4>
                 <p
+                  className="text-[14px]"
                   style={{
                     fontFamily: "'Red Hat Text', sans-serif",
-                    fontSize: '13px',
                     fontWeight: '400',
                     color: 'var(--bmv-text-secondary)',
                     lineHeight: '1.6'
@@ -146,10 +138,9 @@ export default function ProcessSection() {
         </div>
 
         <p
-          className="text-center"
+          className="text-center text-responsive-sm"
           style={{
             fontFamily: "'Red Hat Text', sans-serif",
-            fontSize: '17px',
             fontWeight: '400',
             color: 'var(--bmv-text)',
             lineHeight: '1.6'

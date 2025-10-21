@@ -1,6 +1,7 @@
 'use client';
 
 import Navigation from '@/components/Navigation';
+import ScrollProgress from '@/components/ScrollProgress';
 import HeroSection from '@/components/HeroSection';
 import DifferentiationSection from '@/components/DifferentiationSection';
 import ShowReelSection from '@/components/ShowReelSection';
@@ -16,6 +17,7 @@ import Footer from '@/components/Footer';
 export default function Home() {
   return (
     <div className="min-h-screen" style={{ background: 'var(--bmv-bg)' }}>
+      <ScrollProgress />
       <Navigation />
       <HeroSection />
       <DifferentiationSection />

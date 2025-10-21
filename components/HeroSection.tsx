@@ -24,73 +24,6 @@ export default function HeroSection() {
     };
   }, []);
 
-  const logos = [
-    { src: './logos/Abcore.webp', alt: 'Abcore' },
-    { src: './logos/ABT.webp', alt: 'Agarose Bead Technologies' },
-    { src: './logos/ACD.webp', alt: 'ACD' },
-    { src: './logos/Altamira.webp', alt: 'Altamira Therapeutics' },
-    { src: './logos/Applied Biomath.webp', alt: 'Applied Biomath' },
-    { src: './logos/Arbele.webp', alt: 'Arbele' },
-    { src: './logos/Arialys.webp', alt: 'Arialys' },
-    { src: './logos/Arthrosi.webp', alt: 'Arthrosi Therapeutics' },
-    { src: './logos/ATD Bio.webp', alt: 'ATD Bio' },
-    { src: './logos/Avelas.webp', alt: 'Avelas Biosciences' },
-    { src: './logos/Bio-Techne.webp', alt: 'Bio-Techne' },
-    { src: './logos/Biolegend.webp', alt: 'BioLegend' },
-    { src: './logos/Bioniz.webp', alt: 'Bioniz' },
-    { src: './logos/BriaCell.webp', alt: 'BriaCell' },
-    { src: './logos/BroadPharm.webp', alt: 'BroadPharm' },
-    { src: './logos/BURL-Concepts.webp', alt: 'BURL-Concepts' },
-    { src: './logos/CancerVAX.webp', alt: 'CancerVAX' },
-    { src: './logos/Canopy.webp', alt: 'Canopy' },
-    { src: './logos/ChemDiv.webp', alt: 'ChemDiv' },
-    { src: './logos/Chimera Bio.webp', alt: 'Chimera Bio' },
-    { src: './logos/Chromocyte.webp', alt: 'Chromocyte' },
-    { src: './logos/Codex DNA.webp', alt: 'Codex DNA' },
-    { src: './logos/Crescendo Biologics.webp', alt: 'Crescendo Biologics' },
-    { src: './logos/CurVirBiotech.webp', alt: 'CurVirBiotech' },
-    { src: './logos/Dimerix.webp', alt: 'Dimerix' },
-    { src: './logos/Elsie Bio.webp', alt: 'Elsie Bio' },
-    { src: './logos/Endogena.webp', alt: 'Endogena' },
-    { src: './logos/Histogen.webp', alt: 'Histogen' },
-    { src: './logos/Inflammatix.webp', alt: 'Inflammatix' },
-    { src: './logos/Inivata.webp', alt: 'Inivata' },
-    { src: './logos/Innova Biosciences.webp', alt: 'Innova Biosciences' },
-    { src: './logos/Inso Bio.webp', alt: 'Inso Bio' },
-    { src: './logos/Insphero.webp', alt: 'Insphero' },
-    { src: './logos/Intuitive Bio.webp', alt: 'Intuitive Bio' },
-    { src: './logos/Invion.webp', alt: 'Invion' },
-    { src: './logos/Lonza.webp', alt: 'Lonza' },
-    { src: './logos/May Health.webp', alt: 'May Health' },
-    { src: './logos/Merck.webp', alt: 'Merck' },
-    { src: './logos/MilliporeSigma.webp', alt: 'MilliporeSigma' },
-    { src: './logos/Mission Tx.webp', alt: 'Mission Tx' },
-    { src: './logos/Neubase.webp', alt: 'Neubase' },
-    { src: './logos/Neuropore.webp', alt: 'Neuropore' },
-    { src: './logos/NeuroTrials.webp', alt: 'NeuroTrials' },
-    { src: './logos/NIH.webp', alt: 'NIH' },
-    { src: './logos/NovaBiotics.webp', alt: 'NovaBiotics' },
-    { src: './logos/Numaferm.webp', alt: 'Numaferm' },
-    { src: './logos/OncoMyx.webp', alt: 'OncoMyx' },
-    { src: './logos/Patrys.webp', alt: 'Patrys' },
-    { src: './logos/Presympto.webp', alt: 'Presympto' },
-    { src: './logos/ProbiusDx.webp', alt: 'ProbiusDx' },
-    { src: './logos/Quantum Si.webp', alt: 'Quantum Si' },
-    { src: './logos/Recce.webp', alt: 'Recce' },
-    { src: './logos/SAb Bio.webp', alt: 'SAb Bio' },
-    { src: './logos/Serimmune.webp', alt: 'Serimmune' },
-    { src: './logos/SRP.webp', alt: 'SRP' },
-    { src: './logos/StarPharma.webp', alt: 'StarPharma' },
-    { src: './logos/Tavotek.webp', alt: 'Tavotek' },
-    { src: './logos/Tecan.webp', alt: 'Tecan' },
-    { src: './logos/Unither.webp', alt: 'Unither' },
-    { src: './logos/Valo Tx.webp', alt: 'Valo Tx' },
-    { src: './logos/Verona.webp', alt: 'Verona' },
-    { src: './logos/ViaCyte.webp', alt: 'ViaCyte' },
-    { src: './logos/YDS.webp', alt: 'YDS' },
-    { src: './logos/YHM.webp', alt: 'YHM' }
-  ];
-
   return (
     <section
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
@@ -114,36 +47,35 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-black opacity-30" style={{ zIndex: 1 }}></div>
 
       <div className="relative z-10 flex-1 flex items-end">
-        <div className="w-full px-6 pb-16">
+        <div className="container-responsive w-full pb-16">
           <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-5)' }}>
-            <h1 style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: '500', fontSize: '44px', lineHeight: '1.2', textAlign: 'left' }}>
+            <h1 className="text-responsive-xl" style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: '500', textAlign: 'left' }}>
               Molecular & Cellular MOA Visualization That Gets You Funded
             </h1>
 
             <p
+              className="text-responsive-md"
               style={{
                 fontFamily: "'Red Hat Text', sans-serif",
-                fontSize: '20px',
                 fontWeight: '400',
-                lineHeight: '1.6',
                 color: 'var(--bmv-text-heading)',
                 opacity: '0.95',
                 textAlign: 'left',
                 maxWidth: '800px'
               }}
             >
-              We translate your complex molecular science into a 2-minute visual story designed to win investor confidence.
+              We translate your complex molecular science into a 3-minute visual story designed to win investor confidence.
             </p>
 
             <div
-              className="flex flex-col"
+              className="flex flex-col pb-[var(--space-9)]"
               style={{
                 gap: 'var(--space-3)',
                 paddingTop: 'var(--space-4)'
               }}
             >
               <div
-                className="flex flex-col sm:flex-row items-start"
+                className="flex flex-col sm:flex-row items-start sm:items-center"
                 style={{ gap: 'var(--space-3)' }}
               >
                 <Link
@@ -151,7 +83,7 @@ export default function HeroSection() {
                   className="group"
                   style={{
                     fontFamily: "'Red Hat Display', sans-serif",
-                    padding: '14px 24px 14px 32px',
+                    padding: '8px 8px 8px 24px',
                     background: 'rgba(138, 92, 246, 0.65)',
                     color: 'white',
                     border: 'none',
@@ -196,7 +128,7 @@ export default function HeroSection() {
                   className="group cta-button"
                   style={{
                     fontFamily: "'Red Hat Display', sans-serif",
-                    padding: '14px 24px 14px 32px',
+                    padding: '8px 8px 8px 24px',
                     background: 'rgba(251, 146, 60, 0.65)',
                     color: 'white',
                     border: 'none',

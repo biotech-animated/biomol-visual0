@@ -4,12 +4,12 @@ export default function ShowReelSection() {
   return (
     <section
       id="showreel"
-      className="px-6 min-h-screen flex items-center justify-center"
+      className="min-h-screen flex items-center justify-center section-responsive !pt-0"
       style={{
         background: '#1B0A2E'
       }}
     >
-      <div className="max-w-7xl mx-auto px-6 py-16 w-full">
+      <div className="container-responsive w-full">
         <div
           className="text-center"
           style={{
@@ -19,12 +19,11 @@ export default function ShowReelSection() {
             gap: 'var(--space-3)'
           }}
         >
-          <h2 style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: '500', fontSize: '32px', lineHeight: '1.2' }}>2024 Showreel</h2>
+          <h2 className="text-responsive-lg" style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: '500' }}>2024 Showreel</h2>
           <p
-            className="max-w-3xl mx-auto"
+            className="max-w-3xl mx-auto text-responsive-sm"
             style={{
               fontFamily: "'Red Hat Text', sans-serif",
-              fontSize: '17px',
               fontWeight: '400',
               lineHeight: '1.6',
               color: 'var(--bmv-text-secondary)'
@@ -35,10 +34,9 @@ export default function ShowReelSection() {
         </div>
 
         <div
-          className="aspect-video w-[1000px] rounded-2xl overflow-hidden mx-auto"
+          className="aspect-video w-full rounded-2xl overflow-hidden mx-auto"
           style={{
-            border: '1px solid rgba(183, 148, 246, 0.2)',
-            width: '100%'
+            border: '1px solid rgba(183, 148, 246, 0.2)'
           }}
         >
           <iframe

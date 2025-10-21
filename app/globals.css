@@ -4,6 +4,169 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom Swiper Styles */
+.swiper-pagination-bullet-custom {
+  width: clamp(6px, 2vw, 8px) !important;
+  height: clamp(6px, 2vw, 8px) !important;
+  border-radius: 50% !important;
+  background: var(--bmv-border) !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: all 250ms !important;
+  opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active-custom {
+  background: var(--bmv-purple) !important;
+}
+
+.swiper-button-prev-custom,
+.swiper-button-next-custom {
+  position: static !important;
+  margin: 0 !important;
+  width: clamp(32px, 8vw, 40px) !important;
+  height: clamp(32px, 8vw, 40px) !important;
+  border-radius: 50% !important;
+  background: var(--bmv-surface) !important;
+  border: 1px solid rgba(183, 148, 246, 0.3) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 250ms !important;
+  color: var(--bmv-text) !important;
+}
+
+.swiper-button-prev-custom:hover,
+.swiper-button-next-custom:hover {
+  background: var(--bmv-purple) !important;
+  border-color: var(--bmv-purple) !important;
+}
+
+.swiper-button-prev-custom::after,
+.swiper-button-next-custom::after {
+  display: none !important;
+}
+
+/* Responsive Swiper Container */
+.swiper {
+  width: 100% !important;
+  height: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.swiper-slide {
+  width: 100% !important;
+  height: auto !important;
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 640px) {
+  .swiper-button-prev-custom,
+  .swiper-button-next-custom {
+    width: 36px !important;
+    height: 36px !important;
+  }
+  
+  .swiper-pagination-bullet-custom {
+    width: 6px !important;
+    height: 6px !important;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .swiper-button-prev-custom,
+  .swiper-button-next-custom {
+    width: 38px !important;
+    height: 38px !important;
+  }
+}
+
+/* Testimonials Swiper Styles */
+.swiper-pagination-bullet-testimonials {
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+  background: #4B5563 !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: all 250ms !important;
+  opacity: 1 !important;
+  margin: 0 4px !important;
+}
+
+.swiper-pagination-bullet-active-testimonials {
+  background: #ED8936 !important;
+  box-shadow: 0 0 20px rgba(237, 137, 54, 0.5) !important;
+  transform: scale(1.25) !important;
+}
+
+.swiper-button-prev-testimonials,
+.swiper-button-next-testimonials {
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50% !important;
+  background: rgba(31, 41, 55, 0.9) !important;
+  border: 1px solid white !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 500ms !important;
+  color: white !important;
+  z-index: 10 !important;
+  backdrop-filter: blur(4px) !important;
+}
+
+
+.swiper-button-prev-testimonials {
+  left: -16px !important;
+}
+
+.swiper-button-next-testimonials {
+  right: -16px !important;
+}
+
+.swiper-button-prev-testimonials:hover,
+.swiper-button-next-testimonials:hover {
+  background: rgba(139, 92, 246, 0.2) !important;
+  border-color: rgba(139, 92, 246, 0.5) !important;
+}
+
+.swiper-button-prev-testimonials::after,
+.swiper-button-next-testimonials::after {
+  display: none !important;
+}
+
+/* Responsive adjustments for testimonials */
+@media (max-width: 640px) {
+  .swiper-button-prev-testimonials,
+  .swiper-button-next-testimonials {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  .swiper-button-prev-testimonials {
+    left: -12px !important;
+  }
+  
+  .swiper-button-next-testimonials {
+    right: -12px !important;
+  }
+  
+  .swiper-pagination-bullet-testimonials {
+    width: 10px !important;
+    height: 10px !important;
+  }
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -51,22 +214,145 @@
     --bmv-text-secondary: #A0AEC0;
     --bmv-text-muted: #718096;
 
-    /* Spacing */
-    --space-1: 4px;
-    --space-2: 8px;
-    --space-3: 16px;
-    --space-4: 24px;
-    --space-5: 32px;
-    --space-6: 40px;
-    --space-7: 48px;
-    --space-8: 56px;
-    --space-9: 64px;
-    --space-10: 80px;
-    --space-11: 120px;
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 40px;
+  --space-7: 48px;
+  --space-8: 56px;
+  --space-9: 64px;
+  --space-10: 80px;
+  --space-11: 120px;
+
+  /* Responsive spacing */
+  --section-padding: clamp(3rem, 8vw, 6rem);
+  --container-padding: clamp(1rem, 4vw, 2rem);
+  --section-gap: clamp(2rem, 6vw, 4rem);
   }
 
   * {
     scroll-behavior: smooth;
+  }
+
+  /* Custom Scrollbar Styles */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--bmv-surface);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--bmv-purple), var(--bmv-orange));
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, var(--bmv-purple-hover), var(--bmv-orange-hover));
+    box-shadow: 0 0 8px rgba(155, 89, 208, 0.4);
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background: linear-gradient(135deg, var(--bmv-purple-pressed), var(--bmv-orange-pressed));
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: var(--bmv-surface);
+  }
+
+  /* Firefox scrollbar styles */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--bmv-purple) var(--bmv-surface);
+  }
+
+  /* Enhanced smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Account for fixed navigation */
+  }
+
+  /* Scroll progress indicator */
+  .scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--bmv-purple), var(--bmv-orange));
+    z-index: 1000;
+    transition: width 0.1s ease;
+    box-shadow: 0 0 10px rgba(155, 89, 208, 0.5);
+  }
+
+  /* Custom scroll container styles */
+  .custom-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: var(--bmv-purple) transparent;
+  }
+
+  .custom-scroll::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scroll::-webkit-scrollbar-thumb {
+    background: var(--bmv-purple);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+  }
+
+  .custom-scroll::-webkit-scrollbar-thumb:hover {
+    background: var(--bmv-purple-hover);
+    box-shadow: 0 0 6px rgba(155, 89, 208, 0.4);
+  }
+
+  /* Scroll utility classes */
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+
+  .scroll-auto {
+    scroll-behavior: auto;
+  }
+
+  .scroll-hidden {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .scroll-hidden::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scroll-snap-x {
+    scroll-snap-type: x mandatory;
+  }
+
+  .scroll-snap-y {
+    scroll-snap-type: y mandatory;
+  }
+
+  .scroll-snap-start {
+    scroll-snap-align: start;
+  }
+
+  .scroll-snap-center {
+    scroll-snap-align: center;
+  }
+
+  .scroll-snap-end {
+    scroll-snap-align: end;
   }
 
   body {
@@ -244,7 +530,20 @@
     animation: scroll 240s linear infinite;
   }
 
-  .logo-container:hover img {
+  @keyframes scroll-reverse {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(50%);
+    }
+  }
+
+  .animate-scroll-reverse {
+    animation: scroll-reverse 240s linear infinite;
+  }
+
+  .logo-container:hover > img {
     opacity: 0.8 !important;
   }
 
@@ -405,13 +704,34 @@
 
   /* Navigation hover effects */
   .nav-link {
-    transition: color 200ms;
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--bmv-purple);
+    padding: 8px 16px;
+    position: relative;
+    transition: color 200ms ease;
   }
 
   .nav-link:hover {
-    color: var(--bmv-purple-hover) !important;
+    color: var(--bmv-orange) !important;
   }
 
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--bmv-orange);
+    transition: width 200ms ease, left 200ms ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+    left: 0;
+  }
   /* Footer hover effects */
   .footer-social-link {
     transition: all 250ms;
@@ -428,6 +748,86 @@
 
   .footer-link:hover {
     color: var(--bmv-purple-light) !important;
+  }
+
+  video {
+    object-fit: cover!important;
+  }
+  .wistia_embed > div:first-child {
+    height: 100%!important;
+  }
+
+  /* Responsive utility classes */
+  .container-responsive {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+  }
+
+  .section-responsive {
+    padding: var(--section-padding) 0;
+  }
+
+  .grid-responsive {
+    display: grid;
+    gap: var(--space-5);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .grid-responsive-2 {
+    display: grid;
+    gap: var(--space-5);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .grid-responsive-3 {
+    display: grid;
+    gap: var(--space-5);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .grid-responsive-5 {
+    display: grid;
+    gap: var(--space-4);
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  @media (max-width: 1200px) {
+    .grid-responsive-5 {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .grid-responsive,
+    .grid-responsive-2,
+    .grid-responsive-3,
+    .grid-responsive-5 {
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+  }
+
+  /* Responsive text sizing */
+  .text-responsive-xl {
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    line-height: 1.2;
+  }
+
+  .text-responsive-lg {
+    font-size: clamp(1.25rem, 3vw, 2rem);
+    line-height: 1.3;
+  }
+
+  .text-responsive-md {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    line-height: 1.4;
+  }
+
+  .text-responsive-sm {
+    font-size: clamp(0.875rem, 2vw, 16px);
+    line-height: 1.5;
   }
 }
 

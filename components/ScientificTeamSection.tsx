@@ -1,6 +1,14 @@
 "use client"
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+import type { Swiper as SwiperType } from 'swiper';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 export default function ScientificTeamSection() {
   const team = [
@@ -51,37 +59,12 @@ export default function ScientificTeamSection() {
     }
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-
-  const next = () => {
-    if (isAnimating) return;
-    setDirection(1);
-    setIsAnimating(true);
-    setCurrentIndex((prev) => (prev + 1) % team.length);
-    setTimeout(() => setIsAnimating(false), 500);
-  };
-
-  const prev = () => {
-    if (isAnimating) return;
-    setDirection(-1);
-    setIsAnimating(true);
-    setCurrentIndex((p) => (p - 1 + team.length) % team.length);
-    setTimeout(() => setIsAnimating(false), 500);
-  };
-
-  const goToIndex = (index: number) => {
-    if (isAnimating || index === currentIndex) return;
-    setDirection(index > currentIndex ? 1 : -1);
-    setIsAnimating(true);
-    setCurrentIndex(index);
-    setTimeout(() => setIsAnimating(false), 500);
-  };
+  const swiperRef = useRef<SwiperType | null>(null);
+  const [activeSlide, setActiveSlide] = useState(0);
 
   return (
     <section
-      className="min-h-screen flex items-center justify-center"
+      className="min-h-screen flex items-center justify-center section-responsive"
       style={{
         backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/Barrier_Red_Version2.jpg)',
         backgroundSize: 'cover',
@@ -90,14 +73,14 @@ export default function ScientificTeamSection() {
         backgroundAttachment: 'fixed'
       }}
     >
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="container-responsive">
         <div className="text-center" style={{ marginBottom: 'var(--space-9)' }}>
-          <h2 style={{ marginBottom: 'var(--space-4)' }}>
+          <h2 className="text-responsive-lg" style={{ marginBottom: 'var(--space-4)' }}>
             Scientific Leadership Team
           </h2>
           <p
+            className="text-responsive-sm"
             style={{
-              fontSize: '17px',
               color: 'var(--bmv-text-secondary)',
               maxWidth: '700px',
               margin: '0 auto'
@@ -107,41 +90,72 @@ export default function ScientificTeamSection() {
           </p>
         </div>
 
-        <div className="relative" style={{ overflow: 'hidden' }}>
-          <div
-            style={{
-              display: 'flex',
-              transform: `translateX(-${currentIndex * 100}%)`,
-              transition: isAnimating ? 'transform 500ms cubic-bezier(0.4, 0, 0.2, 1)' : 'none'
+        <div className="relative">
+          <Swiper
+            modules={[Navigation, Pagination]}
+            spaceBetween={20}
+            slidesPerView={1}
+            breakpoints={{
+              320: {
+                slidesPerView: 1,
+                spaceBetween: 10,
+              },
+              640: {
+                slidesPerView: 1,
+                spaceBetween: 15,
+              },
+              768: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+              },
+              1024: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+              },
+              1280: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+              },
             }}
+            navigation={{
+              prevEl: '.swiper-button-prev-custom',
+              nextEl: '.swiper-button-next-custom',
+            }}
+            pagination={{
+              clickable: true,
+              el: '.swiper-pagination-custom',
+              bulletClass: 'swiper-pagination-bullet-custom',
+              bulletActiveClass: 'swiper-pagination-bullet-active-custom',
+            }}
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+            }}
+            onSlideChange={(swiper) => {
+              setActiveSlide(swiper.activeIndex);
+            }}
+            style={{
+              '--swiper-navigation-color': 'var(--bmv-text)',
+              '--swiper-pagination-color': 'var(--bmv-purple)',
+            } as React.CSSProperties}
           >
             {team.map((member, index) => (
-              <div
-                key={index}
-                style={{
-                  minWidth: '100%',
-                  width: '100%',
-                  flexShrink: 0
-                }}
-              >
+              <SwiperSlide key={index}>
                 <div
-                  className="grid md:grid-cols-3"
+                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8"
                   style={{
-                    gap: 'var(--space-5)',
-                    padding: 'var(--space-6)',
+                    padding: 'clamp(1rem, 4vw, 2rem)',
                     background: 'rgba(30, 30, 40, 0.4)',
                     backdropFilter: 'blur(10px)',
                     WebkitBackdropFilter: 'blur(10px)',
                     borderRadius: '12px',
-                    border: '1px solid rgba(183, 148, 246, 0.2)',
-                    minHeight: '480px'
+                    border: '1px solid white',
+                    minHeight: 'clamp(400px, 50vh, 480px)'
                   }}
                 >
-                  <div className="flex items-center justify-center">
+                  <div className="flex items-center justify-center order-1 md:order-1 lg:order-1">
                     <div
+                      className="w-full max-w-[250px] sm:max-w-[300px] md:max-w-[350px] lg:max-w-[400px] aspect-square"
                       style={{
-                        width: '400px',
-                        height: '400px',
                         borderRadius: '12px',
                         overflow: 'hidden',
                         position: 'relative',
@@ -181,18 +195,18 @@ export default function ScientificTeamSection() {
                       />
                     </div>
                   </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
+                  <div className="flex flex-col gap-3 md:gap-4 order-2 md:order-2 lg:order-2">
                     <div>
-                      <h3 style={{ marginBottom: 'var(--space-1)' }}>{member.name}</h3>
-                      <p style={{ color: 'var(--bmv-purple-light)', fontSize: '16px', fontWeight: '500' }}>
+                      <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium" style={{ marginBottom: 'var(--space-1)' }}>{member.name}</h3>
+                      <p className="text-sm sm:text-base md:text-lg lg:text-xl" style={{ color: 'var(--bmv-purple-light)', fontWeight: '500' }}>
                         {member.title}
                       </p>
                     </div>
-                    <p style={{ fontSize: '16px', color: 'var(--bmv-text)', lineHeight: '1.6' }}>
+                    <p className="text-responsive-sm" style={{ color: 'var(--bmv-text)', lineHeight: '1.6' }}>
                       {member.bio}
                     </p>
                   </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)', fontSize: '14px' }}>
+                  <div className="flex flex-col gap-3 md:gap-4 order-3 md:order-3 lg:order-3 text-responsive-sm">
                     <div>
                       <p style={{ color: 'var(--bmv-text-secondary)', marginBottom: 'var(--space-1)', fontWeight: '500' }}>
                         Credentials
@@ -213,19 +227,34 @@ export default function ScientificTeamSection() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
+          {/* <button
+              className="swiper-button-prev-testimonials absolute md:left-0 left-6 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-gray-850/90 hover:bg-purple-500/20 border border-white rounded-full flex items-center justify-center transition-all duration-500 backdrop-blur-sm"
+              onClick={() => swiperRef.current?.slidePrev()}
+            >
+              <ChevronLeft size={20} />
+          </button>
+
+          <button
+            className="swiper-button-next-testimonials absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-gray-850/90 hover:bg-purple-500/20 border border-white rounded-full flex items-center justify-center transition-all duration-500 backdrop-blur-sm"
+            onClick={() => swiperRef.current?.slideNext()}
+            aria-label="Next testimonial"
+          >
+            <ChevronRight size={20} />
+          </button> */}
 
           <div
-            className="flex items-center justify-center"
-            style={{ gap: 'var(--space-3)', marginTop: 'var(--space-5)' }}
+            className="items-center justify-center gap-2 sm:gap-3 md:gap-4 flex"
+            style={{ marginTop: 'clamp(1rem, 3vw, 2rem)' }}
           >
             <button
-              onClick={prev}
+              className="swiper-button-prev-custom hidden md:flex"
+              onClick={() => swiperRef.current?.slidePrev()}
               style={{
-                width: '40px',
-                height: '40px',
+                width: 'clamp(32px, 8vw, 40px)',
+                height: 'clamp(32px, 8vw, 40px)',
                 borderRadius: '50%',
                 background: 'var(--bmv-surface)',
                 border: '1px solid rgba(183, 148, 246, 0.3)',
@@ -248,16 +277,17 @@ export default function ScientificTeamSection() {
               <ChevronLeft size={20} />
             </button>
 
-            <div className="flex" style={{ gap: 'var(--space-2)' }}>
+            <div className="swiper-pagination-custom flex justify-center !w-min" style={{ gap: 'clamp(0.25rem, 2vw, 0.5rem)' }}>
               {team.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => goToIndex(index)}
+                  className="swiper-pagination-bullet-custom"
+                  onClick={() => swiperRef.current?.slideTo(index)}
                   style={{
-                    width: '8px',
-                    height: '8px',
+                    width: 'clamp(6px, 2vw, 8px)',
+                    height: 'clamp(6px, 2vw, 8px)',
                     borderRadius: '50%',
-                    background: index === currentIndex ? 'var(--bmv-purple)' : 'var(--bmv-border)',
+                    background: activeSlide === index ? 'var(--bmv-purple)' : 'var(--bmv-border)',
                     border: 'none',
                     cursor: 'pointer',
                     transition: 'all 250ms'
@@ -267,10 +297,11 @@ export default function ScientificTeamSection() {
             </div>
 
             <button
-              onClick={next}
+              className="swiper-button-next-custom hidden md:flex"
+              onClick={() => swiperRef.current?.slideNext()}
               style={{
-                width: '40px',
-                height: '40px',
+                width: 'clamp(32px, 8vw, 40px)',
+                height: 'clamp(32px, 8vw, 40px)',
                 borderRadius: '50%',
                 background: 'var(--bmv-surface)',
                 border: '1px solid rgba(183, 148, 246, 0.3)',

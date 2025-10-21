@@ -16,6 +16,7 @@ export default function ByTheNumbersSection() {
   const logos = [
     { src: './logos/Abcore.webp', alt: 'Abcore' },
     { src: './logos/ABT.webp', alt: 'Agarose Bead Technologies' },
+    { src: './logos/MilliporeSigma.webp', alt: 'MilliporeSigma' },
     { src: './logos/ACD.webp', alt: 'ACD' },
     { src: './logos/Altamira.webp', alt: 'Altamira Therapeutics' },
     { src: './logos/Applied Biomath.webp', alt: 'Applied Biomath' },
@@ -32,7 +33,7 @@ export default function ByTheNumbersSection() {
     { src: './logos/BURL-Concepts.webp', alt: 'BURL-Concepts' },
     { src: './logos/CancerVAX.webp', alt: 'CancerVAX' },
     { src: './logos/Canopy.webp', alt: 'Canopy' },
-    { src: './logos/ChemDiv.webp', alt: 'ChemDiv' },
+    // { src: './logos/ChemDiv.webp', alt: 'ChemDiv' },
     { src: './logos/Chimera Bio.webp', alt: 'Chimera Bio' },
     { src: './logos/Chromocyte.webp', alt: 'Chromocyte' },
     { src: './logos/Codex DNA.webp', alt: 'Codex DNA' },
@@ -45,14 +46,14 @@ export default function ByTheNumbersSection() {
     { src: './logos/Inflammatix.webp', alt: 'Inflammatix' },
     { src: './logos/Inivata.webp', alt: 'Inivata' },
     { src: './logos/Innova Biosciences.webp', alt: 'Innova Biosciences' },
-    { src: './logos/Inso Bio.webp', alt: 'Inso Bio' },
+    { src: './logos/Inso Bio.webp', alt: 'Inso Bio' }
+  ]
+  const logos2 = [
     { src: './logos/Insphero.webp', alt: 'Insphero' },
     { src: './logos/Intuitive Bio.webp', alt: 'Intuitive Bio' },
     { src: './logos/Invion.webp', alt: 'Invion' },
     { src: './logos/Lonza.webp', alt: 'Lonza' },
     { src: './logos/May Health.webp', alt: 'May Health' },
-    { src: './logos/Merck.webp', alt: 'Merck' },
-    { src: './logos/MilliporeSigma.webp', alt: 'MilliporeSigma' },
     { src: './logos/Mission Tx.webp', alt: 'Mission Tx' },
     { src: './logos/Neubase.webp', alt: 'Neubase' },
     { src: './logos/Neuropore.webp', alt: 'Neuropore' },
@@ -75,9 +76,10 @@ export default function ByTheNumbersSection() {
     { src: './logos/Unither.webp', alt: 'Unither' },
     { src: './logos/Valo Tx.webp', alt: 'Valo Tx' },
     { src: './logos/Verona.webp', alt: 'Verona' },
+    { src: './logos/Merck.webp', alt: 'Merck' },
     { src: './logos/ViaCyte.webp', alt: 'ViaCyte' },
     { src: './logos/YDS.webp', alt: 'YDS' },
-    { src: './logos/YHM.webp', alt: 'YHM' }
+    // { src: './logos/YHM.webp', alt: 'YHM' }
   ];
 
   const metrics = [
@@ -95,185 +97,240 @@ export default function ByTheNumbersSection() {
 
   return (
     <section
-      className="flex flex-col"
+      className="flex flex-col section-responsive !pb-0"
       style={{
-        minHeight: '100vh'
+        minHeight: '100vh',
+        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/Barrier_Red_Version1.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed'
       }}
     >
       <div
         className="flex-1 flex items-center justify-center"
-        style={{
-          backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/Barrier_Red_Version1.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          backgroundAttachment: 'fixed'
-        }}
-      >
-      <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-center" style={{ marginBottom: 'var(--space-9)' }}>
-          By the Numbers
-        </h2>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-6)' }}>
-          {metrics.map((row, rowIndex) => (
-            <div
-              key={rowIndex}
-              className="grid md:grid-cols-3"
-              style={{ gap: 'var(--space-5)' }}
-            >
-              {row.map((metric, index) => (
+      >
+        <div className="container-responsive">
+          <h2 className="text-center text-responsive-lg" style={{ marginBottom: 'var(--space-9)' }}>
+            By the Numbers
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {metrics.flat().map((metric, index) => (
+              <div
+                key={index}
+                className="text-center phase-card"
+                style={{
+                  padding: 'var(--space-5)',
+                  background: 'rgba(30, 30, 40, 0.4)',
+                  backdropFilter: 'blur(10px)',
+                  WebkitBackdropFilter: 'blur(10px)',
+                  borderRadius: '12px',
+                  border: '1px solid rgba(183, 148, 246, 0.1)',
+                  position: 'relative',
+                  overflow: 'hidden'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = 'rgba(30, 30, 40, 0.6)';
+                  e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.3)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'rgba(30, 30, 40, 0.4)';
+                  e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.1)';
+                }}
+              >
                 <div
-                  key={index}
-                  className="text-center metric-card"
                   style={{
-                    padding: 'var(--space-6)',
-                    background: 'rgba(30, 30, 40, 0.4)',
-                    backdropFilter: 'blur(10px)',
-                    WebkitBackdropFilter: 'blur(10px)',
-                    borderRadius: '12px',
-                    border: '1px solid rgba(183, 148, 246, 0.2)',
                     position: 'relative',
-                    overflow: 'hidden'
+                    zIndex: 1
                   }}
                 >
                   <div
-                    className="metric-card-glow"
+                    className="text-responsive-xl"
                     style={{
-                      position: 'absolute',
-                      inset: '-2px',
-                      borderRadius: '12px',
-                      padding: '2px',
-                      background: 'conic-gradient(from 0deg, transparent, transparent)',
-                      opacity: 0,
-                      transition: 'opacity 0.3s ease',
-                      pointerEvents: 'none',
-                      zIndex: 0
-                    }}
-                  />
-                  <div
-                    style={{
-                      position: 'relative',
-                      zIndex: 1
+                      fontWeight: '500',
+                      color: 'var(--bmv-purple-light)',
+                      marginBottom: 'var(--space-3)',
+                      fontFamily: "'Red Hat Display', sans-serif"
                     }}
                   >
-                    <div
-                      style={{
-                        fontSize: 'clamp(32px, 5vw, 48px)',
-                        fontWeight: '500',
-                        color: 'var(--bmv-purple-light)',
-                        marginBottom: 'var(--space-3)',
-                        fontFamily: "'Red Hat Display', sans-serif"
-                      }}
-                    >
-                      {metric.number}
-                    </div>
-                    <div
-                      style={{
-                        fontSize: '16px',
-                        color: 'var(--bmv-text)',
-                        lineHeight: '1.4',
-                        whiteSpace: 'pre-line'
-                      }}
-                    >
-                      {metric.label}
-                    </div>
+                    {metric.number}
                   </div>
+                  <div
+                    className="text-responsive-sm"
+                    style={{
+                      color: 'var(--bmv-text)',
+                      lineHeight: '1.4',
+                      whiteSpace: 'pre-line'
+                    }}
+                  >
+                    {metric.label}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <p
+            className="text-center text-responsive-sm"
+            style={{
+              marginTop: 'var(--space-8)',
+              color: 'var(--bmv-text-secondary)'
+            }}
+          >
+            The track record your breakthrough deserves.
+          </p>
+        </div>
+      </div>
+
+      <div style={{ background: 'black' }}>
+        <div className='flex align-center justify-center w-full overflow-hidden mb-5 mt-[30px]' >
+          <div style={{ position: 'relative', width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div
+              className="animate-scroll"
+              style={{
+                display: 'flex',
+                gap: 'var(--space-11)',
+                width: 'max-content',
+                alignItems: 'center',
+                height: '100%'
+              }}
+            >
+              {logos.map((logo, index) => (
+                <div
+                  key={`first-${index}`}
+                  className="logo-container"
+                  style={{
+                    height: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    paddingTop: '9px',
+                    paddingBottom: '9px',
+                    paddingLeft: index === 0 ? 'var(--space-11)' : '0'
+                  }}
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    style={{
+                      height: '30px',
+                      width: 'auto',
+                      maxWidth: '200px',
+                      objectFit: 'contain',
+                      filter: 'brightness(0) invert(1)',
+                      opacity: '0.3',
+                      transition: 'opacity 0.3s ease'
+                    }}
+                  />
+                </div>
+              ))}
+              {logos.map((logo, index) => (
+                <div
+                  key={`second-${index}`}
+                  className="logo-container"
+                  style={{
+                    height: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    paddingTop: '9px',
+                    paddingBottom: '9px',
+                    paddingRight: index === logos.length - 1 ? 'var(--space-11)' : '0'
+                  }}
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    style={{
+                      height: '30px',
+                      width: 'auto',
+                      maxWidth: '200px',
+                      objectFit: 'contain',
+                      filter: 'brightness(0) invert(1)',
+                      opacity: '0.3',
+                      transition: 'opacity 0.3s ease'
+                    }}
+                  />
                 </div>
               ))}
             </div>
-          ))}
+          </div>
         </div>
 
-        <p
-          className="text-center"
-          style={{
-            marginTop: 'var(--space-8)',
-            fontSize: '18px',
-            color: 'var(--bmv-text-secondary)'
-          }}
-        >
-          The track record your breakthrough deserves.
-        </p>
-      </div>
-      </div>
-
-      <div
-        style={{
-          height: '140px',
-          background: '#000000',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          width: '100%',
-          overflow: 'hidden'
-        }}
-      >
-        <div style={{ position: 'relative', width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <div
-            className="animate-scroll"
-            style={{
-              display: 'flex',
-              gap: 'var(--space-10)',
-              width: 'max-content',
-              alignItems: 'center',
-              height: '100%'
-            }}
-          >
-            {logos.map((logo, index) => (
-              <div
-                key={`first-${index}`}
-                className="logo-container"
-                style={{
-                  height: '100%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  paddingLeft: index === 0 ? 'var(--space-10)' : '0'
-                }}
-              >
-                <img
-                  src={logo.src}
-                  alt={logo.alt}
+        {/* Duplicated logos flow - left to right */}
+        <div className='flex align-center justify-center w-full overflow-hidden pb-[30px]' >
+          <div style={{ position: 'relative', width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div
+              className="animate-scroll-reverse"
+              style={{
+                display: 'flex',
+                gap: 'var(--space-11)',
+                width: 'max-content',
+                alignItems: 'center',
+                height: '100%'
+              }}
+            >
+              {logos2.map((logo, index) => (
+                <div
+                  key={`third-${index}`}
+                  className="logo-container"
                   style={{
-                    height: '48px',
-                    width: 'auto',
-                    maxWidth: '200px',
-                    objectFit: 'contain',
-                    filter: 'brightness(0) invert(1)',
-                    opacity: '0.4',
-                    transition: 'opacity 0.3s ease'
+                    height: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    paddingTop: '9px',
+                    paddingBottom: '9px',
+                    paddingLeft: index === 0 ? 'var(--space-11)' : '0'
                   }}
-                />
-              </div>
-            ))}
-            {logos.map((logo, index) => (
-              <div
-                key={`second-${index}`}
-                className="logo-container"
-                style={{
-                  height: '100%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  paddingRight: index === logos.length - 1 ? 'var(--space-10)' : '0'
-                }}
-              >
-                <img
-                  src={logo.src}
-                  alt={logo.alt}
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    style={{
+                      height: '30px',
+                      width: 'auto',
+                      maxWidth: '200px',
+                      objectFit: 'contain',
+                      filter: 'brightness(0) invert(1)',
+                      opacity: '0.3',
+                      transition: 'opacity 0.3s ease'
+                    }}
+                  />
+                </div>
+              ))}
+              {logos2.map((logo, index) => (
+                <div
+                  key={`fourth-${index}`}
+                  className="logo-container"
                   style={{
-                    height: '48px',
-                    width: 'auto',
-                    maxWidth: '200px',
-                    objectFit: 'contain',
-                    filter: 'brightness(0) invert(1)',
-                    opacity: '0.4',
-                    transition: 'opacity 0.3s ease'
+                    height: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    paddingTop: '9px',
+                    paddingBottom: '9px',
+                    paddingRight: index === logos2.length - 1 ? 'var(--space-11)' : '0'
                   }}
-                />
-              </div>
-            ))}
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    style={{
+                      height: '30px',
+                      width: 'auto',
+                      maxWidth: '200px',
+                      objectFit: 'contain',
+                      filter: 'brightness(0) invert(1)',
+                      opacity: '0.3',
+                      transition: 'opacity 0.3s ease'
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

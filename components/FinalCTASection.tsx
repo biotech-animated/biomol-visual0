@@ -24,7 +24,7 @@ export default function FinalCTASection() {
 
   return (
     <section
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden section-responsive"
     >
       <div className="absolute inset-0" style={{ zIndex: 0 }}>
         <div
@@ -44,15 +44,15 @@ export default function FinalCTASection() {
 
       <div className="absolute inset-0 bg-black opacity-30" style={{ zIndex: 1 }}></div>
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6">
+      <div className="relative z-10 container-responsive">
         <div className="text-center" style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-5)' }}>
-          <h2 style={{ lineHeight: '1.2' }}>
+          <h2 className="text-responsive-lg" style={{ lineHeight: '1.2' }}>
             Stop Explaining. Start Showing.
           </h2>
 
           <p
+            className="text-responsive-sm"
             style={{
-              fontSize: '17px',
               color: 'var(--bmv-text)',
               lineHeight: '1.7'
             }}
@@ -61,9 +61,8 @@ export default function FinalCTASection() {
           </p>
 
           <div
-            className="text-left max-w-2xl mx-auto"
+            className="text-left max-w-2xl mx-auto text-responsive-sm"
             style={{
-              fontSize: '17px',
               color: 'var(--bmv-text)',
               lineHeight: '1.7',
               display: 'flex',
@@ -78,8 +77,8 @@ export default function FinalCTASection() {
           </div>
 
           <p
+            className="text-responsive-md"
             style={{
-              fontSize: '20px',
               fontWeight: '500',
               color: 'var(--bmv-text-heading)'
             }}
@@ -92,7 +91,7 @@ export default function FinalCTASection() {
               onClick={() => window.location.href = '/contact'}
               className="group cta-button"
               style={{
-                padding: '14px 24px 14px 32px',
+                padding: '8px 8px 8px 24px',
                 background: 'rgba(251, 146, 60, 0.65)',
                 color: 'white',
                 border: 'none',
@@ -167,9 +166,8 @@ export default function FinalCTASection() {
           </div>
 
           <p
-            className="max-w-2xl mx-auto"
+            className="max-w-2xl mx-auto text-responsive-sm"
             style={{
-              fontSize: '17px',
               color: 'var(--bmv-text)',
               paddingTop: 'var(--space-4)'
             }}

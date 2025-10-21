@@ -29,7 +29,7 @@ export default function DifferentiationSection() {
             }}
           >
             <h2 style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: '500', fontSize: '32px', lineHeight: '1.2', marginBottom: '0' }}>
-              We Don't Animate Surgeries. We Show Molecular & Cellular Mechanisms of Action.
+              We Don't Show Procedures. We Show Molecular and Cellular Processes.
             </h2>
 
             <div
@@ -45,7 +45,11 @@ export default function DifferentiationSection() {
               }}
             >
             <p>
-              Generalist medical animation studios work on a medical device project on Monday. Showing a new dental procedure on Tuesday. Then they attempt to adapt their workflow for complex molecular science on Wednesday.
+              Generalist medical animation studios divide their attention across the entire medical spectrum. The same team that works on a project showing orthopedic implants in the morning pivots to dental procedures after lunch, then attempts to decode complex molecular pathways by end of day. Each project requires fundamentally different expertise, visual languages, and scientific understanding.
+            </p>
+
+            <p style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: '400', color: 'var(--bmv-text-heading)' }}>
+              The problem this creates is clear: teams that constantly switch contexts never develop deep expertise in any single domain. They can't anticipate the questions investors will want answered about your specific molecular and cellular science. They're learning on your timeline—and your budget.
             </p>
 
             <p style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: '400', color: 'var(--bmv-text-heading)' }}>

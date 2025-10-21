@@ -89,7 +89,7 @@ export default function DifferentiationSection() {
               position: 'relative',
               width: '100%',
               maxWidth: '550px',
-              aspectRatio: '1 / 1',
+              aspectRatio: '4 / 5',
               overflow: 'hidden',
               borderRadius: '12px',
               boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)',

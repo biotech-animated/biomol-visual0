@@ -48,7 +48,7 @@ export default function SecuritySection() {
               lineHeight: '1.7'
             }}
           >
-            We get it. You're about to share your breakthrough with strangers. The mechanism you've spent years perfecting. The data that isn't published yet.
+            We get it. You're about to share your breakthrough with strangers. The science you've spent years perfecting. The data that isn't published yet.
             <br /><br />
             Here's our commitment to protecting it:
           </p>

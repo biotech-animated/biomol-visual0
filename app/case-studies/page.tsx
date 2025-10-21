@@ -41,13 +41,13 @@ export default function CaseStudiesPage() {
       <div className="min-h-screen bg-[#101010] pt-24 pb-20 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
-            <h1 className="text-5xl md:text-6xl font-bold text-white">
+            <h1 className="text-5xl md:text-6xl font-bold text-white" style={{ fontFamily: "'Red Hat Display', sans-serif" }}>
               Case Studies
               <span className="block mt-2 bg-gradient-to-r from-[#007bff] to-[#8A2BE2] bg-clip-text text-transparent">
                 & Portfolio
               </span>
             </h1>
-            <p className="text-xl text-[#F0F0F0]/70 max-w-3xl mx-auto font-light">
+            <p className="text-xl text-[#F0F0F0]/70 max-w-3xl mx-auto font-light" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>
               Explore our recent work and see how we've helped biotech companies communicate their science
             </p>
           </div>
@@ -74,29 +74,31 @@ export default function CaseStudiesPage() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-2">{study.title}</h3>
-                  <p className="text-[#007bff] font-medium mb-3">{study.client}</p>
-                  <p className="text-[#F0F0F0]/70 text-sm leading-relaxed">{study.description}</p>
+                  <h3 className="text-xl font-bold text-white mb-2" style={{ fontFamily: "'Red Hat Display', sans-serif" }}>{study.title}</h3>
+                  <p className="text-[#007bff] font-medium mb-3" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>{study.client}</p>
+                  <p className="text-[#F0F0F0]/70 text-sm leading-relaxed" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>{study.description}</p>
                 </div>
               </div>
             ))}
           </div>
 
           <div className="bg-gradient-to-br from-[#007bff]/10 to-[#8A2BE2]/10 rounded-2xl p-12 border border-[#007bff]/20 text-center">
-            <h2 className="text-3xl font-bold text-white mb-4">Ready to See Your Science in Action?</h2>
-            <p className="text-[#F0F0F0]/70 mb-8 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold text-white mb-4" style={{ fontFamily: "'Red Hat Display', sans-serif" }}>Ready to See Your Science in Action?</h2>
+            <p className="text-[#F0F0F0]/70 mb-8 max-w-2xl mx-auto" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>
               Let's discuss how we can bring your molecular and cellular mechanisms to life
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={() => setIsModalOpen(true)}
                 className="px-8 py-4 bg-gradient-to-r from-[#007bff] to-[#007bff]/90 text-white rounded-lg hover:shadow-lg hover:shadow-[#007bff]/50 transition-all duration-300 font-medium"
+                style={{ fontFamily: "'Red Hat Display', sans-serif" }}
               >
                 View Full Portfolio
               </button>
               <a
                 href="/contact"
                 className="px-8 py-4 bg-transparent border-2 border-[#007bff] text-white rounded-lg hover:bg-[#007bff]/10 transition-all duration-300 font-medium flex items-center justify-center gap-2"
+                style={{ fontFamily: "'Red Hat Display', sans-serif" }}
               >
                 Start Your Project
                 <ExternalLink size={18} />

@@ -49,8 +49,7 @@ export default function Navigation() {
                 fontWeight: '500'
               }}
             >
-              <span style={{ color: 'var(--bmv-purple)' }}>BIOMOL</span>
-              <span style={{ color: 'var(--bmv-text-heading)' }}> | </span>
+              <span style={{ color: 'var(--bmv-purple)' }}>BIOMOL </span>
               <span style={{ color: 'var(--bmv-orange)' }}>VISUAL</span>
             </span>
           </Link>

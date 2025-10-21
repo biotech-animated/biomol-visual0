@@ -71,16 +71,16 @@ export default function SlabPage() {
           <div className="text-center mb-16 space-y-4">
             <div className="inline-block mb-4">
               <div className="px-4 py-2 bg-gradient-to-r from-[#007bff]/20 to-[#8A2BE2]/20 rounded-full border border-[#007bff]/30">
-                <span className="text-[#007bff] font-semibold">Introducing SLAB</span>
+                <span className="text-[#007bff] font-semibold" style={{ fontFamily: "'Red Hat Display', sans-serif" }}>Introducing SLAB</span>
               </div>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold text-white">
+            <h1 className="text-5xl md:text-7xl font-bold text-white" style={{ fontFamily: "'Red Hat Display', sans-serif" }}>
               Scientific Visualization
               <span className="block mt-2 bg-gradient-to-r from-[#007bff] to-[#8A2BE2] bg-clip-text text-transparent">
                 Made Simple
               </span>
             </h1>
-            <p className="text-xl text-[#F0F0F0]/70 max-w-3xl mx-auto font-light">
+            <p className="text-xl text-[#F0F0F0]/70 max-w-3xl mx-auto font-light" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>
               The most powerful molecular visualization platform for researchers and biotech professionals
             </p>
           </div>
@@ -94,7 +94,7 @@ export default function SlabPage() {
                     <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
                   </svg>
                 </div>
-                <p className="text-white font-semibold">Watch Product Demo</p>
+                <p className="text-white font-semibold" style={{ fontFamily: "'Red Hat Display', sans-serif" }}>Watch Product Demo</p>
               </div>
             </div>
           </div>
@@ -108,14 +108,14 @@ export default function SlabPage() {
                 <div className="w-14 h-14 bg-gradient-to-br from-[#007bff] to-[#8A2BE2] rounded-xl flex items-center justify-center mb-6">
                   <feature.icon size={28} className="text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3">{feature.title}</h3>
-                <p className="text-[#F0F0F0]/70 leading-relaxed">{feature.description}</p>
+                <h3 className="text-2xl font-bold text-white mb-3" style={{ fontFamily: "'Red Hat Display', sans-serif" }}>{feature.title}</h3>
+                <p className="text-[#F0F0F0]/70 leading-relaxed" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>{feature.description}</p>
               </div>
             ))}
           </div>
 
           <div className="mb-12">
-            <h2 className="text-4xl font-bold text-white text-center mb-12">
+            <h2 className="text-4xl font-bold text-white text-center mb-12" style={{ fontFamily: "'Red Hat Display', sans-serif" }}>
               Choose Your Plan
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
@@ -130,21 +130,21 @@ export default function SlabPage() {
                 >
                   {plan.featured && (
                     <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                      <span className="px-4 py-1 bg-gradient-to-r from-[#007bff] to-[#8A2BE2] text-white text-sm font-semibold rounded-full">
+                      <span className="px-4 py-1 bg-gradient-to-r from-[#007bff] to-[#8A2BE2] text-white text-sm font-semibold rounded-full" style={{ fontFamily: "'Red Hat Display', sans-serif" }}>
                         Most Popular
                       </span>
                     </div>
                   )}
-                  <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
+                  <h3 className="text-2xl font-bold text-white mb-2" style={{ fontFamily: "'Red Hat Display', sans-serif" }}>{plan.name}</h3>
                   <div className="mb-6">
-                    <span className="text-4xl font-bold text-white">{plan.price}</span>
-                    <span className="text-[#F0F0F0]/60 ml-2">/ {plan.period}</span>
+                    <span className="text-4xl font-bold text-white" style={{ fontFamily: "'Red Hat Display', sans-serif" }}>{plan.price}</span>
+                    <span className="text-[#F0F0F0]/60 ml-2" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>/ {plan.period}</span>
                   </div>
                   <ul className="space-y-4 mb-8">
                     {plan.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start space-x-3">
                         <CheckCircle size={20} className="text-[#007bff] flex-shrink-0 mt-0.5" />
-                        <span className="text-[#F0F0F0]/80">{feature}</span>
+                        <span className="text-[#F0F0F0]/80" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -155,7 +155,7 @@ export default function SlabPage() {
                         : 'bg-transparent border-2 border-[#007bff] text-white hover:bg-[#007bff]/10'
                     }`}
                   >
-                    <span>{plan.price === 'Custom' ? 'Contact Sales' : 'Get Started'}</span>
+                    <span style={{ fontFamily: "'Red Hat Display', sans-serif" }}>{plan.price === 'Custom' ? 'Contact Sales' : 'Get Started'}</span>
                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
@@ -164,11 +164,11 @@ export default function SlabPage() {
           </div>
 
           <div className="bg-gradient-to-br from-[#007bff]/10 to-[#8A2BE2]/10 rounded-2xl p-12 border border-[#007bff]/20 text-center">
-            <h2 className="text-3xl font-bold text-white mb-4">Ready to Transform Your Research?</h2>
-            <p className="text-[#F0F0F0]/70 mb-8 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold text-white mb-4" style={{ fontFamily: "'Red Hat Display', sans-serif" }}>Ready to Transform Your Research?</h2>
+            <p className="text-[#F0F0F0]/70 mb-8 max-w-2xl mx-auto" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>
               Join thousands of researchers already using SLAB to create stunning scientific visualizations
             </p>
-            <button className="px-8 py-4 bg-gradient-to-r from-[#007bff] to-[#007bff]/90 text-white rounded-lg hover:shadow-lg hover:shadow-[#007bff]/50 transition-all duration-300 font-medium">
+            <button className="px-8 py-4 bg-gradient-to-r from-[#007bff] to-[#007bff]/90 text-white rounded-lg hover:shadow-lg hover:shadow-[#007bff]/50 transition-all duration-300 font-medium" style={{ fontFamily: "'Red Hat Display', sans-serif" }}>
               Start Free Trial
             </button>
           </div>

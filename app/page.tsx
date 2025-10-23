@@ -6,9 +6,7 @@ import HeroSection from '@/components/HeroSection';
 import DifferentiationSection from '@/components/DifferentiationSection';
 import ShowReelSection from '@/components/ShowReelSection';
 import ByTheNumbersSection from '@/components/ByTheNumbersSection';
-import TestimonialsSection from '@/components/TestimonialsSection';
-import ScientificTeamSection from '@/components/ScientificTeamSection';
-import ProcessSection from '@/components/ProcessSection';
+import UnifiedSection from '@/components/UnifiedSection';
 import SecuritySection from '@/components/SecuritySection';
 import CompetitivePositioningSection from '@/components/CompetitivePositioningSection';
 import FinalCTASection from '@/components/FinalCTASection';
@@ -23,9 +21,7 @@ export default function Home() {
       <DifferentiationSection />
       <ShowReelSection />
       <ByTheNumbersSection />
-      <TestimonialsSection />
-      <ScientificTeamSection />
-      <ProcessSection />
+      <UnifiedSection />
       <SecuritySection />
       <CompetitivePositioningSection />
       <FinalCTASection />

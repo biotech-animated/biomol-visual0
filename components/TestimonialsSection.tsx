@@ -319,8 +319,8 @@ export default function TestimonialsSection() {
                           {/* Company Logo and Info */}
                           <div className="flex items-center mb-6">
                             <div className="backdrop-blur-sm rounded-lg flex items-center justify-center max-w-[140px] h-[39px] md:h-[52.83px] flex-shrink-0 mr-4">
-                              <img 
-                                src={testimonial.logo} 
+                              <img
+                                src={testimonial.logo}
                                 alt={`${testimonial.company} logo`}
                                 className="h-[32px] md:h-[40px] w-auto max-w-full object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity duration-300"
                                 onError={(e) => {
@@ -330,7 +330,7 @@ export default function TestimonialsSection() {
                               />
                             </div>
                           </div>
-                          
+
                           <blockquote className="text-responsive-md text-gray-200" style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: '500' }}>
                             "{testimonial.brief}"
                           </blockquote>

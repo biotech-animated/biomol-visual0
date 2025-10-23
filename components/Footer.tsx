@@ -1,234 +1,188 @@
-import { Youtube, Linkedin, Instagram, Twitter } from 'lucide-react';
+import { Linkedin, Youtube, Instagram } from 'lucide-react';
 
 export default function Footer() {
-  const services = [
-    'Molecular & Cellular MOA Visualization',
-    'Mechanism of Disease (MOD) Visualization',
-    'Biotherapeutic Mechanism Visualization',
-    'Platform Technology Visualization',
-    'Scientific Storytelling'
-  ];
-
-  const applications = [
-    'Series A/B/C Fundraising',
-    'Investor Communications',
-    'BD Partnerships',
-    'FDA Presentations',
-    'Conference Launches',
-    'Sales Enablement'
-  ];
-
-  const links = [
-    { label: 'Terms of Service', href: '#' },
-    { label: 'Privacy Policy', href: '#' },
-    { label: 'Join Us', href: '#' }
-  ];
-
-  const socialLinks = [
-    { icon: Youtube, href: '#', label: 'YouTube' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Twitter, href: '#', label: 'Twitter' }
-  ];
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
-    <footer
-      className="section-responsive !pb-8"
-      style={{
-        background: '#1B0A2E',
-        borderTop: '1px solid rgba(183, 148, 246, 0.1)'
-      }}
-    >
-      <div className="container-responsive">
-        <div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
-          style={{
-            gap: 'var(--space-8)',
-            marginBottom: 'var(--space-8)'
-          }}
-        >
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
-            <div>
-              <div className="flex items-center" style={{ marginBottom: 'var(--space-3)' }}>
-                <span
-                  className="tracking-tight text-responsive-md"
-                  style={{
-                    fontFamily: "'Red Hat Display', sans-serif",
-                    fontWeight: '500'
-                  }}
-                >
-                  <span style={{ color: 'var(--bmv-purple)' }}>BIOMOL</span>
-                  <span style={{ color: 'var(--bmv-text-heading)' }}> | </span>
-                  <span style={{ color: 'var(--bmv-orange)' }}>VISUAL</span>
-                </span>
-              </div>
-              <p
-                className="text-[14px]"
-                style={{
-                  fontFamily: "'Red Hat Text', sans-serif",
-                  fontWeight: '300',
-                  color: 'var(--bmv-text-secondary)',
-                  marginBottom: 'var(--space-1)'
-                }}
-              >
-                Molecular and Cellular MOA & MOD Visualization Specialists
-              </p>
-            </div>
-            <p
-              className="text-[14px]"
+    <footer className="bg-[#1B0A2E] border-t border-[#9B59D0]/20 py-16">
+      <div className="max-w-[1400px] mx-auto px-8 md:px-16">
+        <div className="grid grid-cols-1 md:grid-cols-[2fr_1.5fr_1.5fr_1fr] gap-12 mb-12">
+          {/* Company Info */}
+          <div className="md:col-span-1">
+            <button
+              onClick={scrollToTop}
+              className="font-medium text-xl mb-4 tracking-tight transition-all duration-200 hover:opacity-80"
               style={{
-                fontFamily: "'Red Hat Text', sans-serif",
-                fontWeight: '400',
-                color: 'var(--bmv-text-secondary)',
-                lineHeight: '1.6'
+                fontFamily: "'Red Hat Display', sans-serif",
+                fontWeight: 500,
+                background: 'linear-gradient(90deg, #9B59D0 0%, #ED8936 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
               }}
             >
+              BIOMOL | VISUAL
+            </button>
+            <p className="text-sm text-[#A0AEC0] leading-relaxed mb-6" style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: 300 }}>
+              Molecular and Cellular MOA & MOD Visualization Specialists
+            </p>
+            <p className="text-sm text-[#718096] leading-relaxed" style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: 300 }}>
               We create scientifically precise molecular and cellular mechanism of action visualizations for the world's most innovative biotech companies. Our dedicated team of scientific experts transforms complex science—from biotherapeutic mechanisms to platform technologies—into clear stories that secure funding and drive partnerships.
             </p>
-            <div className="flex" style={{ gap: 'var(--space-3)' }}>
-              {socialLinks.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  aria-label={social.label}
-                  className="footer-social-link"
-                  style={{
-                    width: '36px',
-                    height: '36px',
-                    borderRadius: '8px',
-                    background: 'var(--bmv-surface)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: 'var(--bmv-text-secondary)'
-                  }}
-                >
-                  <social.icon size={18} />
-                </a>
-              ))}
-            </div>
           </div>
 
+          {/* Services */}
           <div>
-            <h4
-              style={{
-                fontFamily: "'Red Hat Display', sans-serif",
-                fontSize: '14px',
-                fontWeight: '500',
-                color: 'var(--bmv-text-heading)',
-                marginBottom: 'var(--space-4)',
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em'
-              }}
-            >
+            <h3 className="text-[#E2E8F0] font-medium text-sm mb-4 uppercase tracking-wider" style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: 500 }}>
               Services
-            </h4>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
-              {services.map((service, index) => (
-                <li key={index}>
-                  <a
-                    href="#"
-                    className="footer-link"
-                    style={{
-                      fontFamily: "'Red Hat Text', sans-serif",
-                      fontSize: '14px',
-                      fontWeight: '400',
-                      color: 'var(--bmv-text-secondary)'
-                    }}
-                  >
-                    {service}
-                  </a>
-                </li>
-              ))}
+            </h3>
+            <ul className="space-y-3">
+              <li>
+                <a href="#moa" className="text-sm text-[#A0AEC0] hover:text-[#9B59D0] transition-colors duration-200" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>
+                  Molecular & Cellular MOA Visualization
+                </a>
+              </li>
+              <li>
+                <a href="#mod" className="text-sm text-[#A0AEC0] hover:text-[#9B59D0] transition-colors duration-200" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>
+                  Mechanism of Disease (MOD) Visualization
+                </a>
+              </li>
+              <li>
+                <a href="#biotherapeutic" className="text-sm text-[#A0AEC0] hover:text-[#9B59D0] transition-colors duration-200" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>
+                  Biotherapeutic Mechanism Visualization
+                </a>
+              </li>
+              <li>
+                <a href="#platform" className="text-sm text-[#A0AEC0] hover:text-[#9B59D0] transition-colors duration-200" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>
+                  Platform Technology Visualization
+                </a>
+              </li>
+              <li>
+                <a href="#storytelling" className="text-sm text-[#A0AEC0] hover:text-[#9B59D0] transition-colors duration-200" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>
+                  Scientific Storytelling
+                </a>
+              </li>
             </ul>
           </div>
 
+          {/* Applications */}
           <div>
-            <h4
-              style={{
-                fontFamily: "'Red Hat Display', sans-serif",
-                fontSize: '14px',
-                fontWeight: '500',
-                color: 'var(--bmv-text-heading)',
-                marginBottom: 'var(--space-4)',
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em'
-              }}
-            >
+            <h3 className="text-[#E2E8F0] font-medium text-sm mb-4 uppercase tracking-wider" style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: 500 }}>
               Applications
-            </h4>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
-              {applications.map((application, index) => (
-                <li key={index}>
-                  <a
-                    href="#"
-                    className="footer-link"
-                    style={{
-                      fontFamily: "'Red Hat Text', sans-serif",
-                      fontSize: '14px',
-                      fontWeight: '400',
-                      color: 'var(--bmv-text-secondary)'
-                    }}
-                  >
-                    {application}
-                  </a>
-                </li>
-              ))}
+            </h3>
+            <ul className="space-y-3">
+              <li>
+                <a href="#fundraising" className="text-sm text-[#A0AEC0] hover:text-[#9B59D0] transition-colors duration-200" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>
+                  Series A/B/C Fundraising
+                </a>
+              </li>
+              <li>
+                <a href="#investor" className="text-sm text-[#A0AEC0] hover:text-[#9B59D0] transition-colors duration-200" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>
+                  Investor Communications
+                </a>
+              </li>
+              <li>
+                <a href="#bd" className="text-sm text-[#A0AEC0] hover:text-[#9B59D0] transition-colors duration-200" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>
+                  BD Partnerships
+                </a>
+              </li>
+              <li>
+                <a href="#fda" className="text-sm text-[#A0AEC0] hover:text-[#9B59D0] transition-colors duration-200" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>
+                  FDA Presentations
+                </a>
+              </li>
+              <li>
+                <a href="#conferences" className="text-sm text-[#A0AEC0] hover:text-[#9B59D0] transition-colors duration-200" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>
+                  Conference Launches
+                </a>
+              </li>
+              <li>
+                <a href="#sales" className="text-sm text-[#A0AEC0] hover:text-[#9B59D0] transition-colors duration-200" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>
+                  Sales Enablement
+                </a>
+              </li>
             </ul>
           </div>
 
+          {/* Company */}
           <div>
-            <h4
-              style={{
-                fontFamily: "'Red Hat Display', sans-serif",
-                fontSize: '14px',
-                fontWeight: '500',
-                color: 'var(--bmv-text-heading)',
-                marginBottom: 'var(--space-4)',
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em'
-              }}
-            >
+            <h3 className="text-[#E2E8F0] font-medium text-sm mb-4 uppercase tracking-wider" style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: 500 }}>
               Company
-            </h4>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
-              {links.map((link, index) => (
-                <li key={index}>
-                  <a
-                    href={link.href}
-                    className="footer-link"
-                    style={{
-                      fontFamily: "'Red Hat Text', sans-serif",
-                      fontSize: '14px',
-                      fontWeight: '400',
-                      color: 'var(--bmv-text-secondary)'
-                    }}
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+            </h3>
+            <ul className="space-y-3">
+              <li>
+                <a href="#terms" className="text-sm text-[#A0AEC0] hover:text-[#9B59D0] transition-colors duration-200" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>
+                  Terms of Service
+                </a>
+              </li>
+              <li>
+                <a href="#privacy" className="text-sm text-[#A0AEC0] hover:text-[#9B59D0] transition-colors duration-200" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a href="#join" className="text-sm text-[#A0AEC0] hover:text-[#9B59D0] transition-colors duration-200" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>
+                  Join Us
+                </a>
+              </li>
             </ul>
           </div>
         </div>
 
-        <div
-          style={{
-            paddingTop: 'var(--space-6)',
-            borderTop: '1px solid var(--bmv-text-secondary)',
-            textAlign: 'center'
-          }}
-        >
-          <p
-            style={{
-              fontFamily: "'Red Hat Text', sans-serif",
-              fontSize: '14px',
-              fontWeight: '300',
-              color: 'var(--bmv-text-heading)'
-            }}
-          >
-            © 2025 Biomol Visual | Clarity in Every MOA.
-          </p>
+        {/* Bottom Bar */}
+        <div className="border-t border-[#9B59D0]/20 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <p className="text-sm text-[#718096]" style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: 300 }}>
+              © 2025 Biomol Visual | Clarity in Every MOA.
+            </p>
+
+            {/* Social Icons */}
+            <div className="flex gap-4">
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-[#ED8936]/20 border border-[#ED8936]/40 flex items-center justify-center transition-all duration-300 hover:bg-[#ED8936] hover:border-[#ED8936] hover:shadow-[0_0_20px_rgba(237,137,54,0.5)] group"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5 text-[#ED8936] transition-colors duration-300 group-hover:text-white" />
+              </a>
+
+              <a
+                href="https://x.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-[#ED8936]/20 border border-[#ED8936]/40 flex items-center justify-center transition-all duration-300 hover:bg-[#ED8936] hover:border-[#ED8936] hover:shadow-[0_0_20px_rgba(237,137,54,0.5)] group"
+                aria-label="X"
+              >
+                <svg className="w-5 h-5 text-[#ED8936] transition-colors duration-300 group-hover:text-white" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </a>
+
+              <a
+                href="https://youtube.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-[#ED8936]/20 border border-[#ED8936]/40 flex items-center justify-center transition-all duration-300 hover:bg-[#ED8936] hover:border-[#ED8936] hover:shadow-[0_0_20px_rgba(237,137,54,0.5)] group"
+                aria-label="YouTube"
+              >
+                <Youtube className="w-5 h-5 text-[#ED8936] transition-colors duration-300 group-hover:text-white" />
+              </a>
+
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-[#ED8936]/20 border border-[#ED8936]/40 flex items-center justify-center transition-all duration-300 hover:bg-[#ED8936] hover:border-[#ED8936] hover:shadow-[0_0_20px_rgba(237,137,54,0.5)] group"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-5 h-5 text-[#ED8936] transition-colors duration-300 group-hover:text-white" />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

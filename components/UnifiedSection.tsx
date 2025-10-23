@@ -378,11 +378,9 @@ export default function UnifiedSection() {
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.background = 'var(--bmv-surface-2)';
-                      e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.3)';
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.background = 'var(--bmv-surface)';
-                      e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.1)';
                     }}
                   >
                     <div style={{ position: 'relative', zIndex: 1 }}>

@@ -61,7 +61,7 @@ export default function SecuritySection() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="security-card"
+              className="security-card phase-card"
               style={{
                 padding: 'var(--space-5)',
                 background: 'rgba(30, 30, 40, 0.4)',

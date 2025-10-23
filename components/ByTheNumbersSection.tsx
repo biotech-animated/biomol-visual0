@@ -133,11 +133,9 @@ export default function ByTheNumbersSection() {
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.background = 'rgba(30, 30, 40, 0.6)';
-                  e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.3)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.background = 'rgba(30, 30, 40, 0.4)';
-                  e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.1)';
                 }}
               >
                 <div

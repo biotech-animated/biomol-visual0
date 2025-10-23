@@ -481,26 +481,26 @@ export default function UnifiedSection() {
                 width: '48px',
                 height: '48px',
                 borderRadius: '50%',
-                background: 'var(--bmv-surface)',
-                border: '1px solid rgba(183, 148, 246, 0.3)',
+                background: 'rgba(26, 32, 44, 0.9)',
+                backdropFilter: 'blur(10px)',
+                WebkitBackdropFilter: 'blur(10px)',
+                border: '1px solid rgba(255, 255, 255, 0.3)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 cursor: 'pointer',
-                transition: 'all 250ms',
+                transition: 'all 500ms',
                 color: 'var(--bmv-text)'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'var(--bmv-purple)';
-                e.currentTarget.style.borderColor = 'var(--bmv-purple)';
+                e.currentTarget.style.background = 'rgba(139, 92, 246, 0.2)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'var(--bmv-surface)';
-                e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.3)';
+                e.currentTarget.style.background = 'rgba(26, 32, 44, 0.9)';
               }}
               aria-label="Previous testimonial"
             >
-              <ChevronLeft size={24} />
+              <ChevronLeft size={20} />
             </button>
 
             <button
@@ -515,26 +515,26 @@ export default function UnifiedSection() {
                 width: '48px',
                 height: '48px',
                 borderRadius: '50%',
-                background: 'var(--bmv-surface)',
-                border: '1px solid rgba(183, 148, 246, 0.3)',
+                background: 'rgba(26, 32, 44, 0.9)',
+                backdropFilter: 'blur(10px)',
+                WebkitBackdropFilter: 'blur(10px)',
+                border: '1px solid rgba(255, 255, 255, 0.3)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 cursor: 'pointer',
-                transition: 'all 250ms',
+                transition: 'all 500ms',
                 color: 'var(--bmv-text)'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'var(--bmv-purple)';
-                e.currentTarget.style.borderColor = 'var(--bmv-purple)';
+                e.currentTarget.style.background = 'rgba(139, 92, 246, 0.2)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'var(--bmv-surface)';
-                e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.3)';
+                e.currentTarget.style.background = 'rgba(26, 32, 44, 0.9)';
               }}
               aria-label="Next testimonial"
             >
-              <ChevronRight size={24} />
+              <ChevronRight size={20} />
             </button>
           </div>
         </div>
@@ -774,26 +774,26 @@ export default function UnifiedSection() {
                 width: '48px',
                 height: '48px',
                 borderRadius: '50%',
-                background: 'var(--bmv-surface)',
-                border: '1px solid rgba(183, 148, 246, 0.3)',
+                background: 'rgba(26, 32, 44, 0.9)',
+                backdropFilter: 'blur(10px)',
+                WebkitBackdropFilter: 'blur(10px)',
+                border: '1px solid rgba(255, 255, 255, 0.3)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 cursor: 'pointer',
-                transition: 'all 250ms',
+                transition: 'all 500ms',
                 color: 'var(--bmv-text)'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'var(--bmv-purple)';
-                e.currentTarget.style.borderColor = 'var(--bmv-purple)';
+                e.currentTarget.style.background = 'rgba(139, 92, 246, 0.2)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'var(--bmv-surface)';
-                e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.3)';
+                e.currentTarget.style.background = 'rgba(26, 32, 44, 0.9)';
               }}
               aria-label="Previous team member"
             >
-              <ChevronLeft size={24} />
+              <ChevronLeft size={20} />
             </button>
 
             <button
@@ -808,26 +808,26 @@ export default function UnifiedSection() {
                 width: '48px',
                 height: '48px',
                 borderRadius: '50%',
-                background: 'var(--bmv-surface)',
-                border: '1px solid rgba(183, 148, 246, 0.3)',
+                background: 'rgba(26, 32, 44, 0.9)',
+                backdropFilter: 'blur(10px)',
+                WebkitBackdropFilter: 'blur(10px)',
+                border: '1px solid rgba(255, 255, 255, 0.3)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 cursor: 'pointer',
-                transition: 'all 250ms',
+                transition: 'all 500ms',
                 color: 'var(--bmv-text)'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'var(--bmv-purple)';
-                e.currentTarget.style.borderColor = 'var(--bmv-purple)';
+                e.currentTarget.style.background = 'rgba(139, 92, 246, 0.2)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'var(--bmv-surface)';
-                e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.3)';
+                e.currentTarget.style.background = 'rgba(26, 32, 44, 0.9)';
               }}
               aria-label="Next team member"
             >
-              <ChevronRight size={24} />
+              <ChevronRight size={20} />
             </button>
           </div>
         </div>

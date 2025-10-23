@@ -314,15 +314,15 @@ export default function TestimonialsSection() {
                   <div className="bg-gray-850/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-2xl border border-white transition-all duration-500 min-h-[400px] md:h-[500px] flex flex-col">
                     <div className="flex flex-col lg:flex-row gap-6 md:gap-8 flex-1">
                       {/* Left Side - Company Info & Quote */}
-                      <div className="flex-1 flex flex-col justify-between">
-                        <div>
+                      <div className="flex-1 flex flex-col justify-center items-center text-center px-8">
+                        <div className="flex flex-col items-center">
                           {/* Company Logo and Info */}
-                          <div className="flex items-center mb-6">
-                            <div className="backdrop-blur-sm rounded-lg flex items-center justify-center max-w-[140px] h-[39px] md:h-[52.83px] flex-shrink-0 mr-4">
-                              <img 
-                                src={testimonial.logo} 
+                          <div className="flex items-center justify-center mb-6">
+                            <div className="backdrop-blur-sm rounded-lg flex items-center justify-center flex-shrink-0">
+                              <img
+                                src={testimonial.logo}
                                 alt={`${testimonial.company} logo`}
-                                className="h-[32px] md:h-[40px] w-auto max-w-full object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity duration-300"
+                                className="h-[64px] md:h-[80px] w-auto max-w-full object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity duration-300"
                                 onError={(e) => {
                                   const target = e.target as HTMLImageElement;
                                   target.style.display = 'none';
@@ -330,7 +330,7 @@ export default function TestimonialsSection() {
                               />
                             </div>
                           </div>
-                          
+
                           <blockquote className="text-responsive-md text-gray-200" style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: '500' }}>
                             "{testimonial.brief}"
                           </blockquote>
@@ -345,7 +345,7 @@ export default function TestimonialsSection() {
                             <svg className="w-16 h-16 text-purple-500" fill="currentColor" viewBox="0 0 24 24">
                               <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
                             </svg>
-                            <div style={{ fontFamily: "'Red Hat Text', sans-serif", fontSize: '16px', fontWeight: '400', lineHeight: '1.6' }} className="text-gray-300 text-left overflow-y-auto h-[280px]">{testimonial.quote}</div>
+                            <div style={{ fontFamily: "'Red Hat Text', sans-serif", fontSize: '16px', fontWeight: '400', lineHeight: '1.6' }} className="text-gray-300 text-left overflow-y-auto h-[280px] pr-4 testimonial-scroll">{testimonial.quote}</div>
                           </div>
                         </div>
 

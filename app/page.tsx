@@ -19,14 +19,6 @@ export default function Home() {
       <Navigation />
       <HeroSection />
       <DifferentiationSection />
-            <div
-        style={{
-          width: '100%',
-          height: '1px',
-          background: 'linear-gradient(to right, transparent, #B794F6, transparent)',
-          margin: '0 auto'
-        }}
-      />
       <ShowReelSection />
       <ByTheNumbersSection />
       <UnifiedSection />

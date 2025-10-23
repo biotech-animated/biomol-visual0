@@ -470,68 +470,16 @@ export default function UnifiedSection() {
             </Swiper>
 
             <button
-              className="swiper-button-prev-testimonials"
+              className="swiper-button-prev-testimonials absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-gray-850/90 hover:bg-purple-500/20 border border-white rounded-full flex items-center justify-center transition-all duration-500 backdrop-blur-sm"
               onClick={() => testimonialsSwiperRef.current?.slidePrev()}
-              style={{
-                position: 'absolute',
-                left: '-20px',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                zIndex: 10,
-                width: '48px',
-                height: '48px',
-                borderRadius: '50%',
-                background: 'rgba(26, 32, 44, 0.9)',
-                backdropFilter: 'blur(10px)',
-                WebkitBackdropFilter: 'blur(10px)',
-                border: '1px solid rgba(255, 255, 255, 0.3)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                transition: 'all 500ms',
-                color: 'var(--bmv-text)'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'rgba(139, 92, 246, 0.2)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'rgba(26, 32, 44, 0.9)';
-              }}
               aria-label="Previous testimonial"
             >
               <ChevronLeft size={20} />
             </button>
 
             <button
-              className="swiper-button-next-testimonials"
+              className="swiper-button-next-testimonials absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-gray-850/90 hover:bg-purple-500/20 border border-white rounded-full flex items-center justify-center transition-all duration-500 backdrop-blur-sm"
               onClick={() => testimonialsSwiperRef.current?.slideNext()}
-              style={{
-                position: 'absolute',
-                right: '-20px',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                zIndex: 10,
-                width: '48px',
-                height: '48px',
-                borderRadius: '50%',
-                background: 'rgba(26, 32, 44, 0.9)',
-                backdropFilter: 'blur(10px)',
-                WebkitBackdropFilter: 'blur(10px)',
-                border: '1px solid rgba(255, 255, 255, 0.3)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                transition: 'all 500ms',
-                color: 'var(--bmv-text)'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'rgba(139, 92, 246, 0.2)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'rgba(26, 32, 44, 0.9)';
-              }}
               aria-label="Next testimonial"
             >
               <ChevronRight size={20} />
@@ -763,68 +711,16 @@ export default function UnifiedSection() {
             </Swiper>
 
             <button
-              className="swiper-button-prev-team"
+              className="swiper-button-prev-team absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-gray-850/90 hover:bg-purple-500/20 border border-white rounded-full flex items-center justify-center transition-all duration-500 backdrop-blur-sm"
               onClick={() => teamSwiperRef.current?.slidePrev()}
-              style={{
-                position: 'absolute',
-                left: '-20px',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                zIndex: 10,
-                width: '48px',
-                height: '48px',
-                borderRadius: '50%',
-                background: 'rgba(26, 32, 44, 0.9)',
-                backdropFilter: 'blur(10px)',
-                WebkitBackdropFilter: 'blur(10px)',
-                border: '1px solid rgba(255, 255, 255, 0.3)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                transition: 'all 500ms',
-                color: 'var(--bmv-text)'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'rgba(139, 92, 246, 0.2)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'rgba(26, 32, 44, 0.9)';
-              }}
               aria-label="Previous team member"
             >
               <ChevronLeft size={20} />
             </button>
 
             <button
-              className="swiper-button-next-team"
+              className="swiper-button-next-team absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-gray-850/90 hover:bg-purple-500/20 border border-white rounded-full flex items-center justify-center transition-all duration-500 backdrop-blur-sm"
               onClick={() => teamSwiperRef.current?.slideNext()}
-              style={{
-                position: 'absolute',
-                right: '-20px',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                zIndex: 10,
-                width: '48px',
-                height: '48px',
-                borderRadius: '50%',
-                background: 'rgba(26, 32, 44, 0.9)',
-                backdropFilter: 'blur(10px)',
-                WebkitBackdropFilter: 'blur(10px)',
-                border: '1px solid rgba(255, 255, 255, 0.3)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                transition: 'all 500ms',
-                color: 'var(--bmv-text)'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'rgba(139, 92, 246, 0.2)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'rgba(26, 32, 44, 0.9)';
-              }}
               aria-label="Next team member"
             >
               <ChevronRight size={20} />

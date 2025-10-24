@@ -351,7 +351,7 @@ export default function SlabPackages() {
                 lineHeight: '1.7'
               }}
             >
-              Your exact molecular or biologic structure. Your specific MOA. Built for use cases where complete scientific accuracy is important.
+              Your exact molecular or biologic structure. Built for use cases where complete scientific accuracy is important.
             </p>
 
             <div className="mb-8">

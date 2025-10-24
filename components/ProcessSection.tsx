@@ -56,18 +56,35 @@ export default function ProcessSection() {
                 background: 'var(--bmv-surface)',
                 borderRadius: '12px',
                 border: '1px solid rgba(183, 148, 246, 0.1)',
-                transition: 'all 250ms cubic-bezier(0.2, 0.8, 0.2, 1)',
+                transition: index === 0
+                  ? 'all 500ms cubic-bezier(0.2, 0.8, 0.2, 1)'
+                  : 'all 250ms cubic-bezier(0.2, 0.8, 0.2, 1)',
                 cursor: 'pointer',
                 position: 'relative',
-                overflow: 'hidden'
+                overflow: 'hidden',
+                ...(index === 0 && {
+                  boxShadow: '0 0 0 0 rgba(255, 107, 53, 0)'
+                })
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'var(--bmv-surface-2)';
-                e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.3)';
+                if (index === 0) {
+                  e.currentTarget.style.background = 'var(--bmv-surface-2)';
+                  e.currentTarget.style.borderColor = 'rgba(255, 107, 53, 0.2)';
+                  e.currentTarget.style.boxShadow = '0 0 30px 8px rgba(255, 107, 53, 0.4), 0 0 60px 20px rgba(255, 107, 53, 0.2), 0 0 90px 35px rgba(255, 107, 53, 0.1)';
+                } else {
+                  e.currentTarget.style.background = 'var(--bmv-surface-2)';
+                  e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.3)';
+                }
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'var(--bmv-surface)';
-                e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.1)';
+                if (index === 0) {
+                  e.currentTarget.style.background = 'var(--bmv-surface)';
+                  e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.1)';
+                  e.currentTarget.style.boxShadow = '0 0 0 0 rgba(255, 107, 53, 0)';
+                } else {
+                  e.currentTarget.style.background = 'var(--bmv-surface)';
+                  e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.1)';
+                }
               }}
             >
               <div

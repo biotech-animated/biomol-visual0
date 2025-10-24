@@ -3,9 +3,11 @@
 import { ArrowRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import VideoLightbox from './VideoLightbox';
 
 export default function HeroSection() {
   const [isHovered, setIsHovered] = useState(false);
+  const [showVideoLightbox, setShowVideoLightbox] = useState(false);
 
   useEffect(() => {
     const script1 = document.createElement('script');
@@ -73,8 +75,8 @@ export default function HeroSection() {
           </p>
 
           <div className="flex flex-row gap-6 items-center">
-            <Link
-                  href="/case-studies"
+            <button
+                  onClick={() => setShowVideoLightbox(true)}
                   className="group"
                   style={{
                     fontFamily: "'Red Hat Display', sans-serif",
@@ -116,7 +118,7 @@ export default function HeroSection() {
                   >
                     <ArrowRight size={20} />
                   </div>
-                </Link>
+                </button>
 
                 <Link
                   href="/contact"
@@ -199,6 +201,12 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
+
+      <VideoLightbox
+        isOpen={showVideoLightbox}
+        onClose={() => setShowVideoLightbox(false)}
+        videoUrl="https://www.youtube.com/watch?v=UvMDknsBp9E"
+      />
     </section>
   );
 }

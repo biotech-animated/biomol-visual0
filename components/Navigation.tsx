@@ -47,11 +47,14 @@ export default function Navigation() {
               className="tracking-tight text-responsive-md"
               style={{
                 fontFamily: "'Red Hat Display', sans-serif",
-                fontWeight: '500'
+                fontWeight: '500',
+                background: 'linear-gradient(90deg, var(--bmv-purple) 0%, var(--bmv-orange) 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
               }}
             >
-              <span style={{ color: 'var(--bmv-purple)' }}>BIOMOL </span>
-              <span style={{ color: 'var(--bmv-orange)' }}>VISUAL</span>
+              BIOMOL VISUAL
             </span>
           </Link>
 

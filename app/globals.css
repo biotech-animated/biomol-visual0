@@ -343,7 +343,13 @@
     left: 0;
     width: 0%;
     height: 3px;
-    background: linear-gradient(90deg, var(--bmv-purple), var(--bmv-orange));
+    background: linear-gradient(90deg,
+      var(--bmv-purple) 0%,
+      var(--bmv-purple) 35%,
+      #C97DB8 50%,
+      #E89558 65%,
+      var(--bmv-orange) 100%
+    );
     z-index: 1000;
     transition: width 0.1s ease;
     box-shadow: 0 0 10px rgba(155, 89, 208, 0.5);

@@ -80,7 +80,7 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
               lineHeight: '1.7'
             }}
           >
-            We have a library of confidential case studies in the therapeutic areas listed below. To ensure we send you the most relevant examples, please select the field that is closest to your work.
+            We have a library of confidential case studies in the therapeutic areas listed below. To ensure we send you the most relevant example, please select the field that is closest to your work.
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-5">

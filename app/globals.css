@@ -306,13 +306,13 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: rgba(217, 123, 71, 0.3);
+    background: rgba(152, 86, 50, 0.7);
     border-radius: 4px;
     transition: all 0.3s ease;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(232, 149, 88, 0.5);
+    background: rgba(162, 104, 62, 0.7);
     box-shadow: 0 0 8px rgba(217, 123, 71, 0.4);
   }
 
@@ -327,7 +327,7 @@
   /* Firefox scrollbar styles */
   * {
     scrollbar-width: thin;
-    scrollbar-color: rgba(217, 123, 71, 0.3) var(--bmv-surface);
+    scrollbar-color: rgba(152, 86, 50, 0.7) var(--bmv-surface);
   }
 
   /* Enhanced smooth scrolling */

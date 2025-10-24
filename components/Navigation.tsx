@@ -37,7 +37,7 @@ export default function Navigation() {
         transition: 'all 500ms cubic-bezier(0.4, 0, 0.2, 1)'
       }}
     >
-      <div className="container-responsive !max-w-[1500px]" style={{ paddingTop: 'var(--space-3)', paddingBottom: 'var(--space-3)' }}>
+      <div className="container-responsive !max-w-[1500px]" style={{ paddingTop: 'var(--space-4)', paddingBottom: 'var(--space-4)' }}>
         <div className="flex items-center justify-between">
           <Link
             href="/"
@@ -60,7 +60,7 @@ export default function Navigation() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="nav-link"
+                className={item.isButton ? '' : 'nav-link'}
                 style={{
                   fontFamily: "'Red Hat Display', sans-serif",
                   fontWeight: '500',
@@ -72,19 +72,19 @@ export default function Navigation() {
                   ...(item.isButton && {
                     padding: '8px 20px',
                     borderRadius: '20px',
-                    border: '1px solid rgba(183, 148, 246, 0.5)',
+                    border: '2px solid rgba(183, 148, 246, 0.7)',
                     transition: 'all 250ms cubic-bezier(0.2, 0.8, 0.2, 1)'
                   })
                 }}
                 onMouseEnter={(e) => {
                   if (item.isButton) {
-                    e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.8)';
+                    e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 1)';
                     e.currentTarget.style.background = 'rgba(183, 148, 246, 0.15)';
                   }
                 }}
                 onMouseLeave={(e) => {
                   if (item.isButton) {
-                    e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.5)';
+                    e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.7)';
                     e.currentTarget.style.background = 'transparent';
                   }
                 }}
@@ -125,7 +125,7 @@ export default function Navigation() {
                   key={item.label}
                   href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-left nav-link"
+                  className={item.isButton ? 'text-left' : 'text-left nav-link'}
                   style={{
                     fontFamily: "'Red Hat Display', sans-serif",
                     fontWeight: '500',
@@ -137,7 +137,7 @@ export default function Navigation() {
                     ...(item.isButton && {
                       padding: '8px 20px',
                       borderRadius: '20px',
-                      border: '1px solid rgba(183, 148, 246, 0.5)',
+                      border: '2px solid rgba(183, 148, 246, 0.7)',
                       width: 'fit-content'
                     })
                   }}

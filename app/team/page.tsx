@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Navigation from '@/components/Navigation';
+import ScrollProgress from '@/components/ScrollProgress';
 import Footer from '@/components/Footer';
 import TeamHero from '@/components/team/TeamHero';
 import TeamMemberProfile from '@/components/team/TeamMemberProfile';
@@ -29,6 +30,7 @@ export default function TeamPage() {
 
   return (
     <div className="min-h-screen bg-[#1B0A2E]">
+      <ScrollProgress />
       <Navigation />
 
       <main>

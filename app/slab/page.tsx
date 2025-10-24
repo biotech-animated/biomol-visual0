@@ -1,5 +1,6 @@
 "use client";
 import Navigation from '@/components/Navigation';
+import ScrollProgress from '@/components/ScrollProgress';
 import Footer from '@/components/Footer';
 import SlabHero from '@/components/slab/SlabHero';
 import TrustBar from '@/components/slab/TrustBar';
@@ -15,6 +16,7 @@ import SlabCta from '@/components/slab/SlabCta';
 export default function SlabPage() {
   return (
     <div className="min-h-screen bg-[#1B0A2E]">
+      <ScrollProgress />
       <Navigation />
 
       <main>

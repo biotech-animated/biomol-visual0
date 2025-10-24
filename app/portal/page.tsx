@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Navigation from '@/components/Navigation';
+import ScrollProgress from '@/components/ScrollProgress';
 import Footer from '@/components/Footer';
 import { Lock } from 'lucide-react';
 
@@ -34,6 +35,7 @@ export default function ClientPortalPage() {
   if (isAuthenticated || (typeof window !== 'undefined' && sessionStorage.getItem('clientPortalAuth') === 'true')) {
     return (
       <div className="min-h-screen" style={{ background: 'var(--bmv-bg)' }}>
+        <ScrollProgress />
         <Navigation />
         <div style={{ paddingTop: '120px', paddingBottom: 'var(--space-11)' }}>
           <div className="max-w-6xl mx-auto px-6">
@@ -149,6 +151,7 @@ export default function ClientPortalPage() {
 
   return (
     <div className="min-h-screen" style={{ background: 'var(--bmv-bg)' }}>
+      <ScrollProgress />
       <Navigation />
       <div
         className="min-h-screen flex items-center justify-center"

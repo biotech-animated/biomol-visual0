@@ -134,9 +134,14 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-[#9B59D0]/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <p className="text-sm text-[#718096]" style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: 300 }}>
-              © 2025 Biomol Visual | Clarity in Every MOA.
-            </p>
+            <div className="flex flex-col gap-1">
+              <p className="text-sm text-[#718096]" style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: 300 }}>
+                © 2025 Biomol Visual | Clarity in Every MOA
+              </p>
+              <p className="text-xs text-[#5A5A70]" style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: 300 }}>
+                All Web And Content Designed Exclusively By Biomol Visual All Rights Reserved
+              </p>
+            </div>
 
             {/* Social Icons */}
             <div className="flex gap-4">

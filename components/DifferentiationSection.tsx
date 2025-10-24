@@ -76,7 +76,7 @@ export default function DifferentiationSection() {
                   </p>
                 </div>
 
-                <p className="text-responsive-sm pb-6" style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: '400', color: 'var(--bmv-purple-light)' }}>
+                <p className="text-responsive-sm md:pb-0 pb-6" style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: '400', color: 'var(--bmv-purple-light)' }}>
                   Just a smarter process. And a more powerful result.
                 </p>
               </div>

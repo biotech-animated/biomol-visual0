@@ -20,11 +20,15 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
   useEffect(() => {
     if (isOpen) {
       setIsVisible(true);
+      // Disable body scroll when form is open
+      document.body.style.overflow = 'hidden';
       // Small delay to ensure DOM is ready before starting animation
       const timer = setTimeout(() => setIsAnimating(true), 10);
       return () => clearTimeout(timer);
     } else {
       setIsAnimating(false);
+      // Re-enable body scroll when form closes
+      document.body.style.overflow = '';
       const timer = setTimeout(() => setIsVisible(false), 300);
       return () => clearTimeout(timer);
     }

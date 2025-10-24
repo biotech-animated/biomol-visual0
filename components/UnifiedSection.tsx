@@ -380,84 +380,82 @@ export default function UnifiedSection() {
                       e.currentTarget.style.background = 'var(--bmv-surface)';
                     }}
                   >
-                      <div className="flex flex-col lg:flex-row gap-6 h-full">
-                        <div className="flex-1 flex flex-col justify-between">
-                          <div>
-                            <div className="flex items-center" style={{ marginBottom: 'var(--space-3)' }}>
-                              <div className="rounded-lg flex items-center justify-center max-w-[180px] h-[60px]">
-                                <img
-                                  src={testimonial.logo}
-                                  alt={`${testimonial.company} logo`}
-                                  className="h-[48px] w-auto max-w-full object-contain filter brightness-0 invert opacity-80"
-                                  onError={(e) => {
-                                    const target = e.target as HTMLImageElement;
-                                    target.style.display = 'none';
-                                  }}
-                                />
-                              </div>
-                            </div>
-
-                            <blockquote
-                              className="text-responsive-md"
-                              style={{
-                                fontFamily: "'Red Hat Display', sans-serif",
-                                fontWeight: '400',
-                                color: 'var(--bmv-text-heading)',
-                                lineHeight: '1.2'
+                    <div className="flex flex-col lg:flex-row gap-6 h-full">
+                      <div className="flex-1 flex flex-col h-full">
+                        <div className="flex items-center ml-2" style={{ marginBottom: 'var(--space-3)' }}>
+                          <div className="rounded-lg flex items-center justify-center max-w-[200px]">
+                            <img
+                              src={testimonial.logo}
+                              alt={`${testimonial.company} logo`}
+                              className="h-[60px] w-auto max-w-full object-contain filter brightness-0 invert opacity-80"
+                              onError={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                target.style.display = 'none';
                               }}
-                            >
-                              &quot;{testimonial.brief}&quot;
-                            </blockquote>
+                            />
                           </div>
                         </div>
 
-                        <div className="flex-1 flex flex-col justify-between h-full">
-                          <div style={{ marginBottom: 'var(--space-4)' }}>
-                            <p
-                              style={{
-                                fontFamily: "'Red Hat Text', sans-serif",
-                                fontSize: '16px',
-                                fontWeight: '400',
-                                lineHeight: '1.6',
-                                color: 'var(--bmv-text)',
-                                maxHeight: '280px',
-                                overflowY: 'auto'
-                              }}
-                            >
-                              {testimonial.quote}
-                            </p>
-                          </div>
+                        <blockquote
+                          className="text-responsive-md mt-10"
+                          style={{
+                            fontFamily: "'Red Hat Display', sans-serif",
+                            fontWeight: '400',
+                            color: 'var(--bmv-text-heading)',
+                            lineHeight: '1.2'
+                          }}
+                        >
+                          &quot;{testimonial.brief}&quot;
+                        </blockquote>
+                      </div>
 
-                          <div
+                      <div className="flex-1 flex flex-col justify-between h-full">
+                        <div style={{ marginBottom: 'var(--space-4)' }}>
+                          <p
                             style={{
-                              borderTop: '1px solid rgba(183, 148, 246, 0.2)',
-                              paddingTop: 'var(--space-4)'
+                              fontFamily: "'Red Hat Text', sans-serif",
+                              fontSize: '16px',
+                              fontWeight: '400',
+                              lineHeight: '1.6',
+                              color: 'var(--bmv-text)',
+                              maxHeight: '280px',
+                              overflowY: 'auto'
                             }}
                           >
-                            <div
-                              style={{
-                                fontFamily: "'Red Hat Text', sans-serif",
-                                fontSize: '16px',
-                                fontWeight: '400',
-                                color: 'var(--bmv-text-heading)'
-                              }}
-                            >
-                              {testimonial.author}
-                            </div>
-                            <div
-                              style={{
-                                fontFamily: "'Red Hat Text', sans-serif",
-                                fontSize: '14px',
-                                fontWeight: '300',
-                                color: 'var(--bmv-text-secondary)',
-                                marginTop: 'var(--space-1)'
-                              }}
-                            >
-                              {testimonial.title}
-                            </div>
+                            {testimonial.quote}
+                          </p>
+                        </div>
+
+                        <div
+                          style={{
+                            borderTop: '1px solid rgba(183, 148, 246, 0.2)',
+                            paddingTop: 'var(--space-4)'
+                          }}
+                        >
+                          <div
+                            style={{
+                              fontFamily: "'Red Hat Text', sans-serif",
+                              fontSize: '16px',
+                              fontWeight: '400',
+                              color: 'var(--bmv-text-heading)'
+                            }}
+                          >
+                            {testimonial.author}
+                          </div>
+                          <div
+                            style={{
+                              fontFamily: "'Red Hat Text', sans-serif",
+                              fontSize: '14px',
+                              fontWeight: '300',
+                              color: 'var(--bmv-text-secondary)',
+                              marginTop: 'var(--space-1)'
+                            }}
+                          >
+                            {testimonial.title}
                           </div>
                         </div>
                       </div>
+                    </div>
                   </div>
                 </SwiperSlide>
               ))}

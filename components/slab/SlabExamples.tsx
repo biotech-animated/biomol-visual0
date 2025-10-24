@@ -43,11 +43,11 @@ export default function SlabExamples() {
               />
             </div>
             <p
-              className="text-white text-center mt-4"
+              className="text-gray-400 text-center mt-4"
               style={{
                 fontFamily: "'Red Hat Display', sans-serif",
-                fontSize: '26px',
-                fontWeight: 500
+                fontSize: '20px',
+                fontWeight: 400
               }}
             >
               Receptor-Mediated Endocytosis and Endosomal Escape
@@ -72,11 +72,11 @@ export default function SlabExamples() {
               />
             </div>
             <p
-              className="text-white text-center mt-4"
+              className="text-gray-400 text-center mt-4"
               style={{
                 fontFamily: "'Red Hat Display', sans-serif",
-                fontSize: '26px',
-                fontWeight: 500
+                fontSize: '20px',
+                fontWeight: 400
               }}
             >
               CAR-T Activation, Tumor Cell Death, and Macrophage-Mediated Debris Clearance
@@ -101,11 +101,11 @@ export default function SlabExamples() {
               />
             </div>
             <p
-              className="text-white text-center mt-4"
+              className="text-gray-400 text-center mt-4"
               style={{
                 fontFamily: "'Red Hat Display', sans-serif",
-                fontSize: '26px',
-                fontWeight: 500
+                fontSize: '20px',
+                fontWeight: 400
               }}
             >
               Antibody-Bacteria Complex Isolation via Magnetic Bead

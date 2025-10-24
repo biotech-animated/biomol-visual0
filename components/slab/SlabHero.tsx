@@ -152,8 +152,8 @@ export default function SlabHero() {
                       whiteSpace: 'nowrap'
                     }}
                   >
-                    <span style={{ display: 'block' }}>15-minute consultation</span>
-                    <span style={{ display: 'block' }}>Custom quote in 24 hours</span>
+                    <span style={{ display: 'block' }}>15-minute call</span>
+                    <span style={{ display: 'block' }}>Takes 2 minutes to book</span>
                   </span>
                 </span>
                 <div

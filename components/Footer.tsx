@@ -138,7 +138,7 @@ export default function Footer() {
               <p className="text-sm text-[#718096]" style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: 300 }}>
                 © 2025 Biomol Visual | Clarity in Every MOA
               </p>
-              <p className="text-xs text-[#5A5A70]" style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: 300 }}>
+              <p className="text-xs text-[#8B92A8]" style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: 300 }}>
                 All Web And Content Designed Exclusively By Biomol Visual All Rights Reserved
               </p>
             </div>

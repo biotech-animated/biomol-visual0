@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, User } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -20,20 +20,21 @@ export default function Navigation() {
   }, []);
 
   const navItems = [
-    { label: 'Case Studies', href: '/case-studies' },
-    { label: 'Team', href: '/team' },
     { label: 'SLAB', href: '/slab' },
-    { label: 'Contact', href: '/contact' },
-    { label: 'Client Portal', href: '/portal' }
+    { label: 'Team', href: '/team' },
+    { label: 'Case Studies', href: '/case-studies' },
+    { label: 'Client Portal', href: '/portal', icon: true },
+    { label: 'Contact', href: '/contact', isButton: true }
   ];
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all ${
         isScrolled ? 'backdrop-blur-md shadow-lg' : ''
       }`}
       style={{
-        background: isScrolled ? 'rgba(26, 10, 46, 0.95)' : 'transparent'
+        background: isScrolled ? 'rgba(26, 10, 46, 0.7)' : 'transparent',
+        transition: 'all 500ms cubic-bezier(0.4, 0, 0.2, 1)'
       }}
     >
       <div className="container-responsive !max-w-[1500px]" style={{ paddingTop: 'var(--space-3)', paddingBottom: 'var(--space-3)' }}>
@@ -64,9 +65,31 @@ export default function Navigation() {
                   fontFamily: "'Red Hat Display', sans-serif",
                   fontWeight: '500',
                   color: pathname === item.href ? 'var(--bmv-purple-hover)' : 'var(--bmv-text)',
-                  fontSize: '16px'
+                  fontSize: '16px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  ...(item.isButton && {
+                    padding: '8px 20px',
+                    borderRadius: '20px',
+                    border: '1px solid rgba(183, 148, 246, 0.3)',
+                    transition: 'all 250ms cubic-bezier(0.2, 0.8, 0.2, 1)'
+                  })
+                }}
+                onMouseEnter={(e) => {
+                  if (item.isButton) {
+                    e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.6)';
+                    e.currentTarget.style.background = 'rgba(183, 148, 246, 0.05)';
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (item.isButton) {
+                    e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.3)';
+                    e.currentTarget.style.background = 'transparent';
+                  }
                 }}
               >
+                {item.icon && <User size={16} />}
                 {item.label}
               </Link>
             ))}
@@ -107,9 +130,19 @@ export default function Navigation() {
                     fontFamily: "'Red Hat Display', sans-serif",
                     fontWeight: '500',
                     color: pathname === item.href ? 'var(--bmv-purple-hover)' : 'var(--bmv-text)',
-                    fontSize: '16px'
+                    fontSize: '16px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    ...(item.isButton && {
+                      padding: '8px 20px',
+                      borderRadius: '20px',
+                      border: '1px solid rgba(183, 148, 246, 0.3)',
+                      width: 'fit-content'
+                    })
                   }}
                 >
+                  {item.icon && <User size={16} />}
                   {item.label}
                 </Link>
               ))}

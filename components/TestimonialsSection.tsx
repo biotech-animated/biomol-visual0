@@ -257,7 +257,7 @@ export default function TestimonialsSection() {
         background: '#1B0A2E'
       }}
     >
-      <div className="container-responsive">
+      <div className="container-responsive" style={{maxWidth: "1152px!important"}}>
         <div className="text-center mb-16">
           <h2 className="text-responsive-lg text-gray-200 mb-6" style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: '500' }}>What Our Clients Say</h2>
         </div>
@@ -318,7 +318,7 @@ export default function TestimonialsSection() {
                         <div>
                           {/* Company Logo and Info */}
                           <div className="flex items-center mb-6">
-                            <div className="backdrop-blur-sm rounded-lg flex items-center justify-center max-w-[140px] h-[39px] md:h-[52.83px] flex-shrink-0 mr-4">
+                            <div className="backdrop-blur-sm rounded-lg flex items-center justify-center max-w-[240px] h-[60px] md:h-[80px] flex-shrink-0 mr-4">
                               <img
                                 src={testimonial.logo}
                                 alt={`${testimonial.company} logo`}
@@ -332,7 +332,7 @@ export default function TestimonialsSection() {
                           </div>
 
                           <blockquote className="text-responsive-md text-gray-200" style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: '500' }}>
-                            "{testimonial.brief}"
+                            &quot;{testimonial.brief}&quot;
                           </blockquote>
                         </div>
                       </div>

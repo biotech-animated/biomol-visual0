@@ -176,11 +176,17 @@ export default function LeadCaptureModal({ isOpen, onClose }: LeadCaptureModalPr
                       borderRadius: '8px',
                       color: 'var(--bmv-text)',
                       fontSize: '16px',
-                      transition: 'border-color 200ms'
+                      transition: 'border-color 200ms ease, box-shadow 200ms ease'
                     }}
                     placeholder="John Doe"
-                    onFocus={(e) => e.currentTarget.style.borderColor = 'var(--bmv-purple-hover)'}
-                    onBlur={(e) => e.currentTarget.style.borderColor = 'var(--bmv-border)'}
+                    onFocus={(e) => {
+                      e.currentTarget.style.borderColor = 'var(--bmv-purple-hover)';
+                      e.currentTarget.style.boxShadow = '0 0 0 2px rgba(155, 89, 208, 0.2)';
+                    }}
+                    onBlur={(e) => {
+                      e.currentTarget.style.borderColor = 'var(--bmv-border)';
+                      e.currentTarget.style.boxShadow = 'none';
+                    }}
                   />
                 </div>
 
@@ -211,11 +217,17 @@ export default function LeadCaptureModal({ isOpen, onClose }: LeadCaptureModalPr
                       borderRadius: '8px',
                       color: 'var(--bmv-text)',
                       fontSize: '16px',
-                      transition: 'border-color 200ms'
+                      transition: 'border-color 200ms ease, box-shadow 200ms ease'
                     }}
                     placeholder="john@company.com"
-                    onFocus={(e) => e.currentTarget.style.borderColor = 'var(--bmv-purple-hover)'}
-                    onBlur={(e) => e.currentTarget.style.borderColor = 'var(--bmv-border)'}
+                    onFocus={(e) => {
+                      e.currentTarget.style.borderColor = 'var(--bmv-purple-hover)';
+                      e.currentTarget.style.boxShadow = '0 0 0 2px rgba(155, 89, 208, 0.2)';
+                    }}
+                    onBlur={(e) => {
+                      e.currentTarget.style.borderColor = 'var(--bmv-border)';
+                      e.currentTarget.style.boxShadow = 'none';
+                    }}
                   />
                 </div>
 
@@ -247,12 +259,18 @@ export default function LeadCaptureModal({ isOpen, onClose }: LeadCaptureModalPr
                       color: 'var(--bmv-text)',
                       fontSize: '16px',
                       resize: 'none',
-                      transition: 'border-color 200ms',
+                      transition: 'border-color 200ms ease, box-shadow 200ms ease',
                       fontFamily: "'Red Hat Text', sans-serif"
                     }}
                     placeholder="Tell us about your company, industry, and what you're looking to achieve..."
-                    onFocus={(e) => e.currentTarget.style.borderColor = 'var(--bmv-purple-hover)'}
-                    onBlur={(e) => e.currentTarget.style.borderColor = 'var(--bmv-border)'}
+                    onFocus={(e) => {
+                      e.currentTarget.style.borderColor = 'var(--bmv-purple-hover)';
+                      e.currentTarget.style.boxShadow = '0 0 0 2px rgba(155, 89, 208, 0.2)';
+                    }}
+                    onBlur={(e) => {
+                      e.currentTarget.style.borderColor = 'var(--bmv-border)';
+                      e.currentTarget.style.boxShadow = 'none';
+                    }}
                   />
                 </div>
 

@@ -347,16 +347,13 @@ export default function UnifiedSection() {
             </h2>
           </div>
 
-          <div className="relative">
+          <div className="relative max-w-5xl mx-auto">
             <Swiper
               modules={[Navigation]}
               spaceBetween={20}
               slidesPerView={1}
-              slidesPerGroup={1}
-              navigation={{
-                prevEl: '.swiper-button-prev-testimonials',
-                nextEl: '.swiper-button-next-testimonials',
-              }}
+              loop={false}
+              allowTouchMove={true}
               onSwiper={(swiper) => {
                 testimonialsSwiperRef.current = swiper;
               }}
@@ -364,7 +361,7 @@ export default function UnifiedSection() {
               {testimonials.map((testimonial) => (
                 <SwiperSlide key={testimonial.id}>
                   <div
-                    className="phase-card"
+                    className="phase-card w-full"
                     style={{
                       padding: 'var(--space-5)',
                       background: 'var(--bmv-surface)',
@@ -383,16 +380,15 @@ export default function UnifiedSection() {
                       e.currentTarget.style.background = 'var(--bmv-surface)';
                     }}
                   >
-                    <div style={{ position: 'relative', zIndex: 1 }}>
-                      <div className="flex flex-col lg:flex-row gap-6">
+                      <div className="flex flex-col lg:flex-row gap-6 h-full">
                         <div className="flex-1 flex flex-col justify-between">
                           <div>
-                            <div className="flex items-center" style={{ marginBottom: 'var(--space-4)' }}>
-                              <div className="rounded-lg flex items-center justify-center max-w-[140px] h-[40px]">
+                            <div className="flex items-center" style={{ marginBottom: 'var(--space-3)' }}>
+                              <div className="rounded-lg flex items-center justify-center max-w-[180px] h-[60px]">
                                 <img
                                   src={testimonial.logo}
                                   alt={`${testimonial.company} logo`}
-                                  className="h-[32px] w-auto max-w-full object-contain filter brightness-0 invert opacity-80"
+                                  className="h-[48px] w-auto max-w-full object-contain filter brightness-0 invert opacity-80"
                                   onError={(e) => {
                                     const target = e.target as HTMLImageElement;
                                     target.style.display = 'none';
@@ -406,15 +402,16 @@ export default function UnifiedSection() {
                               style={{
                                 fontFamily: "'Red Hat Display', sans-serif",
                                 fontWeight: '400',
-                                color: 'var(--bmv-text-heading)'
+                                color: 'var(--bmv-text-heading)',
+                                lineHeight: '1.2'
                               }}
                             >
-                              "{testimonial.brief}"
+                              &quot;{testimonial.brief}&quot;
                             </blockquote>
                           </div>
                         </div>
 
-                        <div className="flex-1 flex flex-col justify-between">
+                        <div className="flex-1 flex flex-col justify-between h-full">
                           <div style={{ marginBottom: 'var(--space-4)' }}>
                             <p
                               style={{
@@ -461,7 +458,6 @@ export default function UnifiedSection() {
                           </div>
                         </div>
                       </div>
-                    </div>
                   </div>
                 </SwiperSlide>
               ))}
@@ -469,7 +465,11 @@ export default function UnifiedSection() {
 
             <button
               className="swiper-button-prev-testimonials absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-gray-850/90 hover:bg-purple-500/20 border border-white rounded-full flex items-center justify-center transition-all duration-500 backdrop-blur-sm"
-              onClick={() => testimonialsSwiperRef.current?.slidePrev()}
+              onClick={() => {
+                if (testimonialsSwiperRef.current) {
+                  testimonialsSwiperRef.current.slidePrev();
+                }
+              }}
               aria-label="Previous testimonial"
             >
               <ChevronLeft size={20} />
@@ -477,7 +477,11 @@ export default function UnifiedSection() {
 
             <button
               className="swiper-button-next-testimonials absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-gray-850/90 hover:bg-purple-500/20 border border-white rounded-full flex items-center justify-center transition-all duration-500 backdrop-blur-sm"
-              onClick={() => testimonialsSwiperRef.current?.slideNext()}
+              onClick={() => {
+                if (testimonialsSwiperRef.current) {
+                  testimonialsSwiperRef.current.slideNext();
+                }
+              }}
               aria-label="Next testimonial"
             >
               <ChevronRight size={20} />
@@ -506,16 +510,13 @@ export default function UnifiedSection() {
             </p>
           </div>
 
-          <div className="relative">
+          <div className="relative max-w-5xl mx-auto">
             <Swiper
               modules={[Navigation]}
               spaceBetween={20}
               slidesPerView={1}
-              slidesPerGroup={1}
-              navigation={{
-                prevEl: '.swiper-button-prev-team',
-                nextEl: '.swiper-button-next-team',
-              }}
+              loop={false}
+              allowTouchMove={true}
               onSwiper={(swiper) => {
                 teamSwiperRef.current = swiper;
               }}
@@ -710,7 +711,11 @@ export default function UnifiedSection() {
 
             <button
               className="swiper-button-prev-team absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-gray-850/90 hover:bg-purple-500/20 border border-white rounded-full flex items-center justify-center transition-all duration-500 backdrop-blur-sm"
-              onClick={() => teamSwiperRef.current?.slidePrev()}
+              onClick={() => {
+                if (teamSwiperRef.current) {
+                  teamSwiperRef.current.slidePrev();
+                }
+              }}
               aria-label="Previous team member"
             >
               <ChevronLeft size={20} />
@@ -718,7 +723,11 @@ export default function UnifiedSection() {
 
             <button
               className="swiper-button-next-team absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-gray-850/90 hover:bg-purple-500/20 border border-white rounded-full flex items-center justify-center transition-all duration-500 backdrop-blur-sm"
-              onClick={() => teamSwiperRef.current?.slideNext()}
+              onClick={() => {
+                if (teamSwiperRef.current) {
+                  teamSwiperRef.current.slideNext();
+                }
+              }}
               aria-label="Next team member"
             >
               <ChevronRight size={20} />
@@ -840,7 +849,7 @@ export default function UnifiedSection() {
               lineHeight: '1.6'
             }}
           >
-            A process designed for total clarity, giving you a transparent, real-time view of your project's progress.
+            A process designed for total clarity, giving you a transparent, real-time view of your project&apos;s progress.
           </p>
         </div>
       </div>

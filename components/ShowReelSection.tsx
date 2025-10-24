@@ -9,7 +9,7 @@ export default function ShowReelSection() {
         background: '#1B0A2E'
       }}
     >
-      <div className="container-responsive w-full">
+      <div className="max-w-[1400px] px-8 md:px-16 w-full">
         <div
           className="text-center"
           style={{

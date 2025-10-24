@@ -108,7 +108,7 @@ export default function SlabExamples() {
                 fontWeight: 500
               }}
             >
-              Bacterial Sepsis
+              Antibody-Bacteria Complex Isolation via Magnetic Bead
             </p>
           </div>
         </div>

@@ -198,7 +198,7 @@ export default function ScientificTeamSection() {
                   <div className="flex flex-col gap-3 md:gap-4 order-2 md:order-2 lg:order-2">
                     <div>
                       <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium" style={{ marginBottom: 'var(--space-1)' }}>{member.name}</h3>
-                      <p className="text-sm sm:text-base md:text-lg lg:text-xl" style={{ color: 'var(--bmv-purple-light)', fontWeight: '500' }}>
+                      <p className="text-sm sm:text-base md:text-lg lg:text-xl" style={{ color: 'var(--bmv-orange)', fontWeight: '500' }}>
                         {member.title}
                       </p>
                     </div>

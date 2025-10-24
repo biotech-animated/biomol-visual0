@@ -55,7 +55,7 @@ export default function CompetitivePositioningSection() {
                 fontFamily: "'Red Hat Text', sans-serif",
                 fontWeight: '400',
                 lineHeight: '1.6',
-                color: 'var(--bmv-purple-light)'
+                color: 'var(--bmv-orange)'
               }}
             >
               A level of value the larger studios simply can't touch.

@@ -606,7 +606,7 @@ export default function UnifiedSection() {
                               className="text-responsive-sm"
                               style={{
                                 fontFamily: "'Red Hat Display', sans-serif",
-                                color: 'var(--bmv-purple-light)',
+                                color: 'var(--bmv-orange)',
                                 fontWeight: '400'
                               }}
                             >

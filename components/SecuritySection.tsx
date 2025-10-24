@@ -142,7 +142,7 @@ export default function SecuritySection() {
           <p style={{ fontWeight: '500', color: 'var(--bmv-text-heading)' }}>
             Not one breach. Not one leak. Not one sleepless night for our clients.
           </p>
-          <p style={{ color: 'var(--bmv-purple-light)', fontSize: '18px' }}>
+          <p style={{ color: 'var(--bmv-orange)', fontSize: '18px' }}>
             Your secret stays secret. Until you're ready to change the world.
           </p>
         </div>

@@ -148,7 +148,7 @@ export default function ByTheNumbersSection() {
                     className="text-responsive-xl"
                     style={{
                       fontWeight: '500',
-                      color: 'var(--bmv-purple-light)',
+                      color: 'var(--bmv-orange)',
                       marginBottom: 'var(--space-3)',
                       fontFamily: "'Red Hat Display', sans-serif"
                     }}

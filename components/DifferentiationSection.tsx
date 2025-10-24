@@ -51,7 +51,7 @@ export default function DifferentiationSection() {
                 </p>
 
                 <p style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: '400', color: 'var(--bmv-text-heading)' }}>
-                  We only do one thing: <span style={{ color: 'var(--bmv-purple-light)' }}>Visually explain the molecular and cellular science that gets you funded.</span> This singular focus is our advantage.
+                  We only do one thing: <span style={{ color: 'var(--bmv-orange)' }}>Visually explain the molecular and cellular science that gets you funded.</span> This singular focus is our advantage.
                 </p>
 
                 <p>
@@ -76,7 +76,7 @@ export default function DifferentiationSection() {
                   </p>
                 </div>
 
-                <p className="md:pb-0 pb-6 text-responsive-sm" style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: '400', color: 'var(--bmv-purple-light)' }}>
+                <p className="md:pb-0 pb-6 text-responsive-sm" style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: '400', color: 'var(--bmv-orange)' }}>
                   Just a smarter process. And a more powerful result.
                 </p>
               </div>

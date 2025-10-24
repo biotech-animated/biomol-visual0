@@ -22,11 +22,15 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
   useEffect(() => {
     if (isOpen) {
       setIsVisible(true);
+      // Disable body scroll when form is open
+      document.body.style.overflow = 'hidden';
       // Small delay to ensure DOM is ready before starting animation
       const timer = setTimeout(() => setIsAnimating(true), 10);
       return () => clearTimeout(timer);
     } else {
       setIsAnimating(false);
+      // Re-enable body scroll when form closes
+      document.body.style.overflow = '';
       const timer = setTimeout(() => setIsVisible(false), 300);
       return () => clearTimeout(timer);
     }
@@ -77,10 +81,11 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
               <label
-                className="block text-[#CCCCCC] mb-2"
+                className="block text-[#f5f5f5] mb-2"
                 style={{
                   fontFamily: "'Red Hat Text', sans-serif",
-                  fontSize: '14px'
+                  fontSize: '14px',
+                  fontWeight: 500
                 }}
               >
                 First Name *
@@ -90,7 +95,7 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
                 required
                 value={formData.firstName}
                 onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                className="w-full bg-[#1A1A1A] border border-[#333] rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none focus:ring-2 focus:ring-[#b12176]/20 transition-colors duration-200"
+                className="w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none focus:ring-2 focus:ring-[#b12176]/20 transition-colors duration-200"
                 style={{
                   fontFamily: "'Red Hat Text', sans-serif",
                   fontSize: '16px'
@@ -100,10 +105,11 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
 
             <div>
               <label
-                className="block text-[#CCCCCC] mb-2"
+                className="block text-[#f5f5f5] mb-2"
                 style={{
                   fontFamily: "'Red Hat Text', sans-serif",
-                  fontSize: '14px'
+                  fontSize: '14px',
+                  fontWeight: 500
                 }}
               >
                 Last Name *
@@ -113,7 +119,7 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
                 required
                 value={formData.lastName}
                 onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                className="w-full bg-[#1A1A1A] border border-[#333] rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none focus:ring-2 focus:ring-[#b12176]/20 transition-colors duration-200"
+                className="w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none focus:ring-2 focus:ring-[#b12176]/20 transition-colors duration-200"
                 style={{
                   fontFamily: "'Red Hat Text', sans-serif",
                   fontSize: '16px'
@@ -123,10 +129,11 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
 
             <div>
               <label
-                className="block text-[#CCCCCC] mb-2"
+                className="block text-[#f5f5f5] mb-2"
                 style={{
                   fontFamily: "'Red Hat Text', sans-serif",
-                  fontSize: '14px'
+                  fontSize: '14px',
+                  fontWeight: 500
                 }}
               >
                 Email *
@@ -136,7 +143,7 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
                 required
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full bg-[#1A1A1A] border border-[#333] rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none focus:ring-2 focus:ring-[#b12176]/20 transition-colors duration-200"
+                className="w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none focus:ring-2 focus:ring-[#b12176]/20 transition-colors duration-200"
                 style={{
                   fontFamily: "'Red Hat Text', sans-serif",
                   fontSize: '16px'
@@ -146,10 +153,11 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
 
             <div>
               <label
-                className="block text-[#CCCCCC] mb-2"
+                className="block text-[#f5f5f5] mb-2"
                 style={{
                   fontFamily: "'Red Hat Text', sans-serif",
-                  fontSize: '14px'
+                  fontSize: '14px',
+                  fontWeight: 500
                 }}
               >
                 Telephone Number
@@ -158,7 +166,7 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
                 type="tel"
                 value={formData.telephone}
                 onChange={(e) => setFormData({ ...formData, telephone: e.target.value })}
-                className="w-full bg-[#1A1A1A] border border-[#333] rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none focus:ring-2 focus:ring-[#b12176]/20 transition-colors duration-200"
+                className="w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none focus:ring-2 focus:ring-[#b12176]/20 transition-colors duration-200"
                 style={{
                   fontFamily: "'Red Hat Text', sans-serif",
                   fontSize: '16px'
@@ -168,10 +176,11 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
 
             <div>
               <label
-                className="block text-[#CCCCCC] mb-2"
+                className="block text-[#f5f5f5] mb-2"
                 style={{
                   fontFamily: "'Red Hat Text', sans-serif",
-                  fontSize: '14px'
+                  fontSize: '14px',
+                  fontWeight: 500
                 }}
               >
                 I'm interested in *
@@ -180,10 +189,14 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
                 required
                 value={formData.interest}
                 onChange={(e) => setFormData({ ...formData, interest: e.target.value })}
-                className="w-full bg-[#1A1A1A] border border-[#333] rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none focus:ring-2 focus:ring-[#b12176]/20 transition-colors duration-200"
+                className="w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none focus:ring-2 focus:ring-[#b12176]/20 transition-colors duration-200 appearance-none"
                 style={{
                   fontFamily: "'Red Hat Text', sans-serif",
-                  fontSize: '16px'
+                  fontSize: '16px',
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23b12176' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")`,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundPosition: 'right 16px center',
+                  backgroundSize: '12px'
                 }}
               >
                 <option value="">Select an option</option>
@@ -198,10 +211,11 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
 
             <div>
               <label
-                className="block text-[#CCCCCC] mb-2"
+                className="block text-[#f5f5f5] mb-2"
                 style={{
                   fontFamily: "'Red Hat Text', sans-serif",
-                  fontSize: '14px'
+                  fontSize: '14px',
+                  fontWeight: 500
                 }}
               >
                 How did you hear about us?
@@ -209,10 +223,14 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
               <select
                 value={formData.hearAbout}
                 onChange={(e) => setFormData({ ...formData, hearAbout: e.target.value })}
-                className="w-full bg-[#1A1A1A] border border-[#333] rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none focus:ring-2 focus:ring-[#b12176]/20 transition-colors duration-200"
+                className="w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none focus:ring-2 focus:ring-[#b12176]/20 transition-colors duration-200 appearance-none"
                 style={{
                   fontFamily: "'Red Hat Text', sans-serif",
-                  fontSize: '16px'
+                  fontSize: '16px',
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23b12176' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")`,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundPosition: 'right 16px center',
+                  backgroundSize: '12px'
                 }}
               >
                 <option value="">Select an option</option>
@@ -226,10 +244,11 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
 
             <div>
               <label
-                className="block text-[#CCCCCC] mb-2"
+                className="block text-[#f5f5f5] mb-2"
                 style={{
                   fontFamily: "'Red Hat Text', sans-serif",
-                  fontSize: '14px'
+                  fontSize: '14px',
+                  fontWeight: 500
                 }}
               >
                 Tell us about your project
@@ -238,10 +257,11 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 rows={5}
-                className="w-full bg-[#1A1A1A] border border-[#333] rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none transition-colors resize-none"
+                className="w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none focus:ring-2 focus:ring-[#b12176]/20 transition-colors duration-200 resize-vertical"
                 style={{
                   fontFamily: "'Red Hat Text', sans-serif",
-                  fontSize: '16px'
+                  fontSize: '16px',
+                  minHeight: '100px'
                 }}
               />
             </div>

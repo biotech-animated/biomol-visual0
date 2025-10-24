@@ -177,7 +177,7 @@ export default function HeroSection() {
                       }}
                     >
                       <span style={{ display: 'block' }}>30-minute call</span>
-                      <span style={{ display: 'block' }}>Takes two minutes to book</span>
+                      <span style={{ display: 'block' }}>Takes 2 minutes to book</span>
                     </span>
                   </span>
                   <div

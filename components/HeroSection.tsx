@@ -26,7 +26,8 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
+      className="relative overflow-hidden"
+      style={{ height: '100vh' }}
     >
       <div className="absolute inset-0" style={{ zIndex: 0 }}>
         <div
@@ -68,7 +69,7 @@ export default function HeroSection() {
               fontWeight: 500
             }}
           >
-            We translate your complex molecular science into a 3-minute visual story designed to win investor confidence.
+            We translate your complex molecular science into a 2-minute visual story designed to win investor confidence.
           </p>
 
           <div className="flex flex-row gap-6 items-center">

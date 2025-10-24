@@ -79,7 +79,7 @@ export default function SlabExamples() {
                 fontWeight: 500
               }}
             >
-              CAR-T Cell Engagement
+              CAR-T Activation, Tumor Cell Death, and Macrophage-Mediated Debris Clearance
             </p>
           </div>
 

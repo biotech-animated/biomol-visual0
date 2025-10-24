@@ -50,7 +50,7 @@ export default function SlabExamples() {
                 fontWeight: 500
               }}
             >
-              Antibody-Drug Conjugate Mechanism
+              Receptor-Mediated Endocytosis and Endosomal Escape
             </p>
           </div>
 

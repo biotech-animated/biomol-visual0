@@ -1,6 +1,12 @@
+'use client';
+
+import { useState } from 'react';
 import { Linkedin, Youtube, Instagram } from 'lucide-react';
+import JoinUsModal from './JoinUsModal';
 
 export default function Footer() {
+  const [isJoinUsModalOpen, setIsJoinUsModalOpen] = useState(false);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -126,9 +132,19 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#join" className="text-sm text-[#A0AEC0] hover:text-[#9B59D0] transition-colors duration-200" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>
+                <button
+                  onClick={() => setIsJoinUsModalOpen(true)}
+                  className="text-sm text-[#A0AEC0] hover:text-[#9B59D0] transition-colors duration-200"
+                  style={{
+                    fontFamily: "'Red Hat Text', sans-serif",
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
+                    padding: 0
+                  }}
+                >
                   Join Us
-                </a>
+                </button>
               </li>
             </ul>
           </div>
@@ -144,7 +160,7 @@ export default function Footer() {
             {/* Social Icons */}
             <div className="flex gap-4">
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/biotechanimated"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-[#ED8936]/20 border border-[#ED8936]/40 flex items-center justify-center transition-all duration-300 hover:bg-[#ED8936] hover:border-[#ED8936] hover:shadow-[0_0_20px_rgba(237,137,54,0.5)] group"
@@ -154,7 +170,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="https://x.com"
+                href="https://twitter.com/biotechanimated"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-[#ED8936]/20 border border-[#ED8936]/40 flex items-center justify-center transition-all duration-300 hover:bg-[#ED8936] hover:border-[#ED8936] hover:shadow-[0_0_20px_rgba(237,137,54,0.5)] group"
@@ -166,7 +182,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="https://youtube.com"
+                href="https://www.youtube.com/@BiotechAnimated"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-[#ED8936]/20 border border-[#ED8936]/40 flex items-center justify-center transition-all duration-300 hover:bg-[#ED8936] hover:border-[#ED8936] hover:shadow-[0_0_20px_rgba(237,137,54,0.5)] group"
@@ -176,7 +192,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/biotechanimated/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-[#ED8936]/20 border border-[#ED8936]/40 flex items-center justify-center transition-all duration-300 hover:bg-[#ED8936] hover:border-[#ED8936] hover:shadow-[0_0_20px_rgba(237,137,54,0.5)] group"
@@ -188,6 +204,8 @@ export default function Footer() {
           </div>
         </div>
       </div>
+
+      <JoinUsModal isOpen={isJoinUsModalOpen} onClose={() => setIsJoinUsModalOpen(false)} />
     </footer>
   );
 }

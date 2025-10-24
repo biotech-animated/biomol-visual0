@@ -49,7 +49,7 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
       />
 
       <div
-        className={`fixed right-0 top-0 h-full w-full md:w-[600px] bg-[#1A1A1A] border-l border-[#333] z-50 overflow-y-auto transition-transform duration-300 ease-out transform ${
+        className={`fixed right-0 top-0 h-full w-full md:w-[600px] bg-[#1F1F1F] border-l border-[#333] z-50 overflow-y-auto transition-transform duration-300 ease-out transform ${
           isAnimating ? 'translate-x-0' : 'translate-x-full'
         }`}
       >

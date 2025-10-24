@@ -46,39 +46,33 @@ export default function HeroSection() {
 
       <div className="absolute inset-0 bg-black opacity-30" style={{ zIndex: 1 }}></div>
 
-      <div className="relative z-10 flex-1 flex items-end">
-        <div className="container-responsive w-full pb-16">
-          <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-5)' }}>
-            <h1 className="text-responsive-xl" style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: '500', textAlign: 'left' }}>
-              Molecular & Cellular MOA Visualization That Gets You Funded
-            </h1>
+      <div className="relative z-10 h-full flex flex-col justify-end pb-[160px] px-8 md:px-16">
+        <div className="max-w-[1400px] mx-auto w-full">
+          <h1
+            className="text-[#E2E8F0] mb-4"
+            style={{
+              fontFamily: "'Red Hat Display', sans-serif",
+              fontSize: '44px',
+              fontWeight: 500,
+              lineHeight: '1.2'
+            }}
+          >
+            Molecular & Cellular MOA Visualization That Gets You Funded
+          </h1>
 
-            <p
-              className="text-responsive-md"
-              style={{
-                fontFamily: "'Red Hat Text', sans-serif",
-                fontWeight: '400',
-                color: 'var(--bmv-text-heading)',
-                opacity: '0.95',
-                textAlign: 'left',
-                maxWidth: '800px'
-              }}
-            >
-              We translate your complex molecular science into a 3-minute visual story designed to win investor confidence.
-            </p>
+          <p
+            className="text-[#E2E8F0] mb-8"
+            style={{
+              fontFamily: "'Red Hat Display', sans-serif",
+              fontSize: '24px',
+              fontWeight: 500
+            }}
+          >
+            We translate your complex molecular science into a 3-minute visual story designed to win investor confidence.
+          </p>
 
-            <div
-              className="flex flex-col pb-[var(--space-9)]"
-              style={{
-                gap: 'var(--space-3)',
-                paddingTop: 'var(--space-4)'
-              }}
-            >
-              <div
-                className="flex flex-col sm:flex-row items-start sm:items-center"
-                style={{ gap: 'var(--space-3)' }}
-              >
-                <Link
+          <div className="flex flex-row gap-6 items-center">
+            <Link
                   href="/case-studies"
                   className="group"
                   style={{
@@ -201,8 +195,6 @@ export default function HeroSection() {
                     <ArrowRight size={20} />
                   </div>
                 </Link>
-              </div>
-            </div>
           </div>
         </div>
       </div>

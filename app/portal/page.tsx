@@ -283,50 +283,26 @@ export default function ClientPortalPage() {
               type="submit"
               disabled={isLoading}
               style={{
-                fontFamily: "'Red Hat Display', sans-serif",
                 width: '100%',
-                padding: '8px 8px 8px 24px',
-                background: isLoading ? 'rgba(138, 92, 246, 0.85)' : 'rgba(138, 92, 246, 0.65)',
+                padding: '14px',
+                background: isLoading ? 'var(--bmv-purple-pressed)' : 'var(--bmv-purple)',
                 color: 'white',
                 border: 'none',
-                borderRadius: '50px',
+                borderRadius: '8px',
                 fontSize: '16px',
                 fontWeight: '500',
                 cursor: isLoading ? 'not-allowed' : 'pointer',
                 transition: 'all 250ms cubic-bezier(0.2, 0.8, 0.2, 1)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '16px'
+                opacity: isLoading ? 0.7 : 1
               }}
               onMouseEnter={(e) => {
-                if (!isLoading) {
-                  e.currentTarget.style.background = 'rgba(138, 92, 246, 0.85)';
-                  e.currentTarget.style.transform = 'scale(1.02)';
-                }
+                if (!isLoading) e.currentTarget.style.background = 'var(--bmv-purple-hover)';
               }}
               onMouseLeave={(e) => {
-                if (!isLoading) {
-                  e.currentTarget.style.background = 'rgba(138, 92, 246, 0.65)';
-                  e.currentTarget.style.transform = 'scale(1)';
-                }
+                if (!isLoading) e.currentTarget.style.background = 'var(--bmv-purple)';
               }}
             >
-              <span>{isLoading ? 'Logging in...' : 'Log In'}</span>
-              <div
-                style={{
-                  width: '40px',
-                  height: '40px',
-                  borderRadius: '50%',
-                  background: 'white',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: 'rgba(138, 92, 246, 1)'
-                }}
-              >
-                <Lock size={20} />
-              </div>
+              {isLoading ? 'Logging in...' : 'Log In'}
             </button>
           </form>
         </div>

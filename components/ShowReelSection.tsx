@@ -6,7 +6,8 @@ export default function ShowReelSection() {
       id="showreel"
       className="md:min-h-screen h-auto flex items-center justify-center section-responsive"
       style={{
-        background: '#1B0A2E'
+        background: '#1B0A2E',
+        paddingTop: '24px',
       }}
     >
       <div className="max-w-[1400px] px-8 md:px-16 w-full">

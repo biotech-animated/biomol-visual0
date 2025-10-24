@@ -111,7 +111,7 @@ export default function ByTheNumbersSection() {
         className="flex-1 flex items-center justify-center"
 
       >
-        <div className="container-responsive">
+        <div className="container-responsive !max-w-6xl">
           <h2 className="text-center text-responsive-lg" style={{ marginBottom: 'var(--space-9)' }}>
             By the Numbers
           </h2>

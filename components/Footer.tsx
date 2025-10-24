@@ -28,8 +28,11 @@ export default function Footer() {
             <p className="text-sm text-[#A0AEC0] leading-relaxed mb-6" style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: 300 }}>
               Molecular and Cellular MOA & MOD Visualization Specialists
             </p>
-            <p className="text-sm text-[#718096] leading-relaxed" style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: 300 }}>
+            <p className="text-sm text-[#718096] leading-relaxed mb-3" style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: 300 }}>
               We create scientifically precise molecular and cellular mechanism of action visualizations for the world's most innovative biotech companies. Our dedicated team of scientific experts transforms complex science—from biotherapeutic mechanisms to platform technologies—into clear stories that secure funding and drive partnerships.
+            </p>
+            <p className="text-xs text-[#8B92A8]" style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: 300 }}>
+              All Web Design And Content Created Exclusively By Biomol Visual All Rights Reserved
             </p>
           </div>
 
@@ -134,14 +137,9 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-[#9B59D0]/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex flex-col gap-1">
-              <p className="text-sm text-[#718096]" style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: 300 }}>
-                © 2025 Biomol Visual | Clarity in Every MOA
-              </p>
-              <p className="text-xs text-[#8B92A8]" style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: 300 }}>
-                All Web And Content Designed Exclusively By Biomol Visual All Rights Reserved
-              </p>
-            </div>
+            <p className="text-sm text-[#718096]" style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: 300 }}>
+              © 2025 Biomol Visual | Clarity in Every MOA
+            </p>
 
             {/* Social Icons */}
             <div className="flex gap-4">

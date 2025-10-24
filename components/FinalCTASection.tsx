@@ -143,8 +143,8 @@ export default function FinalCTASection() {
                     whiteSpace: 'nowrap'
                   }}
                 >
-                  <span style={{ display: 'block' }}>30-Minute Call.</span>
-                  <span style={{ display: 'block' }}>No obligation</span>
+                  <span style={{ display: 'block' }}>30-minute call</span>
+                  <span style={{ display: 'block' }}>Takes two minutes to book</span>
                 </span>
               </span>
               <div

@@ -61,7 +61,7 @@ export default function ProcessSection() {
                   : 'all 250ms cubic-bezier(0.2, 0.8, 0.2, 1)',
                 cursor: 'pointer',
                 position: 'relative',
-                overflow: 'hidden',
+                overflow: index === 0 ? 'visible' : 'hidden',
                 ...(index === 0 && {
                   boxShadow: '0 0 0 0 rgba(255, 107, 53, 0)'
                 })

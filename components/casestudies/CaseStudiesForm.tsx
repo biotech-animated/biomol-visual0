@@ -61,7 +61,7 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
                 fontWeight: 500
               }}
             >
-              Request Access to Our Strategic Playbook
+              Request Access
             </h2>
             <button
               onClick={onClose}

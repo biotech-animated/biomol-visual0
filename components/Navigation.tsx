@@ -75,19 +75,19 @@ export default function Navigation() {
                   ...(item.isButton && {
                     padding: '8px 20px',
                     borderRadius: '20px',
-                    border: '2px solid rgba(183, 148, 246, 0.7)',
+                    border: '2px solid rgba(226, 232, 240, 0.5)',
                     transition: 'all 250ms cubic-bezier(0.2, 0.8, 0.2, 1)'
                   })
                 }}
                 onMouseEnter={(e) => {
                   if (item.isButton) {
-                    e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 1)';
-                    e.currentTarget.style.background = 'rgba(183, 148, 246, 0.15)';
+                    e.currentTarget.style.borderColor = 'rgba(226, 232, 240, 0.7)';
+                    e.currentTarget.style.background = 'rgba(226, 232, 240, 0.1)';
                   }
                 }}
                 onMouseLeave={(e) => {
                   if (item.isButton) {
-                    e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.7)';
+                    e.currentTarget.style.borderColor = 'rgba(226, 232, 240, 0.5)';
                     e.currentTarget.style.background = 'transparent';
                   }
                 }}
@@ -140,7 +140,7 @@ export default function Navigation() {
                     ...(item.isButton && {
                       padding: '8px 20px',
                       borderRadius: '20px',
-                      border: '2px solid rgba(183, 148, 246, 0.7)',
+                      border: '2px solid rgba(226, 232, 240, 0.5)',
                       width: 'fit-content'
                     })
                   }}

@@ -47,7 +47,7 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
       />
 
       <div
-        className={`fixed right-0 top-0 h-full w-full md:w-[600px] bg-[#2A2A2A] border-l border-[#333] z-50 overflow-y-auto transition-transform duration-300 ease-out transform ${
+        className={`fixed right-0 top-0 h-full w-full md:w-[600px] bg-[#1A1A1A] border-l border-[#333] z-50 overflow-y-auto transition-transform duration-300 ease-out transform ${
           isAnimating ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -100,7 +100,7 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
                 required
                 value={formData.fullName}
                 onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                className="w-full bg-[#0A0A0A] border border-white/15 rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none focus:ring-2 focus:ring-[#b12176]/20 transition-colors duration-200"
+                className="w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none focus:ring-2 focus:ring-[#b12176]/20 transition-colors duration-200"
                 style={{
                   fontFamily: "'Red Hat Text', sans-serif",
                   fontSize: '16px'
@@ -124,7 +124,7 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
                 required
                 value={formData.company}
                 onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                className="w-full bg-[#0A0A0A] border border-white/15 rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none focus:ring-2 focus:ring-[#b12176]/20 transition-colors duration-200"
+                className="w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none focus:ring-2 focus:ring-[#b12176]/20 transition-colors duration-200"
                 style={{
                   fontFamily: "'Red Hat Text', sans-serif",
                   fontSize: '16px'
@@ -148,7 +148,7 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
                 required
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full bg-[#0A0A0A] border border-white/15 rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none focus:ring-2 focus:ring-[#b12176]/20 transition-colors duration-200"
+                className="w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none focus:ring-2 focus:ring-[#b12176]/20 transition-colors duration-200"
                 style={{
                   fontFamily: "'Red Hat Text', sans-serif",
                   fontSize: '16px'

@@ -52,39 +52,19 @@ export default function ProcessSection() {
               key={index}
               className="phase-card"
               style={{
-                padding: 'var(--space-4)',
-                background: 'var(--bmv-surface)',
+                padding: '24px',
+                background: '#1A202C',
                 borderRadius: '12px',
-                border: '1px solid rgba(183, 148, 246, 0.1)',
-                transition: index === 0
-                  ? 'all 500ms cubic-bezier(0.2, 0.8, 0.2, 1)'
-                  : 'all 250ms cubic-bezier(0.2, 0.8, 0.2, 1)',
+                border: '2px solid rgba(183, 148, 246, 0.2)',
+                transition: 'background 0.6s ease',
                 cursor: 'pointer',
-                position: 'relative',
-                overflow: index === 0 ? 'visible' : 'hidden',
-                ...(index === 0 && {
-                  boxShadow: '0 0 0 0 rgba(255, 107, 53, 0)'
-                })
+                position: 'relative'
               }}
               onMouseEnter={(e) => {
-                if (index === 0) {
-                  e.currentTarget.style.background = 'var(--bmv-surface-2)';
-                  e.currentTarget.style.borderColor = 'rgba(255, 107, 53, 0.2)';
-                  e.currentTarget.style.boxShadow = '0 0 30px 8px rgba(255, 107, 53, 0.4), 0 0 60px 20px rgba(255, 107, 53, 0.2), 0 0 90px 35px rgba(255, 107, 53, 0.1)';
-                } else {
-                  e.currentTarget.style.background = 'var(--bmv-surface-2)';
-                  e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.3)';
-                }
+                e.currentTarget.style.background = '#232d3d';
               }}
               onMouseLeave={(e) => {
-                if (index === 0) {
-                  e.currentTarget.style.background = 'var(--bmv-surface)';
-                  e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.1)';
-                  e.currentTarget.style.boxShadow = '0 0 0 0 rgba(255, 107, 53, 0)';
-                } else {
-                  e.currentTarget.style.background = 'var(--bmv-surface)';
-                  e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.1)';
-                }
+                e.currentTarget.style.background = '#1A202C';
               }}
             >
               <div

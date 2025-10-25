@@ -413,7 +413,7 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
           padding: '4px'
         }}>
           {IMPROVEMENT_AREAS.map((area) => (
-            <label
+            <div
               key={area}
               style={{
                 display: 'flex',
@@ -421,7 +421,7 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
                 gap: '12px',
                 padding: '12px',
                 background: formData.improvementAreas.includes(area)
-                  ? 'rgba(155, 89, 208, 0.15)'
+                  ? '#1A202C'
                   : 'rgba(26, 10, 46, 0.6)',
                 border: `1px solid ${formData.improvementAreas.includes(area)
                   ? 'rgba(155, 89, 208, 0.5)'
@@ -433,6 +433,7 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
                 fontSize: '14px',
                 color: 'var(--bmv-text)'
               }}
+              onClick={() => toggleImprovementArea(area)}
               onMouseEnter={(e) => {
                 if (!formData.improvementAreas.includes(area)) {
                   e.currentTarget.style.background = 'rgba(26, 10, 46, 0.8)';
@@ -446,19 +447,42 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
                 }
               }}
             >
-              <input
-                type="checkbox"
-                checked={formData.improvementAreas.includes(area)}
-                onChange={() => toggleImprovementArea(area)}
+              <div
                 style={{
                   width: '18px',
                   height: '18px',
                   cursor: 'pointer',
-                  accentColor: 'var(--bmv-purple)'
+                  background: formData.improvementAreas.includes(area) 
+                    ? 'var(--bmv-purple)' 
+                    : 'transparent',
+                  border: '2px solid var(--bmv-purple)',
+                  borderRadius: '4px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  position: 'relative'
                 }}
-              />
+              >
+                {formData.improvementAreas.includes(area) && (
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    style={{
+                      color: 'white',
+                      stroke: 'currentColor',
+                      strokeWidth: '3',
+                      strokeLinecap: 'round',
+                      strokeLinejoin: 'round'
+                    }}
+                  >
+                    <polyline points="20,6 9,17 4,12"></polyline>
+                  </svg>
+                )}
+              </div>
               {area}
-            </label>
+            </div>
           ))}
         </div>
       </div>

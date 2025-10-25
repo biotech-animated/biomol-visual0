@@ -61,9 +61,11 @@ export default function ProcessSection() {
                 position: 'relative'
               }}
               onMouseEnter={(e) => {
+                e.currentTarget.style.transition = 'background 0.6s ease';
                 e.currentTarget.style.background = '#232d3d';
               }}
               onMouseLeave={(e) => {
+                e.currentTarget.style.transition = 'background 0.6s ease';
                 e.currentTarget.style.background = '#1A202C';
               }}
             >

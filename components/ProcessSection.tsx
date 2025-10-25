@@ -53,20 +53,11 @@ export default function ProcessSection() {
               className="phase-card"
               style={{
                 padding: '24px',
-                background: '#1A202C',
+                backgroundColor: '#1A202C',
                 borderRadius: '12px',
                 border: '2px solid rgba(183, 148, 246, 0.2)',
-                transition: 'background 0.6s ease',
                 cursor: 'pointer',
                 position: 'relative'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transition = 'background 0.6s ease';
-                e.currentTarget.style.background = '#232d3d';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transition = 'background 0.6s ease';
-                e.currentTarget.style.background = '#1A202C';
               }}
             >
               <div

@@ -68,7 +68,7 @@ export default function SlabPackages() {
 
             <div className="mb-8">
               <p
-                className="text-white font-semibold mb-4"
+                className="text-white font-medium mb-4"
                 style={{
                   fontFamily: "'Red Hat Display', sans-serif",
                   fontSize: '16px'
@@ -209,7 +209,7 @@ export default function SlabPackages() {
 
             <div className="mb-8">
               <p
-                className="text-white font-semibold mb-4"
+                className="text-white font-medium mb-4"
                 style={{
                   fontFamily: "'Red Hat Display', sans-serif",
                   fontSize: '16px'
@@ -321,7 +321,7 @@ export default function SlabPackages() {
                 style={{
                   fontFamily: "'Red Hat Display', sans-serif",
                   fontSize: '24px',
-                  fontWeight: 700
+                  fontWeight: 500
                 }}
               >
                 PRECISION LOOP<sup style={{ fontSize: '14px' }}>™</sup>
@@ -356,7 +356,7 @@ export default function SlabPackages() {
 
             <div className="mb-8">
               <p
-                className="text-white font-semibold mb-4"
+                className="text-white font-medium mb-4"
                 style={{
                   fontFamily: "'Red Hat Display', sans-serif",
                   fontSize: '16px'

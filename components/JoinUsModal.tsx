@@ -218,7 +218,7 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
       <div>
         <h3 style={{
           fontSize: '20px',
-          fontWeight: '600',
+          fontWeight: '500',
           color: 'var(--bmv-text-heading)',
           marginBottom: 'var(--space-2)',
           fontFamily: "'Red Hat Display', sans-serif"
@@ -913,7 +913,7 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
               <h3
                 style={{
                   fontSize: 'clamp(24px, 3.5vw, 36px)',
-                  fontWeight: '600',
+                  fontWeight: '500',
                   color: 'var(--bmv-text-heading)',
                   fontFamily: "'Red Hat Display', sans-serif"
                 }}
@@ -950,7 +950,7 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
                   borderRadius: '12px',
                   border: 'none',
                   fontSize: '16px',
-                  fontWeight: '600',
+                  fontWeight: '500',
                   cursor: 'pointer',
                   transition: 'all 250ms cubic-bezier(0.2, 0.8, 0.2, 1)',
                   fontFamily: "'Red Hat Display', sans-serif",
@@ -974,7 +974,7 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
                 <h2
                   style={{
                     fontSize: 'clamp(26px, 3.5vw, 38px)',
-                    fontWeight: '600',
+                    fontWeight: '500',
                     background: 'linear-gradient(90deg, var(--bmv-purple) 0%, var(--bmv-orange) 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
@@ -1045,7 +1045,7 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
                         border: '1px solid rgba(155, 89, 208, 0.3)',
                         borderRadius: '12px',
                         fontSize: '16px',
-                        fontWeight: '600',
+                        fontWeight: '500',
                         cursor: 'pointer',
                         transition: 'all 250ms cubic-bezier(0.2, 0.8, 0.2, 1)',
                         fontFamily: "'Red Hat Display', sans-serif",
@@ -1080,7 +1080,7 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
                         border: 'none',
                         borderRadius: '12px',
                         fontSize: '16px',
-                        fontWeight: '600',
+                        fontWeight: '500',
                         cursor: 'pointer',
                         transition: 'all 250ms cubic-bezier(0.2, 0.8, 0.2, 1)',
                         fontFamily: "'Red Hat Display', sans-serif",
@@ -1113,7 +1113,7 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
                         border: 'none',
                         borderRadius: '12px',
                         fontSize: '16px',
-                        fontWeight: '600',
+                        fontWeight: '500',
                         cursor: status === 'submitting' ? 'not-allowed' : 'pointer',
                         opacity: status === 'submitting' ? 0.6 : 1,
                         transition: 'all 250ms cubic-bezier(0.2, 0.8, 0.2, 1)',

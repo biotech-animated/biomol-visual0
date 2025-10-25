@@ -88,7 +88,7 @@ export default function CompanyInfo() {
                       lineHeight: '1.7'
                     }}
                   >
-                    <span className="font-bold" style={{ color: '#ED8936' }}>United States:</span>{' '}
+                    <span className="font-medium" style={{ color: '#ED8936' }}>United States:</span>{' '}
                     <span className="text-[#CCCCCC]">San Diego • Boston • San Francisco • New York • Philadelphia</span>
                   </p>
 
@@ -99,7 +99,7 @@ export default function CompanyInfo() {
                       lineHeight: '1.7'
                     }}
                   >
-                    <span className="font-bold" style={{ color: '#ED8936' }}>Australia:</span>{' '}
+                    <span className="font-medium" style={{ color: '#ED8936' }}>Australia:</span>{' '}
                     <span className="text-[#CCCCCC]">Sydney • Melbourne</span>
                   </p>
 
@@ -110,7 +110,7 @@ export default function CompanyInfo() {
                       lineHeight: '1.7'
                     }}
                   >
-                    <span className="font-bold" style={{ color: '#ED8936' }}>United Kingdom:</span>{' '}
+                    <span className="font-medium" style={{ color: '#ED8936' }}>United Kingdom:</span>{' '}
                     <span className="text-[#CCCCCC]">London • Cambridge</span>
                   </p>
                 </div>

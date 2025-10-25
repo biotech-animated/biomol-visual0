@@ -120,7 +120,7 @@ export default function ProcessSection() {
                       alignItems: 'center',
                       justifyContent: 'center',
                       fontSize: '11px',
-                      fontWeight: '600',
+                      fontWeight: '500',
                       color: 'white'
                     }}
                   >

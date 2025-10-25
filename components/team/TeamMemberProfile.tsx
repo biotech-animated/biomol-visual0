@@ -105,7 +105,7 @@ export default function TeamMemberProfile({ member, index, totalMembers, onNavig
               >
                 <div className="flex flex-col items-center text-center relative z-10">
                   <Calendar className="w-10 h-10 text-[#9B59D0] mb-3" />
-                  <div className="text-3xl font-bold text-[#E2E8F0] mb-2" style={{ fontFamily: "'Red Hat Display', sans-serif" }}>
+                  <div className="text-3xl font-medium text-[#E2E8F0] mb-2" style={{ fontFamily: "'Red Hat Display', sans-serif" }}>
                     {member.quickStats.years}
                   </div>
                   <div className="text-xs text-[#A0AEC0]" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>
@@ -122,7 +122,7 @@ export default function TeamMemberProfile({ member, index, totalMembers, onNavig
               >
                 <div className="flex flex-col items-center text-center relative z-10">
                   <MapPin className="w-10 h-10 text-[#9B59D0] mb-3" />
-                  <div className="text-sm py-2 font-bold text-[#E2E8F0] mb-2" style={{ fontFamily: "'Red Hat Display', sans-serif" }}>
+                  <div className="text-sm py-2 font-medium text-[#E2E8F0] mb-2" style={{ fontFamily: "'Red Hat Display', sans-serif" }}>
                     {member.quickStats.location}
                   </div>
                   <div className="text-xs text-[#A0AEC0]" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>
@@ -139,7 +139,7 @@ export default function TeamMemberProfile({ member, index, totalMembers, onNavig
               >
                 <div className="flex flex-col items-center text-center relative z-10">
                   <Target className="w-10 h-10 text-[#9B59D0] mb-3" />
-                  <div className="text-sm py-2 font-bold text-[#E2E8F0] mb-2" style={{ fontFamily: "'Red Hat Display', sans-serif" }}>
+                  <div className="text-sm py-2 font-medium text-[#E2E8F0] mb-2" style={{ fontFamily: "'Red Hat Display', sans-serif" }}>
                     {member.quickStats.expertise}
                   </div>
                   <div className="text-xs text-[#A0AEC0]" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>

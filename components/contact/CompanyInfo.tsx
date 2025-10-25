@@ -179,11 +179,11 @@ export default function CompanyInfo() {
                     }}
                   >
                     <a href="tel:+16196739008" className="text-[#ED8936] hover:text-[#C05621] transition-colors">
-                      US: +1 (619) 673-9008
+                      US: +1 (888) 391-0030
                     </a>
                     <br />
                     <a href="tel:+441603976082" className="text-[#ED8936] hover:text-[#C05621] transition-colors">
-                      UK: +44 1603 976 082
+                      UK: +44 0800 707 4030
                     </a>
                   </p>
                 </div>

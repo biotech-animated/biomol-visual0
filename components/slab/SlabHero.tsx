@@ -48,7 +48,7 @@ export default function SlabHero() {
 
       <div className="absolute inset-0 bg-black opacity-30" style={{ zIndex: 1 }}></div>
 
-      <div className="relative z-10 h-full flex flex-col justify-end pb-[160px]">
+      <div className="relative z-10 h-full flex flex-col justify-end md:pb-[160px] pb-20">
         <div className="container-responsive">
           <h1
             className="text-[#E2E8F0] mb-4"
@@ -74,7 +74,7 @@ export default function SlabHero() {
             A curated vault of molecular and cellular assets. Scientifically accurate. Cinema-quality. Ready to customize.
           </p>
 
-          <div className="flex flex-row gap-6 items-center">
+          <div className="flex md:flex-row flex-col gap-6 md:items-center items-start">
             <Link href="#examples">
               <button
                 className="inline-flex items-center gap-4 rounded-[50px] text-white cursor-pointer border-none transition-all"

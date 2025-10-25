@@ -73,7 +73,7 @@ export default function CaseStudiesHero({ onOpenForm }: CaseStudiesHeroProps) {
   };
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden bg-[#1B0A2E]" style={{ height: '100vh' }}>
+    <section ref={sectionRef} className="relative overflow-hidden bg-[#1B0A2E] md:h-screen h-auto">
       <div className="absolute inset-0" style={{ zIndex: 0 }}>
         <div
           className="wistia_embed wistia_async_z1zuxffzmk videoFoam=true autoPlay=true muted=true controlsVisibleOnLoad=false endVideoBehavior=loop playbar=false"

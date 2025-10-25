@@ -892,6 +892,70 @@
     font-size: clamp(0.875rem, 2vw, 16px);
     line-height: 1.5;
   }
+
+  /* Metrics card hover effects */
+  .metrics-card {
+    background: rgba(30, 30, 40, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(183, 148, 246, 0.2);
+    transition: all 0.6s ease !important;
+  }
+
+  .metrics-card:hover {
+    background: rgba(30, 30, 40, 0.6);
+    border-color: rgba(183, 148, 246, 0.6);
+  }
+
+  /* Testimonial card hover effects */
+  .testimonial-card {
+    background: var(--bmv-surface);
+    border: 1px solid rgba(183, 148, 246, 0.1);
+    transition: all 0.6s ease !important;
+  }
+
+  .testimonial-card:hover {
+    background: var(--bmv-surface-2);
+    border-color: #232d3d;
+  }
+
+  /* Security features card hover effects */
+  .security-features-card {
+    background: rgba(30, 30, 40, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(183, 148, 246, 0.2);
+    transition: all 0.6s ease !important;
+  }
+
+  .security-features-card:hover {
+    background: rgba(30, 30, 40, 0.6);
+    border-color: rgba(182, 148, 246, 0.5);
+  }
+
+  /* Team member stats card hover effects */
+  .team-stats-card {
+    background: var(--bmv-surface);
+    border: 1px solid rgba(183, 148, 246, 0.1);
+    transition: all 0.6s ease !important;
+  }
+
+  .team-stats-card:hover {
+    background: var(--bmv-surface-2);
+    border-color: rgba(183, 148, 246, 0.3);
+  }
+
+  /* Case studies stats card hover effects */
+  .case-stats-card {
+    background: var(--bmv-surface);
+    border: 1px solid rgba(183, 148, 246, 0.1);
+    transition: all 0.6s ease !important;
+  }
+
+  .case-stats-card:hover {
+    background: var(--bmv-surface-2);
+    border-color: rgba(183, 148, 246, 0.3);
+  }
 }
 
 @layer base {

@@ -97,10 +97,9 @@ export default function TeamMemberProfile({ member, index, totalMembers, onNavig
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
               <div
-                className="rounded-lg p-6 relative overflow-hidden group border border-[#1a1a1a] phase-card"
+                className="team-stats-card rounded-lg p-6 relative overflow-hidden group"
                 style={{
-                  background: '#1A202C',
-                  transition: 'all 0.3s ease'
+                  cursor: 'pointer'
                 }}
               >
                 <div className="flex flex-col items-center text-center relative z-10">
@@ -115,9 +114,9 @@ export default function TeamMemberProfile({ member, index, totalMembers, onNavig
               </div>
 
               <div
-                className="rounded-lg p-6 relative overflow-hidden group border border-[#1a1a1a] phase-card"
+                className="team-stats-card rounded-lg p-6 relative overflow-hidden group"
                 style={{
-                  background: '#1A202C',
+                  cursor: 'pointer'
                 }}
               >
                 <div className="flex flex-col items-center text-center relative z-10">
@@ -132,9 +131,9 @@ export default function TeamMemberProfile({ member, index, totalMembers, onNavig
               </div>
 
               <div
-                className="rounded-lg p-6 relative overflow-hidden group border border-[#1a1a1a] phase-card"
+                className="team-stats-card rounded-lg p-6 relative overflow-hidden group"
                 style={{
-                  background: '#1A202C',
+                  cursor: 'pointer'
                 }}
               >
                 <div className="flex flex-col items-center text-center relative z-10">
@@ -182,9 +181,9 @@ export default function TeamMemberProfile({ member, index, totalMembers, onNavig
             )}
 
             <div
-              className="mt-12 rounded-xl p-8 relative overflow-hidden group border border-[#1a1a1a] phase-card"
+              className="mt-12 team-stats-card rounded-xl p-8 relative overflow-hidden group"
               style={{
-                background: '#1A202C',
+                cursor: 'pointer'
               }}
             >
               <div className="relative z-10">

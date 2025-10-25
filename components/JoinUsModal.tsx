@@ -791,34 +791,126 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
         >
           Please upload your latest CV/resume.
         </label>
-        <input
-          type="file"
-          id="cvFile"
-          accept=".pdf,.doc,.docx"
-          onChange={handleFileChange}
+        
+        {/* Modern File Upload Component */}
+        <div
           style={{
+            position: 'relative',
             width: '100%',
-            padding: '14px 16px',
+            height: '48px',
             background: 'rgba(26, 10, 46, 0.6)',
             border: '1px solid rgba(155, 89, 208, 0.3)',
             borderRadius: '10px',
-            color: 'var(--bmv-text)',
-            fontSize: '15px',
+            display: 'flex',
+            alignItems: 'center',
+            padding: '0 16px',
+            cursor: 'pointer',
             transition: 'all 200ms ease',
-            fontFamily: "'Red Hat Text', sans-serif",
-            cursor: 'pointer'
-          }}
-        />
-        {formData.cvFile && (
-          <p style={{
-            color: 'var(--bmv-text-secondary)',
-            fontSize: '13px',
-            marginTop: 'var(--space-2)',
             fontFamily: "'Red Hat Text', sans-serif"
-          }}>
-            Selected: {formData.cvFile.name}
-          </p>
-        )}
+          }}
+          onClick={() => document.getElementById('cvFile')?.click()}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.borderColor = 'var(--bmv-purple)';
+            e.currentTarget.style.background = 'rgba(26, 10, 46, 0.8)';
+            e.currentTarget.style.boxShadow = '0 0 0 3px rgba(155, 89, 208, 0.15)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.borderColor = 'rgba(155, 89, 208, 0.3)';
+            e.currentTarget.style.background = 'rgba(26, 10, 46, 0.6)';
+            e.currentTarget.style.boxShadow = 'none';
+          }}
+        >
+          <input
+            type="file"
+            id="cvFile"
+            accept=".pdf,.doc,.docx"
+            onChange={handleFileChange}
+            style={{
+              position: 'absolute',
+              opacity: 0,
+              width: '100%',
+              height: '100%',
+              cursor: 'pointer',
+              zIndex: 1
+            }}
+          />
+          
+          {formData.cvFile ? (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', width: '100%' }}>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                style={{ color: 'var(--bmv-purple)', flexShrink: 0 }}
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <polyline points="14,2 14,8 20,8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <span style={{
+                color: 'var(--bmv-text)',
+                fontSize: '15px',
+                fontFamily: "'Red Hat Text', sans-serif",
+                flex: 1,
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                whiteSpace: 'nowrap'
+              }}>
+                {formData.cvFile.name}
+              </span>
+              <span style={{
+                color: 'var(--bmv-text-secondary)',
+                fontSize: '13px',
+                fontFamily: "'Red Hat Text', sans-serif",
+                flexShrink: 0
+              }}>
+                Change
+              </span>
+            </div>
+          ) : (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', width: '100%' }}>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                style={{ color: 'var(--bmv-purple)', flexShrink: 0 }}
+              >
+                <path
+                  d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <polyline points="7,10 12,15 17,10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <span style={{
+                color: 'var(--bmv-text-secondary)',
+                fontSize: '15px',
+                fontFamily: "'Red Hat Text', sans-serif",
+                flex: 1
+              }}>
+                Choose file to upload
+              </span>
+              <span style={{
+                color: 'var(--bmv-text-secondary)',
+                fontSize: '13px',
+                fontFamily: "'Red Hat Text', sans-serif",
+                flexShrink: 0
+              }}>
+                PDF, DOC, DOCX
+              </span>
+            </div>
+          )}
+        </div>
       </div>
 
       <div>

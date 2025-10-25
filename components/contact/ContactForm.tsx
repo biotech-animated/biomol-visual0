@@ -1,4 +1,4 @@
-import { X, Check, ArrowRight } from 'lucide-react';
+import { X, Check, ArrowRight, ChevronDown } from 'lucide-react';
 import { useState, FormEvent, useEffect } from 'react';
 
 interface ContactFormProps {
@@ -18,6 +18,22 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
   });
   const [isVisible, setIsVisible] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isInterestDropdownOpen, setIsInterestDropdownOpen] = useState(false);
+
+  const interestOptions = [
+    { value: '', label: 'Select an option' },
+    { value: 'full-custom', label: 'Full Custom Project' },
+    { value: 'slab-precision', label: 'SLAB: Precision Loop' },
+    { value: 'slab-signature', label: 'SLAB: Signature Loop' },
+    { value: 'slab-instant', label: 'SLAB: Instant Loop' },
+    { value: 'general', label: 'General Inquiry' },
+    { value: 'partnership', label: 'Partnership Opportunity' }
+  ];
+
+  const getSelectedInterestLabel = () => {
+    const selected = interestOptions.find(option => option.value === formData.interest);
+    return selected ? selected.label : 'Select an option';
+  };
 
   useEffect(() => {
     if (isOpen) {
@@ -35,6 +51,21 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
       return () => clearTimeout(timer);
     }
   }, [isOpen]);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (isInterestDropdownOpen) {
+        const target = event.target as Element;
+        if (!target.closest('.custom-select-container')) {
+          setIsInterestDropdownOpen(false);
+        }
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isInterestDropdownOpen]);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -174,7 +205,7 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
               />
             </div>
 
-            <div>
+            <div className="relative">
               <label
                 className="block text-[#f5f5f5] mb-2"
                 style={{
@@ -185,28 +216,66 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
               >
                 I'm interested in *
               </label>
-              <select
-                required
-                value={formData.interest}
-                onChange={(e) => setFormData({ ...formData, interest: e.target.value })}
-                className="w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none focus:ring-2 focus:ring-[#b12176]/20 transition-colors duration-200 appearance-none"
-                style={{
-                  fontFamily: "'Red Hat Text', sans-serif",
-                  fontSize: '16px',
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23b12176' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")`,
-                  backgroundRepeat: 'no-repeat',
-                  backgroundPosition: 'right 16px center',
-                  backgroundSize: '12px'
-                }}
-              >
-                <option value="">Select an option</option>
-                <option value="full-custom">Full Custom Project</option>
-                <option value="slab-precision">SLAB: Precision Loop</option>
-                <option value="slab-signature">SLAB: Signature Loop</option>
-                <option value="slab-instant">SLAB: Instant Loop</option>
-                <option value="general">General Inquiry</option>
-                <option value="partnership">Partnership Opportunity</option>
-              </select>
+              <div className="relative custom-select-container">
+                <button
+                  type="button"
+                  onClick={() => setIsInterestDropdownOpen(!isInterestDropdownOpen)}
+                  className={`w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none transition-all duration-200 text-left flex items-center justify-between ${
+                    isInterestDropdownOpen ? 'border-[#b12176]' : ''
+                  }`}
+                  style={{
+                    fontFamily: "'Red Hat Text', sans-serif",
+                    fontSize: '16px',
+                    outline: 'none',
+                    boxShadow: 'none'
+                  }}
+                >
+                  <span className={formData.interest ? 'text-white' : 'text-[#888]'}>
+                    {getSelectedInterestLabel()}
+                  </span>
+                  <ChevronDown 
+                    className={`w-5 h-5 text-[#b12176] transition-transform duration-200 ${
+                      isInterestDropdownOpen ? 'rotate-180' : ''
+                    }`} 
+                  />
+                </button>
+                
+                <div
+                  className={`absolute top-full left-0 right-0 mt-1 bg-[#0A0A0A] border border-white/20 rounded-md shadow-lg z-10 transition-all duration-200 ${
+                    isInterestDropdownOpen 
+                      ? 'opacity-100 visible translate-y-0' 
+                      : 'opacity-0 invisible -translate-y-2'
+                  }`}
+                >
+                  {interestOptions.map((option, index) => (
+                    <button
+                      key={option.value}
+                      type="button"
+                      onClick={() => {
+                        setFormData({ ...formData, interest: option.value });
+                        setIsInterestDropdownOpen(false);
+                      }}
+                      className={`w-full px-4 py-3 text-left transition-colors duration-150 focus:outline-none ${
+                        formData.interest === option.value
+                          ? 'bg-[#b12176]/10 text-[#b12176]'
+                          : 'text-white hover:bg-white/5'
+                      } ${
+                        index === 0 ? 'rounded-t-md' : ''
+                      } ${
+                        index === interestOptions.length - 1 ? 'rounded-b-md' : ''
+                      }`}
+                      style={{
+                        fontFamily: "'Red Hat Text', sans-serif",
+                        fontSize: '16px',
+                        outline: 'none',
+                        boxShadow: 'none'
+                      }}
+                    >
+                      {option.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
 
             <div>
@@ -220,26 +289,16 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
               >
                 How did you hear about us?
               </label>
-              <select
+              <input
+                type="text"
                 value={formData.hearAbout}
                 onChange={(e) => setFormData({ ...formData, hearAbout: e.target.value })}
-                className="w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none focus:ring-2 focus:ring-[#b12176]/20 transition-colors duration-200 appearance-none"
+                className="w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none focus:ring-2 focus:ring-[#b12176]/20 transition-colors duration-200"
                 style={{
                   fontFamily: "'Red Hat Text', sans-serif",
-                  fontSize: '16px',
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23b12176' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")`,
-                  backgroundRepeat: 'no-repeat',
-                  backgroundPosition: 'right 16px center',
-                  backgroundSize: '12px'
+                  fontSize: '16px'
                 }}
-              >
-                <option value="">Select an option</option>
-                <option value="google">Google Search</option>
-                <option value="linkedin">LinkedIn</option>
-                <option value="referral">Referral</option>
-                <option value="conference">Conference</option>
-                <option value="other">Other</option>
-              </select>
+              />
             </div>
 
             <div>

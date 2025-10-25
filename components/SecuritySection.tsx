@@ -61,26 +61,13 @@ export default function SecuritySection() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="security-card phase-card"
+              className="security-features-card"
               style={{
                 padding: 'var(--space-5)',
-                background: 'rgba(30, 30, 40, 0.4)',
-                backdropFilter: 'blur(10px)',
-                WebkitBackdropFilter: 'blur(10px)',
                 borderRadius: '12px',
-                border: '1px solid rgba(183, 148, 246, 0.2)',
-                transition: 'all 250ms cubic-bezier(0.2, 0.8, 0.2, 1)',
                 cursor: 'pointer',
                 position: 'relative',
                 overflow: 'hidden'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'rgba(30, 30, 40, 0.6)';
-                e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.3)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'rgba(30, 30, 40, 0.4)';
-                e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.2)';
               }}
             >
               <div

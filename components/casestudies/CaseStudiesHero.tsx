@@ -182,9 +182,9 @@ export default function CaseStudiesHero({ onOpenForm }: CaseStudiesHeroProps) {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[675px] mx-auto">
               <div
-                className="rounded-xl p-6 text-center relative overflow-hidden group border border-[#1a1a1a] phase-card"
+                className="case-stats-card rounded-xl p-6 text-center relative overflow-hidden group"
                 style={{
-                  background: '#1a1a1a',
+                  cursor: 'pointer'
                 }}
               >
                 <div className="relative z-10">
@@ -214,9 +214,9 @@ export default function CaseStudiesHero({ onOpenForm }: CaseStudiesHeroProps) {
               </div>
 
               <div
-                className="rounded-xl p-6 text-center relative overflow-hidden group border border-[#1a1a1a] phase-card"
+                className="case-stats-card rounded-xl p-6 text-center relative overflow-hidden group"
                 style={{
-                  background: '#1a1a1a',
+                  cursor: 'pointer'
                 }}
               >
                 <div className="relative z-10">

@@ -120,22 +120,20 @@ export default function ByTheNumbersSection() {
             {metrics.flat().map((metric, index) => (
               <div
                 key={index}
-                className="text-center phase-card"
+                className="text-center metrics-card"
                 style={{
-                  padding: 'var(--space-5)',
-                  background: 'rgba(30, 30, 40, 0.4)',
-                  backdropFilter: 'blur(10px)',
-                  WebkitBackdropFilter: 'blur(10px)',
+                  padding: 'var(--space-4)',
                   borderRadius: '12px',
-                  border: '1px solid rgba(183, 148, 246, 0.1)',
+                  border: '1px solid rgba(183, 148, 246, 0.2)',
+                  transition: 'all 250ms cubic-bezier(0.2, 0.8, 0.2, 1)',
+                  cursor: 'pointer',
                   position: 'relative',
-                  overflow: 'hidden'
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'rgba(30, 30, 40, 0.6)';
+                  e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.5)';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'rgba(30, 30, 40, 0.4)';
+                  e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.2)';
                 }}
               >
                 <div

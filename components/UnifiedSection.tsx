@@ -361,23 +361,24 @@ export default function UnifiedSection() {
               {testimonials.map((testimonial) => (
                 <SwiperSlide key={testimonial.id}>
                   <div
-                    className="phase-card w-full"
+                    className="testimonial-card w-full"
                     style={{
-                      padding: 'var(--space-5)',
+                      padding: 'var(--space-4)',
                       background: 'var(--bmv-surface)',
                       borderRadius: '12px',
                       border: '1px solid rgba(183, 148, 246, 0.1)',
                       transition: 'all 250ms cubic-bezier(0.2, 0.8, 0.2, 1)',
                       cursor: 'pointer',
                       position: 'relative',
-                      overflow: 'hidden',
-                      minHeight: '400px'
+                      overflow: 'hidden'
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.background = 'var(--bmv-surface-2)';
+                      e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.3)';
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.background = 'var(--bmv-surface)';
+                      e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.1)';
                     }}
                   >
                     <div className="flex flex-col lg:flex-row gap-6 h-full">

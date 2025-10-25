@@ -40,8 +40,8 @@ export default function SlabFaq() {
   ];
 
   return (
-    <section className="py-24 bg-[#1B0A2E]">
-      <div className="max-w-[1000px] mx-auto px-8 md:px-16">
+    <section className="section-responsive !pt-6" style={{ background: '#1B0A2E' }}>
+      <div className="container-responsive" style={{ maxWidth: '1000px' }}>
         <h2
           className="text-white text-center mb-16"
           style={{
@@ -57,46 +57,82 @@ export default function SlabFaq() {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="border border-[#9B59D0]/20 rounded-lg overflow-hidden"
+              className="phase-card"
+              style={{
+                padding: 'var(--space-4)',
+                background: 'var(--bmv-surface)',
+                borderRadius: '12px',
+                border: '1px solid rgba(183, 148, 246, 0.1)',
+                transition: 'all 250ms cubic-bezier(0.2, 0.8, 0.2, 1)',
+                cursor: 'pointer',
+                position: 'relative',
+                overflow: 'hidden'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'var(--bmv-surface-2)';
+                e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.3)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'var(--bmv-surface)';
+                e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.1)';
+              }}
             >
-              <button
-                onClick={() => toggleQuestion(index)}
-                className="w-full flex items-center justify-between p-6 bg-[#1A202C] hover:bg-[#222222] transition-colors duration-200"
-                aria-expanded={openQuestion === index}
-              >
-                <span
-                  className="text-white text-left pr-4"
-                  style={{
-                    fontFamily: "'Red Hat Display', sans-serif",
-                    fontSize: '20px',
-                    fontWeight: 500
-                  }}
-                >
-                  {faq.question}
-                </span>
-                <ChevronDown
-                  className={`w-6 h-6 text-[#A0AEC0] flex-shrink-0 transition-transform duration-300 ${
-                    openQuestion === index ? 'rotate-180' : ''
-                  }`}
-                />
-              </button>
-
               <div
-                className={`overflow-hidden transition-all duration-300 ${
-                  openQuestion === index ? 'max-h-[500px]' : 'max-h-0'
-                }`}
+                style={{
+                  position: 'relative',
+                  zIndex: 1
+                }}
               >
-                <div className="p-6 bg-[#1A202C]">
-                  <p
-                    className="text-[#E2E8F0]"
+                <button
+                  onClick={() => toggleQuestion(index)}
+                  className="w-full flex items-center justify-between"
+                  style={{
+                    background: 'transparent',
+                    border: 'none',
+                    padding: 0,
+                    margin: 0
+                  }}
+                  aria-expanded={openQuestion === index}
+                >
+                  <h4
+                    className="text-responsive-sm"
                     style={{
-                      fontFamily: "'Red Hat Text', sans-serif",
-                      fontSize: '16px',
-                      lineHeight: '1.8'
+                      fontFamily: "'Red Hat Display', sans-serif",
+                      fontWeight: '400',
+                      color: 'var(--bmv-text-heading)',
+                      textAlign: 'left',
+                      margin: 0,
+                      paddingRight: 'var(--space-4)'
                     }}
                   >
-                    {faq.answer}
-                  </p>
+                    {faq.question}
+                  </h4>
+                  <ChevronDown
+                    className={`w-6 h-6 text-[#A0AEC0] flex-shrink-0 transition-transform duration-300 ${
+                      openQuestion === index ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+
+                <div
+                  className={`overflow-hidden transition-all duration-300 ${
+                    openQuestion === index ? 'max-h-[500px]' : 'max-h-0'
+                  }`}
+                >
+                  <div style={{ marginTop: 'var(--space-3)' }}>
+                    <p
+                      style={{
+                        fontFamily: "'Red Hat Text', sans-serif",
+                        fontSize: '16px',
+                        fontWeight: '400',
+                        color: 'var(--bmv-text-secondary)',
+                        lineHeight: '1.6',
+                        margin: 0
+                      }}
+                    >
+                      {faq.answer}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

@@ -71,7 +71,7 @@ export default function SlabHero() {
           <div className="flex flex-row gap-6 items-center">
             <Link href="#examples">
               <button
-                className="inline-flex items-center gap-4 rounded-[50px] text-white cursor-pointer border-none transition-all hover:scale-[1.02]"
+                className="inline-flex items-center gap-4 rounded-[50px] text-white cursor-pointer border-none transition-all"
                 style={{
                   padding: '8px 8px 8px 24px',
                   background: 'rgba(155, 89, 208, 0.65)',
@@ -106,12 +106,10 @@ export default function SlabHero() {
                 onMouseEnter={(e) => {
                   setIsHovering(true);
                   e.currentTarget.style.background = 'rgba(237, 108, 70, 0.85)';
-                  e.currentTarget.style.transform = 'scale(1.02)';
                 }}
                 onMouseLeave={(e) => {
                   setIsHovering(false);
                   e.currentTarget.style.background = 'rgba(237, 108, 70, 0.65)';
-                  e.currentTarget.style.transform = 'scale(1)';
                 }}
                 className="inline-flex items-center gap-4 rounded-[50px] text-white cursor-pointer border-none transition-all"
                 style={{

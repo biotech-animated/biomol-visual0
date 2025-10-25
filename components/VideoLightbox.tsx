@@ -85,11 +85,9 @@ export default function VideoLightbox({ isOpen, onClose, videoUrl }: VideoLightb
         }}
         onMouseEnter={(e) => {
           e.currentTarget.style.background = 'rgba(255, 255, 255, 0.2)';
-          e.currentTarget.style.transform = 'scale(1.1)';
         }}
         onMouseLeave={(e) => {
           e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)';
-          e.currentTarget.style.transform = 'scale(1)';
         }}
       >
         <X size={24} />

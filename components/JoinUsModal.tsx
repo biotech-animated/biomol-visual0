@@ -957,11 +957,9 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
                   marginTop: 'var(--space-2)'
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'scale(1.02)';
                   e.currentTarget.style.boxShadow = '0 8px 30px rgba(155, 89, 208, 0.4)';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'scale(1)';
                   e.currentTarget.style.boxShadow = 'none';
                 }}
               >

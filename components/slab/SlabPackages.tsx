@@ -134,7 +134,7 @@ export default function SlabPackages() {
             </p>
 
             <button
-              className="w-full inline-flex items-center justify-center gap-4 rounded-[50px] text-white uppercase tracking-wider cursor-pointer border-none transition-all hover:scale-[1.02]"
+              className="w-full inline-flex items-center justify-center gap-4 rounded-[50px] text-white uppercase tracking-wider cursor-pointer border-none transition-all "
               style={{
                 padding: '8px 8px 8px 24px',
                 background: 'rgba(155, 89, 208, 0.65)',
@@ -275,7 +275,7 @@ export default function SlabPackages() {
             </p>
 
             <button
-              className="w-full inline-flex items-center justify-center gap-4 rounded-[50px] text-white uppercase tracking-wider cursor-pointer border-none transition-all hover:scale-[1.02]"
+              className="w-full inline-flex items-center justify-center gap-4 rounded-[50px] text-white uppercase tracking-wider cursor-pointer border-none transition-all "
               style={{
                 padding: '8px 8px 8px 24px',
                 background: 'rgba(155, 89, 208, 0.65)',
@@ -422,7 +422,7 @@ export default function SlabPackages() {
             </p>
 
             <button
-              className="w-full inline-flex items-center justify-center gap-4 rounded-[50px] text-white uppercase tracking-wider cursor-pointer border-none transition-all hover:scale-[1.02]"
+              className="w-full inline-flex items-center justify-center gap-4 rounded-[50px] text-white uppercase tracking-wider cursor-pointer border-none transition-all "
               style={{
                 padding: '8px 8px 8px 24px',
                 background: 'rgba(155, 89, 208, 0.65)',

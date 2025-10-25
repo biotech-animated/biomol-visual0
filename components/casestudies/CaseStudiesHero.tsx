@@ -135,7 +135,7 @@ export default function CaseStudiesHero({ onOpenForm }: CaseStudiesHeroProps) {
 
               <button
                 onClick={onOpenForm}
-                className="mt-8 inline-flex items-center gap-4 rounded-[50px] text-white tracking-wider cursor-pointer border-none transition-all hover:scale-[1.02]"
+                className="mt-8 inline-flex items-center gap-4 rounded-[50px] text-white tracking-wider cursor-pointer border-none transition-all"
                 style={{
                   padding: '8px 8px 8px 24px',
                   background: 'rgba(155, 89, 208, 0.65)',

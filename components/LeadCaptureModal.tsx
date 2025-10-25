@@ -101,11 +101,9 @@ export default function LeadCaptureModal({ isOpen, onClose }: LeadCaptureModalPr
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.background = 'var(--bmv-purple-hover)';
-                  e.currentTarget.style.transform = 'scale(1.02)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.background = 'var(--bmv-purple)';
-                  e.currentTarget.style.transform = 'scale(1)';
                 }}
               >
                 Close
@@ -293,13 +291,11 @@ export default function LeadCaptureModal({ isOpen, onClose }: LeadCaptureModalPr
                   onMouseEnter={(e) => {
                     if (status !== 'submitting') {
                       e.currentTarget.style.background = 'var(--bmv-orange-hover)';
-                      e.currentTarget.style.transform = 'scale(1.02)';
                     }
                   }}
                   onMouseLeave={(e) => {
                     if (status !== 'submitting') {
                       e.currentTarget.style.background = 'var(--bmv-orange)';
-                      e.currentTarget.style.transform = 'scale(1)';
                     }
                   }}
                 >

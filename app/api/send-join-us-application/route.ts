@@ -7,10 +7,23 @@ export const dynamic = 'force-dynamic';
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { firstName, lastName, email, telephone, interest, hearAbout, message, recaptchaToken } = body;
+    const { 
+      firstName, 
+      email, 
+      location, 
+      improvementAreas, 
+      universityDegrees, 
+      linkedinProfile, 
+      workVision, 
+      teamFit, 
+      performanceNeeds, 
+      passion, 
+      additionalComments, 
+      recaptchaToken 
+    } = body;
 
     // Validate required fields
-    if (!firstName || !lastName || !email || !interest) {
+    if (!firstName || !email || !location || !improvementAreas || improvementAreas.length === 0) {
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
@@ -25,7 +38,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const isRecaptchaValid = await verifyRecaptchaToken(recaptchaToken, 'contact_form');
+    const isRecaptchaValid = await verifyRecaptchaToken(recaptchaToken, 'job_application');
     if (!isRecaptchaValid) {
       return NextResponse.json(
         { error: 'reCAPTCHA verification failed' },
@@ -57,31 +70,66 @@ export async function POST(request: NextRequest) {
     const mailOptions = {
       from: process.env.SMTP_FROM || 'info@biomolvisual.com',
       to: process.env.SMTP_TO || 'info@biomolvisual.com',
-      subject: `New Contact Form Submission from ${firstName} ${lastName}`,
+      subject: `New Job Application from ${firstName}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #b12176; border-bottom: 2px solid #b12176; padding-bottom: 10px;">
-            New Contact Form Submission
+            New Job Application
           </h2>
           
           <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <h3 style="color: #333; margin-top: 0;">Contact Information</h3>
-            <p><strong>Name:</strong> ${firstName} ${lastName}</p>
+            <h3 style="color: #333; margin-top: 0;">Personal Information</h3>
+            <p><strong>Name:</strong> ${firstName}</p>
             <p><strong>Email:</strong> ${email}</p>
-            ${telephone ? `<p><strong>Telephone:</strong> ${telephone}</p>` : ''}
-            <p><strong>Interest:</strong> ${interest}</p>
-            ${hearAbout ? `<p><strong>How they heard about us:</strong> ${hearAbout}</p>` : ''}
+            <p><strong>Location:</strong> ${location}</p>
+            ${linkedinProfile ? `<p><strong>LinkedIn Profile:</strong> <a href="${linkedinProfile}" target="_blank">${linkedinProfile}</a></p>` : ''}
+            ${universityDegrees ? `<p><strong>University Degrees:</strong> ${universityDegrees}</p>` : ''}
           </div>
           
-          ${message ? `
           <div style="background-color: #f9f9f9; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <h3 style="color: #333; margin-top: 0;">Project Description</h3>
-            <p style="white-space: pre-wrap;">${message}</p>
+            <h3 style="color: #333; margin-top: 0;">Areas of Interest</h3>
+            <ul>
+              ${improvementAreas.map((area: string) => `<li>${area}</li>`).join('')}
+            </ul>
+          </div>
+          
+          ${workVision ? `
+          <div style="background-color: #f9f9f9; padding: 20px; border-radius: 8px; margin: 20px 0;">
+            <h3 style="color: #333; margin-top: 0;">Work Vision</h3>
+            <p style="white-space: pre-wrap;">${workVision}</p>
+          </div>
+          ` : ''}
+          
+          ${teamFit ? `
+          <div style="background-color: #f9f9f9; padding: 20px; border-radius: 8px; margin: 20px 0;">
+            <h3 style="color: #333; margin-top: 0;">Team Fit</h3>
+            <p style="white-space: pre-wrap;">${teamFit}</p>
+          </div>
+          ` : ''}
+          
+          ${performanceNeeds ? `
+          <div style="background-color: #f9f9f9; padding: 20px; border-radius: 8px; margin: 20px 0;">
+            <h3 style="color: #333; margin-top: 0;">Performance Needs</h3>
+            <p style="white-space: pre-wrap;">${performanceNeeds}</p>
+          </div>
+          ` : ''}
+          
+          ${passion ? `
+          <div style="background-color: #f9f9f9; padding: 20px; border-radius: 8px; margin: 20px 0;">
+            <h3 style="color: #333; margin-top: 0;">Passion</h3>
+            <p style="white-space: pre-wrap;">${passion}</p>
+          </div>
+          ` : ''}
+          
+          ${additionalComments ? `
+          <div style="background-color: #f9f9f9; padding: 20px; border-radius: 8px; margin: 20px 0;">
+            <h3 style="color: #333; margin-top: 0;">Additional Comments</h3>
+            <p style="white-space: pre-wrap;">${additionalComments}</p>
           </div>
           ` : ''}
           
           <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; color: #666; font-size: 12px;">
-            <p>This email was sent from the Biomol Visual contact form.</p>
+            <p>This email was sent from the Biomol Visual job application form.</p>
             <p>Submitted on: ${new Date().toLocaleString()}</p>
           </div>
         </div>
@@ -95,25 +143,25 @@ export async function POST(request: NextRequest) {
     const userConfirmationOptions = {
       from: process.env.SMTP_FROM || 'info@biomolvisual.com',
       to: email,
-      subject: 'Thank you for contacting us - Biomol Visual',
+      subject: 'Thank you for your application - Biomol Visual',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #b12176; border-bottom: 2px solid #b12176; padding-bottom: 10px;">
-            Thank you for reaching out!
+            Thank you for your interest!
           </h2>
           
-          <p>Dear ${firstName} ${lastName},</p>
+          <p>Dear ${firstName},</p>
           
-          <p>Thank you for contacting Biomol Visual. We have received your message and our team will get back to you shortly.</p>
+          <p>Thank you for your interest in joining the Biomol Visual team. We have received your application and our team will review it shortly.</p>
           
           <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <h3 style="color: #333; margin-top: 0;">Your Message Details</h3>
-            <p><strong>Name:</strong> ${firstName} ${lastName}</p>
+            <h3 style="color: #333; margin-top: 0;">Your Application Details</h3>
+            <p><strong>Name:</strong> ${firstName}</p>
             <p><strong>Email:</strong> ${email}</p>
-            ${telephone ? `<p><strong>Telephone:</strong> ${telephone}</p>` : ''}
-            <p><strong>Interest:</strong> ${interest}</p>
-            ${hearAbout ? `<p><strong>How you heard about us:</strong> ${hearAbout}</p>` : ''}
-            ${message ? `<p><strong>Your Message:</strong><br><span style="white-space: pre-wrap;">${message}</span></p>` : ''}
+            <p><strong>Location:</strong> ${location}</p>
+            <p><strong>Areas of Interest:</strong> ${improvementAreas.join(', ')}</p>
+            ${universityDegrees ? `<p><strong>University Degrees:</strong> ${universityDegrees}</p>` : ''}
+            ${linkedinProfile ? `<p><strong>LinkedIn Profile:</strong> <a href="${linkedinProfile}" target="_blank">${linkedinProfile}</a></p>` : ''}
           </div>
           
           <p>We typically respond within 1-2 business days. If you have any urgent questions, please don't hesitate to contact us directly.</p>
@@ -133,12 +181,12 @@ export async function POST(request: NextRequest) {
     await transporter.sendMail(userConfirmationOptions);
 
     return NextResponse.json(
-      { message: 'Contact form submitted successfully' },
+      { message: 'Job application submitted successfully' },
       { status: 200 }
     );
 
   } catch (error) {
-    console.error('Error sending contact form email:', error);
+    console.error('Error sending job application email:', error);
     
     // Provide more specific error messages based on the error type
     if (error instanceof Error) {
@@ -156,7 +204,7 @@ export async function POST(request: NextRequest) {
     }
     
     return NextResponse.json(
-      { error: 'Failed to send contact form. Please try again later.' },
+      { error: 'Failed to send job application. Please try again later.' },
       { status: 500 }
     );
   }

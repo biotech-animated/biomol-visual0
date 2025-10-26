@@ -1,6 +1,6 @@
 import { X, ArrowRight, ChevronDown } from 'lucide-react';
 import { useState, FormEvent, useEffect } from 'react';
-import Recaptcha from '@/components/ui/Recaptcha';
+import RecaptchaV3, { useRecaptchaV3 } from '@/components/ui/RecaptchaV3';
 
 interface CaseStudiesFormProps {
   isOpen: boolean;
@@ -20,8 +20,9 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
   const [isTherapeuticAreaDropdownOpen, setIsTherapeuticAreaDropdownOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [recaptchaToken, setRecaptchaToken] = useState<string>('');
-  const [recaptchaError, setRecaptchaError] = useState<string>('');
+  
+  // Use reCAPTCHA v3 hook
+  const { token: recaptchaToken, error: recaptchaError, generateToken, clearToken, clearError } = useRecaptchaV3('case_study_request');
 
   const therapeuticAreaOptions = [
     { value: '', label: 'Select an option' },
@@ -124,16 +125,12 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
-    setRecaptchaError('');
-
-    // Validate reCAPTCHA
-    if (!recaptchaToken) {
-      setRecaptchaError('Please complete the reCAPTCHA verification');
-      setIsSubmitting(false);
-      return;
-    }
+    clearError();
 
     try {
+      // Generate reCAPTCHA v3 token
+      const token = await generateToken();
+
       const response = await fetch('/api/send-case-study-request', {
         method: 'POST',
         headers: {
@@ -141,7 +138,7 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
         },
         body: JSON.stringify({
           ...formData,
-          recaptchaToken
+          recaptchaToken: token
         }),
       });
 
@@ -155,7 +152,7 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
           therapeuticArea: '',
           projectDescription: ''
         });
-        setRecaptchaToken('');
+        clearToken();
         // Close form after 2 seconds
         setTimeout(() => {
           onClose();
@@ -418,9 +415,10 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
               )}
 
               {/* reCAPTCHA Component */}
-              <Recaptcha
-                onTokenGenerated={setRecaptchaToken}
-                onError={setRecaptchaError}
+              <RecaptchaV3
+                onTokenGenerated={() => {}} // Token is handled by the hook
+                onError={() => {}} // Error is handled by the hook
+                action="case_study_request"
                 className="mb-4"
               />
 

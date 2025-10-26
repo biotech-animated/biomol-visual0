@@ -1,111 +1,78 @@
-# Google reCAPTCHA Integration
+# Google reCAPTCHA v3 Integration
 
-This project now includes Google reCAPTCHA v2 integration with the classic "I'm not a robot" checkbox to protect all forms against spam and bot submissions.
+This project now includes Google reCAPTCHA v3 integration with invisible protection to protect all forms against spam and bot submissions. reCAPTCHA v3 runs in the background and provides a risk score without requiring user interaction.
 
 ## Setup Instructions
 
 ### 1. Get reCAPTCHA Keys
 
 1. Go to [Google reCAPTCHA Admin Console](https://www.google.com/recaptcha/admin)
-2. Create a new site with **reCAPTCHA v2** (not v3)
-3. Select **"I'm not a robot" Checkbox** option
-4. Add your domain(s) to the site
-5. Copy the **Site Key** and **Secret Key**
+2. Create a new site with **reCAPTCHA v3** (not v2)
+3. Add your domain(s) to the site
+4. Copy the **Site Key** and **Secret Key**
 
 ### 2. Environment Variables
 
 Add the following environment variables to your `.env.local` file:
 
 ```bash
-# Google reCAPTCHA Configuration
+# Google reCAPTCHA v3 Configuration
 NEXT_PUBLIC_RECAPTCHA_SITE_KEY=your_recaptcha_site_key_here
 RECAPTCHA_SECRET_KEY=your_recaptcha_secret_key_here
 ```
 
 ### 3. Forms Protected
 
-The following forms now include reCAPTCHA protection:
+The following forms now include reCAPTCHA v3 protection:
 
-- **ContactForm.tsx** - Contact form with visible reCAPTCHA checkbox
-- **JoinUsModal.tsx** - Job application form with visible reCAPTCHA checkbox  
-- **CaseStudiesForm.tsx** - Case study request form with visible reCAPTCHA checkbox
+- **ContactForm.tsx** - Contact form with invisible reCAPTCHA v3
+- **JoinUsModal.tsx** - Job application form with invisible reCAPTCHA v3  
+- **CaseStudiesForm.tsx** - Case study request form with invisible reCAPTCHA v3
 
 ### 4. How It Works
 
-1. **Frontend**: The reCAPTCHA checkbox loads automatically when forms are opened
-2. **User Interaction**: Users must click the "I'm not a robot" checkbox
-3. **Verification**: Google may show additional challenges (image selection, etc.)
-4. **Token Generation**: Once verified, reCAPTCHA generates a token
-5. **Backend**: API routes verify the token with Google's servers before processing submissions
+1. **Frontend**: The reCAPTCHA v3 script loads automatically when forms are opened
+2. **Background Analysis**: reCAPTCHA v3 analyzes user behavior in the background
+3. **Token Generation**: When forms are submitted, reCAPTCHA generates a token with a risk score
+4. **Backend**: API routes verify the token with Google's servers and check the risk score
+5. **Score Threshold**: Forms are rejected if the risk score is below 0.5 (configurable)
 6. **Error Handling**: Users see clear error messages if reCAPTCHA verification fails
 
 ### 5. What Users Will See
 
-- **Classic reCAPTCHA checkbox** with "I'm not a robot" text
-- **Google reCAPTCHA logo** and branding
+- **No visible reCAPTCHA widget** - completely invisible to users
+- **Smooth user experience** - no interruptions or challenges
+- **Google reCAPTCHA badge** - small badge in the corner (required by Google)
 - **Privacy policy links** as required by Google
-- **Reset button** to refresh the reCAPTCHA if needed
-- **Status indicator** showing when reCAPTCHA is loaded and ready
 
 ### 6. API Endpoints Updated
 
-All form submission endpoints now verify reCAPTCHA tokens:
+All form submission endpoints now verify reCAPTCHA v3 tokens with score checking:
 
-- `/api/send-contact`
-- `/api/send-join-us-application` 
-- `/api/send-case-study-request`
+- `/api/send-contact` - Contact form submissions
+- `/api/send-case-study-request` - Case study requests  
+- `/api/send-join-us-application` - Job applications
 
-### 7. Features
+### 7. Score Thresholds
 
-- **Visible reCAPTCHA**: Uses reCAPTCHA v2 with the familiar checkbox interface
-- **Server-side verification**: All tokens are verified on the backend
-- **Error handling**: Clear error messages for failed verification
-- **Reset functionality**: Users can reset reCAPTCHA if needed
-- **Responsive design**: Works on all device sizes
-- **Privacy compliance**: Includes Google's required privacy policy links
+The system uses a default minimum score of 0.5:
+- **0.9 - 1.0**: Very likely human
+- **0.7 - 0.9**: Likely human
+- **0.5 - 0.7**: Neutral
+- **0.1 - 0.5**: Likely bot (rejected)
+- **0.0 - 0.1**: Very likely bot (rejected)
 
-### 8. Testing
+### 8. Actions Used
 
-To test the integration:
+Each form uses a specific action for better analytics:
+- `contact_form` - Contact form submissions
+- `case_study_request` - Case study requests
+- `job_application` - Job applications
 
-1. Set up your reCAPTCHA keys in environment variables
-2. Open any form on the website
-3. You should see the classic "I'm not a robot" checkbox
-4. Click the checkbox and complete any challenges
-5. Fill out and submit the form
-6. Check browser console for any reCAPTCHA-related errors
-7. Verify that submissions work with valid tokens and fail without them
+### 9. Benefits of reCAPTCHA v3
 
-### 9. Troubleshooting
-
-**Common Issues:**
-
-- **"reCAPTCHA not loaded"**: Check that `NEXT_PUBLIC_RECAPTCHA_SITE_KEY` is set correctly
-- **"reCAPTCHA verification failed"**: Verify `RECAPTCHA_SECRET_KEY` is correct and matches the site key
-- **No checkbox visible**: Ensure you're using reCAPTCHA v2 (not v3) and the site key is correct
-- **Domain mismatch**: Ensure your domain is added to the reCAPTCHA site configuration
-- **Forms not submitting**: Check browser console for JavaScript errors
-
-**Debug Mode:**
-
-Check browser console for these messages:
-- "reCAPTCHA loaded successfully"
-- "reCAPTCHA token generated: [token]..."
-
-### 10. Security Notes
-
-- Never expose your secret key in client-side code
-- Always verify tokens on the server side
-- Monitor reCAPTCHA responses for suspicious activity
-- Consider implementing additional rate limiting for extra protection
-
-## Files Modified
-
-- `lib/recaptcha.ts` - reCAPTCHA utility functions
-- `components/ui/Recaptcha.tsx` - Visible reCAPTCHA checkbox component
-- `components/contact/ContactForm.tsx` - Added reCAPTCHA integration
-- `components/JoinUsModal.tsx` - Added reCAPTCHA integration
-- `components/casestudies/CaseStudiesForm.tsx` - Added reCAPTCHA integration
-- `app/api/send-contact/route.ts` - Added token verification
-- `app/api/send-join-us-application/route.ts` - Added token verification
-- `app/api/send-case-study-request/route.ts` - Added token verification
+- **Better User Experience**: No visible challenges or checkboxes
+- **More Accurate**: Uses behavioral analysis instead of simple challenges
+- **Analytics**: Provides detailed analytics on bot vs human traffic
+- **Mobile Friendly**: Works seamlessly on all devices
+- **Accessibility**: No accessibility concerns with invisible protection

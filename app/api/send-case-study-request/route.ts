@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const isRecaptchaValid = await verifyRecaptchaToken(recaptchaToken);
+    const isRecaptchaValid = await verifyRecaptchaToken(recaptchaToken, 'case_study_request');
     if (!isRecaptchaValid) {
       return NextResponse.json(
         { error: 'reCAPTCHA verification failed' },

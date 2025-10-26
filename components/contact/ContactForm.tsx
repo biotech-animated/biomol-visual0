@@ -1,6 +1,6 @@
 import { X, Check, ArrowRight, ChevronDown } from 'lucide-react';
 import { useState, FormEvent, useEffect } from 'react';
-import Recaptcha from '@/components/ui/Recaptcha';
+import RecaptchaV3, { useRecaptchaV3 } from '@/components/ui/RecaptchaV3';
 
 interface ContactFormProps {
   isOpen: boolean;
@@ -22,8 +22,9 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
   const [isInterestDropdownOpen, setIsInterestDropdownOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [recaptchaToken, setRecaptchaToken] = useState<string>('');
-  const [recaptchaError, setRecaptchaError] = useState<string>('');
+  
+  // Use reCAPTCHA v3 hook
+  const { token: recaptchaToken, error: recaptchaError, generateToken, clearToken, clearError } = useRecaptchaV3('contact_form');
 
   const interestOptions = [
     { value: '', label: 'Select an option' },
@@ -125,16 +126,12 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
-    setRecaptchaError('');
-
-    // Validate reCAPTCHA
-    if (!recaptchaToken) {
-      setRecaptchaError('Please complete the reCAPTCHA verification');
-      setIsSubmitting(false);
-      return;
-    }
+    clearError();
 
     try {
+      // Generate reCAPTCHA v3 token
+      const token = await generateToken();
+
       const response = await fetch('/api/send-contact', {
         method: 'POST',
         headers: {
@@ -142,7 +139,7 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
         },
         body: JSON.stringify({
           ...formData,
-          recaptchaToken
+          recaptchaToken: token
         }),
       });
 
@@ -158,7 +155,7 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
           hearAbout: '',
           message: ''
         });
-        setRecaptchaToken('');
+        clearToken();
         // Close form after 2 seconds
         setTimeout(() => {
           onClose();
@@ -467,9 +464,10 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
               )}
 
               {/* reCAPTCHA Component */}
-              <Recaptcha
-                onTokenGenerated={setRecaptchaToken}
-                onError={setRecaptchaError}
+              <RecaptchaV3
+                onTokenGenerated={() => {}} // Token is handled by the hook
+                onError={() => {}} // Error is handled by the hook
+                action="contact_form"
                 className="mb-4"
               />
 

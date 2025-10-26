@@ -1,16 +1,21 @@
-// reCAPTCHA utility functions
+// reCAPTCHA v3 utility functions
 
 export interface RecaptchaResponse {
   success: boolean;
   'error-codes'?: string[];
   challenge_ts?: string;
   hostname?: string;
+  score?: number;
+  action?: string;
 }
 
 /**
- * Verify reCAPTCHA token on the server side
+ * Verify reCAPTCHA v3 token on the server side
+ * @param token - The reCAPTCHA token to verify
+ * @param action - The action that was performed (optional, defaults to 'submit')
+ * @param minScore - Minimum score threshold (optional, defaults to 0.5)
  */
-export async function verifyRecaptchaToken(token: string): Promise<boolean> {
+export async function verifyRecaptchaToken(token: string, action: string = 'submit', minScore: number = 0.5): Promise<boolean> {
   if (!process.env.RECAPTCHA_SECRET_KEY) {
     console.error('RECAPTCHA_SECRET_KEY environment variable is not set');
     return false;
@@ -25,6 +30,7 @@ export async function verifyRecaptchaToken(token: string): Promise<boolean> {
       body: new URLSearchParams({
         secret: process.env.RECAPTCHA_SECRET_KEY,
         response: token,
+        remoteip: '', // Optional: can be added for additional security
       }),
     });
 
@@ -35,6 +41,20 @@ export async function verifyRecaptchaToken(token: string): Promise<boolean> {
       return false;
     }
 
+    // For reCAPTCHA v3, check the score
+    if (data.score !== undefined) {
+      if (data.score < minScore) {
+        console.warn(`reCAPTCHA score too low: ${data.score} (minimum: ${minScore})`);
+        return false;
+      }
+      
+      // Optional: verify the action matches
+      if (data.action && data.action !== action) {
+        console.warn(`reCAPTCHA action mismatch: expected ${action}, got ${data.action}`);
+        return false;
+      }
+    }
+
     return true;
   } catch (error) {
     console.error('Error verifying reCAPTCHA token:', error);
@@ -43,7 +63,7 @@ export async function verifyRecaptchaToken(token: string): Promise<boolean> {
 }
 
 /**
- * Load reCAPTCHA script dynamically
+ * Load reCAPTCHA v3 script dynamically
  */
 export function loadRecaptchaScript(): Promise<void> {
   return new Promise((resolve, reject) => {
@@ -66,9 +86,10 @@ export function loadRecaptchaScript(): Promise<void> {
 }
 
 /**
- * Execute reCAPTCHA and get token
+ * Execute reCAPTCHA v3 and get token
+ * @param action - The action to perform (defaults to 'submit')
  */
-export function executeRecaptcha(): Promise<string> {
+export function executeRecaptcha(action: string = 'submit'): Promise<string> {
   return new Promise((resolve, reject) => {
     if (typeof window === 'undefined' || !window.grecaptcha) {
       reject(new Error('reCAPTCHA not loaded'));
@@ -77,7 +98,7 @@ export function executeRecaptcha(): Promise<string> {
 
     window.grecaptcha.ready(() => {
       window.grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!, {
-        action: 'submit'
+        action: action
       }).then((token: string) => {
         resolve(token);
       }).catch((error: any) => {

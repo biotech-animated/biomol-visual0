@@ -274,7 +274,7 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
                   fontWeight: 500
                 }}
               >
-                I'm interested in *
+                I&apos;m interested in *
               </label>
               <div className="relative custom-select-container">
                 <button

@@ -83,7 +83,7 @@ export default function LeadCaptureModal({ isOpen, onClose }: LeadCaptureModalPr
                 Thank You!
               </h3>
               <p style={{ color: 'var(--bmv-text-secondary)' }}>
-                We'll review your information and send relevant case studies to your email shortly.
+                We&apos;ll review your information and send relevant case studies to your email shortly.
               </p>
               <button
                 onClick={handleClose}

@@ -21,24 +21,24 @@ export default function WhatIsSlab() {
             fontWeight: 500
           }}
         >
-          SLAB stands for Seamless Loop Asset Bank. Here's why we built it.
+          SLAB stands for Seamless Loop Asset Bank. Here&apos;s why we built it.
         </p>
 
         <div className="space-y-8 text-[#E2E8F0]" style={{ fontFamily: "'Red Hat Text', sans-serif", fontSize: '18px', lineHeight: '1.7' }}>
           <p>
-            We kept seeing the same pattern. Biotech and pharma companies with incredible science—real innovation, solid teams, important work—but when it came time to present that work to the world, they were stuck with generic stock footage. Visuals that didn't match the quality of their science. Websites that needed an upgrade.
+            We kept seeing the same pattern. Biotech and pharma companies with incredible science—real innovation, solid teams, important work—but when it came time to present that work to the world, they were stuck with generic stock footage. Visuals that didn&apos;t match the quality of their science. Websites that needed an upgrade.
           </p>
 
           <p>
-            It wasn't for lack of trying. Custom animation solves this perfectly, but it takes months, requires significant budgets, and needs long lead times. Most companies don't have that luxury when they're preparing for a partnership meeting, launching a new website, heading to a conference next month, or building a sales deck.
+            It wasn&apos;t for lack of trying. Custom animation solves this perfectly, but it takes months, requires significant budgets, and needs long lead times. Most companies don&apos;t have that luxury when they&apos;re preparing for a partnership meeting, launching a new website, heading to a conference next month, or building a sales deck.
           </p>
 
           <p>
-            That's why we built SLAB.
+            That&apos;s why we built SLAB.
           </p>
 
           <p>
-            <strong style={{ fontWeight: 500 }}>For instant needs:</strong> We have pre-made, scientifically accurate loops ready to download immediately. Think premium stock footage that's actually accurate.
+            <strong style={{ fontWeight: 500 }}>For instant needs:</strong> We have pre-made, scientifically accurate loops ready to download immediately. Think premium stock footage that&apos;s actually accurate.
           </p>
 
           <p>

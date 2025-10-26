@@ -27,7 +27,7 @@ export default function DifferentiationSection() {
               }}
             >
               <h2 className="text-responsive-lg" style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: '500', marginBottom: '0' }}>
-                We Don't Show Procedures. We Show Molecular and Cellular Processes.
+                We Don&apos;t Show Procedures. We Show Molecular and Cellular Processes.
               </h2>
 
               <div
@@ -47,7 +47,7 @@ export default function DifferentiationSection() {
                   </p>
 
             <p style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: '400', color: 'var(--bmv-text-heading)' }}>
-              The problem this creates is clear: teams that constantly switch contexts never develop deep expertise in any single domain. They can't anticipate the questions investors will want answered about your specific molecular and cellular science. They're learning on your timeline—and your budget.
+              The problem this creates is clear: teams that constantly switch contexts never develop deep expertise in any single domain. They can&apos;t anticipate the questions investors will want answered about your specific molecular and cellular science. They&apos;re learning on your timeline—and your budget.
                 </p>
 
                 <p style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: '400', color: 'var(--bmv-text-heading)' }}>
@@ -69,7 +69,7 @@ export default function DifferentiationSection() {
                   }}
                 >
                   <p className="text-responsive-sm" style={{ fontFamily: "'Red Hat Text', sans-serif", fontStyle: 'italic', marginBottom: 'var(--space-3)' }}>
-                    "The team understands science and biotech, so communication is direct and effective — no wasting time bringing designers up to speed."
+                    &ldquo;The team understands science and biotech, so communication is direct and effective — no wasting time bringing designers up to speed.&rdquo;
                   </p>
                   <p className="text-responsive-sm" style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: '300', color: 'var(--bmv-text-secondary)' }}>
                     — Dr. James Campbell, CEO, Patrys

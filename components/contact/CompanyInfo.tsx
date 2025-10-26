@@ -49,7 +49,7 @@ export default function CompanyInfo() {
                   lineHeight: '1.8'
                 }}
               >
-                We've partnered with innovative companies worldwide, supporting funding rounds that have generated over $500 million in capital, including clients later acquired for multi-billion dollar valuations.
+                We&apos;ve partnered with innovative companies worldwide, supporting funding rounds that have generated over $500 million in capital, including clients later acquired for multi-billion dollar valuations.
               </p>
             </div>
           </div>
@@ -76,7 +76,7 @@ export default function CompanyInfo() {
                       lineHeight: '1.7'
                     }}
                   >
-                    Our clients span the world's leading biotech hubs:
+                    Our clients span the world&apos;s leading biotech hubs:
                   </p>
                 </div>
 
@@ -123,7 +123,7 @@ export default function CompanyInfo() {
                     lineHeight: '1.7'
                   }}
                 >
-                  From seed stage to late-stage acquisition prep, we've worked with biotech companies across every funding stage.
+                  From seed stage to late-stage acquisition prep, we&apos;ve worked with biotech companies across every funding stage.
                 </p>
               </div>
             </div>

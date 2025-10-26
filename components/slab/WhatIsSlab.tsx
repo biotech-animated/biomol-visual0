@@ -1,7 +1,7 @@
 export default function WhatIsSlab() {
   return (
-    <section className="py-24 bg-[#1B0A2E]">
-      <div className="max-w-[900px] mx-auto px-8 md:px-16">
+    <section className="section-responsive !pt-6" style={{ background: '#1B0A2E' }}>
+      <div className="container-responsive" style={{ maxWidth: '900px' }}>
         <h2
           className="text-[#E2E8F0] text-center mb-4"
           style={{

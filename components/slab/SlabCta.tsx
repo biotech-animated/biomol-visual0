@@ -20,7 +20,13 @@ export default function SlabCta() {
   }, []);
 
   return (
-    <section className="bg-[#1B0A2E] relative overflow-hidden flex items-center justify-center h-screen">
+    <section 
+      className="section-responsive relative overflow-hidden flex items-center justify-center" 
+      style={{ 
+        background: '#1B0A2E',
+        height: '100vh'
+      }}
+    >
       <div className="absolute inset-0" style={{ zIndex: 0 }}>
         <div
           className="wistia_embed wistia_async_k1qtlw98gu videoFoam=true autoPlay=true muted=true controlsVisibleOnLoad=false endVideoBehavior=loop playbar=false"
@@ -66,7 +72,7 @@ export default function SlabCta() {
         </p>
 
         <button
-          className="inline-flex items-center gap-4 rounded-[50px] text-white cursor-pointer border-none transition-all hover:scale-[1.02]"
+          className="inline-flex items-center gap-4 rounded-[50px] text-white cursor-pointer border-none transition-all"
           style={{
             padding: '8px 8px 8px 24px',
             background: 'rgba(155, 89, 208, 0.65)',

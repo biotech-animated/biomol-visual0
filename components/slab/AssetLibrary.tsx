@@ -42,8 +42,8 @@ export default function AssetLibrary() {
   ];
 
   return (
-    <section className="py-24 bg-[#1B0A2E]">
-      <div className="max-w-[1000px] mx-auto px-8 md:px-16">
+    <section className="section-responsive !pt-6" style={{ background: '#1B0A2E' }}>
+      <div className="container-responsive" style={{ maxWidth: '1000px' }}>
         <h2
           className="text-white text-center mb-4"
           style={{
@@ -66,48 +66,83 @@ export default function AssetLibrary() {
         </p>
 
         <div className="space-y-2">
-          {categories.map((category) => (
+          {categories.map((category, index) => (
             <div
               key={category.id}
-              className="border border-[#9B59D0]/20 rounded-lg overflow-hidden"
+              className="phase-card"
+              style={{
+                padding: 'var(--space-4)',
+                background: 'var(--bmv-surface)',
+                borderRadius: '12px',
+                border: '1px solid rgba(183, 148, 246, 0.1)',
+                transition: 'all 250ms cubic-bezier(0.2, 0.8, 0.2, 1)',
+                cursor: 'pointer',
+                position: 'relative',
+                overflow: 'hidden'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'var(--bmv-surface-2)';
+                e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.3)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'var(--bmv-surface)';
+                e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.1)';
+              }}
             >
-              <button
-                onClick={() => toggleSection(category.id)}
-                className="w-full flex items-center justify-between p-6 bg-[#1A202C] hover:bg-[#222222] transition-colors duration-200"
+              <div
+                style={{
+                  position: 'relative',
+                  zIndex: 1
+                }}
               >
-                <span
-                  className="text-white text-left"
+                <button
+                  onClick={() => toggleSection(category.id)}
+                  className="w-full flex items-center justify-between"
                   style={{
-                    fontFamily: "'Red Hat Display', sans-serif",
-                    fontSize: '20px',
-                    fontWeight: 500
+                    background: 'transparent',
+                    border: 'none',
+                    padding: 0,
+                    margin: 0
                   }}
                 >
-                  {category.title}
-                </span>
-                <ChevronDown
-                  className={`w-6 h-6 text-[#A0AEC0] transition-transform duration-300 ${
-                    openSection === category.id ? 'rotate-180' : ''
-                  }`}
-                />
-              </button>
-
-              <div
-                className={`overflow-hidden transition-all duration-300 ${
-                  openSection === category.id ? 'max-h-[2000px]' : 'max-h-0'
-                }`}
-              >
-                <div className="p-6 bg-[#1A202C]">
-                  <p
-                    className="text-[#E2E8F0]"
+                  <h4
+                    className="text-responsive-sm"
                     style={{
-                      fontFamily: "'Red Hat Text', sans-serif",
-                      fontSize: '16px',
-                      lineHeight: '1.8'
+                      fontFamily: "'Red Hat Display', sans-serif",
+                      fontWeight: '400',
+                      color: 'var(--bmv-text-heading)',
+                      textAlign: 'left',
+                      margin: 0
                     }}
                   >
-                    {category.items}
-                  </p>
+                    {category.title}
+                  </h4>
+                  <ChevronDown
+                    className={`w-6 h-6 text-[#A0AEC0] transition-transform duration-300 ${
+                      openSection === category.id ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+
+                <div
+                  className={`overflow-hidden transition-all duration-300 ${
+                    openSection === category.id ? 'max-h-[2000px]' : 'max-h-0'
+                  }`}
+                >
+                  <div style={{ marginTop: 'var(--space-3)' }}>
+                    <p
+                      style={{
+                        fontFamily: "'Red Hat Text', sans-serif",
+                        fontSize: '16px',
+                        fontWeight: '400',
+                        color: 'var(--bmv-text-secondary)',
+                        lineHeight: '1.6',
+                        margin: 0
+                      }}
+                    >
+                      {category.items}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

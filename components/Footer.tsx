@@ -29,7 +29,7 @@ export default function Footer() {
                 backgroundClip: 'text'
               }}
             >
-              BIOMOL | VISUAL
+              BIOMOL VISUAL
             </button>
             <p className="text-sm text-[#A0AEC0] leading-relaxed mb-6" style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: 300 }}>
               Molecular and Cellular MOA & MOD Visualization Specialists

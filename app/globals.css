@@ -113,8 +113,8 @@
   width: 48px !important;
   height: 48px !important;
   border-radius: 50% !important;
-  background: rgba(31, 41, 55, 0.9) !important;
-  border: 1px solid white !important;
+  /* background: rgba(31, 41, 55, 0.9) !important; */
+  /* border: 1px solid white !important; */
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -122,19 +122,19 @@
   transition: all 500ms !important;
   color: white !important;
   z-index: 10 !important;
-  backdrop-filter: blur(4px) !important;
+  /* backdrop-filter: blur(4px) !important; */
 }
 
 
 .swiper-button-prev-testimonials {
-  left: -16px !important;
+  left: -72px !important;
 }
 
 .swiper-button-next-testimonials {
-  right: -16px !important;
+  right: -72px !important;
 }
 
-.swiper-button-prev-testimonials:hover,
+/* .swiper-button-prev-testimonials:hover,
 .swiper-button-next-testimonials:hover {
   background: rgba(139, 92, 246, 0.2) !important;
   border-color: rgba(139, 92, 246, 0.5) !important;
@@ -143,7 +143,7 @@
 .swiper-button-prev-testimonials::after,
 .swiper-button-next-testimonials::after {
   display: none !important;
-}
+} */
 
 /* Team carousel buttons - matching testimonials style */
 .swiper-button-prev-team,
@@ -153,9 +153,9 @@
   transform: translateY(-50%) !important;
   width: 48px !important;
   height: 48px !important;
-  border-radius: 50% !important;
-  background: rgba(31, 41, 55, 0.9) !important;
-  border: 1px solid white !important;
+  /* border-radius: 50% !important; */
+  /* background: rgba(31, 41, 55, 0.9) !important; */
+  /* border: 1px solid white !important; */
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -163,17 +163,17 @@
   transition: all 500ms !important;
   color: white !important;
   z-index: 10 !important;
-  backdrop-filter: blur(4px) !important;
+  /* backdrop-filter: blur(4px) !important; */
 }
 
 .swiper-button-prev-team {
-  left: -16px !important;
+  left: -72px !important;
 }
 
 .swiper-button-next-team {
-  right: -16px !important;
+  right: -72px !important;
 }
-
+/* 
 .swiper-button-prev-team:hover,
 .swiper-button-next-team:hover {
   background: rgba(139, 92, 246, 0.2) !important;
@@ -183,7 +183,7 @@
 .swiper-button-prev-team::after,
 .swiper-button-next-team::after {
   display: none !important;
-}
+} */
 
 /* Responsive adjustments for testimonials */
 @media (max-width: 640px) {
@@ -194,11 +194,11 @@
   }
   
   .swiper-button-prev-testimonials {
-    left: -12px !important;
+    left: -38px !important;
   }
   
   .swiper-button-next-testimonials {
-    right: -12px !important;
+    right: -38px !important;
   }
   
   .swiper-pagination-bullet-testimonials {
@@ -216,11 +216,11 @@
   }
   
   .swiper-button-prev-team {
-    left: -12px !important;
+    left: -38px !important;
   }
   
   .swiper-button-next-team {
-    right: -12px !important;
+    right: -38px !important;
   }
 }
 
@@ -891,6 +891,70 @@
   .text-responsive-sm {
     font-size: clamp(0.875rem, 2vw, 16px);
     line-height: 1.5;
+  }
+
+  /* Metrics card hover effects */
+  .metrics-card {
+    background: rgba(30, 30, 40, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(183, 148, 246, 0.2);
+    transition: all 0.6s ease !important;
+  }
+
+  .metrics-card:hover {
+    background: rgba(30, 30, 40, 0.6);
+    border-color: rgba(183, 148, 246, 0.6);
+  }
+
+  /* Testimonial card hover effects */
+  .testimonial-card {
+    background: var(--bmv-surface);
+    border: 1px solid rgba(183, 148, 246, 0.1);
+    transition: all 0.6s ease !important;
+  }
+
+  .testimonial-card:hover {
+    background: var(--bmv-surface-2);
+    border-color: #232d3d;
+  }
+
+  /* Security features card hover effects */
+  .security-features-card {
+    background: rgba(30, 30, 40, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(183, 148, 246, 0.2);
+    transition: all 0.6s ease !important;
+  }
+
+  .security-features-card:hover {
+    background: rgba(30, 30, 40, 0.6);
+    border-color: rgba(182, 148, 246, 0.5);
+  }
+
+  /* Team member stats card hover effects */
+  .team-stats-card {
+    background: var(--bmv-surface);
+    border: 1px solid rgba(183, 148, 246, 0.1);
+    transition: all 0.6s ease !important;
+  }
+
+  .team-stats-card:hover {
+    background: var(--bmv-surface-2);
+    border-color: rgba(183, 148, 246, 0.3);
+  }
+
+  /* Case studies stats card hover effects */
+  .case-stats-card {
+    background: var(--bmv-surface);
+    border: 1px solid rgba(183, 148, 246, 0.1);
+    transition: all 0.6s ease !important;
+  }
+
+  .case-stats-card:hover {
+    background: var(--bmv-surface-2);
+    border-color: rgba(183, 148, 246, 0.3);
   }
 }
 

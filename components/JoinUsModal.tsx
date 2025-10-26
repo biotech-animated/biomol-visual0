@@ -218,7 +218,7 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
       <div>
         <h3 style={{
           fontSize: '20px',
-          fontWeight: '600',
+          fontWeight: '500',
           color: 'var(--bmv-text-heading)',
           marginBottom: 'var(--space-2)',
           fontFamily: "'Red Hat Display', sans-serif"
@@ -413,7 +413,7 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
           padding: '4px'
         }}>
           {IMPROVEMENT_AREAS.map((area) => (
-            <label
+            <div
               key={area}
               style={{
                 display: 'flex',
@@ -421,7 +421,7 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
                 gap: '12px',
                 padding: '12px',
                 background: formData.improvementAreas.includes(area)
-                  ? 'rgba(155, 89, 208, 0.15)'
+                  ? '#1A202C'
                   : 'rgba(26, 10, 46, 0.6)',
                 border: `1px solid ${formData.improvementAreas.includes(area)
                   ? 'rgba(155, 89, 208, 0.5)'
@@ -433,6 +433,7 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
                 fontSize: '14px',
                 color: 'var(--bmv-text)'
               }}
+              onClick={() => toggleImprovementArea(area)}
               onMouseEnter={(e) => {
                 if (!formData.improvementAreas.includes(area)) {
                   e.currentTarget.style.background = 'rgba(26, 10, 46, 0.8)';
@@ -446,19 +447,42 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
                 }
               }}
             >
-              <input
-                type="checkbox"
-                checked={formData.improvementAreas.includes(area)}
-                onChange={() => toggleImprovementArea(area)}
+              <div
                 style={{
                   width: '18px',
                   height: '18px',
                   cursor: 'pointer',
-                  accentColor: 'var(--bmv-purple)'
+                  background: formData.improvementAreas.includes(area) 
+                    ? 'var(--bmv-purple)' 
+                    : 'transparent',
+                  border: '2px solid var(--bmv-purple)',
+                  borderRadius: '4px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  position: 'relative'
                 }}
-              />
+              >
+                {formData.improvementAreas.includes(area) && (
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    style={{
+                      color: 'white',
+                      stroke: 'currentColor',
+                      strokeWidth: '3',
+                      strokeLinecap: 'round',
+                      strokeLinejoin: 'round'
+                    }}
+                  >
+                    <polyline points="20,6 9,17 4,12"></polyline>
+                  </svg>
+                )}
+              </div>
               {area}
-            </label>
+            </div>
           ))}
         </div>
       </div>
@@ -767,34 +791,126 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
         >
           Please upload your latest CV/resume.
         </label>
-        <input
-          type="file"
-          id="cvFile"
-          accept=".pdf,.doc,.docx"
-          onChange={handleFileChange}
+        
+        {/* Modern File Upload Component */}
+        <div
           style={{
+            position: 'relative',
             width: '100%',
-            padding: '14px 16px',
+            height: '48px',
             background: 'rgba(26, 10, 46, 0.6)',
             border: '1px solid rgba(155, 89, 208, 0.3)',
             borderRadius: '10px',
-            color: 'var(--bmv-text)',
-            fontSize: '15px',
+            display: 'flex',
+            alignItems: 'center',
+            padding: '0 16px',
+            cursor: 'pointer',
             transition: 'all 200ms ease',
-            fontFamily: "'Red Hat Text', sans-serif",
-            cursor: 'pointer'
-          }}
-        />
-        {formData.cvFile && (
-          <p style={{
-            color: 'var(--bmv-text-secondary)',
-            fontSize: '13px',
-            marginTop: 'var(--space-2)',
             fontFamily: "'Red Hat Text', sans-serif"
-          }}>
-            Selected: {formData.cvFile.name}
-          </p>
-        )}
+          }}
+          onClick={() => document.getElementById('cvFile')?.click()}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.borderColor = 'var(--bmv-purple)';
+            e.currentTarget.style.background = 'rgba(26, 10, 46, 0.8)';
+            e.currentTarget.style.boxShadow = '0 0 0 3px rgba(155, 89, 208, 0.15)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.borderColor = 'rgba(155, 89, 208, 0.3)';
+            e.currentTarget.style.background = 'rgba(26, 10, 46, 0.6)';
+            e.currentTarget.style.boxShadow = 'none';
+          }}
+        >
+          <input
+            type="file"
+            id="cvFile"
+            accept=".pdf,.doc,.docx"
+            onChange={handleFileChange}
+            style={{
+              position: 'absolute',
+              opacity: 0,
+              width: '100%',
+              height: '100%',
+              cursor: 'pointer',
+              zIndex: 1
+            }}
+          />
+          
+          {formData.cvFile ? (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', width: '100%' }}>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                style={{ color: 'var(--bmv-purple)', flexShrink: 0 }}
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <polyline points="14,2 14,8 20,8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <span style={{
+                color: 'var(--bmv-text)',
+                fontSize: '15px',
+                fontFamily: "'Red Hat Text', sans-serif",
+                flex: 1,
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                whiteSpace: 'nowrap'
+              }}>
+                {formData.cvFile.name}
+              </span>
+              <span style={{
+                color: 'var(--bmv-text-secondary)',
+                fontSize: '13px',
+                fontFamily: "'Red Hat Text', sans-serif",
+                flexShrink: 0
+              }}>
+                Change
+              </span>
+            </div>
+          ) : (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', width: '100%' }}>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                style={{ color: 'var(--bmv-purple)', flexShrink: 0 }}
+              >
+                <path
+                  d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <polyline points="7,10 12,15 17,10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <span style={{
+                color: 'var(--bmv-text-secondary)',
+                fontSize: '15px',
+                fontFamily: "'Red Hat Text', sans-serif",
+                flex: 1
+              }}>
+                Choose file to upload
+              </span>
+              <span style={{
+                color: 'var(--bmv-text-secondary)',
+                fontSize: '13px',
+                fontFamily: "'Red Hat Text', sans-serif",
+                flexShrink: 0
+              }}>
+                PDF, DOC, DOCX
+              </span>
+            </div>
+          )}
+        </div>
       </div>
 
       <div>
@@ -913,7 +1029,7 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
               <h3
                 style={{
                   fontSize: 'clamp(24px, 3.5vw, 36px)',
-                  fontWeight: '600',
+                  fontWeight: '500',
                   color: 'var(--bmv-text-heading)',
                   fontFamily: "'Red Hat Display', sans-serif"
                 }}
@@ -950,18 +1066,16 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
                   borderRadius: '12px',
                   border: 'none',
                   fontSize: '16px',
-                  fontWeight: '600',
+                  fontWeight: '500',
                   cursor: 'pointer',
                   transition: 'all 250ms cubic-bezier(0.2, 0.8, 0.2, 1)',
                   fontFamily: "'Red Hat Display', sans-serif",
                   marginTop: 'var(--space-2)'
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'scale(1.02)';
                   e.currentTarget.style.boxShadow = '0 8px 30px rgba(155, 89, 208, 0.4)';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'scale(1)';
                   e.currentTarget.style.boxShadow = 'none';
                 }}
               >
@@ -974,7 +1088,7 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
                 <h2
                   style={{
                     fontSize: 'clamp(26px, 3.5vw, 38px)',
-                    fontWeight: '600',
+                    fontWeight: '500',
                     background: 'linear-gradient(90deg, var(--bmv-purple) 0%, var(--bmv-orange) 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
@@ -1045,7 +1159,7 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
                         border: '1px solid rgba(155, 89, 208, 0.3)',
                         borderRadius: '12px',
                         fontSize: '16px',
-                        fontWeight: '600',
+                        fontWeight: '500',
                         cursor: 'pointer',
                         transition: 'all 250ms cubic-bezier(0.2, 0.8, 0.2, 1)',
                         fontFamily: "'Red Hat Display', sans-serif",
@@ -1080,7 +1194,7 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
                         border: 'none',
                         borderRadius: '12px',
                         fontSize: '16px',
-                        fontWeight: '600',
+                        fontWeight: '500',
                         cursor: 'pointer',
                         transition: 'all 250ms cubic-bezier(0.2, 0.8, 0.2, 1)',
                         fontFamily: "'Red Hat Display', sans-serif",
@@ -1113,7 +1227,7 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
                         border: 'none',
                         borderRadius: '12px',
                         fontSize: '16px',
-                        fontWeight: '600',
+                        fontWeight: '500',
                         cursor: status === 'submitting' ? 'not-allowed' : 'pointer',
                         opacity: status === 'submitting' ? 0.6 : 1,
                         transition: 'all 250ms cubic-bezier(0.2, 0.8, 0.2, 1)',

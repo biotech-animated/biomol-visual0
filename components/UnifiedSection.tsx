@@ -90,7 +90,7 @@ export default function UnifiedSection() {
       author: "Melinda Langdon",
       title: "Director of Marketing and Communications",
       company: "Ivy Brain Tumor Center",
-      logo: "./logos/Ivy Brain Tumor Center.webp"
+      logo: "./logos/Ivy Brain Tumor Center.png"
     },
     {
       id: 10,
@@ -361,27 +361,28 @@ export default function UnifiedSection() {
               {testimonials.map((testimonial) => (
                 <SwiperSlide key={testimonial.id}>
                   <div
-                    className="phase-card w-full"
+                    className="testimonial-card w-full"
                     style={{
-                      padding: 'var(--space-5)',
+                      padding: 'var(--space-4)',
                       background: 'var(--bmv-surface)',
                       borderRadius: '12px',
                       border: '1px solid rgba(183, 148, 246, 0.1)',
                       transition: 'all 250ms cubic-bezier(0.2, 0.8, 0.2, 1)',
                       cursor: 'pointer',
                       position: 'relative',
-                      overflow: 'hidden',
-                      minHeight: '400px'
+                      overflow: 'hidden'
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.background = 'var(--bmv-surface-2)';
+                      e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.3)';
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.background = 'var(--bmv-surface)';
+                      e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.1)';
                     }}
                   >
                     <div className="flex flex-col lg:flex-row gap-6 h-full">
-                      <div className="flex-1 flex flex-col h-full">
+                      <div className="flex-1 flex flex-col h-full relative">
                         <div className="flex items-center ml-2" style={{ marginBottom: 'var(--space-3)' }}>
                           <div className="rounded-lg flex items-center justify-center max-w-[200px]">
                             <img
@@ -397,7 +398,7 @@ export default function UnifiedSection() {
                         </div>
 
                         <blockquote
-                          className="text-responsive-md mt-10"
+                          className="text-responsive-md mt-6 md:mt-0 md:absolute md:top-1/2 md:transform md:left-0 md:-translate-y-1/2"
                           style={{
                             fontFamily: "'Red Hat Display', sans-serif",
                             fontWeight: '400',
@@ -409,7 +410,7 @@ export default function UnifiedSection() {
                         </blockquote>
                       </div>
 
-                      <div className="flex-1 flex flex-col justify-between h-full">
+                      <div className="md:flex-1 h-full flex flex-col justify-between">
                         <div style={{ marginBottom: 'var(--space-4)' }}>
                           <p
                             style={{
@@ -419,7 +420,8 @@ export default function UnifiedSection() {
                               lineHeight: '1.6',
                               color: 'var(--bmv-text)',
                               maxHeight: '280px',
-                              overflowY: 'auto'
+                              overflowY: 'auto',
+                              paddingRight: 'var(--space-4)'
                             }}
                           >
                             {testimonial.quote}
@@ -448,10 +450,19 @@ export default function UnifiedSection() {
                               fontSize: '14px',
                               fontWeight: '300',
                               color: 'var(--bmv-text-secondary)',
-                              marginTop: 'var(--space-1)'
                             }}
                           >
                             {testimonial.title}
+                          </div>
+                          <div
+                            style={{
+                              fontFamily: "'Red Hat Text', sans-serif",
+                              fontSize: '14px',
+                              fontWeight: '400',
+                              color: 'var(--bmv-text-secondary)',
+                            }}
+                          >
+                            {testimonial.company}
                           </div>
                         </div>
                       </div>
@@ -462,7 +473,7 @@ export default function UnifiedSection() {
             </Swiper>
 
             <button
-              className="swiper-button-prev-testimonials absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-gray-850/90 hover:bg-purple-500/20 border border-white rounded-full flex items-center justify-center transition-all duration-500 backdrop-blur-sm"
+              className="swiper-button-prev-testimonials absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 z-10 flex items-center justify-center transition-all duration-300"
               onClick={() => {
                 if (testimonialsSwiperRef.current) {
                   testimonialsSwiperRef.current.slidePrev();
@@ -470,11 +481,11 @@ export default function UnifiedSection() {
               }}
               aria-label="Previous testimonial"
             >
-              <ChevronLeft size={20} />
+              <ChevronLeft size={56} className="text-white hover:text-purple-400 transition-colors duration-300" />
             </button>
 
             <button
-              className="swiper-button-next-testimonials absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-gray-850/90 hover:bg-purple-500/20 border border-white rounded-full flex items-center justify-center transition-all duration-500 backdrop-blur-sm"
+              className="swiper-button-next-testimonials absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 z-10 flex items-center justify-center transition-all duration-300"
               onClick={() => {
                 if (testimonialsSwiperRef.current) {
                   testimonialsSwiperRef.current.slideNext();
@@ -482,7 +493,7 @@ export default function UnifiedSection() {
               }}
               aria-label="Next testimonial"
             >
-              <ChevronRight size={20} />
+              <ChevronRight size={56} className="text-white hover:text-purple-400 transition-colors duration-300" />
             </button>
           </div>
         </div>
@@ -708,7 +719,7 @@ export default function UnifiedSection() {
             </Swiper>
 
             <button
-              className="swiper-button-prev-team absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-gray-850/90 hover:bg-purple-500/20 border border-white rounded-full flex items-center justify-center transition-all duration-500 backdrop-blur-sm"
+              className="swiper-button-prev-team absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 z-10 flex items-center justify-center transition-all duration-300"
               onClick={() => {
                 if (teamSwiperRef.current) {
                   teamSwiperRef.current.slidePrev();
@@ -716,11 +727,11 @@ export default function UnifiedSection() {
               }}
               aria-label="Previous team member"
             >
-              <ChevronLeft size={20} />
+              <ChevronLeft size={56} className="text-white hover:text-purple-400 transition-colors duration-300" />
             </button>
 
             <button
-              className="swiper-button-next-team absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-gray-850/90 hover:bg-purple-500/20 border border-white rounded-full flex items-center justify-center transition-all duration-500 backdrop-blur-sm"
+              className="swiper-button-next-team absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 z-10 flex items-center justify-center transition-all duration-300"
               onClick={() => {
                 if (teamSwiperRef.current) {
                   teamSwiperRef.current.slideNext();
@@ -728,7 +739,7 @@ export default function UnifiedSection() {
               }}
               aria-label="Next team member"
             >
-              <ChevronRight size={20} />
+              <ChevronRight size={56} className="text-white hover:text-purple-400 transition-colors duration-300" />
             </button>
           </div>
         </div>
@@ -803,7 +814,7 @@ export default function UnifiedSection() {
                         alignItems: 'center',
                         justifyContent: 'center',
                         fontSize: '11px',
-                        fontWeight: '600',
+                        fontWeight: '500',
                         color: 'white'
                       }}
                     >

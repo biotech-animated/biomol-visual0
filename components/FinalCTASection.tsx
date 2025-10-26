@@ -109,12 +109,10 @@ export default function FinalCTASection() {
               onMouseEnter={(e) => {
                 setIsHovered(true);
                 e.currentTarget.style.background = 'rgba(251, 146, 60, 0.85)';
-                e.currentTarget.style.transform = 'scale(1.02)';
               }}
               onMouseLeave={(e) => {
                 setIsHovered(false);
                 e.currentTarget.style.background = 'rgba(251, 146, 60, 0.65)';
-                e.currentTarget.style.transform = 'scale(1)';
               }}
             >
               <span style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>

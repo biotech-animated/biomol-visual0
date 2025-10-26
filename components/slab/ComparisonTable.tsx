@@ -1,7 +1,7 @@
 export default function ComparisonTable() {
   return (
-    <section className="py-24 bg-[#1B0A2E]">
-      <div className="max-w-[1400px] mx-auto px-8 md:px-16">
+    <section className="section-responsive !pt-6" style={{ background: '#1B0A2E' }}>
+      <div className="container-responsive">
         <h2
           className="text-white text-center mb-4"
           style={{
@@ -98,7 +98,7 @@ export default function ComparisonTable() {
             <tbody>
               <tr className="bg-[#1B0A2E]">
                 <td
-                  className="p-5 border-2 text-white font-semibold"
+                  className="p-5 border-2 text-white font-medium"
                   style={{
                     fontFamily: "'Red Hat Text', sans-serif",
                     fontSize: '15px',
@@ -161,7 +161,7 @@ export default function ComparisonTable() {
 
               <tr className="bg-[#1B0A2E]">
                 <td
-                  className="p-5 border-2 text-white font-semibold"
+                  className="p-5 border-2 text-white font-medium"
                   style={{
                     fontFamily: "'Red Hat Text', sans-serif",
                     fontSize: '15px',
@@ -224,7 +224,7 @@ export default function ComparisonTable() {
 
               <tr className="bg-[#1B0A2E]">
                 <td
-                  className="p-5 border-2 text-white font-semibold"
+                  className="p-5 border-2 text-white font-medium"
                   style={{
                     fontFamily: "'Red Hat Text', sans-serif",
                     fontSize: '15px',
@@ -287,7 +287,7 @@ export default function ComparisonTable() {
 
               <tr className="bg-[#1B0A2E]">
                 <td
-                  className="p-5 border-2 text-white font-semibold"
+                  className="p-5 border-2 text-white font-medium"
                   style={{
                     fontFamily: "'Red Hat Text', sans-serif",
                     fontSize: '15px',
@@ -350,7 +350,7 @@ export default function ComparisonTable() {
 
               <tr className="bg-[#1B0A2E]">
                 <td
-                  className="p-5 border-2 text-white font-semibold"
+                  className="p-5 border-2 text-white font-medium"
                   style={{
                     fontFamily: "'Red Hat Text', sans-serif",
                     fontSize: '15px',
@@ -413,7 +413,7 @@ export default function ComparisonTable() {
 
               <tr className="bg-[#1B0A2E]">
                 <td
-                  className="p-5 border-2 text-white font-semibold"
+                  className="p-5 border-2 text-white font-medium"
                   style={{
                     fontFamily: "'Red Hat Text', sans-serif",
                     fontSize: '15px',
@@ -476,7 +476,7 @@ export default function ComparisonTable() {
 
               <tr className="bg-[#1B0A2E]">
                 <td
-                  className="p-5 border-2 text-white font-semibold"
+                  className="p-5 border-2 text-white font-medium"
                   style={{
                     fontFamily: "'Red Hat Text', sans-serif",
                     fontSize: '15px',
@@ -539,7 +539,7 @@ export default function ComparisonTable() {
 
               <tr className="bg-[#1B0A2E]">
                 <td
-                  className="p-5 border-2 text-white font-semibold"
+                  className="p-5 border-2 text-white font-medium"
                   style={{
                     fontFamily: "'Red Hat Text', sans-serif",
                     fontSize: '15px',

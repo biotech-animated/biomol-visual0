@@ -73,7 +73,7 @@ export default function CaseStudiesHero({ onOpenForm }: CaseStudiesHeroProps) {
   };
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden bg-[#1B0A2E]" style={{ height: '100vh' }}>
+    <section ref={sectionRef} className="relative overflow-hidden bg-[#1B0A2E] md:h-screen h-auto">
       <div className="absolute inset-0" style={{ zIndex: 0 }}>
         <div
           className="wistia_embed wistia_async_z1zuxffzmk videoFoam=true autoPlay=true muted=true controlsVisibleOnLoad=false endVideoBehavior=loop playbar=false"
@@ -135,7 +135,7 @@ export default function CaseStudiesHero({ onOpenForm }: CaseStudiesHeroProps) {
 
               <button
                 onClick={onOpenForm}
-                className="mt-8 inline-flex items-center gap-4 rounded-[50px] text-white tracking-wider cursor-pointer border-none transition-all hover:scale-[1.02]"
+                className="mt-8 inline-flex items-center gap-4 rounded-[50px] text-white tracking-wider cursor-pointer border-none transition-all"
                 style={{
                   padding: '8px 8px 8px 24px',
                   background: 'rgba(155, 89, 208, 0.65)',
@@ -182,9 +182,9 @@ export default function CaseStudiesHero({ onOpenForm }: CaseStudiesHeroProps) {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[675px] mx-auto">
               <div
-                className="rounded-xl p-6 text-center relative overflow-hidden group border border-[#1a1a1a] phase-card"
+                className="case-stats-card rounded-xl p-6 text-center relative overflow-hidden group"
                 style={{
-                  background: '#1a1a1a',
+                  cursor: 'pointer'
                 }}
               >
                 <div className="relative z-10">
@@ -214,9 +214,9 @@ export default function CaseStudiesHero({ onOpenForm }: CaseStudiesHeroProps) {
               </div>
 
               <div
-                className="rounded-xl p-6 text-center relative overflow-hidden group border border-[#1a1a1a] phase-card"
+                className="case-stats-card rounded-xl p-6 text-center relative overflow-hidden group"
                 style={{
-                  background: '#1a1a1a',
+                  cursor: 'pointer'
                 }}
               >
                 <div className="relative z-10">

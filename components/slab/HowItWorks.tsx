@@ -35,8 +35,8 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section className="py-24 bg-[#1B0A2E]">
-      <div className="max-w-[1400px] mx-auto px-8 md:px-16">
+    <section className="section-responsive !pt-6" style={{ background: '#1B0A2E' }}>
+      <div className="container-responsive">
         <h2
           className="text-white text-center mb-16"
           style={{
@@ -54,67 +54,90 @@ export default function HowItWorks() {
             return (
               <div key={index} className="relative">
                 <div
-                  className="rounded-lg p-6 h-full flex flex-col relative overflow-hidden group border border-[#1a1a1a] phase-card"
+                  className="phase-card h-full"
                   style={{
-                    background: 'rgba(155,89,208,0.05)',
-                    backdropFilter: 'blur(10px)',
+                    padding: 'var(--space-4)',
+                    background: 'var(--bmv-surface)',
+                    borderRadius: '12px',
+                    border: '1px solid rgba(183, 148, 246, 0.1)',
+                    transition: 'all 250ms cubic-bezier(0.2, 0.8, 0.2, 1)',
+                    cursor: 'pointer',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    display: 'flex',
+                    flexDirection: 'column'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = 'var(--bmv-surface-2)';
+                    e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.3)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'var(--bmv-surface)';
+                    e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.1)';
                   }}
                 >
-                  <div className="relative z-10 h-full flex flex-col">
-                    <div className="relative mb-4">
+                  <div
+                    style={{
+                      position: 'relative',
+                      zIndex: 1,
+                      display: 'flex',
+                      flexDirection: 'column',
+                      height: '100%'
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: '48px',
+                        height: '48px',
+                        borderRadius: '12px',
+                        background: `linear-gradient(135deg, rgba(155, 89, 208, ${0.15 + index * 0.05}), rgba(255, 107, 53, ${0.1 + index * 0.05}))`,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        marginBottom: 'var(--space-4)',
+                        position: 'relative'
+                      }}
+                    >
+                      <Icon size={24} style={{ color: 'var(--bmv-purple)' }} />
                       <div
                         style={{
-                          width: '48px',
-                          height: '48px',
-                          borderRadius: '12px',
-                          background: `linear-gradient(135deg, rgba(155, 89, 208, ${0.15 + index * 0.05}), rgba(255, 107, 53, ${0.1 + index * 0.05}))`,
+                          position: 'absolute',
+                          top: '-4px',
+                          right: '-4px',
+                          width: '20px',
+                          height: '20px',
+                          borderRadius: '50%',
+                          background: 'linear-gradient(135deg, var(--bmv-purple), var(--bmv-orange))',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
-                          margin: '0 auto',
-                          position: 'relative'
+                          fontSize: '11px',
+                          fontWeight: '500',
+                          color: 'white'
                         }}
                       >
-                        <Icon size={24} style={{ color: 'var(--bmv-purple)' }} />
-                        <div
-                          style={{
-                            position: 'absolute',
-                            top: '-4px',
-                            right: '-4px',
-                            width: '20px',
-                            height: '20px',
-                            borderRadius: '50%',
-                            background: 'linear-gradient(135deg, var(--bmv-purple), var(--bmv-orange))',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            fontSize: '11px',
-                            fontWeight: '600',
-                            color: 'white'
-                          }}
-                        >
-                          {step.number}
-                        </div>
+                        {step.number}
                       </div>
                     </div>
-
-                    <h3
-                      className="text-white text-center mb-3"
+                    <h4
+                      className="text-responsive-sm"
                       style={{
                         fontFamily: "'Red Hat Display', sans-serif",
-                        fontSize: '20px',
-                        fontWeight: 500
+                        fontWeight: '400',
+                        marginBottom: 'var(--space-3)',
+                        color: 'var(--bmv-text-heading)'
                       }}
                     >
                       {step.title}
-                    </h3>
-
+                    </h4>
                     <p
-                      className="text-[#E2E8F0] text-center"
                       style={{
                         fontFamily: "'Red Hat Text', sans-serif",
-                        fontSize: '15px',
-                        lineHeight: '1.7'
+                        fontSize: '16px',
+                        fontWeight: '400',
+                        color: 'var(--bmv-text-secondary)',
+                        lineHeight: '1.6',
+                        flex: 1
                       }}
                     >
                       {step.description}

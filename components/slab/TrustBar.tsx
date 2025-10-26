@@ -1,14 +1,26 @@
 export default function TrustBar() {
   return (
-    <section className="py-16 bg-[#1B0A2E]">
-      <div className="max-w-[1400px] mx-auto px-8 md:px-16">
+    <section className="section-responsive" style={{ background: '#1B0A2E' }}>
+      <div className="container-responsive">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div
             className="flex flex-col items-center text-center py-8 rounded-lg relative overflow-hidden group phase-card"
             style={{
-              background: 'rgba(155,89,208,0.05)',
-              backdropFilter: 'blur(10px)',
-              cursor: 'pointer'
+              background: 'var(--bmv-surface)',
+              borderRadius: '12px',
+              border: '1px solid rgba(183, 148, 246, 0.1)',
+              transition: 'all 250ms cubic-bezier(0.2, 0.8, 0.2, 1)',
+              cursor: 'pointer',
+              position: 'relative',
+              overflow: 'hidden'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'var(--bmv-surface-2)';
+              e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.3)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'var(--bmv-surface)';
+              e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.1)';
             }}
           >
             <div className="relative z-10">
@@ -41,9 +53,21 @@ export default function TrustBar() {
           <div
             className="flex flex-col items-center text-center py-8 rounded-lg relative overflow-hidden group phase-card"
             style={{
-              background: 'rgba(155,89,208,0.05)',
-              backdropFilter: 'blur(10px)',
-              cursor: 'pointer'
+              background: 'var(--bmv-surface)',
+              borderRadius: '12px',
+              border: '1px solid rgba(183, 148, 246, 0.1)',
+              transition: 'all 250ms cubic-bezier(0.2, 0.8, 0.2, 1)',
+              cursor: 'pointer',
+              position: 'relative',
+              overflow: 'hidden'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'var(--bmv-surface-2)';
+              e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.3)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'var(--bmv-surface)';
+              e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.1)';
             }}
           >
             <div className="relative z-10">
@@ -76,9 +100,21 @@ export default function TrustBar() {
           <div
             className="flex flex-col items-center text-center py-8 rounded-lg relative overflow-hidden group phase-card"
             style={{
-              background: 'rgba(155,89,208,0.05)',
-              backdropFilter: 'blur(10px)',
-              cursor: 'pointer'
+              background: 'var(--bmv-surface)',
+              borderRadius: '12px',
+              border: '1px solid rgba(183, 148, 246, 0.1)',
+              transition: 'all 250ms cubic-bezier(0.2, 0.8, 0.2, 1)',
+              cursor: 'pointer',
+              position: 'relative',
+              overflow: 'hidden'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'var(--bmv-surface-2)';
+              e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.3)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'var(--bmv-surface)';
+              e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.1)';
             }}
           >
             <div className="relative z-10">

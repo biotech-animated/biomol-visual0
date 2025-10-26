@@ -23,7 +23,13 @@ export default function SlabHero() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-[#1B0A2E]" style={{ height: '100vh' }}>
+    <section 
+      className="relative overflow-hidden section-responsive" 
+      style={{ 
+        height: '100vh',
+        background: '#1B0A2E'
+      }}
+    >
       <div className="absolute inset-0" style={{ zIndex: 0 }}>
         <div
           className="wistia_embed wistia_async_o4t98618ua videoFoam=true autoPlay=true muted=true controlsVisibleOnLoad=false endVideoBehavior=loop playbar=false"
@@ -42,8 +48,8 @@ export default function SlabHero() {
 
       <div className="absolute inset-0 bg-black opacity-30" style={{ zIndex: 1 }}></div>
 
-      <div className="relative z-10 h-full flex flex-col justify-end pb-[160px] px-8 md:px-16">
-        <div className="max-w-[1400px] mx-auto w-full">
+      <div className="relative z-10 h-full flex flex-col justify-end md:pb-[160px] pb-20">
+        <div className="container-responsive">
           <h1
             className="text-[#E2E8F0] mb-4"
             style={{
@@ -68,10 +74,10 @@ export default function SlabHero() {
             A curated vault of molecular and cellular assets. Scientifically accurate. Cinema-quality. Ready to customize.
           </p>
 
-          <div className="flex flex-row gap-6 items-center">
+          <div className="flex md:flex-row flex-col gap-6 md:items-center items-start">
             <Link href="#examples">
               <button
-                className="inline-flex items-center gap-4 rounded-[50px] text-white cursor-pointer border-none transition-all hover:scale-[1.02]"
+                className="inline-flex items-center gap-4 rounded-[50px] text-white cursor-pointer border-none transition-all"
                 style={{
                   padding: '8px 8px 8px 24px',
                   background: 'rgba(155, 89, 208, 0.65)',
@@ -106,12 +112,10 @@ export default function SlabHero() {
                 onMouseEnter={(e) => {
                   setIsHovering(true);
                   e.currentTarget.style.background = 'rgba(237, 108, 70, 0.85)';
-                  e.currentTarget.style.transform = 'scale(1.02)';
                 }}
                 onMouseLeave={(e) => {
                   setIsHovering(false);
                   e.currentTarget.style.background = 'rgba(237, 108, 70, 0.65)';
-                  e.currentTarget.style.transform = 'scale(1)';
                 }}
                 className="inline-flex items-center gap-4 rounded-[50px] text-white cursor-pointer border-none transition-all"
                 style={{

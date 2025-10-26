@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
-import { createClient } from '@supabase/supabase-js';
 import { verifyRecaptchaToken } from '@/lib/recaptcha';
 
 export const dynamic = 'force-dynamic';
@@ -68,38 +67,7 @@ export async function POST(request: NextRequest) {
       }
     });
 
-    // Store in Supabase first
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-    );
-
-    const submissionData = {
-      first_name: firstName,
-      email: email,
-      location: location,
-      improvement_areas: improvementAreas,
-      university_degrees: universityDegrees,
-      linkedin_profile: linkedinProfile,
-      work_vision: workVision,
-      team_fit: teamFit,
-      performance_needs: performanceNeeds,
-      passion: passion,
-      cv_file_path: cvFileName || '',
-      additional_comments: additionalComments
-    };
-
-    const { error: supabaseError } = await supabase
-      .from('join_us_applications')
-      .insert([submissionData]);
-
-    if (supabaseError) {
-      console.error('Supabase error:', supabaseError);
-      return NextResponse.json(
-        { error: 'Failed to save application. Please try again.' },
-        { status: 500 }
-      );
-    }
+    // Note: Database storage removed - applications are now only sent via email
 
     // Send admin notification email
     const adminMailOptions = {

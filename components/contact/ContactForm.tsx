@@ -38,8 +38,12 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
   useEffect(() => {
     if (isOpen) {
       setIsVisible(true);
+      // Store the current scrollbar width before hiding it
+      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
       // Disable body scroll when form is open
       document.body.style.overflow = 'hidden';
+      // Compensate for the scrollbar width to prevent horizontal shift
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
       // Small delay to ensure DOM is ready before starting animation
       const timer = setTimeout(() => setIsAnimating(true), 10);
       return () => clearTimeout(timer);
@@ -47,6 +51,7 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
       setIsAnimating(false);
       // Re-enable body scroll when form closes
       document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
       const timer = setTimeout(() => setIsVisible(false), 300);
       return () => clearTimeout(timer);
     }

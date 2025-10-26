@@ -1,7 +1,10 @@
 import { ArrowRight } from 'lucide-react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import CalCalendarLightbox from '../CalCalendarLightbox';
 
 export default function SlabCta() {
+  const [showCalendarLightbox, setShowCalendarLightbox] = useState(false);
+
   useEffect(() => {
     const script1 = document.createElement('script');
     script1.src = 'https://fast.wistia.com/embed/medias/k1qtlw98gu.jsonp';
@@ -72,6 +75,7 @@ export default function SlabCta() {
         </p>
 
         <button
+          onClick={() => setShowCalendarLightbox(true)}
           className="inline-flex items-center gap-4 rounded-[50px] text-white cursor-pointer border-none transition-all"
           style={{
             padding: '8px 8px 8px 24px',
@@ -102,6 +106,12 @@ export default function SlabCta() {
           </div>
         </button>
       </div>
+
+      <CalCalendarLightbox
+        isOpen={showCalendarLightbox}
+        onClose={() => setShowCalendarLightbox(false)}
+        calUrl="biomolvisual/15min"
+      />
     </section>
   );
 }

@@ -16,12 +16,18 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
   });
   const [isVisible, setIsVisible] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   useEffect(() => {
     if (isOpen) {
       setIsVisible(true);
+      // Store the current scrollbar width before hiding it
+      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
       // Disable body scroll when form is open
       document.body.style.overflow = 'hidden';
+      // Compensate for the scrollbar width to prevent horizontal shift
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
       // Small delay to ensure DOM is ready before starting animation
       const timer = setTimeout(() => setIsAnimating(true), 10);
       return () => clearTimeout(timer);
@@ -29,14 +35,50 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
       setIsAnimating(false);
       // Re-enable body scroll when form closes
       document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
       const timer = setTimeout(() => setIsVisible(false), 300);
       return () => clearTimeout(timer);
     }
   }, [isOpen]);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const response = await fetch('/api/send-case-study-request', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        // Reset form
+        setFormData({
+          fullName: '',
+          company: '',
+          email: '',
+          therapeuticArea: '',
+          projectDescription: ''
+        });
+        // Close form after 2 seconds
+        setTimeout(() => {
+          onClose();
+          setSubmitStatus('idle');
+        }, 2000);
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (!isVisible) return null;
@@ -221,12 +263,30 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
             </div>
 
             <div className="pt-6">
+              {/* Status Messages */}
+              {submitStatus === 'success' && (
+                <div className="mb-4 p-4 bg-green-900/20 border border-green-500/30 rounded-md">
+                  <p className="text-green-400 text-center" style={{ fontFamily: "'Red Hat Text', sans-serif", fontSize: '14px' }}>
+                    ✓ Thank you! Your case study request has been sent successfully.
+                  </p>
+                </div>
+              )}
+
+              {submitStatus === 'error' && (
+                <div className="mb-4 p-4 bg-red-900/20 border border-red-500/30 rounded-md">
+                  <p className="text-red-400 text-center" style={{ fontFamily: "'Red Hat Text', sans-serif", fontSize: '14px' }}>
+                    ✗ Sorry, there was an error sending your request. Please try again.
+                  </p>
+                </div>
+              )}
+
               <button
                 type="submit"
-                className="w-full inline-flex items-center justify-center gap-4 rounded-[50px] text-white tracking-wider cursor-pointer border-none transition-all"
+                disabled={isSubmitting}
+                className="w-full inline-flex items-center justify-center gap-4 rounded-[50px] text-white tracking-wider cursor-pointer border-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 style={{
                   padding: '8px 8px 8px 24px',
-                  background: 'rgba(155, 89, 208, 0.65)',
+                  background: isSubmitting ? 'rgba(155, 89, 208, 0.4)' : 'rgba(155, 89, 208, 0.65)',
                   fontFamily: "'Red Hat Display', sans-serif",
                   fontSize: '16px',
                   fontWeight: 500,
@@ -235,13 +295,19 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
                   transitionDuration: '250ms'
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'rgba(155, 89, 208, 0.85)';
+                  if (!isSubmitting) {
+                    e.currentTarget.style.background = 'rgba(155, 89, 208, 0.85)';
+                  }
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'rgba(155, 89, 208, 0.65)';
+                  if (!isSubmitting) {
+                    e.currentTarget.style.background = 'rgba(155, 89, 208, 0.65)';
+                  }
                 }}
               >
-                <span className="flex-1 text-center">Send Me Relevant Case Study</span>
+                <span className="flex-1 text-center">
+                  {isSubmitting ? 'Sending...' : 'Send Me Relevant Case Study'}
+                </span>
                 <div
                   className="flex items-center justify-center rounded-full bg-white"
                   style={{
@@ -250,7 +316,11 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
                     color: 'rgba(155, 89, 208, 1)'
                   }}
                 >
-                  <ArrowRight size={20} />
+                  {isSubmitting ? (
+                    <div className="w-5 h-5 border-2 border-purple-500 border-t-transparent rounded-full animate-spin" />
+                  ) : (
+                    <ArrowRight size={20} />
+                  )}
                 </div>
               </button>
 

@@ -4,10 +4,12 @@ import { ArrowRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import VideoLightbox from './VideoLightbox';
+import CalCalendarLightbox from './CalCalendarLightbox';
 
 export default function HeroSection() {
   const [isHovered, setIsHovered] = useState(false);
   const [showVideoLightbox, setShowVideoLightbox] = useState(false);
+  const [showCalendarLightbox, setShowCalendarLightbox] = useState(false);
 
   useEffect(() => {
     const script1 = document.createElement('script');
@@ -118,8 +120,8 @@ export default function HeroSection() {
                   </div>
                 </button>
 
-                <Link
-                  href="/contact"
+                <button
+                  onClick={() => setShowCalendarLightbox(true)}
                   className="group cta-button"
                   style={{
                     fontFamily: "'Red Hat Display', sans-serif",
@@ -193,7 +195,7 @@ export default function HeroSection() {
                   >
                     <ArrowRight size={20} />
                   </div>
-                </Link>
+                </button>
           </div>
         </div>
       </div>
@@ -202,6 +204,12 @@ export default function HeroSection() {
         isOpen={showVideoLightbox}
         onClose={() => setShowVideoLightbox(false)}
         videoUrl="https://www.youtube.com/watch?v=UvMDknsBp9E"
+      />
+
+      <CalCalendarLightbox
+        isOpen={showCalendarLightbox}
+        onClose={() => setShowCalendarLightbox(false)}
+        calUrl="biomolvisual/30min"
       />
     </section>
   );

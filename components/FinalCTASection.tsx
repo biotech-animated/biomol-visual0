@@ -1,9 +1,11 @@
 "use client"
 import { ArrowRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import CalCalendarLightbox from './CalCalendarLightbox';
 
 export default function FinalCTASection() {
   const [isHovered, setIsHovered] = useState(false);
+  const [showCalendarLightbox, setShowCalendarLightbox] = useState(false);
 
   useEffect(() => {
     const script1 = document.createElement('script');
@@ -88,7 +90,7 @@ export default function FinalCTASection() {
 
           <div style={{ paddingTop: 'var(--space-4)' }}>
             <button
-              onClick={() => window.location.href = '/contact'}
+              onClick={() => setShowCalendarLightbox(true)}
               className="group cta-button"
               style={{
                 padding: '8px 8px 8px 24px',
@@ -174,6 +176,12 @@ export default function FinalCTASection() {
           </p>
         </div>
       </div>
+
+      <CalCalendarLightbox
+        isOpen={showCalendarLightbox}
+        onClose={() => setShowCalendarLightbox(false)}
+        calUrl="biomolvisual/30min"
+      />
     </section>
   );
 }

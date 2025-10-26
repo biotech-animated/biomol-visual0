@@ -21,6 +21,18 @@ interface CalCalendarLightboxProps {
 export default function CalCalendarLightbox({ isOpen, onClose, calUrl }: CalCalendarLightboxProps) {
   useEffect(() => {
     if (isOpen) {
+      // Store current scroll position
+      const scrollY = window.scrollY;
+      
+      // Apply scrollbar-gutter to prevent layout shift
+      document.documentElement.style.scrollbarGutter = 'stable';
+      
+      // Apply styles to prevent scrolling
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
+      
       // Load Cal.com embed script
       const script = document.createElement('script');
       script.src = 'https://app.cal.com/embed/embed.js';
@@ -36,6 +48,16 @@ export default function CalCalendarLightbox({ isOpen, onClose, calUrl }: CalCale
       };
 
       return () => {
+        // Remove fixed positioning
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        document.body.style.overflow = '';
+        document.documentElement.style.scrollbarGutter = '';
+        
+        // Restore scroll position instantly without animation
+        window.scrollTo({ top: scrollY, behavior: 'instant' });
+        
         // Clean up script when component unmounts
         const existingScript = document.querySelector('script[src="https://app.cal.com/embed/embed.js"]');
         if (existingScript && document.body.contains(existingScript)) {
@@ -44,6 +66,22 @@ export default function CalCalendarLightbox({ isOpen, onClose, calUrl }: CalCale
       };
     }
   }, [isOpen]);
+
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      window.addEventListener('keydown', handleEscape);
+    }
+
+    return () => {
+      window.removeEventListener('keydown', handleEscape);
+    };
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 

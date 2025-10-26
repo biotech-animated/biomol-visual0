@@ -42,25 +42,68 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
   useEffect(() => {
     if (isOpen) {
       setIsVisible(true);
-      // Disable body scroll when form is open but keep scrollbar visible
-      document.body.style.overflowY = 'scroll';
-      document.body.style.overflowX = 'hidden';
-      // Dispatch custom event to notify navigation
-      window.dispatchEvent(new CustomEvent('formOpen', { detail: { scrollbarWidth: 0 } }));
+      
+      // Store current scroll position
+      const scrollY = window.scrollY;
+      
+      // Apply scrollbar-gutter to prevent layout shift
+      document.documentElement.style.scrollbarGutter = 'stable';
+      
+      // Apply styles to prevent scrolling
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
+      
       // Use requestAnimationFrame to ensure smooth animation on reopen
       requestAnimationFrame(() => {
         requestAnimationFrame(() => setIsAnimating(true));
       });
+      
+      return () => {
+        // Remove fixed positioning
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        document.body.style.overflow = '';
+        document.documentElement.style.scrollbarGutter = '';
+        
+        // Restore scroll position instantly without animation
+        window.scrollTo({ top: scrollY, behavior: 'instant' });
+      };
     } else {
       setIsAnimating(false);
-      // Re-enable body scroll when form closes
+      // Remove fixed positioning
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
       document.body.style.overflow = '';
-      // Dispatch custom event to notify navigation
-      window.dispatchEvent(new CustomEvent('formClose'));
+      document.documentElement.style.scrollbarGutter = '';
+      
+      // Restore scroll position instantly without animation
+      window.scrollTo({ top: scrollY, behavior: 'instant' });
+      
       const timer = setTimeout(() => setIsVisible(false), 300);
       return () => clearTimeout(timer);
     }
   }, [isOpen]);
+
+  // Handle escape key to close form
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      window.addEventListener('keydown', handleEscape);
+    }
+
+    return () => {
+      window.removeEventListener('keydown', handleEscape);
+    };
+  }, [isOpen, onClose]);
 
   // Close dropdown when clicking outside
   useEffect(() => {

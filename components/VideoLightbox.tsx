@@ -10,12 +10,39 @@ interface VideoLightboxProps {
 export default function VideoLightbox({ isOpen, onClose, videoUrl }: VideoLightboxProps) {
   useEffect(() => {
     if (isOpen) {
+      // Store current scroll position
+      const scrollY = window.scrollY;
+      
+      // Apply scrollbar-gutter to prevent layout shift
+      document.documentElement.style.scrollbarGutter = 'stable';
+      
+      // Apply styles to prevent scrolling
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
       document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'unset';
+      // Remove fixed positioning
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
+      document.documentElement.style.scrollbarGutter = '';
+      
+      // Restore scroll position instantly without animation
+      window.scrollTo({ top: scrollY, behavior: 'instant' });
     }
+    
     return () => {
-      document.body.style.overflow = 'unset';
+      // Cleanup: remove fixed positioning
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
+      document.documentElement.style.scrollbarGutter = '';
+      
+      // Restore scroll position instantly without animation
+      window.scrollTo({ top: scrollY, behavior: 'instant' });
     };
   }, [isOpen]);
 

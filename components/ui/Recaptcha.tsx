@@ -15,7 +15,7 @@ export default function Recaptcha({ onTokenGenerated, onError, className = '' }:
   const isRenderedRef = useRef(false);
 
   const renderRecaptcha = useCallback(() => {
-    if (!recaptchaRef.current || isRenderedRef.current || !window.grecaptcha?.render) {
+    if (!recaptchaRef.current || isRenderedRef.current || !window.grecaptcha || typeof window.grecaptcha.render !== 'function') {
       return;
     }
 
@@ -75,7 +75,7 @@ export default function Recaptcha({ onTokenGenerated, onError, className = '' }:
         
         // Wait for grecaptcha to be available
         const checkGrecaptcha = () => {
-          if (window.grecaptcha && window.grecaptcha.render) {
+          if (window.grecaptcha && typeof window.grecaptcha.render === 'function') {
             setIsLoaded(true);
             console.log('reCAPTCHA loaded successfully');
             renderRecaptcha();
@@ -119,7 +119,7 @@ export default function Recaptcha({ onTokenGenerated, onError, className = '' }:
           setIsLoaded(false);
           // Re-render after a short delay
           setTimeout(() => {
-            if (window.grecaptcha?.render) {
+            if (window.grecaptcha && typeof window.grecaptcha.render === 'function') {
               renderRecaptcha();
             }
           }, 100);

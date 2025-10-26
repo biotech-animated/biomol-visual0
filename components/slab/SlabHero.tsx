@@ -1,9 +1,11 @@
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import CalCalendarLightbox from '../CalCalendarLightbox';
 
 export default function SlabHero() {
   const [isHovering, setIsHovering] = useState(false);
+  const [showCalendarLightbox, setShowCalendarLightbox] = useState(false);
 
   useEffect(() => {
     const script1 = document.createElement('script');
@@ -107,29 +109,29 @@ export default function SlabHero() {
                 </div>
               </button>
             </Link>
-            <Link href="/contact">
-              <button
-                onMouseEnter={(e) => {
-                  setIsHovering(true);
-                  e.currentTarget.style.background = 'rgba(237, 108, 70, 0.85)';
-                }}
-                onMouseLeave={(e) => {
-                  setIsHovering(false);
-                  e.currentTarget.style.background = 'rgba(237, 108, 70, 0.65)';
-                }}
-                className="inline-flex items-center gap-4 rounded-[50px] text-white cursor-pointer border-none transition-all"
-                style={{
-                  padding: '8px 8px 8px 24px',
-                  background: 'rgba(237, 108, 70, 0.65)',
-                  fontFamily: "'Red Hat Display', sans-serif",
-                  fontSize: '16px',
-                  fontWeight: 500,
-                  transition: 'all 250ms cubic-bezier(0.2, 0.8, 0.2, 1)',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  width: isHovering ? '250px' : '180px',
-                }}
-              >
+            <button
+              onClick={() => setShowCalendarLightbox(true)}
+              onMouseEnter={(e) => {
+                setIsHovering(true);
+                e.currentTarget.style.background = 'rgba(237, 108, 70, 0.85)';
+              }}
+              onMouseLeave={(e) => {
+                setIsHovering(false);
+                e.currentTarget.style.background = 'rgba(237, 108, 70, 0.65)';
+              }}
+              className="inline-flex items-center gap-4 rounded-[50px] text-white cursor-pointer border-none transition-all"
+              style={{
+                padding: '8px 8px 8px 24px',
+                background: 'rgba(237, 108, 70, 0.65)',
+                fontFamily: "'Red Hat Display', sans-serif",
+                fontSize: '16px',
+                fontWeight: 500,
+                transition: 'all 250ms cubic-bezier(0.2, 0.8, 0.2, 1)',
+                position: 'relative',
+                overflow: 'hidden',
+                width: isHovering ? '250px' : '180px',
+              }}
+            >
                 <span style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
                   <span
                     style={{
@@ -172,10 +174,15 @@ export default function SlabHero() {
                   <ArrowRight size={20} />
                 </div>
               </button>
-            </Link>
           </div>
         </div>
       </div >
+
+      <CalCalendarLightbox
+        isOpen={showCalendarLightbox}
+        onClose={() => setShowCalendarLightbox(false)}
+        calUrl="biomolvisual/15min"
+      />
     </section >
   );
 }

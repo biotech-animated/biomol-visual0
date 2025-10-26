@@ -1,5 +1,6 @@
 import { X, ArrowRight, ChevronDown } from 'lucide-react';
 import { useState, FormEvent, useEffect } from 'react';
+import Recaptcha from '@/components/ui/Recaptcha';
 
 interface CaseStudiesFormProps {
   isOpen: boolean;
@@ -19,6 +20,8 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
   const [isTherapeuticAreaDropdownOpen, setIsTherapeuticAreaDropdownOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [recaptchaToken, setRecaptchaToken] = useState<string>('');
+  const [recaptchaError, setRecaptchaError] = useState<string>('');
 
   const therapeuticAreaOptions = [
     { value: '', label: 'Select an option' },
@@ -39,12 +42,11 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
   useEffect(() => {
     if (isOpen) {
       setIsVisible(true);
-      // Store the current scrollbar width before hiding it
-      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-      // Disable body scroll when form is open
-      document.body.style.overflow = 'hidden';
-      // Compensate for the scrollbar width to prevent horizontal shift
-      document.body.style.paddingRight = `${scrollbarWidth}px`;
+      // Disable body scroll when form is open but keep scrollbar visible
+      document.body.style.overflowY = 'scroll';
+      document.body.style.overflowX = 'hidden';
+      // Dispatch custom event to notify navigation
+      window.dispatchEvent(new CustomEvent('formOpen', { detail: { scrollbarWidth: 0 } }));
       // Small delay to ensure DOM is ready before starting animation
       const timer = setTimeout(() => setIsAnimating(true), 10);
       return () => clearTimeout(timer);
@@ -52,7 +54,8 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
       setIsAnimating(false);
       // Re-enable body scroll when form closes
       document.body.style.overflow = '';
-      document.body.style.paddingRight = '';
+      // Dispatch custom event to notify navigation
+      window.dispatchEvent(new CustomEvent('formClose'));
       const timer = setTimeout(() => setIsVisible(false), 300);
       return () => clearTimeout(timer);
     }
@@ -77,6 +80,14 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
+    setRecaptchaError('');
+
+    // Validate reCAPTCHA
+    if (!recaptchaToken) {
+      setRecaptchaError('Please complete the reCAPTCHA verification');
+      setIsSubmitting(false);
+      return;
+    }
 
     try {
       const response = await fetch('/api/send-case-study-request', {
@@ -84,7 +95,10 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          recaptchaToken
+        }),
       });
 
       if (response.ok) {
@@ -97,6 +111,7 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
           therapeuticArea: '',
           projectDescription: ''
         });
+        setRecaptchaToken('');
         // Close form after 2 seconds
         setTimeout(() => {
           onClose();
@@ -348,6 +363,22 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
                   </p>
                 </div>
               )}
+
+              {/* reCAPTCHA Error */}
+              {recaptchaError && (
+                <div className="mb-4 p-4 bg-red-900/20 border border-red-500/30 rounded-md">
+                  <p className="text-red-400 text-center" style={{ fontFamily: "'Red Hat Text', sans-serif", fontSize: '14px' }}>
+                    ✗ {recaptchaError}
+                  </p>
+                </div>
+              )}
+
+              {/* reCAPTCHA Component */}
+              <Recaptcha
+                onTokenGenerated={setRecaptchaToken}
+                onError={setRecaptchaError}
+                className="mb-4"
+              />
 
               <button
                 type="submit"

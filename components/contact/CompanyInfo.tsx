@@ -178,12 +178,12 @@ export default function CompanyInfo() {
                       lineHeight: '1.6'
                     }}
                   >
-                    <a href="tel:+16196739008" className="text-[#ED8936] hover:text-[#C05621] transition-colors">
-                      US: +1 (888) 391-0030
+                    <a href="tel:+18883910030" className="text-[#ED8936] hover:text-[#C05621] transition-colors">
+                      US: 888 391 0030
                     </a>
                     <br />
-                    <a href="tel:+441603976082" className="text-[#ED8936] hover:text-[#C05621] transition-colors">
-                      UK: +44 0800 707 4030
+                    <a href="tel:+4408007074030" className="text-[#ED8936] hover:text-[#C05621] transition-colors">
+                      UK: 0800 707 4030
                     </a>
                   </p>
                 </div>

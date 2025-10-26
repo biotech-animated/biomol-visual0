@@ -4,6 +4,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* reCAPTCHA Animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
 /* Custom Swiper Styles */
 .swiper-pagination-bullet-custom {
   width: clamp(6px, 2vw, 8px) !important;

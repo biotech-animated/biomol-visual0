@@ -48,9 +48,10 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
       document.body.style.overflowX = 'hidden';
       // Dispatch custom event to notify navigation
       window.dispatchEvent(new CustomEvent('formOpen', { detail: { scrollbarWidth: 0 } }));
-      // Small delay to ensure DOM is ready before starting animation
-      const timer = setTimeout(() => setIsAnimating(true), 10);
-      return () => clearTimeout(timer);
+      // Use requestAnimationFrame to ensure smooth animation on reopen
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => setIsAnimating(true));
+      });
     } else {
       setIsAnimating(false);
       // Re-enable body scroll when form closes

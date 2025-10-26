@@ -1,4 +1,4 @@
-import { X, ArrowRight } from 'lucide-react';
+import { X, ArrowRight, ChevronDown } from 'lucide-react';
 import { useState, FormEvent, useEffect } from 'react';
 
 interface CaseStudiesFormProps {
@@ -16,8 +16,25 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
   });
   const [isVisible, setIsVisible] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isTherapeuticAreaDropdownOpen, setIsTherapeuticAreaDropdownOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const therapeuticAreaOptions = [
+    { value: '', label: 'Select an option' },
+    { value: 'cell-gene-therapy', label: 'Cell & Gene Therapy' },
+    { value: 'immunology', label: 'Immunology' },
+    { value: 'neurology', label: 'Neurology' },
+    { value: 'oncology', label: 'Oncology' },
+    { value: 'platform-technology', label: 'Platform Technology' },
+    { value: 'rare-diseases', label: 'Rare Diseases' },
+    { value: 'other', label: 'Other' }
+  ];
+
+  const getSelectedTherapeuticAreaLabel = () => {
+    const selected = therapeuticAreaOptions.find(option => option.value === formData.therapeuticArea);
+    return selected ? selected.label : 'Select an option';
+  };
 
   useEffect(() => {
     if (isOpen) {
@@ -40,6 +57,21 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
       return () => clearTimeout(timer);
     }
   }, [isOpen]);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (isTherapeuticAreaDropdownOpen) {
+        const target = event.target as Element;
+        if (!target.closest('.custom-select-container')) {
+          setIsTherapeuticAreaDropdownOpen(false);
+        }
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isTherapeuticAreaDropdownOpen]);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -202,7 +234,7 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
               />
             </div>
 
-            <div>
+            <div className="relative">
               <label
                 className="block text-[#f5f5f5] mb-2"
                 style={{
@@ -213,29 +245,66 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
               >
                 Select Your Closest Therapeutic Area <span style={{ color: '#ed6c46' }}>*</span>
               </label>
-              <select
-                required
-                value={formData.therapeuticArea}
-                onChange={(e) => setFormData({ ...formData, therapeuticArea: e.target.value })}
-                className="w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none focus:ring-2 focus:ring-[#b12176]/20 transition-colors duration-200 appearance-none"
-                style={{
-                  fontFamily: "'Red Hat Text', sans-serif",
-                  fontSize: '16px',
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23b12176' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")`,
-                  backgroundRepeat: 'no-repeat',
-                  backgroundPosition: 'right 16px center',
-                  backgroundSize: '12px'
-                }}
-              >
-                <option value="">Select an option</option>
-                <option value="cell-gene-therapy">Cell & Gene Therapy</option>
-                <option value="immunology">Immunology</option>
-                <option value="neurology">Neurology</option>
-                <option value="oncology">Oncology</option>
-                <option value="platform-technology">Platform Technology</option>
-                <option value="rare-diseases">Rare Diseases</option>
-                <option value="other">Other</option>
-              </select>
+              <div className="relative custom-select-container">
+                <button
+                  type="button"
+                  onClick={() => setIsTherapeuticAreaDropdownOpen(!isTherapeuticAreaDropdownOpen)}
+                  className={`w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none transition-all duration-200 text-left flex items-center justify-between ${
+                    isTherapeuticAreaDropdownOpen ? 'border-[#b12176]' : ''
+                  }`}
+                  style={{
+                    fontFamily: "'Red Hat Text', sans-serif",
+                    fontSize: '16px',
+                    outline: 'none',
+                    boxShadow: 'none'
+                  }}
+                >
+                  <span className={formData.therapeuticArea ? 'text-white' : 'text-[#888]'}>
+                    {getSelectedTherapeuticAreaLabel()}
+                  </span>
+                  <ChevronDown 
+                    className={`w-5 h-5 text-[#b12176] transition-transform duration-200 ${
+                      isTherapeuticAreaDropdownOpen ? 'rotate-180' : ''
+                    }`} 
+                  />
+                </button>
+                
+                <div
+                  className={`absolute top-full left-0 right-0 mt-1 bg-[#0A0A0A] border border-white/20 rounded-md shadow-lg z-10 transition-all duration-200 ${
+                    isTherapeuticAreaDropdownOpen 
+                      ? 'opacity-100 visible translate-y-0' 
+                      : 'opacity-0 invisible -translate-y-2'
+                  }`}
+                >
+                  {therapeuticAreaOptions.map((option, index) => (
+                    <button
+                      key={option.value}
+                      type="button"
+                      onClick={() => {
+                        setFormData({ ...formData, therapeuticArea: option.value });
+                        setIsTherapeuticAreaDropdownOpen(false);
+                      }}
+                      className={`w-full px-4 py-3 text-left transition-colors duration-150 focus:outline-none ${
+                        formData.therapeuticArea === option.value
+                          ? 'bg-[#b12176]/10 text-[#b12176]'
+                          : 'text-white hover:bg-white/5'
+                      } ${
+                        index === 0 ? 'rounded-t-md' : ''
+                      } ${
+                        index === therapeuticAreaOptions.length - 1 ? 'rounded-b-md' : ''
+                      }`}
+                      style={{
+                        fontFamily: "'Red Hat Text', sans-serif",
+                        fontSize: '16px',
+                        outline: 'none',
+                        boxShadow: 'none'
+                      }}
+                    >
+                      {option.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
 
             <div>

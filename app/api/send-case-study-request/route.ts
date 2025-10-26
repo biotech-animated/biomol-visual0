@@ -16,6 +16,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Validate SMTP environment variables
+    if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
+      console.error('SMTP credentials not configured. Please set SMTP_USER and SMTP_PASS environment variables.');
+      return NextResponse.json(
+        { error: 'Email service not configured. Please contact support.' },
+        { status: 500 }
+      );
+    }
+
     // Create transporter for Zoho Mail
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST || 'smtp.zoho.com',
@@ -71,8 +80,24 @@ export async function POST(request: NextRequest) {
 
   } catch (error) {
     console.error('Error sending case study request email:', error);
+    
+    // Provide more specific error messages based on the error type
+    if (error instanceof Error) {
+      if (error.message.includes('EAUTH') || error.message.includes('Authentication Failed')) {
+        return NextResponse.json(
+          { error: 'Email authentication failed. Please check SMTP credentials.' },
+          { status: 500 }
+        );
+      } else if (error.message.includes('ECONNECTION') || error.message.includes('Connection')) {
+        return NextResponse.json(
+          { error: 'Unable to connect to email server. Please try again later.' },
+          { status: 500 }
+        );
+      }
+    }
+    
     return NextResponse.json(
-      { error: 'Failed to send case study request' },
+      { error: 'Failed to send case study request. Please try again later.' },
       { status: 500 }
     );
   }

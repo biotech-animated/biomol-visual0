@@ -18,7 +18,7 @@ export default function ClientPortalPage() {
     setError('');
     setIsLoading(true);
 
-    // Simulate login process (without Supabase)
+    // Simulate login process
     await new Promise(resolve => setTimeout(resolve, 1500));
     
     // Simple demo login - in real app, this would connect to your auth system

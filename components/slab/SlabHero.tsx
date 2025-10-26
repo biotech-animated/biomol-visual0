@@ -26,9 +26,8 @@ export default function SlabHero() {
 
   return (
     <section 
-      className="relative overflow-hidden section-responsive" 
+      className="relative overflow-hidden md:h-screen h-auto" 
       style={{ 
-        height: '100vh',
         background: '#1B0A2E'
       }}
     >
@@ -50,8 +49,8 @@ export default function SlabHero() {
 
       <div className="absolute inset-0 bg-black opacity-30" style={{ zIndex: 1 }}></div>
 
-      <div className="relative z-10 h-full flex flex-col justify-end md:pb-[160px] pb-20">
-        <div className="container-responsive">
+      <div className="relative z-10 h-full flex flex-col justify-end pb-24 md:pb-[160px] px-8 md:px-16 pt-32">
+        <div className="max-w-[1400px] mx-auto w-full">
           <h1
             className="text-[#E2E8F0] mb-4"
             style={{

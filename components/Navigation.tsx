@@ -8,6 +8,7 @@ import { usePathname } from 'next/navigation';
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrollbarWidth, setScrollbarWidth] = useState(0);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -15,9 +16,45 @@ export default function Navigation() {
       setIsScrolled(window.scrollY > 20);
     };
 
+    // Calculate scrollbar width
+    const calculateScrollbarWidth = () => {
+      const width = window.innerWidth - document.documentElement.clientWidth;
+      setScrollbarWidth(width);
+    };
+
+    calculateScrollbarWidth();
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', calculateScrollbarWidth);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', calculateScrollbarWidth);
+    };
   }, []);
+
+  // Listen for custom events from forms
+  useEffect(() => {
+    const handleFormOpen = (event: CustomEvent) => {
+      setScrollbarWidth(event.detail.scrollbarWidth);
+    };
+
+    const handleFormClose = () => {
+      setScrollbarWidth(0);
+    };
+
+    window.addEventListener('formOpen', handleFormOpen as EventListener);
+    window.addEventListener('formClose', handleFormClose);
+
+    return () => {
+      window.removeEventListener('formOpen', handleFormOpen as EventListener);
+      window.removeEventListener('formClose', handleFormClose);
+    };
+  }, []);
+
+  // Debug: Log scrollbar width changes
+  useEffect(() => {
+    console.log('Navigation: scrollbarWidth changed to:', scrollbarWidth);
+  }, [scrollbarWidth]);
 
   const navItems = [
     { label: 'SLAB', href: '/slab' },
@@ -37,7 +74,13 @@ export default function Navigation() {
         transition: 'all 500ms cubic-bezier(0.4, 0, 0.2, 1)'
       }}
     >
-      <div className="container-responsive !max-w-[1500px]" style={{ paddingTop: 'var(--space-4)', paddingBottom: 'var(--space-4)' }}>
+      <div 
+        className="container-responsive !max-w-[1500px]" 
+        style={{ 
+          paddingTop: 'var(--space-4)', 
+          paddingBottom: 'var(--space-4)'
+        }}
+      >
         <div className="flex items-center justify-between">
           <Link
             href="/"

@@ -1,8 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { X, CheckCircle, AlertCircle, ChevronRight, ChevronLeft } from 'lucide-react';
-import { createClient } from '@supabase/supabase-js';
+import Recaptcha from '@/components/ui/Recaptcha';
 
 interface JoinUsModalProps {
   isOpen: boolean;
@@ -71,6 +71,8 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
   const [validationErrors, setValidationErrors] = useState<string[]>([]);
+  const [recaptchaToken, setRecaptchaToken] = useState<string>('');
+  const [recaptchaError, setRecaptchaError] = useState<string>('');
 
   if (!isOpen) return null;
 
@@ -122,33 +124,42 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
     e.preventDefault();
     setStatus('submitting');
     setErrorMessage('');
+    setRecaptchaError('');
+
+    // Validate reCAPTCHA
+    if (!recaptchaToken) {
+      setRecaptchaError('Please complete the reCAPTCHA verification');
+      setStatus('error');
+      return;
+    }
 
     try {
-      const supabase = createClient(
-        process.env.NEXT_PUBLIC_SUPABASE_URL!,
-        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-      );
+      const response = await fetch('/api/send-join-us-application', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName: formData.firstName,
+          email: formData.email,
+          location: formData.location,
+          improvementAreas: formData.improvementAreas,
+          universityDegrees: formData.universityDegrees,
+          linkedinProfile: formData.linkedinProfile,
+          workVision: formData.workVision,
+          teamFit: formData.teamFit,
+          performanceNeeds: formData.performanceNeeds,
+          passion: formData.passion,
+          cvFileName: formData.cvFile ? formData.cvFile.name : '',
+          additionalComments: formData.additionalComments,
+          recaptchaToken
+        }),
+      });
 
-      const submissionData = {
-        first_name: formData.firstName,
-        email: formData.email,
-        location: formData.location,
-        improvement_areas: formData.improvementAreas,
-        university_degrees: formData.universityDegrees,
-        linkedin_profile: formData.linkedinProfile,
-        work_vision: formData.workVision,
-        team_fit: formData.teamFit,
-        performance_needs: formData.performanceNeeds,
-        passion: formData.passion,
-        cv_file_path: formData.cvFile ? formData.cvFile.name : '',
-        additional_comments: formData.additionalComments
-      };
-
-      const { error } = await supabase
-        .from('join_us_applications')
-        .insert([submissionData]);
-
-      if (error) throw error;
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to submit application');
+      }
 
       setStatus('success');
       setFormData({
@@ -165,6 +176,7 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
         cvFile: null,
         additionalComments: ''
       });
+      setRecaptchaToken('');
       setCurrentStep(1);
     } catch (error: any) {
       setStatus('error');
@@ -176,6 +188,8 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
     setStatus('idle');
     setErrorMessage('');
     setValidationErrors([]);
+    setRecaptchaToken('');
+    setRecaptchaError('');
     setCurrentStep(1);
     onClose();
   };
@@ -1113,7 +1127,7 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
 
               {renderProgressBar()}
 
-              {(status === 'error' || validationErrors.length > 0) && (
+              {(status === 'error' || validationErrors.length > 0 || recaptchaError) && (
                 <div
                   className="flex items-start rounded-lg"
                   style={{
@@ -1132,6 +1146,7 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
                       </p>
                     ))}
                     {errorMessage && <p style={{ color: '#FC8181', fontSize: '14px' }}>{errorMessage}</p>}
+                    {recaptchaError && <p style={{ color: '#FC8181', fontSize: '14px' }}>{recaptchaError}</p>}
                   </div>
                 </div>
               )}
@@ -1141,6 +1156,16 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
                 {currentStep === 2 && renderStep2()}
                 {currentStep === 3 && renderStep3()}
                 {currentStep === 4 && renderStep4()}
+
+                {/* reCAPTCHA Component - only show on final step */}
+                {currentStep === 4 && (
+                  <div style={{ marginBottom: 'var(--space-3)' }}>
+                    <Recaptcha
+                      onTokenGenerated={setRecaptchaToken}
+                      onError={setRecaptchaError}
+                    />
+                  </div>
+                )}
 
                 <div style={{
                   display: 'flex',

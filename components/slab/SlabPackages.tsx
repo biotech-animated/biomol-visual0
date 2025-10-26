@@ -1,6 +1,10 @@
 import { Check, X, ArrowRight } from 'lucide-react';
+import { useState } from 'react';
+import CalCalendarLightbox from '../CalCalendarLightbox';
 
 export default function SlabPackages() {
+  const [showCalendarLightbox, setShowCalendarLightbox] = useState(false);
+
   return (
     <section className="section-responsive !pt-6" style={{ background: '#1B0A2E' }}>
       <div className="container-responsive">
@@ -147,6 +151,7 @@ export default function SlabPackages() {
               </p>
 
               <button
+                onClick={() => setShowCalendarLightbox(true)}
                 className="w-full inline-flex items-center justify-center gap-4 rounded-[50px] text-white uppercase tracking-wider cursor-pointer border-none transition-all "
                 style={{
                   padding: '8px 8px 8px 24px',
@@ -301,6 +306,7 @@ export default function SlabPackages() {
               </p>
 
               <button
+                onClick={() => setShowCalendarLightbox(true)}
                 className="w-full inline-flex items-center justify-center gap-4 rounded-[50px] text-white uppercase tracking-wider cursor-pointer border-none transition-all "
                 style={{
                   padding: '8px 8px 8px 24px',
@@ -479,6 +485,7 @@ export default function SlabPackages() {
             </p>
 
             <button
+              onClick={() => setShowCalendarLightbox(true)}
               className="w-full inline-flex items-center justify-center gap-4 rounded-[50px] text-white uppercase tracking-wider cursor-pointer border-none transition-all "
               style={{
                 padding: '8px 8px 8px 24px',
@@ -542,6 +549,12 @@ export default function SlabPackages() {
           animation: rotateBorder 3s linear infinite;
         }
       `}</style>
+
+      <CalCalendarLightbox
+        isOpen={showCalendarLightbox}
+        onClose={() => setShowCalendarLightbox(false)}
+        calUrl="biomolvisual/15min"
+      />
     </section>
   );
 }

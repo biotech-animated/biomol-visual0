@@ -70,8 +70,48 @@ export async function POST(request: NextRequest) {
       `
     };
 
-    // Send email
+    // Send admin notification email
     await transporter.sendMail(mailOptions);
+
+    // Send confirmation email to user
+    const userConfirmationOptions = {
+      from: process.env.SMTP_FROM || 'info@biomolvisual.com',
+      to: email,
+      subject: 'Thank you for your case study request - Biomol Visual',
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <h2 style="color: #b12176; border-bottom: 2px solid #b12176; padding-bottom: 10px;">
+            Thank you for your interest!
+          </h2>
+          
+          <p>Dear ${fullName},</p>
+          
+          <p>Thank you for reaching out to Biomol Visual regarding a case study request. We have received your submission and our team will review it shortly.</p>
+          
+          <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
+            <h3 style="color: #333; margin-top: 0;">Your Request Details</h3>
+            <p><strong>Name:</strong> ${fullName}</p>
+            <p><strong>Company:</strong> ${company}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Therapeutic Area:</strong> ${therapeuticArea}</p>
+            ${projectDescription ? `<p><strong>Project Description:</strong><br><span style="white-space: pre-wrap;">${projectDescription}</span></p>` : ''}
+          </div>
+          
+          <p>We typically respond within 1-2 business days. If you have any urgent questions, please don't hesitate to contact us directly.</p>
+          
+          <p>Best regards,<br>
+          The Biomol Visual Team</p>
+          
+          <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; color: #666; font-size: 12px;">
+            <p>This is an automated confirmation email. Please do not reply to this message.</p>
+            <p>Submitted on: ${new Date().toLocaleString()}</p>
+          </div>
+        </div>
+      `
+    };
+
+    // Send user confirmation email
+    await transporter.sendMail(userConfirmationOptions);
 
     return NextResponse.json(
       { message: 'Case study request submitted successfully' },

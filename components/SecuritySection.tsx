@@ -48,9 +48,9 @@ export default function SecuritySection() {
               lineHeight: '1.7'
             }}
           >
-            We get it. You're about to share your breakthrough with strangers. The science you've spent years perfecting. The data that isn't published yet.
+            We get it. You&apos;re about to share your breakthrough with strangers. The science you&apos;ve spent years perfecting. The data that isn&apos;t published yet.
             <br /><br />
-            Here's our commitment to protecting it:
+            Here&apos;s our commitment to protecting it:
           </p>
         </div>
 
@@ -124,13 +124,13 @@ export default function SecuritySection() {
           }}
         >
           <p>
-            We've protected the confidential information of over 70 biotech clients. Including some of the most innovative and sensitive biotherapeutic research in the industry.
+            We&apos;ve protected the confidential information of over 70 biotech clients. Including some of the most innovative and sensitive biotherapeutic research in the industry.
           </p>
           <p style={{ fontWeight: '500', color: 'var(--bmv-text-heading)' }}>
             Not one breach. Not one leak. Not one sleepless night for our clients.
           </p>
           <p style={{ color: 'var(--bmv-orange)', fontSize: '18px' }}>
-            Your secret stays secret. Until you're ready to change the world.
+            Your secret stays secret. Until you&apos;re ready to change the world.
           </p>
         </div>
       </div>

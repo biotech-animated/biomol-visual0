@@ -65,7 +65,7 @@ export default function ContactCta({ onOpenForm }: ContactCtaProps) {
               fontWeight: 500
             }}
           >
-            Fill out the form and tell us what you're working on. We respond within 24 hours.
+            Fill out the form and tell us what you&apos;re working on. We respond within 24 hours.
           </p>
 
           <button

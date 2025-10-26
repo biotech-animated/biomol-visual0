@@ -22,7 +22,7 @@ export default function CompetitivePositioningSection() {
             }}
           >
             <h2 className="text-responsive-lg" style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: '500', marginBottom: '0' }}>
-              Why Pay for a Mega-Agency's Overhead?
+              Why Pay for a Mega-Agency&apos;s Overhead?
             </h2>
 
             <div
@@ -46,7 +46,7 @@ export default function CompetitivePositioningSection() {
             </p>
 
             <p className="text-responsive-sm" style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: '400', lineHeight: '1.6', color: 'var(--bmv-text-heading)' }}>
-              It's simple. You get a funding-grade result, without paying for mega-agency overhead.
+              It&apos;s simple. You get a funding-grade result, without paying for mega-agency overhead.
             </p>
 
             <p
@@ -58,7 +58,7 @@ export default function CompetitivePositioningSection() {
                 color: 'var(--bmv-orange)'
               }}
             >
-              A level of value the larger studios simply can't touch.
+              A level of value the larger studios simply can&apos;t touch.
             </p>
             </div>
           </div>

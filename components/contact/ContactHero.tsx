@@ -65,7 +65,7 @@ export default function ContactHero({ onOpenForm }: ContactHeroProps) {
               fontWeight: 500
             }}
           >
-            Whether you need a full custom project or something from our asset library, we'll figure out the right fit together.
+            Whether you need a full custom project or something from our asset library, we&apos;ll figure out the right fit together.
           </p>
 
           <button

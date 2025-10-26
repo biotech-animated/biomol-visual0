@@ -136,7 +136,7 @@ export default function ProcessSection() {
             lineHeight: '1.6'
           }}
         >
-          A process designed for total clarity, giving you a transparent, real-time view of your project's progress.
+          A process designed for total clarity, giving you a transparent, real-time view of your project&apos;s progress.
         </p>
       </div>
 

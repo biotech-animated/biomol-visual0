@@ -939,7 +939,7 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
             fontFamily: "'Red Hat Display', sans-serif"
           }}
         >
-          Is there anything else you'd like to tell us?
+          Is there anything else you&apos;d like to tell us?
         </label>
         <textarea
           id="additionalComments"

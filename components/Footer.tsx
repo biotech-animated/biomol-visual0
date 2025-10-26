@@ -35,7 +35,7 @@ export default function Footer() {
               Molecular and Cellular MOA & MOD Visualization Specialists
             </p>
             <p className="text-sm text-[#718096] leading-relaxed mb-6" style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: 300 }}>
-              We create scientifically precise molecular and cellular mechanism of action visualizations for the world's most innovative biotech companies. Our dedicated team of scientific experts transforms complex science—from biotherapeutic mechanisms to platform technologies—into clear stories that secure funding and drive partnerships.
+              We create scientifically precise molecular and cellular mechanism of action visualizations for the world&apos;s most innovative biotech companies. Our dedicated team of scientific experts transforms complex science—from biotherapeutic mechanisms to platform technologies—into clear stories that secure funding and drive partnerships.
             </p>
             <p className="text-sm text-[#718096] leading-relaxed" style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: 300 }}>
               All web design and content created exclusively by Biomol Visual All Rights Reserved.

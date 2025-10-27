@@ -103,7 +103,7 @@ export default function RecaptchaV3({
             href="https://policies.google.com/privacy" 
             target="_blank" 
             rel="noopener noreferrer"
-            style={{ color: '#b12176', textDecoration: 'none' }}
+            style={{ color: 'var(--bmv-orange)', textDecoration: 'none' }}
           >
             Privacy Policy
           </a>{' '}
@@ -112,7 +112,7 @@ export default function RecaptchaV3({
             href="https://policies.google.com/terms" 
             target="_blank" 
             rel="noopener noreferrer"
-            style={{ color: '#b12176', textDecoration: 'none' }}
+            style={{ color: 'var(--bmv-orange)', textDecoration: 'none' }}
           >
             Terms of Service
           </a>{' '}

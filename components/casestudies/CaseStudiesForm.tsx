@@ -248,7 +248,7 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
                 required
                 value={formData.fullName}
                 onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                className="w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none focus:ring-2 focus:ring-[#b12176]/20 transition-colors duration-200"
+                className="w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#9B59D0] focus:outline-none focus:ring-2 focus:ring-[rgba(155,89,208,0.15)] transition-colors duration-200"
                 style={{
                   fontFamily: "'Red Hat Text', sans-serif",
                   fontSize: '16px'
@@ -272,7 +272,7 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
                 required
                 value={formData.company}
                 onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                className="w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none focus:ring-2 focus:ring-[#b12176]/20 transition-colors duration-200"
+                className="w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#9B59D0] focus:outline-none focus:ring-2 focus:ring-[rgba(155,89,208,0.15)] transition-colors duration-200"
                 style={{
                   fontFamily: "'Red Hat Text', sans-serif",
                   fontSize: '16px'
@@ -296,7 +296,7 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
                 required
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none focus:ring-2 focus:ring-[#b12176]/20 transition-colors duration-200"
+                className="w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#9B59D0] focus:outline-none focus:ring-2 focus:ring-[rgba(155,89,208,0.15)] transition-colors duration-200"
                 style={{
                   fontFamily: "'Red Hat Text', sans-serif",
                   fontSize: '16px'
@@ -319,8 +319,8 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
                 <button
                   type="button"
                   onClick={() => setIsTherapeuticAreaDropdownOpen(!isTherapeuticAreaDropdownOpen)}
-                  className={`w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none transition-all duration-200 text-left flex items-center justify-between ${
-                    isTherapeuticAreaDropdownOpen ? 'border-[#b12176]' : ''
+                  className={`w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#9B59D0] focus:outline-none transition-all duration-200 text-left flex items-center justify-between ${
+                    isTherapeuticAreaDropdownOpen ? 'border-[#9B59D0]' : ''
                   }`}
                   style={{
                     fontFamily: "'Red Hat Text', sans-serif",
@@ -333,7 +333,7 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
                     {getSelectedTherapeuticAreaLabel()}
                   </span>
                   <ChevronDown 
-                    className={`w-5 h-5 text-[#b12176] transition-transform duration-200 ${
+                    className={`w-5 h-5 text-[#9B59D0] transition-transform duration-200 ${
                       isTherapeuticAreaDropdownOpen ? 'rotate-180' : ''
                     }`} 
                   />
@@ -356,7 +356,7 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
                       }}
                       className={`w-full px-4 py-3 text-left transition-colors duration-150 focus:outline-none ${
                         formData.therapeuticArea === option.value
-                          ? 'bg-[#b12176]/10 text-[#b12176]'
+                          ? 'bg-[#9B59D0]/10 text-[#9B59D0]'
                           : 'text-white hover:bg-white/5'
                       } ${
                         index === 0 ? 'rounded-t-md' : ''
@@ -392,16 +392,16 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
                 value={formData.projectDescription}
                 onChange={(e) => setFormData({ ...formData, projectDescription: e.target.value })}
                 rows={5}
-                className="w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none focus:ring-2 focus:ring-[#b12176]/20 transition-colors duration-200 resize-vertical"
+                className="w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#9B59D0] focus:outline-none focus:ring-2 focus:ring-[rgba(155,89,208,0.15)] transition-colors duration-200 resize-vertical"
                 style={{
                   fontFamily: "'Red Hat Text', sans-serif",
                   fontSize: '16px',
-                  minHeight: '100px'
+                  minHeight: '160px'
                 }}
               />
             </div>
 
-            <div className="pt-6">
+            <div>
               {/* Status Messages */}
               {submitStatus === 'success' && (
                 <div className="mb-4 p-4 bg-green-900/20 border border-green-500/30 rounded-md">

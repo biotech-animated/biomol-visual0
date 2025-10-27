@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function CompetitivePositioningSection() {
   return (
     <section
@@ -75,15 +77,18 @@ export default function CompetitivePositioningSection() {
               justifySelf: 'end'
             }}
           >
-            <img
-              src="./SLAB_Recce_ATP_8k_v01.jpg"
+            <Image
+              src="/SLAB_Recce_ATP_8k_v01.webp"
               alt="Advanced molecular visualization"
+              width={550}
+              height={550}
               style={{
                 width: '100%',
                 height: '100%',
                 objectFit: 'cover',
                 objectPosition: 'center'
               }}
+              loading="lazy"
             />
           </div>
         </div>

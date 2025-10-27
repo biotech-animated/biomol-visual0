@@ -5,7 +5,7 @@ import Image from 'next/image';
 export default function DifferentiationSection() {
   return (
     <section
-      className="min-h-screen flex flex-col section-responsive"
+      className="flex flex-col section-responsive"
       style={{
         background: '#1B0A2E'
       }}
@@ -94,15 +94,18 @@ export default function DifferentiationSection() {
                 justifySelf: 'end'
               }}
             >
-              <img
-                src="./SLAB_Recce_ATP_FullHD_v02.png"
+              <Image
+                src="/SLAB_Recce_ATP_FullHD_v02.webp"
                 alt="Molecular visualization showing cellular membrane and protein interactions"
+                width={550}
+                height={688}
                 style={{
                   width: '100%',
                   height: '100%',
                   objectFit: 'cover',
                   objectPosition: 'center'
                 }}
+                loading="lazy"
               />
             </div>
           </div>

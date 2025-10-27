@@ -73,7 +73,7 @@ export default function TestimonialsSection() {
       author: "Miguel Tam",
       title: "Senior Product Manager",
       company: "BioLegend",
-      logo: "./logos/BioLegend.webp"
+      logo: "./logos/Biolegend.webp"
     },
     {
       id: 8,

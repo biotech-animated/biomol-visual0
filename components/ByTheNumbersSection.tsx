@@ -1,5 +1,6 @@
 "use client"
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 export default function ByTheNumbersSection() {
   const [scrollY, setScrollY] = useState(0);
@@ -14,72 +15,72 @@ export default function ByTheNumbersSection() {
   }, []);
 
   const logos = [
-    { src: './logos/Abcore.webp', alt: 'Abcore' },
-    { src: './logos/ABT.webp', alt: 'Agarose Bead Technologies' },
-    { src: './logos/MilliporeSigma.webp', alt: 'MilliporeSigma' },
-    { src: './logos/ACD.webp', alt: 'ACD' },
-    { src: './logos/Altamira.webp', alt: 'Altamira Therapeutics' },
-    { src: './logos/Applied Biomath.webp', alt: 'Applied Biomath' },
-    { src: './logos/Arbele.webp', alt: 'Arbele' },
-    { src: './logos/Arialys.webp', alt: 'Arialys' },
-    { src: './logos/Arthrosi.webp', alt: 'Arthrosi Therapeutics' },
-    { src: './logos/ATD Bio.webp', alt: 'ATD Bio' },
-    { src: './logos/Avelas.webp', alt: 'Avelas Biosciences' },
-    { src: './logos/Bio-Techne.webp', alt: 'Bio-Techne' },
-    { src: './logos/Biolegend.webp', alt: 'BioLegend' },
-    { src: './logos/Bioniz.webp', alt: 'Bioniz' },
-    { src: './logos/BriaCell.webp', alt: 'BriaCell' },
-    { src: './logos/BroadPharm.webp', alt: 'BroadPharm' },
-    { src: './logos/BURL-Concepts.webp', alt: 'BURL-Concepts' },
-    { src: './logos/CancerVAX.webp', alt: 'CancerVAX' },
-    { src: './logos/Canopy.webp', alt: 'Canopy' },
-    // { src: './logos/ChemDiv.webp', alt: 'ChemDiv' },
-    { src: './logos/Chimera Bio.webp', alt: 'Chimera Bio' },
-    { src: './logos/Chromocyte.webp', alt: 'Chromocyte' },
-    { src: './logos/Codex DNA.webp', alt: 'Codex DNA' },
-    { src: './logos/Crescendo Biologics.webp', alt: 'Crescendo Biologics' },
-    { src: './logos/CurVirBiotech.webp', alt: 'CurVirBiotech' },
-    { src: './logos/Dimerix.webp', alt: 'Dimerix' },
-    { src: './logos/Elsie Bio.webp', alt: 'Elsie Bio' },
-    { src: './logos/Endogena.webp', alt: 'Endogena' },
-    { src: './logos/Histogen.webp', alt: 'Histogen' },
-    { src: './logos/Inflammatix.webp', alt: 'Inflammatix' },
-    { src: './logos/Inivata.webp', alt: 'Inivata' },
-    { src: './logos/Innova Biosciences.webp', alt: 'Innova Biosciences' },
-    { src: './logos/Inso Bio.webp', alt: 'Inso Bio' }
+    { src: '/logos/Abcore.webp', alt: 'Abcore' },
+    { src: '/logos/ABT.webp', alt: 'Agarose Bead Technologies' },
+    { src: '/logos/MilliporeSigma.webp', alt: 'MilliporeSigma' },
+    { src: '/logos/ACD.webp', alt: 'ACD' },
+    { src: '/logos/Altamira.webp', alt: 'Altamira Therapeutics' },
+    { src: '/logos/Applied Biomath.webp', alt: 'Applied Biomath' },
+    { src: '/logos/Arbele.webp', alt: 'Arbele' },
+    { src: '/logos/Arialys.webp', alt: 'Arialys' },
+    { src: '/logos/Arthrosi.webp', alt: 'Arthrosi Therapeutics' },
+    { src: '/logos/ATD Bio.webp', alt: 'ATD Bio' },
+    { src: '/logos/Avelas.webp', alt: 'Avelas Biosciences' },
+    { src: '/logos/Bio-Techne.webp', alt: 'Bio-Techne' },
+    { src: '/logos/Biolegend.webp', alt: 'BioLegend' },
+    { src: '/logos/Bioniz.webp', alt: 'Bioniz' },
+    { src: '/logos/BriaCell.webp', alt: 'BriaCell' },
+    { src: '/logos/BroadPharm.webp', alt: 'BroadPharm' },
+    { src: '/logos/BURL-Concepts.webp', alt: 'BURL-Concepts' },
+    { src: '/logos/CancerVAX.webp', alt: 'CancerVAX' },
+    { src: '/logos/Canopy.webp', alt: 'Canopy' },
+    // { src: '/logos/ChemDiv.webp', alt: 'ChemDiv' },
+    { src: '/logos/Chimera Bio.webp', alt: 'Chimera Bio' },
+    { src: '/logos/Chromocyte.webp', alt: 'Chromocyte' },
+    { src: '/logos/Codex DNA.webp', alt: 'Codex DNA' },
+    { src: '/logos/Crescendo Biologics.webp', alt: 'Crescendo Biologics' },
+    { src: '/logos/CurVirBiotech.webp', alt: 'CurVirBiotech' },
+    { src: '/logos/Dimerix.webp', alt: 'Dimerix' },
+    { src: '/logos/Elsie Bio.webp', alt: 'Elsie Bio' },
+    { src: '/logos/Endogena.webp', alt: 'Endogena' },
+    { src: '/logos/Histogen.webp', alt: 'Histogen' },
+    { src: '/logos/Inflammatix.webp', alt: 'Inflammatix' },
+    { src: '/logos/Inivata.webp', alt: 'Inivata' },
+    { src: '/logos/Innova Biosciences.webp', alt: 'Innova Biosciences' },
+    { src: '/logos/Inso Bio.webp', alt: 'Inso Bio' }
   ]
   const logos2 = [
-    { src: './logos/Insphero.webp', alt: 'Insphero' },
-    { src: './logos/Intuitive Bio.webp', alt: 'Intuitive Bio' },
-    { src: './logos/Invion.webp', alt: 'Invion' },
-    { src: './logos/Lonza.webp', alt: 'Lonza' },
-    { src: './logos/May Health.webp', alt: 'May Health' },
-    { src: './logos/Mission Tx.webp', alt: 'Mission Tx' },
-    { src: './logos/Neubase.webp', alt: 'Neubase' },
-    { src: './logos/Neuropore.webp', alt: 'Neuropore' },
-    { src: './logos/NeuroTrials.webp', alt: 'NeuroTrials' },
-    { src: './logos/NIH.webp', alt: 'NIH' },
-    { src: './logos/NovaBiotics.webp', alt: 'NovaBiotics' },
-    { src: './logos/Numaferm.webp', alt: 'Numaferm' },
-    { src: './logos/OncoMyx.webp', alt: 'OncoMyx' },
-    { src: './logos/Patrys.webp', alt: 'Patrys' },
-    { src: './logos/Presympto.webp', alt: 'Presympto' },
-    { src: './logos/ProbiusDx.webp', alt: 'ProbiusDx' },
-    { src: './logos/Quantum Si.webp', alt: 'Quantum Si' },
-    { src: './logos/Recce.webp', alt: 'Recce' },
-    { src: './logos/SAb Bio.webp', alt: 'SAb Bio' },
-    { src: './logos/Serimmune.webp', alt: 'Serimmune' },
-    { src: './logos/SRP.webp', alt: 'SRP' },
-    { src: './logos/StarPharma.webp', alt: 'StarPharma' },
-    { src: './logos/Tavotek.webp', alt: 'Tavotek' },
-    { src: './logos/Tecan.webp', alt: 'Tecan' },
-    { src: './logos/Unither.webp', alt: 'Unither' },
-    { src: './logos/Valo Tx.webp', alt: 'Valo Tx' },
-    { src: './logos/Verona.webp', alt: 'Verona' },
-    { src: './logos/Merck.webp', alt: 'Merck' },
-    { src: './logos/ViaCyte.webp', alt: 'ViaCyte' },
-    { src: './logos/YDS.webp', alt: 'YDS' },
-    // { src: './logos/YHM.webp', alt: 'YHM' }
+    { src: '/logos/Insphero.webp', alt: 'Insphero' },
+    { src: '/logos/Intuitive Bio.webp', alt: 'Intuitive Bio' },
+    { src: '/logos/Invion.webp', alt: 'Invion' },
+    { src: '/logos/Lonza.webp', alt: 'Lonza' },
+    { src: '/logos/May Health.webp', alt: 'May Health' },
+    { src: '/logos/Mission Tx.webp', alt: 'Mission Tx' },
+    { src: '/logos/Neubase.webp', alt: 'Neubase' },
+    { src: '/logos/Neuropore.webp', alt: 'Neuropore' },
+    { src: '/logos/NeuroTrials.webp', alt: 'NeuroTrials' },
+    { src: '/logos/NIH.webp', alt: 'NIH' },
+    { src: '/logos/NovaBiotics.webp', alt: 'NovaBiotics' },
+    { src: '/logos/Numaferm.webp', alt: 'Numaferm' },
+    { src: '/logos/OncoMyx.webp', alt: 'OncoMyx' },
+    { src: '/logos/Patrys.webp', alt: 'Patrys' },
+    { src: '/logos/Presympto.webp', alt: 'Presympto' },
+    { src: '/logos/ProbiusDx.webp', alt: 'ProbiusDx' },
+    { src: '/logos/Quantum Si.webp', alt: 'Quantum Si' },
+    { src: '/logos/Recce.webp', alt: 'Recce' },
+    { src: '/logos/SAb Bio.webp', alt: 'SAb Bio' },
+    { src: '/logos/Serimmune.webp', alt: 'Serimmune' },
+    { src: '/logos/SRP.webp', alt: 'SRP' },
+    { src: '/logos/StarPharma.webp', alt: 'StarPharma' },
+    { src: '/logos/Tavotek.webp', alt: 'Tavotek' },
+    { src: '/logos/Tecan.webp', alt: 'Tecan' },
+    { src: '/logos/Unither.webp', alt: 'Unither' },
+    { src: '/logos/Valo Tx.webp', alt: 'Valo Tx' },
+    { src: '/logos/Verona.webp', alt: 'Verona' },
+    { src: '/logos/Merck.webp', alt: 'Merck' },
+    { src: '/logos/ViaCyte.webp', alt: 'ViaCyte' },
+    { src: '/logos/YDS.webp', alt: 'YDS' },
+    // { src: '/logos/YHM.webp', alt: 'YHM' }
   ];
 
   const metrics = [
@@ -100,7 +101,7 @@ export default function ByTheNumbersSection() {
       className="flex flex-col section-responsive !pb-0"
       style={{
         minHeight: '100vh',
-        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/Barrier_Red_Version1.jpg)',
+        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/Barrier_Red_Version1.webp)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -207,9 +208,11 @@ export default function ByTheNumbersSection() {
                     paddingLeft: index === 0 ? 'var(--space-11)' : '0'
                   }}
                 >
-                  <img
+                  <Image
                     src={logo.src}
                     alt={logo.alt}
+                    width={200}
+                    height={30}
                     style={{
                       height: '30px',
                       width: 'auto',
@@ -219,6 +222,7 @@ export default function ByTheNumbersSection() {
                       opacity: '0.3',
                       transition: 'opacity 0.3s ease'
                     }}
+                    loading="lazy"
                   />
                 </div>
               ))}
@@ -236,9 +240,11 @@ export default function ByTheNumbersSection() {
                     paddingRight: index === logos.length - 1 ? 'var(--space-11)' : '0'
                   }}
                 >
-                  <img
+                  <Image
                     src={logo.src}
                     alt={logo.alt}
+                    width={200}
+                    height={30}
                     style={{
                       height: '30px',
                       width: 'auto',
@@ -248,6 +254,7 @@ export default function ByTheNumbersSection() {
                       opacity: '0.3',
                       transition: 'opacity 0.3s ease'
                     }}
+                    loading="lazy"
                   />
                 </div>
               ))}
@@ -282,9 +289,11 @@ export default function ByTheNumbersSection() {
                     paddingLeft: index === 0 ? 'var(--space-11)' : '0'
                   }}
                 >
-                  <img
+                  <Image
                     src={logo.src}
                     alt={logo.alt}
+                    width={200}
+                    height={30}
                     style={{
                       height: '30px',
                       width: 'auto',
@@ -294,6 +303,7 @@ export default function ByTheNumbersSection() {
                       opacity: '0.3',
                       transition: 'opacity 0.3s ease'
                     }}
+                    loading="lazy"
                   />
                 </div>
               ))}
@@ -311,9 +321,11 @@ export default function ByTheNumbersSection() {
                     paddingRight: index === logos2.length - 1 ? 'var(--space-11)' : '0'
                   }}
                 >
-                  <img
+                  <Image
                     src={logo.src}
                     alt={logo.alt}
+                    width={200}
+                    height={30}
                     style={{
                       height: '30px',
                       width: 'auto',
@@ -323,6 +335,7 @@ export default function ByTheNumbersSection() {
                       opacity: '0.3',
                       transition: 'opacity 0.3s ease'
                     }}
+                    loading="lazy"
                   />
                 </div>
               ))}

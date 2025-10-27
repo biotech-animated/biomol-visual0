@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { X, CheckCircle, AlertCircle, ChevronRight, ChevronLeft } from 'lucide-react';
-import Recaptcha from '@/components/ui/Recaptcha';
+import RecaptchaV3, { useRecaptchaV3 } from '@/components/ui/RecaptchaV3';
 
 interface JoinUsModalProps {
   isOpen: boolean;
@@ -71,8 +71,9 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
   const [validationErrors, setValidationErrors] = useState<string[]>([]);
-  const [recaptchaToken, setRecaptchaToken] = useState<string>('');
-  const [recaptchaError, setRecaptchaError] = useState<string>('');
+  
+  // Use reCAPTCHA v3 hook
+  const { token: recaptchaToken, error: recaptchaError, generateToken, clearToken, clearError } = useRecaptchaV3('job_application');
 
   if (!isOpen) return null;
 
@@ -124,16 +125,12 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
     e.preventDefault();
     setStatus('submitting');
     setErrorMessage('');
-    setRecaptchaError('');
-
-    // Validate reCAPTCHA
-    if (!recaptchaToken) {
-      setRecaptchaError('Please complete the reCAPTCHA verification');
-      setStatus('error');
-      return;
-    }
+    clearError();
 
     try {
+      // Generate reCAPTCHA v3 token
+      const token = await generateToken();
+
       const response = await fetch('/api/send-join-us-application', {
         method: 'POST',
         headers: {
@@ -152,7 +149,7 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
           passion: formData.passion,
           cvFileName: formData.cvFile ? formData.cvFile.name : '',
           additionalComments: formData.additionalComments,
-          recaptchaToken
+          recaptchaToken: token
         }),
       });
 
@@ -176,7 +173,7 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
         cvFile: null,
         additionalComments: ''
       });
-      setRecaptchaToken('');
+      clearToken();
       setCurrentStep(1);
     } catch (error: any) {
       setStatus('error');
@@ -188,8 +185,8 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
     setStatus('idle');
     setErrorMessage('');
     setValidationErrors([]);
-    setRecaptchaToken('');
-    setRecaptchaError('');
+    clearToken();
+    clearError();
     setCurrentStep(1);
     onClose();
   };
@@ -1160,9 +1157,10 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
                 {/* reCAPTCHA Component - only show on final step */}
                 {currentStep === 4 && (
                   <div style={{ marginBottom: 'var(--space-3)' }}>
-                    <Recaptcha
-                      onTokenGenerated={setRecaptchaToken}
-                      onError={setRecaptchaError}
+                    <RecaptchaV3
+                      onTokenGenerated={() => {}} // Token is handled by the hook
+                      onError={() => {}} // Error is handled by the hook
+                      action="job_application"
                     />
                   </div>
                 )}

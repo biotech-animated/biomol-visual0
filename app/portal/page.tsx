@@ -1,12 +1,26 @@
 'use client';
 
 import { useState } from 'react';
+import { PageMetadata } from '../metadata';
 import Navigation from '@/components/Navigation';
 import ScrollProgress from '@/components/ScrollProgress';
 import Footer from '@/components/Footer';
 import { Lock } from 'lucide-react';
 
 export default function ClientPortalPage() {
+  return (
+    <>
+      <PageMetadata
+        title="Client Portal - Biomol Visual"
+        description="Access your secure client portal to view project progress, deliverables, and collaborate with the Biomol Visual team."
+        keywords="client portal, secure access, project management, animation deliverables"
+      />
+      <ClientPortalContent />
+    </>
+  );
+}
+
+function ClientPortalContent() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -24,7 +38,9 @@ export default function ClientPortalPage() {
     // Simple demo login - in real app, this would connect to your auth system
     if (username === 'demo' && password === 'demo') {
       setIsAuthenticated(true);
-      sessionStorage.setItem('clientPortalAuth', 'true');
+      if (typeof window !== 'undefined') {
+        sessionStorage.setItem('clientPortalAuth', 'true');
+      }
     } else {
       setError('Invalid username or password. Try demo/demo for demo access.');
     }
@@ -154,18 +170,19 @@ export default function ClientPortalPage() {
       <ScrollProgress />
       <Navigation />
       <div
-        className="min-h-screen flex items-center justify-center"
-        style={{ background: '#1B0A2E' }}
+        className="flex items-center justify-center min-h-screen pb-16 pt-24 overflow-y-auto"
       >
         <div
           style={{
             width: '100%',
             maxWidth: '420px',
-            padding: 'var(--space-6)',
+            padding: 'var(--space-4)',
             background: 'var(--bmv-surface)',
             borderRadius: '12px',
-            border: '1px solid var(--bmv-border)'
+            border: '1px solid var(--bmv-border)',
+            margin: 'var(--space-4)'
           }}
+          className="sm:p-6"
         >
           <div style={{ textAlign: 'center', marginBottom: 'var(--space-6)' }}>
             <div

@@ -1,6 +1,6 @@
 import { X, ArrowRight, ChevronDown } from 'lucide-react';
 import { useState, FormEvent, useEffect } from 'react';
-import Recaptcha from '@/components/ui/Recaptcha';
+import RecaptchaV3, { useRecaptchaV3 } from '@/components/ui/RecaptchaV3';
 
 interface CaseStudiesFormProps {
   isOpen: boolean;
@@ -20,8 +20,9 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
   const [isTherapeuticAreaDropdownOpen, setIsTherapeuticAreaDropdownOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [recaptchaToken, setRecaptchaToken] = useState<string>('');
-  const [recaptchaError, setRecaptchaError] = useState<string>('');
+  
+  // Use reCAPTCHA v3 hook
+  const { token: recaptchaToken, error: recaptchaError, generateToken, clearToken, clearError } = useRecaptchaV3('case_study_request');
 
   const therapeuticAreaOptions = [
     { value: '', label: 'Select an option' },
@@ -42,25 +43,68 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
   useEffect(() => {
     if (isOpen) {
       setIsVisible(true);
-      // Disable body scroll when form is open but keep scrollbar visible
-      document.body.style.overflowY = 'scroll';
-      document.body.style.overflowX = 'hidden';
-      // Dispatch custom event to notify navigation
-      window.dispatchEvent(new CustomEvent('formOpen', { detail: { scrollbarWidth: 0 } }));
+      
+      // Store current scroll position
+      const scrollY = window.scrollY;
+      
+      // Apply scrollbar-gutter to prevent layout shift
+      document.documentElement.style.scrollbarGutter = 'stable';
+      
+      // Apply styles to prevent scrolling
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
+      
       // Use requestAnimationFrame to ensure smooth animation on reopen
       requestAnimationFrame(() => {
         requestAnimationFrame(() => setIsAnimating(true));
       });
+      
+      return () => {
+        // Remove fixed positioning
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        document.body.style.overflow = '';
+        document.documentElement.style.scrollbarGutter = '';
+        
+        // Restore scroll position instantly without animation
+        window.scrollTo({ top: scrollY, behavior: 'instant' });
+      };
     } else {
       setIsAnimating(false);
-      // Re-enable body scroll when form closes
+      // Remove fixed positioning
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
       document.body.style.overflow = '';
-      // Dispatch custom event to notify navigation
-      window.dispatchEvent(new CustomEvent('formClose'));
+      document.documentElement.style.scrollbarGutter = '';
+      
+      // Restore scroll position instantly without animation
+      window.scrollTo({ top: scrollY, behavior: 'instant' });
+      
       const timer = setTimeout(() => setIsVisible(false), 300);
       return () => clearTimeout(timer);
     }
   }, [isOpen]);
+
+  // Handle escape key to close form
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      window.addEventListener('keydown', handleEscape);
+    }
+
+    return () => {
+      window.removeEventListener('keydown', handleEscape);
+    };
+  }, [isOpen, onClose]);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -81,16 +125,24 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
-    setRecaptchaError('');
-
-    // Validate reCAPTCHA
-    if (!recaptchaToken) {
-      setRecaptchaError('Please complete the reCAPTCHA verification');
-      setIsSubmitting(false);
-      return;
-    }
+    clearError();
 
     try {
+      // Generate reCAPTCHA v3 token
+      let token;
+      try {
+        token = await generateToken();
+      } catch (recaptchaError) {
+        console.error('reCAPTCHA error:', recaptchaError);
+        // If there's already a recaptchaError from the hook, it will be displayed
+        // Otherwise, show a generic error
+        if (!recaptchaError) {
+          setSubmitStatus('error');
+        }
+        setIsSubmitting(false);
+        return;
+      }
+
       const response = await fetch('/api/send-case-study-request', {
         method: 'POST',
         headers: {
@@ -98,7 +150,7 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
         },
         body: JSON.stringify({
           ...formData,
-          recaptchaToken
+          recaptchaToken: token
         }),
       });
 
@@ -112,14 +164,16 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
           therapeuticArea: '',
           projectDescription: ''
         });
-        setRecaptchaToken('');
+        clearToken();
         // Close form after 2 seconds
         setTimeout(() => {
           onClose();
           setSubmitStatus('idle');
         }, 2000);
       } else {
+        const errorData = await response.json().catch(() => ({}));
         setSubmitStatus('error');
+        console.error('Server error:', errorData);
       }
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -194,7 +248,7 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
                 required
                 value={formData.fullName}
                 onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                className="w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none focus:ring-2 focus:ring-[#b12176]/20 transition-colors duration-200"
+                className="w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#9B59D0] focus:outline-none focus:ring-2 focus:ring-[rgba(155,89,208,0.15)] transition-colors duration-200"
                 style={{
                   fontFamily: "'Red Hat Text', sans-serif",
                   fontSize: '16px'
@@ -218,7 +272,7 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
                 required
                 value={formData.company}
                 onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                className="w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none focus:ring-2 focus:ring-[#b12176]/20 transition-colors duration-200"
+                className="w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#9B59D0] focus:outline-none focus:ring-2 focus:ring-[rgba(155,89,208,0.15)] transition-colors duration-200"
                 style={{
                   fontFamily: "'Red Hat Text', sans-serif",
                   fontSize: '16px'
@@ -242,7 +296,7 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
                 required
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none focus:ring-2 focus:ring-[#b12176]/20 transition-colors duration-200"
+                className="w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#9B59D0] focus:outline-none focus:ring-2 focus:ring-[rgba(155,89,208,0.15)] transition-colors duration-200"
                 style={{
                   fontFamily: "'Red Hat Text', sans-serif",
                   fontSize: '16px'
@@ -265,8 +319,8 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
                 <button
                   type="button"
                   onClick={() => setIsTherapeuticAreaDropdownOpen(!isTherapeuticAreaDropdownOpen)}
-                  className={`w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none transition-all duration-200 text-left flex items-center justify-between ${
-                    isTherapeuticAreaDropdownOpen ? 'border-[#b12176]' : ''
+                  className={`w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#9B59D0] focus:outline-none transition-all duration-200 text-left flex items-center justify-between ${
+                    isTherapeuticAreaDropdownOpen ? 'border-[#9B59D0]' : ''
                   }`}
                   style={{
                     fontFamily: "'Red Hat Text', sans-serif",
@@ -279,7 +333,7 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
                     {getSelectedTherapeuticAreaLabel()}
                   </span>
                   <ChevronDown 
-                    className={`w-5 h-5 text-[#b12176] transition-transform duration-200 ${
+                    className={`w-5 h-5 text-[#9B59D0] transition-transform duration-200 ${
                       isTherapeuticAreaDropdownOpen ? 'rotate-180' : ''
                     }`} 
                   />
@@ -302,7 +356,7 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
                       }}
                       className={`w-full px-4 py-3 text-left transition-colors duration-150 focus:outline-none ${
                         formData.therapeuticArea === option.value
-                          ? 'bg-[#b12176]/10 text-[#b12176]'
+                          ? 'bg-[#9B59D0]/10 text-[#9B59D0]'
                           : 'text-white hover:bg-white/5'
                       } ${
                         index === 0 ? 'rounded-t-md' : ''
@@ -338,16 +392,16 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
                 value={formData.projectDescription}
                 onChange={(e) => setFormData({ ...formData, projectDescription: e.target.value })}
                 rows={5}
-                className="w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#b12176] focus:outline-none focus:ring-2 focus:ring-[#b12176]/20 transition-colors duration-200 resize-vertical"
+                className="w-full bg-[#0A0A0A] border border-white/20 rounded-md px-4 py-3 text-white focus:border-[#9B59D0] focus:outline-none focus:ring-2 focus:ring-[rgba(155,89,208,0.15)] transition-colors duration-200 resize-vertical"
                 style={{
                   fontFamily: "'Red Hat Text', sans-serif",
                   fontSize: '16px',
-                  minHeight: '100px'
+                  minHeight: '160px'
                 }}
               />
             </div>
 
-            <div className="pt-6">
+            <div>
               {/* Status Messages */}
               {submitStatus === 'success' && (
                 <div className="mb-4 p-4 bg-green-900/20 border border-green-500/30 rounded-md">
@@ -365,19 +419,20 @@ export default function CaseStudiesForm({ isOpen, onClose }: CaseStudiesFormProp
                 </div>
               )}
 
-              {/* reCAPTCHA Error */}
-              {recaptchaError && (
-                <div className="mb-4 p-4 bg-red-900/20 border border-red-500/30 rounded-md">
-                  <p className="text-red-400 text-center" style={{ fontFamily: "'Red Hat Text', sans-serif", fontSize: '14px' }}>
-                    ✗ {recaptchaError}
-                  </p>
-                </div>
-              )}
+            {/* reCAPTCHA Error */}
+            {recaptchaError && (
+              <div className="mb-4 p-4 bg-red-900/20 border border-red-500/30 rounded-md">
+                <p className="text-red-400 text-center" style={{ fontFamily: "'Red Hat Text', sans-serif", fontSize: '14px' }}>
+                  ✗ {recaptchaError || 'reCAPTCHA verification failed. Please try again.'}
+                </p>
+              </div>
+            )}
 
               {/* reCAPTCHA Component */}
-              <Recaptcha
-                onTokenGenerated={setRecaptchaToken}
-                onError={setRecaptchaError}
+              <RecaptchaV3
+                onTokenGenerated={() => {}} // Token is handled by the hook
+                onError={() => {}} // Error is handled by the hook
+                action="case_study_request"
                 className="mb-4"
               />
 

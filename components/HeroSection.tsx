@@ -12,25 +12,29 @@ export default function HeroSection() {
   const [showCalendarLightbox, setShowCalendarLightbox] = useState(false);
 
   useEffect(() => {
-    const script1 = document.createElement('script');
-    script1.src = 'https://fast.wistia.com/embed/medias/rg07nq3ve0.jsonp';
-    script1.async = true;
-    document.body.appendChild(script1);
+    // Defer loading Wistia scripts until component is mounted
+    const timer = setTimeout(() => {
+      const script1 = document.createElement('script');
+      script1.src = 'https://fast.wistia.com/embed/medias/rg07nq3ve0.jsonp';
+      script1.async = true;
+      script1.defer = true;
+      document.body.appendChild(script1);
 
-    const script2 = document.createElement('script');
-    script2.src = 'https://fast.wistia.com/assets/external/E-v1.js';
-    script2.async = true;
-    document.body.appendChild(script2);
+      const script2 = document.createElement('script');
+      script2.src = 'https://fast.wistia.com/assets/external/E-v1.js';
+      script2.async = true;
+      script2.defer = true;
+      document.body.appendChild(script2);
+    }, 100);
 
     return () => {
-      if (document.body.contains(script1)) document.body.removeChild(script1);
-      if (document.body.contains(script2)) document.body.removeChild(script2);
+      clearTimeout(timer);
     };
   }, []);
 
   return (
     <section
-      className="relative overflow-hidden md:h-screen h-auto"
+      className="relative overflow-hidden min-h-screen"
     >
       <div className="absolute inset-0" style={{ zIndex: 0 }}>
         <div
@@ -50,7 +54,7 @@ export default function HeroSection() {
 
       <div className="absolute inset-0 bg-black opacity-30" style={{ zIndex: 1 }}></div>
 
-      <div className="relative z-10 h-full flex flex-col justify-end pb-24 md:pb-[160px] px-8 md:px-16 pt-32">
+      <div className="relative z-10 min-h-screen flex flex-col justify-end pb-24 md:pb-[160px] px-8 md:px-16 pt-32">
         <div className="max-w-[1400px] mx-auto w-full">
           <h1
             className="text-[#E2E8F0] mb-4"

@@ -1,10 +1,33 @@
-import { Play } from 'lucide-react';
+'use client';
+
+import { useState, useEffect, useRef } from 'react';
 
 export default function ShowReelSection() {
+  const [shouldLoad, setShouldLoad] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setShouldLoad(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
   return (
     <section
+      ref={sectionRef}
       id="showreel"
-      className="md:min-h-screen h-auto flex items-center justify-center section-responsive"
+      className="flex items-center justify-center section-responsive"
       style={{
         background: '#1B0A2E',
         paddingTop: '24px',
@@ -40,18 +63,32 @@ export default function ShowReelSection() {
             border: '1px solid rgba(183, 148, 246, 0.2)'
           }}
         >
-          <iframe
-            width="100%"
-            height="100%"
-            src="https://www.youtube.com/embed/UvMDknsBp9E"
-            title="2024 Showreel"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            style={{
-              display: 'block'
-            }}
-          />
+          {shouldLoad ? (
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/UvMDknsBp9E"
+              title="2024 Showreel"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              style={{
+                display: 'block'
+              }}
+              loading="lazy"
+            />
+          ) : (
+            <div 
+              className="w-full h-full flex items-center justify-center bg-gray-900"
+              style={{
+                background: 'linear-gradient(135deg, rgba(27, 10, 46, 1), rgba(26, 10, 46, 0.8))'
+              }}
+            >
+              <div className="text-white text-center">
+                <div className="mb-4 text-xl">Loading video...</div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </section>

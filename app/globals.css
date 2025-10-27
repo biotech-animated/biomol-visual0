@@ -14,6 +14,29 @@
   }
 }
 
+/* Hide Google reCAPTCHA badge */
+.grecaptcha-badge {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  display: none !important;
+}
+
+/* Alternative selectors for reCAPTCHA badge */
+iframe[title*="recaptcha"],
+iframe[src*="recaptcha"],
+div[class*="grecaptcha"],
+div[id*="grecaptcha"] {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Hide the specific badge at bottom left */
+.grecaptcha-badge .grecaptcha-logo,
+.grecaptcha-badge .grecaptcha-challenge {
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
 /* Custom Swiper Styles */
 .swiper-pagination-bullet-custom {
   width: clamp(6px, 2vw, 8px) !important;

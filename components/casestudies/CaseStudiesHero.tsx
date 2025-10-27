@@ -73,7 +73,7 @@ export default function CaseStudiesHero({ onOpenForm }: CaseStudiesHeroProps) {
   };
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden bg-[#1B0A2E] md:h-screen h-auto">
+    <section ref={sectionRef} className="relative overflow-hidden bg-[#1B0A2E] min-h-screen">
       <div className="absolute inset-0" style={{ zIndex: 0 }}>
         <div
           className="wistia_embed wistia_async_z1zuxffzmk videoFoam=true autoPlay=true muted=true controlsVisibleOnLoad=false endVideoBehavior=loop playbar=false"
@@ -93,7 +93,7 @@ export default function CaseStudiesHero({ onOpenForm }: CaseStudiesHeroProps) {
       <div className="absolute inset-0 bg-black opacity-30" style={{ zIndex: 1 }}></div>
 
       {/* Content Container */}
-      <div className="relative z-10 h-full flex flex-col justify-center px-8 md:px-16 pt-32 pb-16">
+      <div className="relative z-10 min-h-screen flex flex-col justify-center px-8 md:px-16 pt-32 pb-16">
         <div className="max-w-[1400px] mx-auto w-full">
           <h1
             className="text-[#E2E8F0] mb-16"

@@ -8,6 +8,7 @@ import { usePathname } from 'next/navigation';
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -15,10 +16,17 @@ export default function Navigation() {
       setIsScrolled(window.scrollY > 20);
     };
 
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768); // md breakpoint
+    };
+
+    handleResize(); // Initial check
     window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
@@ -34,10 +42,10 @@ export default function Navigation() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all ${
-        isScrolled ? 'backdrop-blur-md shadow-lg' : ''
+        isScrolled || isMobile ? 'backdrop-blur-md shadow-lg' : ''
       }`}
       style={{
-        background: isScrolled ? 'rgba(26, 10, 46, 0.7)' : 'transparent',
+        background: isScrolled || isMobile ? 'rgba(26, 10, 46, 0.7)' : 'transparent',
         transition: 'all 500ms cubic-bezier(0.4, 0, 0.2, 1)'
       }}
     >
@@ -54,7 +62,7 @@ export default function Navigation() {
             className="flex items-center group"
           >
             <span
-              className="tracking-tight text-responsive-md"
+              className="tracking-tight text-[24px]"
               style={{
                 fontFamily: "'Red Hat Display', sans-serif",
                 fontWeight: '500',

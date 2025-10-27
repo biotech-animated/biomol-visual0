@@ -5,7 +5,7 @@ import Image from 'next/image';
 export default function DifferentiationSection() {
   return (
     <section
-      className="min-h-screen flex flex-col section-responsive"
+      className="flex flex-col section-responsive"
       style={{
         background: '#1B0A2E'
       }}

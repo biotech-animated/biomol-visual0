@@ -94,15 +94,18 @@ export default function DifferentiationSection() {
                 justifySelf: 'end'
               }}
             >
-              <img
-                src="./SLAB_Recce_ATP_FullHD_v02.webp"
+              <Image
+                src="/SLAB_Recce_ATP_FullHD_v02.webp"
                 alt="Molecular visualization showing cellular membrane and protein interactions"
+                width={550}
+                height={688}
                 style={{
                   width: '100%',
                   height: '100%',
                   objectFit: 'cover',
                   objectPosition: 'center'
                 }}
+                loading="lazy"
               />
             </div>
           </div>

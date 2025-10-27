@@ -12,19 +12,23 @@ export default function HeroSection() {
   const [showCalendarLightbox, setShowCalendarLightbox] = useState(false);
 
   useEffect(() => {
-    const script1 = document.createElement('script');
-    script1.src = 'https://fast.wistia.com/embed/medias/rg07nq3ve0.jsonp';
-    script1.async = true;
-    document.body.appendChild(script1);
+    // Defer loading Wistia scripts until component is mounted
+    const timer = setTimeout(() => {
+      const script1 = document.createElement('script');
+      script1.src = 'https://fast.wistia.com/embed/medias/rg07nq3ve0.jsonp';
+      script1.async = true;
+      script1.defer = true;
+      document.body.appendChild(script1);
 
-    const script2 = document.createElement('script');
-    script2.src = 'https://fast.wistia.com/assets/external/E-v1.js';
-    script2.async = true;
-    document.body.appendChild(script2);
+      const script2 = document.createElement('script');
+      script2.src = 'https://fast.wistia.com/assets/external/E-v1.js';
+      script2.async = true;
+      script2.defer = true;
+      document.body.appendChild(script2);
+    }, 100);
 
     return () => {
-      if (document.body.contains(script1)) document.body.removeChild(script1);
-      if (document.body.contains(script2)) document.body.removeChild(script2);
+      clearTimeout(timer);
     };
   }, []);
 

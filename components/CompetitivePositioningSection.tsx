@@ -76,7 +76,7 @@ export default function CompetitivePositioningSection() {
             }}
           >
             <img
-              src="./SLAB_Recce_ATP_8k_v01.jpg"
+              src="./SLAB_Recce_ATP_8k_v01.webp"
               alt="Advanced molecular visualization"
               style={{
                 width: '100%',

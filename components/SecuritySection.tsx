@@ -28,7 +28,7 @@ export default function SecuritySection() {
     <section
       className="min-h-screen flex items-center justify-center section-responsive"
       style={{
-        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/Macrophage_Orange_Version1.jpg)',
+        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/Macrophage_Orange_Version1.webp)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',

@@ -95,7 +95,7 @@ export default function DifferentiationSection() {
               }}
             >
               <img
-                src="./SLAB_Recce_ATP_FullHD_v02.png"
+                src="./SLAB_Recce_ATP_FullHD_v02.webp"
                 alt="Molecular visualization showing cellular membrane and protein interactions"
                 style={{
                   width: '100%',

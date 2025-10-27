@@ -24,7 +24,7 @@ export default function ContactHero({ onOpenForm }: ContactHeroProps) {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-[#1B0A2E]" style={{ height: '100vh' }}>
+    <section className="relative overflow-hidden bg-[#1B0A2E] min-h-screen">
       <div className="absolute inset-0" style={{ zIndex: 0 }}>
         <div
           className="wistia_embed wistia_async_9l1fpz3db6 videoFoam=true autoPlay=true muted=true controlsVisibleOnLoad=false endVideoBehavior=loop playbar=false"
@@ -43,7 +43,7 @@ export default function ContactHero({ onOpenForm }: ContactHeroProps) {
 
       <div className="absolute inset-0 bg-black opacity-30" style={{ zIndex: 1 }}></div>
 
-      <div className="relative z-10 h-full flex flex-col justify-end pb-[160px] px-8 md:px-16">
+      <div className="relative z-10 min-h-screen flex flex-col justify-end py-[160px] px-8 md:px-16">
         <div className="max-w-[1400px] mx-auto w-full">
           <h1
             className="text-[#E2E8F0] mb-4"

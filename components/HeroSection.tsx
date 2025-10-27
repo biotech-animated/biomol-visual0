@@ -30,7 +30,7 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative overflow-hidden md:h-screen h-auto"
+      className="relative overflow-hidden min-h-screen"
     >
       <div className="absolute inset-0" style={{ zIndex: 0 }}>
         <div
@@ -50,7 +50,7 @@ export default function HeroSection() {
 
       <div className="absolute inset-0 bg-black opacity-30" style={{ zIndex: 1 }}></div>
 
-      <div className="relative z-10 h-full flex flex-col justify-end pb-24 md:pb-[160px] px-8 md:px-16 pt-32">
+      <div className="relative z-10 min-h-screen flex flex-col justify-end pb-24 md:pb-[160px] px-8 md:px-16 pt-32">
         <div className="max-w-[1400px] mx-auto w-full">
           <h1
             className="text-[#E2E8F0] mb-4"

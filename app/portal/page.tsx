@@ -154,18 +154,19 @@ export default function ClientPortalPage() {
       <ScrollProgress />
       <Navigation />
       <div
-        className="min-h-screen flex items-center justify-center"
-        style={{ background: '#1B0A2E' }}
+        className="flex items-center justify-center min-h-screen pb-16 pt-24 overflow-y-auto"
       >
         <div
           style={{
             width: '100%',
             maxWidth: '420px',
-            padding: 'var(--space-6)',
+            padding: 'var(--space-4)',
             background: 'var(--bmv-surface)',
             borderRadius: '12px',
-            border: '1px solid var(--bmv-border)'
+            border: '1px solid var(--bmv-border)',
+            margin: 'var(--space-4)'
           }}
+          className="sm:p-6"
         >
           <div style={{ textAlign: 'center', marginBottom: 'var(--space-6)' }}>
             <div

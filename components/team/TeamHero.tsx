@@ -36,7 +36,7 @@ export default function TeamHero() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-[#1B0A2E]" style={{ height: '100vh' }}>
+    <section className="relative overflow-hidden bg-[#1B0A2E] min-h-screen">
       <div className="absolute inset-0" style={{ zIndex: 0 }}>
         <div
           className="wistia_embed wistia_async_o4t98618ua videoFoam=true autoPlay=true muted=true controlsVisibleOnLoad=false endVideoBehavior=loop playbar=false"
@@ -56,7 +56,7 @@ export default function TeamHero() {
       <div className="absolute inset-0 bg-black opacity-30" style={{ zIndex: 1 }}></div>
 
       {/* Content Container */}
-      <div className="relative z-10 h-full flex flex-col justify-end pt-20 pb-[200px] px-8 md:px-16">
+      <div className="relative z-10 min-h-screen flex flex-col justify-end pt-20 pb-[200px] px-8 md:px-16">
         <div className="max-w-[1400px] mx-auto w-full">
           <h1 className="text-[#E2E8F0] mb-4" style={{ fontFamily: "'Red Hat Display', sans-serif", fontSize: '44px', fontWeight: 500, lineHeight: '1.2' }}>
             Scientific Leadership Team

@@ -1,12 +1,26 @@
 'use client';
 
 import { useState } from 'react';
+import { PageMetadata } from '../metadata';
 import Navigation from '@/components/Navigation';
 import ScrollProgress from '@/components/ScrollProgress';
 import Footer from '@/components/Footer';
 import { Lock } from 'lucide-react';
 
 export default function ClientPortalPage() {
+  return (
+    <>
+      <PageMetadata
+        title="Client Portal - Biomol Visual"
+        description="Access your secure client portal to view project progress, deliverables, and collaborate with the Biomol Visual team."
+        keywords="client portal, secure access, project management, animation deliverables"
+      />
+      <ClientPortalContent />
+    </>
+  );
+}
+
+function ClientPortalContent() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -24,7 +38,9 @@ export default function ClientPortalPage() {
     // Simple demo login - in real app, this would connect to your auth system
     if (username === 'demo' && password === 'demo') {
       setIsAuthenticated(true);
-      sessionStorage.setItem('clientPortalAuth', 'true');
+      if (typeof window !== 'undefined') {
+        sessionStorage.setItem('clientPortalAuth', 'true');
+      }
     } else {
       setError('Invalid username or password. Try demo/demo for demo access.');
     }

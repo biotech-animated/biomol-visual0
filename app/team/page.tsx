@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
+import { PageMetadata } from '../metadata';
 import Navigation from '@/components/Navigation';
 import ScrollProgress from '@/components/ScrollProgress';
 import Footer from '@/components/Footer';
@@ -29,26 +30,33 @@ export default function TeamPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#1B0A2E]">
-      <ScrollProgress />
-      <Navigation />
+    <>
+      <PageMetadata
+        title="Our Team - Biomol Visual"
+        description="Meet the PhD scientists and expert team behind Biomol Visual. Our team specializes in translating complex molecular science into compelling visual stories."
+        keywords="biomol visual team, scientific visualization team, molecular animation experts, biomedical visualization specialists"
+      />
+      <div className="min-h-screen bg-[#1B0A2E]">
+        <ScrollProgress />
+        <Navigation />
 
-      <main>
-        <TeamHero />
-        <div className='space-y-[120px] section-responsive'>
-          {teamMembers.map((member, index) => (
-            <TeamMemberProfile
-              key={member.id}
-              member={member}
-              index={index}
-              totalMembers={teamMembers.length}
-              onNavigate={(direction) => handleNavigate(direction, index)}
-            />
-          ))}
-        </div>
-      </main>
+        <main>
+          <TeamHero />
+          <div className='space-y-[120px] section-responsive'>
+            {teamMembers.map((member, index) => (
+              <TeamMemberProfile
+                key={member.id}
+                member={member}
+                index={index}
+                totalMembers={teamMembers.length}
+                onNavigate={(direction) => handleNavigate(direction, index)}
+              />
+            ))}
+          </div>
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 }

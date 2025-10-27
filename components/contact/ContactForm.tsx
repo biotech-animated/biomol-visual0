@@ -130,7 +130,19 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
 
     try {
       // Generate reCAPTCHA v3 token
-      const token = await generateToken();
+      let token;
+      try {
+        token = await generateToken();
+      } catch (recaptchaError) {
+        console.error('reCAPTCHA error:', recaptchaError);
+        // If there's already a recaptchaError from the hook, it will be displayed
+        // Otherwise, show a generic error
+        if (!recaptchaError) {
+          setSubmitStatus('error');
+        }
+        setIsSubmitting(false);
+        return;
+      }
 
       const response = await fetch('/api/send-contact', {
         method: 'POST',
@@ -162,7 +174,9 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
           setSubmitStatus('idle');
         }, 2000);
       } else {
+        const errorData = await response.json().catch(() => ({}));
         setSubmitStatus('error');
+        console.error('Server error:', errorData);
       }
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -458,7 +472,7 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
               {recaptchaError && (
                 <div className="mb-4 p-4 bg-red-900/20 border border-red-500/30 rounded-md">
                   <p className="text-red-400 text-center" style={{ fontFamily: "'Red Hat Text', sans-serif", fontSize: '14px' }}>
-                    ✗ {recaptchaError}
+                    ✗ {recaptchaError || 'reCAPTCHA verification failed. Please try again.'}
                   </p>
                 </div>
               )}

@@ -21,7 +21,13 @@ export async function verifyRecaptchaToken(token: string, action: string = 'subm
     return false;
   }
 
+  if (!token) {
+    console.error('reCAPTCHA token is empty');
+    return false;
+  }
+
   try {
+    console.log('Sending verification request to Google reCAPTCHA...');
     const response = await fetch('https://www.google.com/recaptcha/api/siteverify', {
       method: 'POST',
       headers: {
@@ -35,14 +41,16 @@ export async function verifyRecaptchaToken(token: string, action: string = 'subm
     });
 
     const data: RecaptchaResponse = await response.json();
+    console.log('reCAPTCHA verification response:', JSON.stringify(data, null, 2));
     
     if (!data.success) {
-      console.error('reCAPTCHA verification failed:', data['error-codes']);
+      console.error('reCAPTCHA verification failed. Error codes:', data['error-codes']);
       return false;
     }
 
     // For reCAPTCHA v3, check the score
     if (data.score !== undefined) {
+      console.log(`reCAPTCHA score: ${data.score} (minimum required: ${minScore})`);
       if (data.score < minScore) {
         console.warn(`reCAPTCHA score too low: ${data.score} (minimum: ${minScore})`);
         return false;
@@ -55,6 +63,7 @@ export async function verifyRecaptchaToken(token: string, action: string = 'subm
       }
     }
 
+    console.log('reCAPTCHA verification successful!');
     return true;
   } catch (error) {
     console.error('Error verifying reCAPTCHA token:', error);
@@ -67,19 +76,51 @@ export async function verifyRecaptchaToken(token: string, action: string = 'subm
  */
 export function loadRecaptchaScript(): Promise<void> {
   return new Promise((resolve, reject) => {
-    // Check if script is already loaded
-    if (document.querySelector('script[src*="recaptcha"]')) {
+    // Check if grecaptcha is already available
+    if (typeof window !== 'undefined' && window.grecaptcha) {
       resolve();
       return;
     }
 
+    // Check if script is already loaded
+    if (document.querySelector('script[src*="recaptcha"]')) {
+      // Script is loading, wait for it to be ready
+      const checkGrecaptcha = () => {
+        if (window.grecaptcha) {
+          resolve();
+        } else {
+          setTimeout(checkGrecaptcha, 100);
+        }
+      };
+      checkGrecaptcha();
+      return;
+    }
+
+    // Get the site key
+    const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+    if (!siteKey) {
+      reject(new Error('NEXT_PUBLIC_RECAPTCHA_SITE_KEY is not configured'));
+      return;
+    }
+
     const script = document.createElement('script');
-    script.src = `https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`;
+    script.src = `https://www.google.com/recaptcha/api.js?render=${siteKey}`;
     script.async = true;
     script.defer = true;
     
-    script.onload = () => resolve();
-    script.onerror = () => reject(new Error('Failed to load reCAPTCHA script'));
+    script.onload = () => {
+      // Wait for grecaptcha to be available
+      const checkGrecaptcha = () => {
+        if (window.grecaptcha) {
+          resolve();
+        } else {
+          setTimeout(checkGrecaptcha, 100);
+        }
+      };
+      checkGrecaptcha();
+    };
+    
+    script.onerror = () => reject(new Error('Failed to load reCAPTCHA script. Please check your internet connection and try again.'));
     
     document.head.appendChild(script);
   });
@@ -91,19 +132,57 @@ export function loadRecaptchaScript(): Promise<void> {
  */
 export function executeRecaptcha(action: string = 'submit'): Promise<string> {
   return new Promise((resolve, reject) => {
-    if (typeof window === 'undefined' || !window.grecaptcha) {
-      reject(new Error('reCAPTCHA not loaded'));
+    if (typeof window === 'undefined') {
+      reject(new Error('reCAPTCHA can only be executed in the browser'));
       return;
     }
 
+    // Get the site key
+    const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+    if (!siteKey) {
+      reject(new Error('NEXT_PUBLIC_RECAPTCHA_SITE_KEY is not configured'));
+      return;
+    }
+
+    // Check if grecaptcha is available
+    if (!window.grecaptcha) {
+      reject(new Error('reCAPTCHA not loaded. Please wait and try again.'));
+      return;
+    }
+
+    // Use grecaptcha.ready to ensure it's fully initialized
     window.grecaptcha.ready(() => {
-      window.grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!, {
-        action: action
-      }).then((token: string) => {
-        resolve(token);
-      }).catch((error: any) => {
-        reject(error);
-      });
+      try {
+        window.grecaptcha.execute(siteKey, {
+          action: action
+        }).then((token: string) => {
+          if (!token || typeof token !== 'string') {
+            reject(new Error('Invalid reCAPTCHA token received'));
+            return;
+          }
+          resolve(token);
+        }).catch((error: any) => {
+          console.error('reCAPTCHA execution error:', error);
+          // Handle case where grecaptcha.execute rejects with null or undefined
+          if (error === null || error === undefined) {
+            reject(new Error('reCAPTCHA verification returned null. This may indicate a configuration issue with your site key.'));
+            return;
+          }
+          // Ensure we never reject with null
+          const errorMessage = error?.message || error?.toString() || 'Failed to execute reCAPTCHA';
+          reject(new Error(errorMessage));
+        });
+      } catch (error: any) {
+        console.error('Error calling grecaptcha.execute:', error);
+        // Handle case where error is null or undefined
+        if (error === null || error === undefined) {
+          reject(new Error('reCAPTCHA threw a null error. Please check your reCAPTCHA configuration.'));
+          return;
+        }
+        // Ensure we never reject with null
+        const errorMessage = error?.message || error?.toString() || 'Failed to call reCAPTCHA';
+        reject(new Error(errorMessage));
+      }
     });
   });
 }

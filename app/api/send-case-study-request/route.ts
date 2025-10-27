@@ -19,19 +19,26 @@ export async function POST(request: NextRequest) {
 
     // Verify reCAPTCHA token
     if (!recaptchaToken) {
+      console.error('reCAPTCHA token is missing');
       return NextResponse.json(
         { error: 'reCAPTCHA verification required' },
         { status: 400 }
       );
     }
 
+    console.log('Verifying reCAPTCHA token...');
     const isRecaptchaValid = await verifyRecaptchaToken(recaptchaToken, 'case_study_request');
+    console.log('reCAPTCHA verification result:', isRecaptchaValid);
+    
     if (!isRecaptchaValid) {
+      console.error('reCAPTCHA verification failed for token:', recaptchaToken.substring(0, 20) + '...');
       return NextResponse.json(
         { error: 'reCAPTCHA verification failed' },
         { status: 400 }
       );
     }
+    
+    console.log('reCAPTCHA verification successful');
 
     // Validate SMTP environment variables
     if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {

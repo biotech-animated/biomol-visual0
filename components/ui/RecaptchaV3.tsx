@@ -128,9 +128,40 @@ export function useRecaptchaV3(action: string = 'submit') {
   const [token, setToken] = useState<string>('');
   const [error, setError] = useState<string>('');
   const [isExecuting, setIsExecuting] = useState(false);
+  const [isScriptLoaded, setIsScriptLoaded] = useState(false);
+
+  // Load the reCAPTCHA script when the hook is first used
+  useEffect(() => {
+    const loadScript = async () => {
+      try {
+        // The loadRecaptchaScript function already waits for grecaptcha to be ready
+        await loadRecaptchaScript();
+        setIsScriptLoaded(true);
+        console.log('reCAPTCHA v3 script loaded for hook');
+      } catch (error) {
+        console.error('Failed to load reCAPTCHA v3 for hook:', error);
+        setError('Failed to load reCAPTCHA. Please refresh the page and try again.');
+      }
+    };
+
+    loadScript();
+  }, []);
 
   const generateToken = useCallback(async () => {
-    if (isExecuting) return;
+    if (isExecuting) {
+      console.warn('reCAPTCHA execution already in progress');
+      throw new Error('reCAPTCHA verification is already in progress. Please wait.');
+    }
+
+    // Check if the script is still loading
+    if (!isScriptLoaded) {
+      throw new Error('reCAPTCHA is still loading. Please wait a moment and try again.');
+    }
+
+    // Double check that grecaptcha is available
+    if (typeof window === 'undefined' || !window.grecaptcha) {
+      throw new Error('reCAPTCHA is not available. Please refresh the page and try again.');
+    }
 
     setIsExecuting(true);
     setError('');
@@ -140,13 +171,14 @@ export function useRecaptchaV3(action: string = 'submit') {
       setToken(newToken);
       return newToken;
     } catch (err) {
-      const errorMessage = 'Failed to verify reCAPTCHA. Please try again.';
+      const errorMessage = err instanceof Error ? err.message : 'Failed to verify reCAPTCHA. Please try again.';
+      console.error('reCAPTCHA error:', err);
       setError(errorMessage);
-      throw new Error(errorMessage);
+      throw err; // Re-throw the original error
     } finally {
       setIsExecuting(false);
     }
-  }, [action, isExecuting]);
+  }, [action, isExecuting, isScriptLoaded]);
 
   return {
     token,

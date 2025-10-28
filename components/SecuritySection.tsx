@@ -126,9 +126,6 @@ export default function SecuritySection() {
           <p>
             We&apos;ve protected the confidential information of over 70 biotech clients. Including some of the most innovative and sensitive biotherapeutic research in the industry.
           </p>
-          <p style={{ fontWeight: '500', color: 'var(--bmv-text-heading)' }}>
-            Not one breach. Not one leak. Not one sleepless night for our clients.
-          </p>
           <p style={{ color: 'var(--bmv-orange)', fontSize: '18px' }}>
             Your secret stays secret. Until you&apos;re ready to change the world.
           </p>

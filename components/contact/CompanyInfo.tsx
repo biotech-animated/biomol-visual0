@@ -1,4 +1,5 @@
 import { Phone, Mail, Clock } from 'lucide-react';
+import ObfuscatedEmailLink from '../ObfuscatedEmailLink';
 
 export default function CompanyInfo() {
   return (
@@ -207,9 +208,9 @@ export default function CompanyInfo() {
                       fontSize: '16px'
                     }}
                   >
-                    <a href="mailto:info@biomolvisual.com" className="text-[#ED8936] hover:text-[#C05621] transition-colors">
-                      info@biomolvisual.com
-                    </a>
+                    <ObfuscatedEmailLink className="text-[#ED8936] hover:text-[#C05621] transition-colors">
+                      hello@biomolvisual.com
+                    </ObfuscatedEmailLink>
                   </p>
                 </div>
 

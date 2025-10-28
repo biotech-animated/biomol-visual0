@@ -94,7 +94,10 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
     return errors.length === 0;
   };
 
-  const handleNext = () => {
+  const handleNext = (e?: React.MouseEvent<HTMLButtonElement>) => {
+    if (e) {
+      e.preventDefault();
+    }
     if (validateStep(currentStep)) {
       setCurrentStep(prev => Math.min(prev + 1, 4));
       setValidationErrors([]);
@@ -1208,7 +1211,7 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
                   {currentStep < 4 ? (
                     <button
                       type="button"
-                      onClick={handleNext}
+                      onClick={(e) => handleNext(e)}
                       style={{
                         flex: 1,
                         padding: '16px 24px',

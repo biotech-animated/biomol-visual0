@@ -360,52 +360,54 @@ export default function SlabPackages() {
               e.currentTarget.style.borderColor = 'rgba(183, 148, 246, 0.1)';
             }}
           >
-            {/* Most Popular Ribbon */}
-            <div
-              className="absolute top-10 right-10 z-20"
-              style={{
-                transform: 'translate(20%, -20%) rotate(45deg)',
-                transformOrigin: 'center',
-                width: '80px',
-                height: '80px',
-                overflow: 'visible'
-              }}
-            >
-              <img
-                src="/pngaaa.com-6324228.png"
-                alt="Most Popular"
-                className="absolute top-0 right-0"
-                style={{
-                  width: '80px',
-                  height: '80px',
-                  transform: 'rotate(-45deg) translate(5px, -5px)',
-                  objectFit: 'contain'
-                }}
-              />
-            </div>
 
             <div className="relative z-10 flex flex-col h-full">
-              <h3
-                className="text-white mb-2"
-                style={{
-                  fontFamily: "'Red Hat Display', sans-serif",
-                  fontSize: '24px',
-                  fontWeight: 500
-                }}
-              >
-                PRECISION LOOP<sup style={{ fontSize: '14px' }}>™</sup>
-              </h3>
-            <p
-              className="text-[#ED8936] mb-6"
-              style={{
-                fontFamily: "'Red Hat Display', sans-serif",
-                fontSize: '18px',
-                fontWeight: 300,
-                fontStyle: 'italic'
-              }}
-            >
-              Scientific Accuracy Guaranteed
-            </p>
+              {/* Header with title, subtitle, and ribbon */}
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-6">
+                <div className="flex-1">
+                  <h3
+                    className="text-white mb-2"
+                    style={{
+                      fontFamily: "'Red Hat Display', sans-serif",
+                      fontSize: '24px',
+                      fontWeight: 500
+                    }}
+                  >
+                    PRECISION LOOP<sup style={{ fontSize: '14px' }}>™</sup>
+                  </h3>
+                  <p
+                    className="text-[#ED8936]"
+                    style={{
+                      fontFamily: "'Red Hat Display', sans-serif",
+                      fontSize: '18px',
+                      fontWeight: 300,
+                      fontStyle: 'italic'
+                    }}
+                  >
+                    Scientific Accuracy Guaranteed
+                  </p>
+                </div>
+                
+                {/* Most Popular Ribbon - responsive positioning */}
+                <div className="flex justify-end sm:justify-start mt-4 sm:mt-0 sm:ml-4">
+                  <div
+                    className="relative"
+                    style={{
+                      width: '60px',
+                      height: '60px'
+                    }}
+                  >
+                    <img
+                      src="/pngaaa.com-6324228.png"
+                      alt="Most Popular"
+                      className="w-full h-full object-contain"
+                      style={{
+                        filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.3))'
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
             <p
               className="text-[#E2E8F0] mb-8"
               style={{

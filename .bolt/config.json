@@ -1,3 +1,11 @@
 {
-  "template": "nextjs-shadcn"
+  "build": {
+    "command": "npm run build",
+    "outputDirectory": ".next/standalone",
+    "includeStatic": true
+  },
+  "deploy": {
+    "staticDirectory": ".next/static",
+    "publicDirectory": "public"
+  }
 }

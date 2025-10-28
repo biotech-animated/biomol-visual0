@@ -42,7 +42,7 @@ export default function WhatIsSlab() {
           </p>
 
           <p>
-            <strong style={{ fontWeight: 500 }}>For custom projects:</strong> We take production-grade components from our library—the same cellular environments we use for our premium work—and customize them to your specific biology. Brand them to your identity. Deliver in <span style={{ color: '#ED8936' }}>3-5 weeks</span>. Under <span style={{ color: '#ED8936' }}>$6K</span>. No procurement. No waiting.
+            <strong style={{ fontWeight: 500 }}>For custom projects:</strong> We take production-grade components from our library—the same cellular environments we use for our premium work—and customize them to your specific biology. Brand them to your identity. Deliver in <span style={{ color: '#ED8936' }}>3-5 weeks</span>. Under <span style={{ color: '#ED8936' }}>$8K</span>. No procurement. No waiting.
           </p>
 
           <div

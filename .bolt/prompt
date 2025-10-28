@@ -1,8 +1,7 @@
-This is a Next.js 13 biomolecular visualization website with standalone build output.
+Next.js 13 biomolecular visualization website with App Router.
 
-Key deployment requirements:
-- Uses Next.js standalone mode
-- Static assets must be copied from .next/static to .next/standalone/.next/static
-- Public folder must be copied to .next/standalone/public
-- Post-build script handles asset copying automatically
-- Server entry point: .next/standalone/server.js
+Key features:
+- Server-side rendering for static pages
+- API routes for email functionality
+- Standalone build mode for optimal deployment
+- Environment variables for external services (SendGrid, reCAPTCHA, Turnstile)

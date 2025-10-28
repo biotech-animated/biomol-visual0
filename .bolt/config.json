@@ -1,11 +1,6 @@
 {
-  "build": {
-    "command": "npm run build",
-    "outputDirectory": ".next/standalone",
-    "includeStatic": true
-  },
-  "deploy": {
-    "staticDirectory": ".next/static",
-    "publicDirectory": "public"
-  }
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "startCommand": "node .next/standalone/server.js",
+  "outputDirectory": ".next/standalone"
 }

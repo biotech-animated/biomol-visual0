@@ -1,7 +1,7 @@
 'use client';
 
 import { ArrowRight } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import VideoLightbox from './VideoLightbox';
 import CalCalendarLightbox from './CalCalendarLightbox';
@@ -11,45 +11,24 @@ export default function HeroSection() {
   const [showVideoLightbox, setShowVideoLightbox] = useState(false);
   const [showCalendarLightbox, setShowCalendarLightbox] = useState(false);
 
-  useEffect(() => {
-    // Defer loading Wistia scripts until component is mounted
-    const timer = setTimeout(() => {
-      const script1 = document.createElement('script');
-      script1.src = 'https://fast.wistia.com/embed/medias/rg07nq3ve0.jsonp';
-      script1.async = true;
-      script1.defer = true;
-      document.body.appendChild(script1);
-
-      const script2 = document.createElement('script');
-      script2.src = 'https://fast.wistia.com/assets/external/E-v1.js';
-      script2.async = true;
-      script2.defer = true;
-      document.body.appendChild(script2);
-    }, 100);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, []);
 
   return (
     <section
       className="relative overflow-hidden min-h-screen"
     >
       <div className="absolute inset-0" style={{ zIndex: 0 }}>
-        <div
-          className="wistia_embed wistia_async_rg07nq3ve0 videoFoam=true autoPlay=true muted=true controlsVisibleOnLoad=false endVideoBehavior=loop playbar=false"
-          style={{
-            position: 'absolute',
-            width: '100%',
-            height: '100%',
-            left: 0,
-            top: 0,
-            filter: 'brightness(0.6)'
-          }}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          poster="/video/Neutrophil_Purple_loop.webp"
+          className="w-full h-full object-cover"
+          style={{ position: 'absolute', width: '100%', height: '100%', left: 0, top: 0, filter: 'brightness(0.6)' }}
         >
-          &nbsp;
-        </div>
+          <source src="/video/Neutrophil_Purple_loop.mp4" type="video/mp4" />
+        </video>
       </div>
 
       <div className="absolute inset-0 bg-black opacity-30" style={{ zIndex: 1 }}></div>

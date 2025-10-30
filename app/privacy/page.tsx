@@ -17,7 +17,7 @@ export default function PrivacyPage() {
         <ScrollProgress />
         <Navigation />
 
-        <main className="section-responsive" style={{ paddingTop: 'var(--space-12)' }}>
+        <main className="pt-32 md:pt-40 pb-20">
           <div className="max-w-4xl mx-auto px-6">
             {/* Header */}
             <div className="text-center mb-12">

@@ -71,24 +71,44 @@ export async function verifyRecaptchaToken(token: string, action: string = 'subm
   }
 }
 
+// Singleton promise for script loading to prevent duplicate loads
+let scriptLoadingPromise: Promise<void> | null = null;
+
 /**
- * Load reCAPTCHA v3 script dynamically
+ * Load reCAPTCHA v3 script dynamically with singleton pattern
+ * This ensures the script is only loaded once, even if called multiple times
  */
 export function loadRecaptchaScript(): Promise<void> {
-  return new Promise((resolve, reject) => {
-    // Check if grecaptcha is already available
+  // Return existing promise if script is already loading
+  if (scriptLoadingPromise) {
+    return scriptLoadingPromise;
+  }
+
+  // Check if grecaptcha is already available
+  if (typeof window !== 'undefined' && window.grecaptcha) {
+    return Promise.resolve();
+  }
+
+  // Create a new promise that will be reused if multiple calls happen simultaneously
+  scriptLoadingPromise = new Promise((resolve, reject) => {
+    // Check if grecaptcha became available between the check and promise creation
     if (typeof window !== 'undefined' && window.grecaptcha) {
+      scriptLoadingPromise = null; // Reset for next time
       resolve();
       return;
     }
 
-    // Check if script is already loaded
-    if (document.querySelector('script[src*="recaptcha"]')) {
-      // Script is loading, wait for it to be ready
+    // Check if script tag already exists in DOM
+    const existingScript = document.querySelector('script[src*="recaptcha/api.js"]') as HTMLScriptElement | null;
+    
+    if (existingScript) {
+      // Script tag exists - wait for it to load
       const checkGrecaptcha = () => {
         if (window.grecaptcha) {
+          scriptLoadingPromise = null; // Reset for next time
           resolve();
         } else {
+          // Continue checking until grecaptcha is available
           setTimeout(checkGrecaptcha, 100);
         }
       };
@@ -99,10 +119,12 @@ export function loadRecaptchaScript(): Promise<void> {
     // Get the site key
     const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
     if (!siteKey) {
+      scriptLoadingPromise = null; // Reset on error
       reject(new Error('NEXT_PUBLIC_RECAPTCHA_SITE_KEY is not configured'));
       return;
     }
 
+    // Create and load the script
     const script = document.createElement('script');
     script.src = `https://www.google.com/recaptcha/api.js?render=${siteKey}`;
     script.async = true;
@@ -112,6 +134,7 @@ export function loadRecaptchaScript(): Promise<void> {
       // Wait for grecaptcha to be available
       const checkGrecaptcha = () => {
         if (window.grecaptcha) {
+          scriptLoadingPromise = null; // Reset for next time
           resolve();
         } else {
           setTimeout(checkGrecaptcha, 100);
@@ -120,10 +143,15 @@ export function loadRecaptchaScript(): Promise<void> {
       checkGrecaptcha();
     };
     
-    script.onerror = () => reject(new Error('Failed to load reCAPTCHA script. Please check your internet connection and try again.'));
+    script.onerror = () => {
+      scriptLoadingPromise = null; // Reset on error
+      reject(new Error('Failed to load reCAPTCHA script. Please check your internet connection and try again.'));
+    };
     
     document.head.appendChild(script);
   });
+
+  return scriptLoadingPromise;
 }
 
 /**

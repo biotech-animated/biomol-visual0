@@ -8,6 +8,76 @@ interface RecaptchaProps {
   className?: string;
 }
 
+// Singleton promise for v2 (explicit render) script loading
+let v2ScriptLoadingPromise: Promise<void> | null = null;
+
+function loadRecaptchaV2Script(): Promise<void> {
+  // Return existing promise if script is already loading
+  if (v2ScriptLoadingPromise) {
+    return v2ScriptLoadingPromise;
+  }
+
+  // Check if grecaptcha is already available
+  if (typeof window !== 'undefined' && window.grecaptcha) {
+    return Promise.resolve();
+  }
+
+  // Create a new promise that will be reused if multiple calls happen simultaneously
+  v2ScriptLoadingPromise = new Promise((resolve, reject) => {
+    // Check if grecaptcha became available between the check and promise creation
+    if (typeof window !== 'undefined' && window.grecaptcha) {
+      v2ScriptLoadingPromise = null; // Reset for next time
+      resolve();
+      return;
+    }
+
+    // Check if script tag already exists in DOM (check for both v2 explicit and v3 render patterns)
+    const existingScript = document.querySelector('script[src*="recaptcha/api.js"]') as HTMLScriptElement | null;
+    
+    if (existingScript) {
+      // Script tag exists - wait for it to load
+      const checkGrecaptcha = () => {
+        if (window.grecaptcha) {
+          v2ScriptLoadingPromise = null; // Reset for next time
+          resolve();
+        } else {
+          setTimeout(checkGrecaptcha, 100);
+        }
+      };
+      checkGrecaptcha();
+      return;
+    }
+
+    // Create and load the script
+    const script = document.createElement('script');
+    script.src = `https://www.google.com/recaptcha/api.js?render=explicit`;
+    script.async = true;
+    script.defer = true;
+    
+    script.onload = () => {
+      // Wait for grecaptcha to be available
+      const checkGrecaptcha = () => {
+        if (window.grecaptcha) {
+          v2ScriptLoadingPromise = null; // Reset for next time
+          resolve();
+        } else {
+          setTimeout(checkGrecaptcha, 100);
+        }
+      };
+      checkGrecaptcha();
+    };
+    
+    script.onerror = () => {
+      v2ScriptLoadingPromise = null; // Reset on error
+      reject(new Error('Failed to load reCAPTCHA script'));
+    };
+    
+    document.head.appendChild(script);
+  });
+
+  return v2ScriptLoadingPromise;
+}
+
 export default function Recaptcha({ onTokenGenerated, onError, className = '' }: RecaptchaProps) {
   const recaptchaRef = useRef<HTMLDivElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -49,29 +119,9 @@ export default function Recaptcha({ onTokenGenerated, onError, className = '' }:
   }, [onTokenGenerated, onError]);
 
   useEffect(() => {
-    const loadRecaptchaScript = () => {
-      return new Promise<void>((resolve, reject) => {
-        // Check if script is already loaded
-        if (document.querySelector('script[src*="recaptcha"]')) {
-          resolve();
-          return;
-        }
-
-        const script = document.createElement('script');
-        script.src = `https://www.google.com/recaptcha/api.js?render=explicit`;
-        script.async = true;
-        script.defer = true;
-        
-        script.onload = () => resolve();
-        script.onerror = () => reject(new Error('Failed to load reCAPTCHA script'));
-        
-        document.head.appendChild(script);
-      });
-    };
-
     const initializeRecaptcha = async () => {
       try {
-        await loadRecaptchaScript();
+        await loadRecaptchaV2Script();
         
         // Wait for grecaptcha to be available
         const checkGrecaptcha = () => {

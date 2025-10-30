@@ -1,44 +1,26 @@
 import { ArrowRight } from 'lucide-react';
-import { useEffect } from 'react';
 
 interface ContactCtaProps {
   onOpenForm: () => void;
 }
 
 export default function ContactCta({ onOpenForm }: ContactCtaProps) {
-  useEffect(() => {
-    const script1 = document.createElement('script');
-    script1.src = 'https://fast.wistia.com/embed/medias/b2u1svt5hp.jsonp';
-    script1.async = true;
-    document.body.appendChild(script1);
-
-    const script2 = document.createElement('script');
-    script2.src = 'https://fast.wistia.com/assets/external/E-v1.js';
-    script2.async = true;
-    document.body.appendChild(script2);
-
-    return () => {
-      if (document.body.contains(script1)) document.body.removeChild(script1);
-      if (document.body.contains(script2)) document.body.removeChild(script2);
-    };
-  }, []);
 
   return (
     <section className="relative overflow-hidden bg-[#1B0A2E]" style={{ height: '100vh' }}>
       <div className="absolute inset-0" style={{ zIndex: 0 }}>
-        <div
-          className="wistia_embed wistia_async_b2u1svt5hp videoFoam=true autoPlay=true muted=true controlsVisibleOnLoad=false endVideoBehavior=loop playbar=false"
-          style={{
-            position: 'absolute',
-            width: '100%',
-            height: '100%',
-            left: 0,
-            top: 0,
-            filter: 'brightness(0.6)'
-          }}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          poster="/video/Cilia_Red_noMucus_loop.webp"
+          className="w-full h-full object-cover"
+          style={{ position: 'absolute', width: '100%', height: '100%', left: 0, top: 0, filter: 'brightness(0.6)' }}
         >
-          &nbsp;
-        </div>
+          <source src="/video/Cilia_Red_noMucus_loop.mp4" type="video/mp4" />
+        </video>
       </div>
 
       <div className="absolute inset-0 bg-black opacity-30" style={{ zIndex: 1 }}></div>

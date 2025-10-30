@@ -127,7 +127,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#privacy" className="text-sm text-[#A0AEC0] hover:text-[#9B59D0] transition-colors duration-200" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>
+                <a href="/privacy" className="text-sm text-[#A0AEC0] hover:text-[#9B59D0] transition-colors duration-200" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>
                   Privacy Policy
                 </a>
               </li>

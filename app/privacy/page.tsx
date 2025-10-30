@@ -9,7 +9,7 @@ export default function PrivacyPage() {
     <>
       <PageMetadata
         title="Privacy Policy - Biomol Visual"
-        description="Privacy Policy for Biomol Visual. Learn how we collect, use, and protect your personal information."
+        description="Privacy Policy for Biomol Visual LLP. Learn how we collect, use, and protect your personal information."
         keywords="privacy policy, data protection, biomol visual privacy, GDPR compliance"
       />
       <div className="min-h-screen bg-[#1B0A2E]">
@@ -30,15 +30,52 @@ export default function PrivacyPage() {
               >
                 Privacy Policy
               </h1>
-              <p
-                className="text-responsive-sm"
+              <div
+                className="text-responsive-sm mb-2"
                 style={{
                   fontFamily: "'Red Hat Text', sans-serif",
                   color: 'var(--bmv-text-secondary)'
                 }}
               >
-                Last Updated: January 2025
-              </p>
+                <p><strong>Effective Date:</strong> November 1, 2025</p>
+                <p><strong>Last Updated:</strong> November 1, 2025</p>
+              </div>
+            </div>
+
+            {/* Contact Information Box */}
+            <div
+              className="mb-12 p-6 rounded-lg"
+              style={{
+                background: 'var(--bmv-surface)',
+                border: '1px solid rgba(183, 148, 246, 0.2)'
+              }}
+            >
+              <h2
+                className="text-lg font-medium mb-4"
+                style={{
+                  fontFamily: "'Red Hat Display', sans-serif",
+                  color: 'var(--bmv-text-heading)'
+                }}
+              >
+                Contact Information
+              </h2>
+              <div
+                style={{
+                  fontFamily: "'Red Hat Text', sans-serif",
+                  fontSize: '16px',
+                  lineHeight: '1.8',
+                  color: 'var(--bmv-text)'
+                }}
+              >
+                <p className="font-medium mb-1" style={{ color: 'var(--bmv-text-heading)' }}>Biomol Visual LLP</p>
+                <p>27 Old Gloucester Street</p>
+                <p>London, United Kingdom</p>
+                <p className="mb-3">WC1N 3AX</p>
+                <p><strong>Privacy Inquiries:</strong> privacy@biomolvisual.com</p>
+                <p><strong>General Inquiries:</strong> hello@biomolvisual.com</p>
+                <p><strong>US Phone:</strong> 888-391-0030</p>
+                <p><strong>UK Phone:</strong> 0800-707-4030</p>
+              </div>
             </div>
 
             {/* Content */}
@@ -64,10 +101,10 @@ export default function PrivacyPage() {
                   Introduction
                 </h2>
                 <p>
-                  Biomol Visual (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
+                  This Privacy Policy explains how Biomol Visual LLP (&quot;Biomol Visual,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) collects, uses, and protects your personal information when you visit our website biomolvisual.com or use our services.
                 </p>
                 <p className="mt-4">
-                  By accessing or using our website and services, you agree to the terms of this Privacy Policy. If you do not agree with the terms of this Privacy Policy, please do not access our website or use our services.
+                  We specialize in molecular and cellular mechanism of action (MOA) visualizations for biotech and pharmaceutical companies. We take the protection of your information seriously, especially given the confidential nature of the scientific data our clients entrust to us.
                 </p>
               </section>
 
@@ -88,44 +125,32 @@ export default function PrivacyPage() {
                   className="text-lg font-medium mb-3 mt-6"
                   style={{ color: 'var(--bmv-orange)' }}
                 >
-                  Personal Information
+                  Information You Provide to Us
                 </h3>
                 <p>
-                  We may collect personal information that you voluntarily provide to us when you:
+                  We collect information you voluntarily provide when you:
                 </p>
                 <ul className="list-disc list-inside mt-3 space-y-2 ml-4">
-                  <li>Fill out contact forms on our website</li>
-                  <li>Request information about our services</li>
-                  <li>Schedule a consultation or strategy call</li>
-                  <li>Subscribe to our newsletter or updates</li>
-                  <li>Engage with our team via email or phone</li>
-                </ul>
-                <p className="mt-4">
-                  This information may include:
-                </p>
-                <ul className="list-disc list-inside mt-3 space-y-2 ml-4">
-                  <li>Name and job title</li>
-                  <li>Company name and information</li>
-                  <li>Email address and phone number</li>
-                  <li>Professional background and areas of interest</li>
-                  <li>Project details and requirements</li>
+                  <li><strong>Contact us through our website forms</strong> (name, email, company name, phone number, message content)</li>
+                  <li><strong>Book a strategy call</strong> (name, email, company, preferred meeting time)</li>
+                  <li><strong>Subscribe to our newsletter</strong> (email address)</li>
+                  <li><strong>Become a client</strong> (billing information, project details, scientific data)</li>
+                  <li><strong>Apply for a position</strong> (resume, portfolio, contact information)</li>
                 </ul>
 
                 <h3
                   className="text-lg font-medium mb-3 mt-6"
                   style={{ color: 'var(--bmv-orange)' }}
                 >
-                  Automatically Collected Information
+                  Information Automatically Collected
                 </h3>
                 <p>
-                  When you visit our website, we may automatically collect certain information about your device and browsing actions, including:
+                  When you visit our website, we automatically collect:
                 </p>
                 <ul className="list-disc list-inside mt-3 space-y-2 ml-4">
-                  <li>IP address and browser type</li>
-                  <li>Operating system and device information</li>
-                  <li>Pages visited and time spent on pages</li>
-                  <li>Referring website addresses</li>
-                  <li>Clickstream data and usage patterns</li>
+                  <li><strong>Technical information:</strong> IP address, browser type, operating system, device information</li>
+                  <li><strong>Usage data:</strong> Pages visited, time spent on pages, links clicked, referring website</li>
+                  <li><strong>Cookies and similar technologies:</strong> See our Cookie Policy section below</li>
                 </ul>
               </section>
 
@@ -142,18 +167,137 @@ export default function PrivacyPage() {
                   How We Use Your Information
                 </h2>
                 <p>
-                  We use the information we collect for the following purposes:
+                  We use your information to:
                 </p>
                 <ul className="list-disc list-inside mt-3 space-y-2 ml-4">
-                  <li>To respond to your inquiries and provide customer support</li>
-                  <li>To deliver our scientific visualization services</li>
-                  <li>To schedule and conduct consultations and strategy calls</li>
-                  <li>To send you information about our services, updates, and relevant content</li>
-                  <li>To improve our website, services, and user experience</li>
-                  <li>To analyze website traffic and usage patterns</li>
-                  <li>To protect against fraud and ensure security</li>
-                  <li>To comply with legal obligations and enforce our terms</li>
+                  <li><strong>Provide our services:</strong> Create visualizations, manage projects, deliver final assets</li>
+                  <li><strong>Communicate with you:</strong> Respond to inquiries, send project updates, provide customer support</li>
+                  <li><strong>Process payments:</strong> Handle billing and invoicing for our services</li>
+                  <li><strong>Improve our services:</strong> Analyze website usage, enhance user experience</li>
+                  <li><strong>Marketing:</strong> Send newsletters and updates (only with your consent)</li>
+                  <li><strong>Legal compliance:</strong> Meet legal obligations and protect our rights</li>
                 </ul>
+              </section>
+
+              {/* Legal Basis */}
+              <section>
+                <h2
+                  className="text-responsive-md mb-4"
+                  style={{
+                    fontFamily: "'Red Hat Display', sans-serif",
+                    fontWeight: '500',
+                    color: 'var(--bmv-text-heading)'
+                  }}
+                >
+                  Legal Basis for Processing (For UK/EU Visitors)
+                </h2>
+                <p>
+                  We process your personal data based on:
+                </p>
+                <ul className="list-disc list-inside mt-3 space-y-2 ml-4">
+                  <li><strong>Contract:</strong> When necessary to provide our services</li>
+                  <li><strong>Consent:</strong> For marketing communications and cookies</li>
+                  <li><strong>Legitimate interests:</strong> For business operations, security, and fraud prevention</li>
+                  <li><strong>Legal obligations:</strong> When required by law</li>
+                </ul>
+              </section>
+
+              {/* Scientific Data Protection */}
+              <section>
+                <h2
+                  className="text-responsive-md mb-4"
+                  style={{
+                    fontFamily: "'Red Hat Display', sans-serif",
+                    fontWeight: '500',
+                    color: 'var(--bmv-text-heading)'
+                  }}
+                >
+                  How We Protect Your Scientific Data
+                </h2>
+
+                <h3
+                  className="text-lg font-medium mb-3 mt-6"
+                  style={{ color: 'var(--bmv-orange)' }}
+                >
+                  Client Confidentiality Commitment
+                </h3>
+                <p>
+                  When you become a client, we understand you&apos;re entrusting us with valuable scientific information. We protect your data through:
+                </p>
+                <ul className="list-disc list-inside mt-3 space-y-2 ml-4">
+                  <li><strong>Non-Disclosure Agreements:</strong> We execute mutual NDAs before receiving any confidential information</li>
+                  <li><strong>Access Controls:</strong> Only assigned team members can access your project data</li>
+                  <li><strong>Secure Storage:</strong> All files are encrypted using industry-standard encryption</li>
+                  <li><strong>Data Deletion:</strong> We delete project files upon request after project completion</li>
+                  <li><strong>No Unauthorized Sharing:</strong> We never share your scientific data with third parties without explicit permission</li>
+                </ul>
+              </section>
+
+              {/* Cookies */}
+              <section>
+                <h2
+                  className="text-responsive-md mb-4"
+                  style={{
+                    fontFamily: "'Red Hat Display', sans-serif",
+                    fontWeight: '500',
+                    color: 'var(--bmv-text-heading)'
+                  }}
+                >
+                  Cookies and Tracking Technologies
+                </h2>
+
+                <h3
+                  className="text-lg font-medium mb-3 mt-6"
+                  style={{ color: 'var(--bmv-orange)' }}
+                >
+                  What Are Cookies?
+                </h3>
+                <p>
+                  Cookies are small text files placed on your device when you visit our website. We use them to improve your experience and understand how our site is used.
+                </p>
+
+                <h3
+                  className="text-lg font-medium mb-3 mt-6"
+                  style={{ color: 'var(--bmv-orange)' }}
+                >
+                  Types of Cookies We Use
+                </h3>
+                <ul className="list-disc list-inside mt-3 space-y-2 ml-4">
+                  <li><strong>Essential Cookies:</strong> Required for the website to function properly</li>
+                  <li><strong>Analytics Cookies:</strong> Help us understand how visitors use our website (Google Analytics)</li>
+                  <li><strong>Functional Cookies:</strong> Remember your preferences and choices</li>
+                </ul>
+
+                <h3
+                  className="text-lg font-medium mb-3 mt-6"
+                  style={{ color: 'var(--bmv-orange)' }}
+                >
+                  Managing Cookies
+                </h3>
+                <p>
+                  You can control cookies through your browser settings. Note that disabling cookies may affect website functionality.
+                </p>
+
+                <h3
+                  className="text-lg font-medium mb-3 mt-6"
+                  style={{ color: 'var(--bmv-orange)' }}
+                >
+                  Google Analytics
+                </h3>
+                <p>
+                  We use Google Analytics to understand website usage. Google Analytics collects information such as how often users visit our site, what pages they visit, and what other sites they used prior to coming to our site. We use this information to improve our website and services.
+                </p>
+                <p className="mt-4">
+                  You can opt out of Google Analytics by visiting:{' '}
+                  <a
+                    href="https://tools.google.com/dlpage/gaoptout"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#9B59D0] hover:text-[#ED8936] transition-colors underline"
+                  >
+                    https://tools.google.com/dlpage/gaoptout
+                  </a>
+                </p>
               </section>
 
               {/* Information Sharing */}
@@ -166,10 +310,10 @@ export default function PrivacyPage() {
                     color: 'var(--bmv-text-heading)'
                   }}
                 >
-                  Information Sharing and Disclosure
+                  Who We Share Information With
                 </h2>
                 <p>
-                  We do not sell, trade, or rent your personal information to third parties. We may share your information only in the following circumstances:
+                  We do not sell, trade, or rent your personal information. We may share your information with:
                 </p>
 
                 <h3
@@ -179,7 +323,16 @@ export default function PrivacyPage() {
                   Service Providers
                 </h3>
                 <p>
-                  We may share your information with trusted third-party service providers who assist us in operating our website, conducting our business, or servicing you. These providers are contractually obligated to keep your information confidential and use it only for the purposes we specify.
+                  We work with trusted third parties who help us operate our business:
+                </p>
+                <ul className="list-disc list-inside mt-3 space-y-2 ml-4">
+                  <li>Payment processors (for billing)</li>
+                  <li>Cloud storage providers (for file storage)</li>
+                  <li>Email service providers (for communications)</li>
+                  <li>Analytics providers (for website improvements)</li>
+                </ul>
+                <p className="mt-4">
+                  These providers are contractually obligated to protect your information and use it only for the services they provide to us.
                 </p>
 
                 <h3
@@ -189,8 +342,14 @@ export default function PrivacyPage() {
                   Legal Requirements
                 </h3>
                 <p>
-                  We may disclose your information if required to do so by law or in response to valid requests by public authorities (e.g., court orders, government agencies).
+                  We may disclose your information if required to:
                 </p>
+                <ul className="list-disc list-inside mt-3 space-y-2 ml-4">
+                  <li>Comply with legal obligations</li>
+                  <li>Respond to lawful requests from public authorities</li>
+                  <li>Protect our rights, privacy, safety, or property</li>
+                  <li>Enforce our terms of service</li>
+                </ul>
 
                 <h3
                   className="text-lg font-medium mb-3 mt-6"
@@ -199,129 +358,7 @@ export default function PrivacyPage() {
                   Business Transfers
                 </h3>
                 <p>
-                  In the event of a merger, acquisition, or sale of all or a portion of our assets, your information may be transferred as part of that transaction.
-                </p>
-              </section>
-
-              {/* Client Confidentiality */}
-              <section>
-                <h2
-                  className="text-responsive-md mb-4"
-                  style={{
-                    fontFamily: "'Red Hat Display', sans-serif",
-                    fontWeight: '500',
-                    color: 'var(--bmv-text-heading)'
-                  }}
-                >
-                  Client Project Confidentiality
-                </h2>
-                <p>
-                  We understand the sensitive nature of scientific and proprietary information shared during our engagements. We maintain strict confidentiality protocols:
-                </p>
-                <ul className="list-disc list-inside mt-3 space-y-2 ml-4">
-                  <li>All client projects are protected under Non-Disclosure Agreements (NDAs)</li>
-                  <li>Project files are encrypted using 256-bit AES encryption</li>
-                  <li>Access to confidential information is restricted to our core scientific team based in the US and Canada</li>
-                  <li>We provide complete data destruction upon project completion, upon request</li>
-                  <li>We never share client project details, scientific information, or proprietary data without explicit written consent</li>
-                </ul>
-              </section>
-
-              {/* Data Security */}
-              <section>
-                <h2
-                  className="text-responsive-md mb-4"
-                  style={{
-                    fontFamily: "'Red Hat Display', sans-serif",
-                    fontWeight: '500',
-                    color: 'var(--bmv-text-heading)'
-                  }}
-                >
-                  Data Security
-                </h2>
-                <p>
-                  We implement appropriate technical and organizational security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. These measures include:
-                </p>
-                <ul className="list-disc list-inside mt-3 space-y-2 ml-4">
-                  <li>Industry-standard encryption protocols (SSL/TLS)</li>
-                  <li>Secure data storage and transmission</li>
-                  <li>Regular security audits and updates</li>
-                  <li>Restricted access to personal information</li>
-                  <li>Employee training on data protection</li>
-                </ul>
-                <p className="mt-4">
-                  However, no method of transmission over the internet or electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your information, we cannot guarantee its absolute security.
-                </p>
-              </section>
-
-              {/* Cookies and Tracking */}
-              <section>
-                <h2
-                  className="text-responsive-md mb-4"
-                  style={{
-                    fontFamily: "'Red Hat Display', sans-serif",
-                    fontWeight: '500',
-                    color: 'var(--bmv-text-heading)'
-                  }}
-                >
-                  Cookies and Tracking Technologies
-                </h2>
-                <p>
-                  We may use cookies and similar tracking technologies to enhance your experience on our website. Cookies are small data files stored on your device that help us:
-                </p>
-                <ul className="list-disc list-inside mt-3 space-y-2 ml-4">
-                  <li>Remember your preferences and settings</li>
-                  <li>Understand how you use our website</li>
-                  <li>Improve website functionality and performance</li>
-                  <li>Analyze website traffic and usage patterns</li>
-                </ul>
-                <p className="mt-4">
-                  You can control cookies through your browser settings. However, disabling cookies may limit your ability to use certain features of our website.
-                </p>
-              </section>
-
-              {/* Third-Party Links */}
-              <section>
-                <h2
-                  className="text-responsive-md mb-4"
-                  style={{
-                    fontFamily: "'Red Hat Display', sans-serif",
-                    fontWeight: '500',
-                    color: 'var(--bmv-text-heading)'
-                  }}
-                >
-                  Third-Party Websites
-                </h2>
-                <p>
-                  Our website may contain links to third-party websites. We are not responsible for the privacy practices or content of these external sites. We encourage you to review the privacy policies of any third-party websites you visit.
-                </p>
-              </section>
-
-              {/* Your Rights */}
-              <section>
-                <h2
-                  className="text-responsive-md mb-4"
-                  style={{
-                    fontFamily: "'Red Hat Display', sans-serif",
-                    fontWeight: '500',
-                    color: 'var(--bmv-text-heading)'
-                  }}
-                >
-                  Your Rights and Choices
-                </h2>
-                <p>
-                  Depending on your location, you may have certain rights regarding your personal information:
-                </p>
-                <ul className="list-disc list-inside mt-3 space-y-2 ml-4">
-                  <li><strong>Access:</strong> Request access to the personal information we hold about you</li>
-                  <li><strong>Correction:</strong> Request correction of inaccurate or incomplete information</li>
-                  <li><strong>Deletion:</strong> Request deletion of your personal information</li>
-                  <li><strong>Objection:</strong> Object to processing of your personal information</li>
-                  <li><strong>Portability:</strong> Request transfer of your information to another service provider</li>
-                  <li><strong>Opt-out:</strong> Unsubscribe from marketing communications at any time</li>
-                </ul>
-                <p className="mt-4">
-                  To exercise any of these rights, please contact us using the information provided below.
+                  If Biomol Visual is involved in a merger, acquisition, or sale of assets, your information may be transferred. We will notify you before your information becomes subject to a different privacy policy.
                 </p>
               </section>
 
@@ -338,10 +375,107 @@ export default function PrivacyPage() {
                   Data Retention
                 </h2>
                 <p>
-                  We retain your personal information only for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law. When we no longer need your information, we will securely delete or anonymize it.
+                  We retain your information only as long as necessary for the purposes outlined in this policy:
+                </p>
+                <ul className="list-disc list-inside mt-3 space-y-2 ml-4">
+                  <li><strong>Client project data:</strong> Duration of project plus any agreed retention period</li>
+                  <li><strong>Contact form inquiries:</strong> 2 years from last communication</li>
+                  <li><strong>Marketing lists:</strong> Until you unsubscribe</li>
+                  <li><strong>Website analytics:</strong> 26 months</li>
+                  <li><strong>Billing records:</strong> As required by tax and accounting regulations</li>
+                </ul>
+              </section>
+
+              {/* Your Rights */}
+              <section>
+                <h2
+                  className="text-responsive-md mb-4"
+                  style={{
+                    fontFamily: "'Red Hat Display', sans-serif",
+                    fontWeight: '500',
+                    color: 'var(--bmv-text-heading)'
+                  }}
+                >
+                  Your Rights and Choices
+                </h2>
+
+                <h3
+                  className="text-lg font-medium mb-3 mt-6"
+                  style={{ color: 'var(--bmv-orange)' }}
+                >
+                  Access and Control
+                </h3>
+                <p>
+                  You have the right to:
+                </p>
+                <ul className="list-disc list-inside mt-3 space-y-2 ml-4">
+                  <li><strong>Access</strong> the personal information we hold about you</li>
+                  <li><strong>Correct</strong> inaccurate or incomplete information</li>
+                  <li><strong>Delete</strong> your personal information (subject to legal requirements)</li>
+                  <li><strong>Object</strong> to certain uses of your information</li>
+                  <li><strong>Withdraw consent</strong> for marketing communications</li>
+                </ul>
+                <p className="mt-4">
+                  To exercise these rights, email us at privacy@biomolvisual.com.
+                </p>
+
+                <h3
+                  className="text-lg font-medium mb-3 mt-6"
+                  style={{ color: 'var(--bmv-orange)' }}
+                >
+                  Marketing Communications
+                </h3>
+                <p>
+                  You can opt out of marketing emails by:
+                </p>
+                <ul className="list-disc list-inside mt-3 space-y-2 ml-4">
+                  <li>Clicking the &quot;unsubscribe&quot; link in any marketing email</li>
+                  <li>Emailing us at privacy@biomolvisual.com</li>
+                </ul>
+
+                <h3
+                  className="text-lg font-medium mb-3 mt-6"
+                  style={{ color: 'var(--bmv-orange)' }}
+                >
+                  California Privacy Rights
+                </h3>
+                <p>
+                  If you are a California resident, you have additional rights under the California Consumer Privacy Act (CCPA), including the right to know what personal information we collect and how we use it.
+                </p>
+
+                <h3
+                  className="text-lg font-medium mb-3 mt-6"
+                  style={{ color: 'var(--bmv-orange)' }}
+                >
+                  EU/UK Privacy Rights
+                </h3>
+                <p>
+                  If you are in the EU or UK, you have additional rights under GDPR, including:
+                </p>
+                <ul className="list-disc list-inside mt-3 space-y-2 ml-4">
+                  <li>Right to data portability</li>
+                  <li>Right to restrict processing</li>
+                  <li>Right to lodge a complaint with supervisory authorities</li>
+                </ul>
+              </section>
+
+              {/* International Transfers */}
+              <section>
+                <h2
+                  className="text-responsive-md mb-4"
+                  style={{
+                    fontFamily: "'Red Hat Display', sans-serif",
+                    fontWeight: '500',
+                    color: 'var(--bmv-text-heading)'
+                  }}
+                >
+                  International Data Transfers
+                </h2>
+                <p>
+                  Biomol Visual LLP is registered in the UK but operates primarily from the United States. Your information may be transferred to and processed in the United States or other countries where our team members are located.
                 </p>
                 <p className="mt-4">
-                  For client project data, we follow the data destruction protocols outlined in our service agreements and NDAs.
+                  By using our services, you consent to the transfer of your information to countries outside your country of residence, which may have different data protection rules.
                 </p>
               </section>
 
@@ -358,11 +492,11 @@ export default function PrivacyPage() {
                   Children&apos;s Privacy
                 </h2>
                 <p>
-                  Our website and services are not directed to children under the age of 13. We do not knowingly collect personal information from children under 13. If you believe we have collected information from a child under 13, please contact us immediately.
+                  Our website and services are not directed to children under 16. We do not knowingly collect personal information from children under 16. If we learn we have collected information from a child under 16, we will delete that information.
                 </p>
               </section>
 
-              {/* International Data Transfers */}
+              {/* Third-Party Links */}
               <section>
                 <h2
                   className="text-responsive-md mb-4"
@@ -372,14 +506,14 @@ export default function PrivacyPage() {
                     color: 'var(--bmv-text-heading)'
                   }}
                 >
-                  International Data Transfers
+                  Third-Party Links
                 </h2>
                 <p>
-                  Your information may be transferred to and processed in countries other than your country of residence. These countries may have data protection laws that differ from those in your country. By using our services, you consent to the transfer of your information to the United States and other countries where we operate.
+                  Our website may contain links to third-party websites. We are not responsible for the privacy practices of these sites. We encourage you to read their privacy policies before providing any information.
                 </p>
               </section>
 
-              {/* Changes to Privacy Policy */}
+              {/* Security */}
               <section>
                 <h2
                   className="text-responsive-md mb-4"
@@ -389,17 +523,48 @@ export default function PrivacyPage() {
                     color: 'var(--bmv-text-heading)'
                   }}
                 >
-                  Changes to This Privacy Policy
+                  Security
                 </h2>
                 <p>
-                  We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. We will notify you of any material changes by posting the updated policy on our website and updating the &quot;Last Updated&quot; date at the top of this page.
+                  We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. These measures include:
                 </p>
+                <ul className="list-disc list-inside mt-3 space-y-2 ml-4">
+                  <li>SSL encryption for data transmission</li>
+                  <li>Secure password requirements</li>
+                  <li>Limited access to personal information</li>
+                  <li>Regular security assessments</li>
+                </ul>
                 <p className="mt-4">
-                  We encourage you to review this Privacy Policy periodically to stay informed about how we protect your information.
+                  However, no method of electronic transmission or storage is 100% secure. While we strive to protect your information, we cannot guarantee absolute security.
                 </p>
               </section>
 
-              {/* Contact Information */}
+              {/* Updates to Policy */}
+              <section>
+                <h2
+                  className="text-responsive-md mb-4"
+                  style={{
+                    fontFamily: "'Red Hat Display', sans-serif",
+                    fontWeight: '500',
+                    color: 'var(--bmv-text-heading)'
+                  }}
+                >
+                  Updates to This Policy
+                </h2>
+                <p>
+                  We may update this Privacy Policy from time to time. We will notify you of any material changes by:
+                </p>
+                <ul className="list-disc list-inside mt-3 space-y-2 ml-4">
+                  <li>Posting the new policy on our website</li>
+                  <li>Updating the &quot;Last Updated&quot; date</li>
+                  <li>Sending an email to affected users (for material changes)</li>
+                </ul>
+                <p className="mt-4">
+                  Your continued use of our services after changes constitutes acceptance of the updated policy.
+                </p>
+              </section>
+
+              {/* Contact Us */}
               <section className="border-t border-[#9B59D0]/20 pt-8">
                 <h2
                   className="text-responsive-md mb-4"
@@ -412,7 +577,7 @@ export default function PrivacyPage() {
                   Contact Us
                 </h2>
                 <p>
-                  If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:
+                  If you have questions or concerns about this Privacy Policy or our data practices, please contact us:
                 </p>
                 <div
                   className="mt-6 p-6 rounded-lg"
@@ -421,21 +586,59 @@ export default function PrivacyPage() {
                     border: '1px solid rgba(183, 148, 246, 0.2)'
                   }}
                 >
-                  <p className="font-medium mb-2" style={{ color: 'var(--bmv-text-heading)' }}>
-                    Biomol Visual
+                  <p className="font-medium mb-1" style={{ color: 'var(--bmv-text-heading)' }}>
+                    <strong>Email:</strong> privacy@biomolvisual.com
                   </p>
-                  <p className="mb-1">Email: privacy@biomolvisual.com</p>
-                  <p>Website: www.biomolvisual.com/contact</p>
+                  <p className="mb-1">
+                    <strong>Phone:</strong> US: 888-391-0030 | UK: 0800-707-4030
+                  </p>
+                  <p>
+                    <strong>Mail:</strong> Biomol Visual LLP, 27 Old Gloucester Street, London, United Kingdom, WC1N 3AX
+                  </p>
+                  <p className="mt-3">
+                    For general inquiries: hello@biomolvisual.com
+                  </p>
                 </div>
               </section>
 
+              {/* Complaints */}
+              <section>
+                <h2
+                  className="text-responsive-md mb-4"
+                  style={{
+                    fontFamily: "'Red Hat Display', sans-serif",
+                    fontWeight: '500',
+                    color: 'var(--bmv-text-heading)'
+                  }}
+                >
+                  Complaints
+                </h2>
+                <p>
+                  If you believe we have not handled your personal information properly, you have the right to lodge a complaint with:
+                </p>
+                <ul className="list-disc list-inside mt-3 space-y-2 ml-4">
+                  <li>
+                    <strong>UK:</strong> Information Commissioner&apos;s Office (ICO) -{' '}
+                    <a
+                      href="https://ico.org.uk"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#9B59D0] hover:text-[#ED8936] transition-colors underline"
+                    >
+                      ico.org.uk
+                    </a>
+                  </li>
+                  <li><strong>EU:</strong> Your local data protection authority</li>
+                </ul>
+              </section>
+
               {/* Footer Note */}
-              <section className="text-center pt-8 pb-12">
+              <section className="text-center pt-8 pb-12 border-t border-[#9B59D0]/20">
                 <p
                   className="text-sm"
                   style={{ color: 'var(--bmv-text-secondary)' }}
                 >
-                  Your privacy is important to us. We are committed to protecting your personal information and handling it responsibly.
+                  © 2025 Biomol Visual LLP. All rights reserved.
                 </p>
               </section>
             </div>

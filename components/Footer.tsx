@@ -1,8 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import { Linkedin, Youtube, Instagram } from 'lucide-react';
-import JoinUsModal from './JoinUsModal';
+
+// Lazy load JoinUsModal only when needed
+const JoinUsModal = lazy(() => import('./JoinUsModal'));
 
 export default function Footer() {
   const [isJoinUsModalOpen, setIsJoinUsModalOpen] = useState(false);
@@ -205,7 +207,11 @@ export default function Footer() {
         </div>
       </div>
 
-      <JoinUsModal isOpen={isJoinUsModalOpen} onClose={() => setIsJoinUsModalOpen(false)} />
+      {isJoinUsModalOpen && (
+        <Suspense fallback={null}>
+          <JoinUsModal isOpen={isJoinUsModalOpen} onClose={() => setIsJoinUsModalOpen(false)} />
+        </Suspense>
+      )}
     </footer>
   );
 }

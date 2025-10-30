@@ -13,7 +13,8 @@ export default function ScrollProgress() {
       setScrollProgress(scrollPercent);
     };
 
-    window.addEventListener('scroll', updateScrollProgress);
+    // Use passive listener for better scroll performance
+    window.addEventListener('scroll', updateScrollProgress, { passive: true });
     return () => window.removeEventListener('scroll', updateScrollProgress);
   }, []);
 

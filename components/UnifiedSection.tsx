@@ -1,13 +1,12 @@
 "use client"
-import { useRef, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
+import { useRef, useState, useEffect } from 'react';
 import type { Swiper as SwiperType } from 'swiper';
 import { ChevronLeft, ChevronRight, Lightbulb, Palette, Video, Package, Rocket } from 'lucide-react';
 
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
+// Dynamically load Swiper and styles
+let SwiperComponent: any = null;
+let SwiperSlideComponent: any = null;
+let NavigationModule: any = null;
 
 export default function UnifiedSection() {
   const testimonials = [
@@ -330,6 +329,55 @@ export default function UnifiedSection() {
 
   const testimonialsSwiperRef = useRef<SwiperType | null>(null);
   const teamSwiperRef = useRef<SwiperType | null>(null);
+  const [isSwiperLoaded, setIsSwiperLoaded] = useState(false);
+
+  useEffect(() => {
+    // Dynamically load Swiper when component mounts
+    if (!isSwiperLoaded) {
+      // Load CSS first if not already loaded
+      if (typeof window !== 'undefined') {
+        const existingLink = document.querySelector('link[href*="swiper"]');
+        if (!existingLink) {
+          const link1 = document.createElement('link');
+          link1.rel = 'stylesheet';
+          link1.href = 'https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css';
+          document.head.appendChild(link1);
+        }
+      }
+
+      Promise.all([
+        import('swiper/react'),
+        import('swiper/modules')
+      ]).then((modules) => {
+        SwiperComponent = modules[0].Swiper;
+        SwiperSlideComponent = modules[0].SwiperSlide;
+        NavigationModule = modules[1].Navigation;
+        setIsSwiperLoaded(true);
+      });
+    }
+  }, [isSwiperLoaded]);
+
+  if (!isSwiperLoaded) {
+    return (
+      <section
+        className="section-responsive"
+        style={{
+          background: '#1B0A2E',
+          minHeight: '400px'
+        }}
+      >
+        <div className="container-responsive">
+          <div className="text-center" style={{ padding: 'var(--space-9)' }}>
+            <p style={{ color: 'var(--bmv-text-secondary)' }}>Loading...</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  const Swiper = SwiperComponent;
+  const SwiperSlide = SwiperSlideComponent;
+  const Navigation = NavigationModule;
 
   return (
     <section
@@ -354,7 +402,7 @@ export default function UnifiedSection() {
               slidesPerView={1}
               loop={false}
               allowTouchMove={true}
-              onSwiper={(swiper) => {
+              onSwiper={(swiper: SwiperType) => {
                 testimonialsSwiperRef.current = swiper;
               }}
             >
@@ -526,7 +574,7 @@ export default function UnifiedSection() {
               slidesPerView={1}
               loop={false}
               allowTouchMove={true}
-              onSwiper={(swiper) => {
+              onSwiper={(swiper: SwiperType) => {
                 teamSwiperRef.current = swiper;
               }}
             >

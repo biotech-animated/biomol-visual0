@@ -100,10 +100,10 @@ export default function PrivacyPage() {
                   Hello from Biomol Visual
                 </h2>
                 <p>
-                  We&apos;re Biomol Visual LLP, and we create molecular animations for biotech companies. This Privacy Policy explains how we handle your information when you visit our website or work with us.
+                  We&apos;re Biomol Visual LLP, and we create molecular and cellular MOA/MOD visuals for biotech and pharma companies. This Privacy Policy explains how we handle your information when you visit our website or work with us.
                 </p>
                 <p className="mt-4">
-                  We know privacy matters, especially in biotech where confidentiality is everything. Here&apos;s our straightforward approach to protecting your information.
+                  We know privacy matters, especially in biotech and pharma where confidentiality is everything. Here&apos;s our straightforward approach to protecting your information.
                 </p>
               </section>
 
@@ -222,7 +222,7 @@ export default function PrivacyPage() {
                   }}
                 >
                   <p className="font-medium">
-                    We don&apos;t sell your information. Ever. We don&apos;t share it with third parties for marketing. We&apos;re a small team focused on making great animations, not playing games with your data.
+                    We don&apos;t sell your information. Ever. We don&apos;t share it with third parties for marketing. We&apos;re a small team focused on doing great work, not playing games with your data.
                   </p>
                 </div>
               </section>

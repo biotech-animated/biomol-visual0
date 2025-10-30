@@ -3,6 +3,7 @@ import { PageMetadata } from '../metadata';
 import Navigation from '@/components/Navigation';
 import ScrollProgress from '@/components/ScrollProgress';
 import Footer from '@/components/Footer';
+import { CheckCircle, XCircle, Shield, Mail, AlertCircle, FileText, Scale } from 'lucide-react';
 
 export default function TermsPage() {
   return (
@@ -42,6 +43,40 @@ export default function TermsPage() {
               </div>
             </div>
 
+            {/* Friendly Intro Callout */}
+            <div
+              className="mb-12 p-6 rounded-lg"
+              style={{
+                background: 'linear-gradient(135deg, rgba(155, 89, 208, 0.1) 0%, rgba(237, 137, 54, 0.1) 100%)',
+                border: '1px solid rgba(183, 148, 246, 0.3)'
+              }}
+            >
+              <div className="flex items-start gap-4">
+                <FileText className="w-6 h-6 flex-shrink-0 mt-1" style={{ color: 'var(--bmv-orange)' }} />
+                <div>
+                  <h2
+                    className="text-lg font-medium mb-2"
+                    style={{
+                      fontFamily: "'Red Hat Display', sans-serif",
+                      color: 'var(--bmv-text-heading)'
+                    }}
+                  >
+                    We wrote this in plain English
+                  </h2>
+                  <p
+                    style={{
+                      fontFamily: "'Red Hat Text', sans-serif",
+                      fontSize: '16px',
+                      lineHeight: '1.8',
+                      color: 'var(--bmv-text)'
+                    }}
+                  >
+                    Legal documents don&apos;t have to be confusing. We&apos;ve written these terms in straightforward language so you actually know what you&apos;re agreeing to.
+                  </p>
+                </div>
+              </div>
+            </div>
+
             {/* Content */}
             <div
               className="space-y-8"
@@ -68,7 +103,7 @@ export default function TermsPage() {
                   These Terms of Service (&quot;Terms&quot;) apply to your use of the Biomol Visual website at biomolvisual.com. By using our website, you agree to these terms. If you don&apos;t agree, please don&apos;t use our website.
                 </p>
                 <p className="mt-4">
-                  We&apos;re Biomol Visual LLP, and we create molecular and cellular visualizations for biotech companies. This website showcases our work and provides information about our services.
+                  We&apos;re Biomol Visual LLP, and we create molecular and cellular MOA visuals for biotech and pharma companies. This website showcases our work and provides information about our services.
                 </p>
               </section>
 
@@ -85,52 +120,88 @@ export default function TermsPage() {
                   Using Our Website
                 </h2>
 
-                <h3
-                  className="text-lg font-medium mb-3 mt-6"
-                  style={{ color: 'var(--bmv-orange)' }}
+                {/* What You Can Do */}
+                <div
+                  className="mt-6 p-6 rounded-lg"
+                  style={{
+                    background: 'rgba(34, 197, 94, 0.05)',
+                    border: '1px solid rgba(34, 197, 94, 0.2)'
+                  }}
                 >
-                  What You Can Do
-                </h3>
-                <p>
-                  You&apos;re welcome to:
-                </p>
-                <ul className="list-disc list-inside mt-3 space-y-2 ml-4">
-                  <li>Browse our portfolio and case studies</li>
-                  <li>Learn about our services</li>
-                  <li>Contact us about potential projects</li>
-                  <li>Share links to our content (with attribution)</li>
-                </ul>
+                  <div className="flex items-start gap-3 mb-3">
+                    <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#22c55e' }} />
+                    <h3
+                      className="text-lg font-medium"
+                      style={{ color: 'var(--bmv-text-heading)' }}
+                    >
+                      What You Can Do
+                    </h3>
+                  </div>
+                  <p className="mb-2">
+                    You&apos;re welcome to:
+                  </p>
+                  <ul className="list-disc list-inside space-y-2 ml-4">
+                    <li>Browse our portfolio and case studies</li>
+                    <li>Learn about our services</li>
+                    <li>Contact us about potential projects</li>
+                    <li>Share links to our content (with attribution)</li>
+                  </ul>
+                </div>
 
-                <h3
-                  className="text-lg font-medium mb-3 mt-6"
-                  style={{ color: 'var(--bmv-orange)' }}
+                {/* What You Can't Do */}
+                <div
+                  className="mt-4 p-6 rounded-lg"
+                  style={{
+                    background: 'rgba(237, 137, 54, 0.05)',
+                    border: '1px solid rgba(237, 137, 54, 0.2)'
+                  }}
                 >
-                  What You Can&apos;t Do
-                </h3>
-                <p>
-                  Please don&apos;t:
-                </p>
-                <ul className="list-disc list-inside mt-3 space-y-2 ml-4">
-                  <li>Copy our animations or portfolio work without permission</li>
-                  <li>Use automated tools to scrape or download our content</li>
-                  <li>Try to hack or disrupt our website</li>
-                  <li>Pretend to be us or misrepresent your relationship with us</li>
-                  <li>Use our website for anything illegal</li>
-                </ul>
+                  <div className="flex items-start gap-3 mb-3">
+                    <XCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--bmv-orange)' }} />
+                    <h3
+                      className="text-lg font-medium"
+                      style={{ color: 'var(--bmv-text-heading)' }}
+                    >
+                      What You Can&apos;t Do
+                    </h3>
+                  </div>
+                  <p className="mb-2">
+                    Please don&apos;t:
+                  </p>
+                  <ul className="list-disc list-inside space-y-2 ml-4">
+                    <li>Copy our animations or portfolio work without permission</li>
+                    <li>Use automated tools to scrape or download our content</li>
+                    <li>Try to hack or disrupt our website</li>
+                    <li>Pretend to be us or misrepresent your relationship with us</li>
+                    <li>Use our website for anything illegal</li>
+                  </ul>
+                </div>
               </section>
+
+              {/* Gradient Separator */}
+              <div
+                style={{
+                  height: '2px',
+                  background: 'linear-gradient(90deg, transparent 0%, rgba(155, 89, 208, 0.5) 50%, transparent 100%)',
+                  margin: '2rem 0'
+                }}
+              />
 
               {/* Our Content */}
               <section>
-                <h2
-                  className="text-responsive-md mb-4"
-                  style={{
-                    fontFamily: "'Red Hat Display', sans-serif",
-                    fontWeight: '500',
-                    color: 'var(--bmv-text-heading)'
-                  }}
-                >
-                  Our Content
-                </h2>
+                <div className="flex items-center gap-3 mb-4">
+                  <Shield className="w-6 h-6" style={{ color: 'var(--bmv-orange)' }} />
+                  <h2
+                    className="text-responsive-md"
+                    style={{
+                      fontFamily: "'Red Hat Display', sans-serif",
+                      fontWeight: '500',
+                      color: 'var(--bmv-text-heading)'
+                    }}
+                  >
+                    Our Content
+                  </h2>
+                </div>
 
                 <h3
                   className="text-lg font-medium mb-3 mt-6"
@@ -142,7 +213,7 @@ export default function TermsPage() {
                   All the content on our website is protected by copyright, including:
                 </p>
                 <ul className="list-disc list-inside mt-3 space-y-2 ml-4">
-                  <li>Our molecular animations and visualizations</li>
+                  <li>Our videos</li>
                   <li>Our website design and text</li>
                   <li>Our logo and brand name</li>
                   <li>Our blog posts and articles</li>
@@ -169,18 +240,30 @@ export default function TermsPage() {
                 </p>
               </section>
 
+              {/* Gradient Separator */}
+              <div
+                style={{
+                  height: '2px',
+                  background: 'linear-gradient(90deg, transparent 0%, rgba(237, 137, 54, 0.5) 50%, transparent 100%)',
+                  margin: '2rem 0'
+                }}
+              />
+
               {/* When You Contact Us */}
               <section>
-                <h2
-                  className="text-responsive-md mb-4"
-                  style={{
-                    fontFamily: "'Red Hat Display', sans-serif",
-                    fontWeight: '500',
-                    color: 'var(--bmv-text-heading)'
-                  }}
-                >
-                  When You Contact Us
-                </h2>
+                <div className="flex items-center gap-3 mb-4">
+                  <Mail className="w-6 h-6" style={{ color: 'var(--bmv-orange)' }} />
+                  <h2
+                    className="text-responsive-md"
+                    style={{
+                      fontFamily: "'Red Hat Display', sans-serif",
+                      fontWeight: '500',
+                      color: 'var(--bmv-text-heading)'
+                    }}
+                  >
+                    When You Contact Us
+                  </h2>
+                </div>
                 <p>
                   When you fill out our contact form or email us:
                 </p>
@@ -215,18 +298,30 @@ export default function TermsPage() {
                 </p>
               </section>
 
+              {/* Gradient Separator */}
+              <div
+                style={{
+                  height: '2px',
+                  background: 'linear-gradient(90deg, transparent 0%, rgba(155, 89, 208, 0.5) 50%, transparent 100%)',
+                  margin: '2rem 0'
+                }}
+              />
+
               {/* Important Disclaimers */}
               <section>
-                <h2
-                  className="text-responsive-md mb-4"
-                  style={{
-                    fontFamily: "'Red Hat Display', sans-serif",
-                    fontWeight: '500',
-                    color: 'var(--bmv-text-heading)'
-                  }}
-                >
-                  Important Disclaimers
-                </h2>
+                <div className="flex items-center gap-3 mb-4">
+                  <AlertCircle className="w-6 h-6" style={{ color: 'var(--bmv-orange)' }} />
+                  <h2
+                    className="text-responsive-md"
+                    style={{
+                      fontFamily: "'Red Hat Display', sans-serif",
+                      fontWeight: '500',
+                      color: 'var(--bmv-text-heading)'
+                    }}
+                  >
+                    Important Disclaimers
+                  </h2>
+                </div>
 
                 <h3
                   className="text-lg font-medium mb-3 mt-6"
@@ -266,27 +361,37 @@ export default function TermsPage() {
 
               {/* Limitation of Liability */}
               <section>
-                <h2
-                  className="text-responsive-md mb-4"
+                <div className="flex items-center gap-3 mb-4">
+                  <Scale className="w-6 h-6" style={{ color: 'var(--bmv-orange)' }} />
+                  <h2
+                    className="text-responsive-md"
+                    style={{
+                      fontFamily: "'Red Hat Display', sans-serif",
+                      fontWeight: '500',
+                      color: 'var(--bmv-text-heading)'
+                    }}
+                  >
+                    Limitation of Liability
+                  </h2>
+                </div>
+                <div
+                  className="p-6 rounded-lg"
                   style={{
-                    fontFamily: "'Red Hat Display', sans-serif",
-                    fontWeight: '500',
-                    color: 'var(--bmv-text-heading)'
+                    background: 'rgba(155, 89, 208, 0.05)',
+                    border: '1px solid rgba(155, 89, 208, 0.2)'
                   }}
                 >
-                  Limitation of Liability
-                </h2>
-                <p>
-                  This is the part where we limit our financial responsibility (every website has this):
-                </p>
-                <p className="mt-4">
-                  <strong>If something goes wrong with our website</strong>, our maximum liability to you is $100. We won&apos;t be responsible for indirect damages like lost profits or data loss from using our website.
-                </p>
-                <p className="mt-4">
-                  This only applies to the website itself - not our actual animation services, which are covered by separate client agreements.
-                </p>
+                  <p>
+                    This is the part where we limit our financial responsibility (every website has this):
+                  </p>
+                  <p className="mt-4">
+                    <strong>If something goes wrong with our website</strong>, our maximum liability to you is $100. We won&apos;t be responsible for indirect damages like lost profits or data loss from using our website.
+                  </p>
+                  <p className="mt-4">
+                    This only applies to the website itself - not our actual animation services, which are covered by separate client agreements.
+                  </p>
+                </div>
               </section>
-
 
               {/* Changes to These Terms */}
               <section>

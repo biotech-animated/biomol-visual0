@@ -1,17 +1,36 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import { PageMetadata } from './metadata';
 import Navigation from '@/components/Navigation';
 import ScrollProgress from '@/components/ScrollProgress';
 import HeroSection from '@/components/HeroSection';
-import DifferentiationSection from '@/components/DifferentiationSection';
-import ShowReelSection from '@/components/ShowReelSection';
-import ByTheNumbersSection from '@/components/ByTheNumbersSection';
-import UnifiedSection from '@/components/UnifiedSection';
-import SecuritySection from '@/components/SecuritySection';
-import CompetitivePositioningSection from '@/components/CompetitivePositioningSection';
-import FinalCTASection from '@/components/FinalCTASection';
-import Footer from '@/components/Footer';
+
+// Code split below-the-fold components
+const DifferentiationSection = dynamic(() => import('@/components/DifferentiationSection'), {
+  loading: () => null,
+});
+const ShowReelSection = dynamic(() => import('@/components/ShowReelSection'), {
+  loading: () => null,
+});
+const ByTheNumbersSection = dynamic(() => import('@/components/ByTheNumbersSection'), {
+  loading: () => null,
+});
+const UnifiedSection = dynamic(() => import('@/components/UnifiedSection'), {
+  loading: () => null,
+});
+const SecuritySection = dynamic(() => import('@/components/SecuritySection'), {
+  loading: () => null,
+});
+const CompetitivePositioningSection = dynamic(() => import('@/components/CompetitivePositioningSection'), {
+  loading: () => null,
+});
+const FinalCTASection = dynamic(() => import('@/components/FinalCTASection'), {
+  loading: () => null,
+});
+const Footer = dynamic(() => import('@/components/Footer'), {
+  loading: () => null,
+});
 
 export default function Home() {
   return (

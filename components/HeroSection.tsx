@@ -1,10 +1,12 @@
 'use client';
 
 import { ArrowRight } from 'lucide-react';
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import Link from 'next/link';
-import VideoLightbox from './VideoLightbox';
-import CalCalendarLightbox from './CalCalendarLightbox';
+
+// Lazy load lightbox components only when needed
+const VideoLightbox = lazy(() => import('./VideoLightbox'));
+const CalCalendarLightbox = lazy(() => import('./CalCalendarLightbox'));
 
 export default function HeroSection() {
   const [isHovered, setIsHovered] = useState(false);
@@ -22,7 +24,7 @@ export default function HeroSection() {
           loop
           muted
           playsInline
-          preload="metadata"
+          preload="none"
           poster="/video/Neutrophil_Purple_loop.webp"
           className="w-full h-full object-cover"
           style={{ position: 'absolute', width: '100%', height: '100%', left: 0, top: 0, filter: 'brightness(0.6)' }}
@@ -182,17 +184,25 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <VideoLightbox
-        isOpen={showVideoLightbox}
-        onClose={() => setShowVideoLightbox(false)}
-        videoUrl="https://www.youtube.com/watch?v=UvMDknsBp9E"
-      />
+      {showVideoLightbox && (
+        <Suspense fallback={null}>
+          <VideoLightbox
+            isOpen={showVideoLightbox}
+            onClose={() => setShowVideoLightbox(false)}
+            videoUrl="https://www.youtube.com/watch?v=UvMDknsBp9E"
+          />
+        </Suspense>
+      )}
 
-      <CalCalendarLightbox
-        isOpen={showCalendarLightbox}
-        onClose={() => setShowCalendarLightbox(false)}
-        calUrl="biomolvisual/30min"
-      />
+      {showCalendarLightbox && (
+        <Suspense fallback={null}>
+          <CalCalendarLightbox
+            isOpen={showCalendarLightbox}
+            onClose={() => setShowCalendarLightbox(false)}
+            calUrl="biomolvisual/30min"
+          />
+        </Suspense>
+      )}
     </section>
   );
 }

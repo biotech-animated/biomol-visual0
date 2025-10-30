@@ -21,7 +21,8 @@ export default function Navigation() {
     };
 
     handleResize(); // Initial check
-    window.addEventListener('scroll', handleScroll);
+    // Use passive listener for better scroll performance
+    window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', handleResize);
     
     return () => {

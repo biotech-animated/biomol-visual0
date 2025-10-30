@@ -122,7 +122,7 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3">
               <li>
-                <a href="#terms" className="text-sm text-[#A0AEC0] hover:text-[#9B59D0] transition-colors duration-200" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>
+                <a href="/terms" className="text-sm text-[#A0AEC0] hover:text-[#9B59D0] transition-colors duration-200" style={{ fontFamily: "'Red Hat Text', sans-serif" }}>
                   Terms of Service
                 </a>
               </li>

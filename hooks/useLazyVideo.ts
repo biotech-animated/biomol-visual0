@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from 'react';
 
 interface UseLazyVideoOptions {
   isHero?: boolean;
-  heroDelay?: number;
   intersectionThreshold?: number;
 }
 
@@ -14,7 +13,6 @@ export function useLazyVideo(
 ) {
   const {
     isHero = false,
-    heroDelay = 2000,
     intersectionThreshold = 0.1,
   } = options;
 
@@ -26,14 +24,10 @@ export function useLazyVideo(
     if (!videoElement) return;
 
     if (isHero) {
-      // Hero video: wait 2 seconds then load
-      const timer = setTimeout(() => {
-        videoElement.src = videoSrc;
-        videoElement.load();
-        setLoaded(true);
-      }, heroDelay);
-
-      return () => clearTimeout(timer);
+      // Hero video: start loading immediately and play when ready
+      videoElement.src = videoSrc;
+      videoElement.load();
+      setLoaded(true);
     } else {
       // Non-hero videos: use Intersection Observer
       const observer = new IntersectionObserver(
@@ -54,7 +48,7 @@ export function useLazyVideo(
 
       return () => observer.disconnect();
     }
-  }, [videoSrc, isHero, heroDelay, intersectionThreshold, loaded]);
+  }, [videoSrc, isHero, intersectionThreshold, loaded]);
 
   return { videoRef, loaded };
 }

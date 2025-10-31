@@ -16,7 +16,6 @@ export default function HeroSection() {
 
   const { videoRef } = useLazyVideo('/video/Neutrophil_Purple_loop.mp4', {
     isHero: true,
-    heroDelay: 2000,
   });
 
   return (

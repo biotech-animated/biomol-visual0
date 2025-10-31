@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
+import { useLazyVideo } from '@/hooks/useLazyVideo';
 
 interface CaseStudiesHeroProps {
   onOpenForm: () => void;
@@ -10,6 +11,8 @@ export default function CaseStudiesHero({ onOpenForm }: CaseStudiesHeroProps) {
   const [roundsCount, setRoundsCount] = useState(0);
   const [hasAnimated, setHasAnimated] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+
+  const { videoRef } = useLazyVideo('/video/BindingProteins_Dark_loop.mp4');
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -59,17 +62,16 @@ export default function CaseStudiesHero({ onOpenForm }: CaseStudiesHeroProps) {
     <section ref={sectionRef} className="relative overflow-hidden bg-[#1B0A2E] min-h-screen">
       <div className="absolute inset-0" style={{ zIndex: 0 }}>
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
-          preload="metadata"
+          preload="none"
           poster="/video/BindingProteins_Dark_loop.webp"
           className="w-full h-full object-cover"
           style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', filter: 'brightness(0.6)' }}
-        >
-          <source src="/video/BindingProteins_Dark_loop.mp4" type="video/mp4" />
-        </video>
+        />
       </div>
 
       <div className="absolute inset-0 bg-black opacity-30" style={{ zIndex: 1 }}></div>

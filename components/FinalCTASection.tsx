@@ -2,10 +2,13 @@
 import { ArrowRight } from 'lucide-react';
 import { useState } from 'react';
 import CalCalendarLightbox from './CalCalendarLightbox';
+import { useLazyVideo } from '@/hooks/useLazyVideo';
 
 export default function FinalCTASection() {
   const [isHovered, setIsHovered] = useState(false);
   const [showCalendarLightbox, setShowCalendarLightbox] = useState(false);
+
+  const { videoRef } = useLazyVideo('/video/Alveoli_Purple_loop.mp4');
 
   return (
     <section
@@ -13,17 +16,16 @@ export default function FinalCTASection() {
     >
       <div className="absolute inset-0" style={{ zIndex: 0 }}>
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
-          preload="metadata"
+          preload="none"
           poster="/video/Alveoli_Purple_loop.webp"
           className="w-full h-full object-cover"
           style={{ position: 'absolute', width: '100%', height: '100%', left: 0, top: 0, filter: 'brightness(0.6)' }}
-        >
-          <source src="/video/Alveoli_Purple_loop.mp4" type="video/mp4" />
-        </video>
+        />
       </div>
 
       <div className="absolute inset-0 bg-black opacity-30" style={{ zIndex: 1 }}></div>

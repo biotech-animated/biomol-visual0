@@ -1,26 +1,27 @@
 import { ArrowRight } from 'lucide-react';
+import { useLazyVideo } from '@/hooks/useLazyVideo';
 
 interface ContactCtaProps {
   onOpenForm: () => void;
 }
 
 export default function ContactCta({ onOpenForm }: ContactCtaProps) {
+  const { videoRef } = useLazyVideo('/video/Cilia_Red_noMucus_loop.mp4');
 
   return (
     <section className="relative overflow-hidden bg-[#1B0A2E]" style={{ height: '100vh' }}>
       <div className="absolute inset-0" style={{ zIndex: 0 }}>
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
-          preload="metadata"
+          preload="none"
           poster="/video/Cilia_Red_noMucus_loop.webp"
           className="w-full h-full object-cover"
           style={{ position: 'absolute', width: '100%', height: '100%', left: 0, top: 0, filter: 'brightness(0.6)' }}
-        >
-          <source src="/video/Cilia_Red_noMucus_loop.mp4" type="video/mp4" />
-        </video>
+        />
       </div>
 
       <div className="absolute inset-0 bg-black opacity-30" style={{ zIndex: 1 }}></div>

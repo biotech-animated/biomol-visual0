@@ -3,6 +3,7 @@
 import { ArrowRight } from 'lucide-react';
 import { useState, lazy, Suspense } from 'react';
 import Link from 'next/link';
+import { useLazyVideo } from '@/hooks/useLazyVideo';
 
 // Lazy load lightbox components only when needed
 const VideoLightbox = lazy(() => import('./VideoLightbox'));
@@ -13,6 +14,10 @@ export default function HeroSection() {
   const [showVideoLightbox, setShowVideoLightbox] = useState(false);
   const [showCalendarLightbox, setShowCalendarLightbox] = useState(false);
 
+  const { videoRef } = useLazyVideo('/video/Neutrophil_Purple_loop.mp4', {
+    isHero: true,
+    heroDelay: 2000,
+  });
 
   return (
     <section
@@ -20,6 +25,7 @@ export default function HeroSection() {
     >
       <div className="absolute inset-0" style={{ zIndex: 0 }}>
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
@@ -28,9 +34,7 @@ export default function HeroSection() {
           poster="/video/Neutrophil_Purple_loop.webp"
           className="w-full h-full object-cover"
           style={{ position: 'absolute', width: '100%', height: '100%', left: 0, top: 0, filter: 'brightness(0.6)' }}
-        >
-          <source src="/video/Neutrophil_Purple_loop.mp4" type="video/mp4" />
-        </video>
+        />
       </div>
 
       <div className="absolute inset-0 bg-black opacity-30" style={{ zIndex: 1 }}></div>

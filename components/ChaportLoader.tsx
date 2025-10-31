@@ -1,24 +1,17 @@
 'use client';
 
 import { useEffect } from 'react';
-import Script from 'next/script';
 
 export default function ChaportLoader() {
   useEffect(() => {
-    // Only load Chaport after user interaction or after a delay
-    let loaded = false;
-    let timeoutId: NodeJS.Timeout | null = null;
+    // Load Chaport after 3 seconds
+    const timer = setTimeout(() => {
+      if (typeof window === 'undefined') return;
 
-    const loadChaport = () => {
-      if (loaded || typeof window === 'undefined') return;
-      
       // Check if Chaport is already loaded
-      if ((window as any).chaport) {
-        loaded = true;
-        return;
-      }
+      if ((window as any).chaport) return;
 
-      // Initialize Chaport
+      // Initialize Chaport configuration
       const w = window as any;
       const d = document;
 
@@ -26,11 +19,7 @@ export default function ChaportLoader() {
         appId: '68fd6310d9fdec4fcce50fc3',
       };
 
-      if (w.chaport) {
-        loaded = true;
-        return;
-      }
-
+      // Initialize Chaport object
       const v3: any = (w.chaport = {});
       v3._q = [];
       v3._l = {};
@@ -42,58 +31,17 @@ export default function ChaportLoader() {
         v3._l[e].push(fn);
       };
 
-      const s = d.createElement('script');
-      s.type = 'text/javascript';
-      s.async = true;
-      s.src = 'https://app.chaport.com/javascripts/insert.js';
-      s.onload = () => {
-        loaded = true;
-      };
-      const ss = d.getElementsByTagName('script')[0];
-      ss.parentNode?.insertBefore(s, ss);
-    };
-
-    // Load after user interactions
-    const events = ['mousedown', 'touchstart', 'scroll', 'keydown'];
-    const handleInteraction = () => {
-      if (!loaded) {
-        loadChaport();
-        // Remove all listeners after first interaction
-        events.forEach(event => {
-          document.removeEventListener(event, handleInteraction);
-        });
-        if (timeoutId) {
-          clearTimeout(timeoutId);
-        }
-      }
-    };
-
-    // Add interaction listeners
-    events.forEach(event => {
-      document.addEventListener(event, handleInteraction, { passive: true, once: true });
-    });
-
-    // Fallback: Load after 3 seconds if no interaction
-    timeoutId = setTimeout(() => {
-      if (!loaded) {
-        loadChaport();
-        events.forEach(event => {
-          document.removeEventListener(event, handleInteraction);
-        });
-      }
+      // Load Chaport script
+      const script = d.createElement('script');
+      script.type = 'text/javascript';
+      script.async = true;
+      script.src = 'https://app.chaport.com/javascripts/insert.js';
+      const firstScript = d.getElementsByTagName('script')[0];
+      firstScript.parentNode?.insertBefore(script, firstScript);
     }, 3000);
 
-    // Cleanup
-    return () => {
-      events.forEach(event => {
-        document.removeEventListener(event, handleInteraction);
-      });
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-      }
-    };
+    return () => clearTimeout(timer);
   }, []);
 
-  // This component doesn't render anything
   return null;
 }

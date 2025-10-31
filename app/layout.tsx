@@ -4,7 +4,12 @@ import { Inter } from 'next/font/google';
 import Script from 'next/script';
 import ChaportLoader from '@/components/ChaportLoader';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  preload: true,
+  variable: '--font-inter',
+});
 
 
 export const metadata: Metadata = {

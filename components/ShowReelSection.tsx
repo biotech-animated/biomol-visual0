@@ -43,7 +43,7 @@ export default function ShowReelSection() {
             gap: 'var(--space-3)'
           }}
         >
-          <h2 className="text-responsive-lg" style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: '500' }}>2024 Showreel</h2>
+          <h2 className="text-responsive-lg" style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: '500' }}>Showreel</h2>
           <p
             className="max-w-3xl mx-auto text-responsive-sm"
             style={{
@@ -68,7 +68,7 @@ export default function ShowReelSection() {
               width="100%"
               height="100%"
               src="https://www.youtube.com/embed/UvMDknsBp9E"
-              title="2024 Showreel"
+              title="Showreel"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen

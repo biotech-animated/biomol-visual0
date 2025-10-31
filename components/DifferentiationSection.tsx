@@ -43,7 +43,7 @@ export default function DifferentiationSection() {
                 }}
               >
                 <p>
-                  Generalist medical animation studios divide their attention across the entire medical spectrum. The same team that works on a project showing orthopedic implants in the morning pivots to dental procedures after lunch, then attempts to decode complex molecular pathways by end of day. Each project requires fundamentally different expertise, visual languages, and scientific understanding.
+                  Generalist medical animation studios divide their attention across the entire medical spectrum. From surgical procedures to dental implants to pharmaceutical mechanisms. One day they&apos;re animating joint replacements. The next, they&apos;re trying to work on complex biomolecular interactions. Each project requires fundamentally different expertise, visual languages, and scientific understanding.
                   </p>
 
             <p style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: '400', color: 'var(--bmv-text-heading)' }}>
@@ -51,7 +51,7 @@ export default function DifferentiationSection() {
                 </p>
 
                 <p style={{ fontFamily: "'Red Hat Text', sans-serif", fontWeight: '400', color: 'var(--bmv-text-heading)' }}>
-                  We only do one thing: <span style={{ color: 'var(--bmv-orange)' }}>visually explain the molecular and cellular science that gets you funded.</span> This singular focus is our advantage.
+                  We only do one thing: <span style={{ color: 'var(--bmv-orange)' }}>visually explain the molecular and cellular science that gets you funded.</span> This singular focus is our advantage, and has been since we were founded in 2015.
                 </p>
 
                 <p>

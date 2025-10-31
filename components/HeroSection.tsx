@@ -90,7 +90,7 @@ export default function HeroSection() {
                     e.currentTarget.style.background = 'rgba(138, 92, 246, 0.65)';
                   }}
                 >
-                  <span>Show Reel</span>
+                  <span>Showreel</span>
                   <div
                     style={{
                       width: '40px',

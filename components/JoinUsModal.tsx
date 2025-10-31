@@ -157,8 +157,22 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
+        let errorData;
+        try {
+          errorData = await response.json();
+        } catch (jsonError) {
+          throw new Error(`Server error: ${response.status} ${response.statusText}`);
+        }
         throw new Error(errorData.error || 'Failed to submit application');
+      }
+
+      // Parse success response with error handling
+      let responseData;
+      try {
+        responseData = await response.json();
+      } catch (jsonError) {
+        console.error('Error parsing success response:', jsonError);
+        // Still consider it a success if we got a 200 status
       }
 
       setStatus('success');

@@ -17,7 +17,7 @@ export default function UnifiedSection() {
       author: "David Barraclough",
       title: "CEO",
       company: "Abcore",
-      logo: "./logos/Abcore.webp"
+      logo: "./logos/client-04.webp"
     },
     {
       id: 2,
@@ -26,7 +26,7 @@ export default function UnifiedSection() {
       author: "Tom Brown",
       title: "Professor of Nucleic Acid Chemistry",
       company: "University of Oxford",
-      logo: "./logos/NIH.webp"
+      logo: "./logos/client-42.webp"
     },
     {
       id: 3,
@@ -35,7 +35,7 @@ export default function UnifiedSection() {
       author: "James Campbell",
       title: "CEO",
       company: "Patrys",
-      logo: "./logos/Patrys.webp"
+      logo: "./logos/client-49.webp"
     },
     {
       id: 4,
@@ -44,7 +44,7 @@ export default function UnifiedSection() {
       author: "Klaudyna Johnstone",
       title: "Marketing Manager",
       company: "Innova Biosciences",
-      logo: "./logos/Innova Biosciences.webp"
+      logo: "./logos/client-31.webp"
     },
     {
       id: 5,
@@ -53,7 +53,7 @@ export default function UnifiedSection() {
       author: "Eddie Sullivan",
       title: "CEO",
       company: "SAb Biotherapeutics",
-      logo: "./logos/SAb Bio.webp"
+      logo: "./logos/client-54.webp"
     },
     {
       id: 6,
@@ -62,7 +62,7 @@ export default function UnifiedSection() {
       author: "Harvey Tian",
       title: "CEO & Co-Founder",
       company: "Inso Biosciences",
-      logo: "./logos/Inso Bio.webp"
+      logo: "./logos/client-32.webp"
     },
     {
       id: 7,
@@ -71,7 +71,7 @@ export default function UnifiedSection() {
       author: "Miguel Tam",
       title: "Senior Product Manager",
       company: "BioLegend",
-      logo: "./logos/BioLegend.webp"
+      logo: "./logos/client-13.webp"
     },
     {
       id: 8,
@@ -80,7 +80,7 @@ export default function UnifiedSection() {
       author: "Diana Price",
       title: "Senior Director of Neurosciences",
       company: "Neuropore Therapies",
-      logo: "./logos/Neuropore.webp"
+      logo: "./logos/client-45.webp"
     },
     {
       id: 9,
@@ -89,7 +89,7 @@ export default function UnifiedSection() {
       author: "Melinda Langdon",
       title: "Director of Marketing and Communications",
       company: "Ivy Brain Tumor Center",
-      logo: "./logos/Ivy Brain Tumor Center.png"
+      logo: "./logos/client-36.png"
     },
     {
       id: 10,
@@ -98,7 +98,7 @@ export default function UnifiedSection() {
       author: "Teresa Harris",
       title: "Director, Business Development",
       company: "Numaferm",
-      logo: "./logos/Numaferm.webp"
+      logo: "./logos/client-47.webp"
     },
     {
       id: 11,
@@ -107,7 +107,7 @@ export default function UnifiedSection() {
       author: "Mathew Mitchell",
       title: "Chief Business Officer",
       company: "Arialys",
-      logo: "./logos/Arialys.webp"
+      logo: "./logos/client-08.webp"
     },
     {
       id: 12,
@@ -116,7 +116,7 @@ export default function UnifiedSection() {
       author: "Jonathan Romanowsky",
       title: "Co-Founder & Chief Business Officer",
       company: "Inflammatix",
-      logo: "./logos/Inflammatix.webp"
+      logo: "./logos/client-29.webp"
     },
     {
       id: 13,
@@ -125,7 +125,7 @@ export default function UnifiedSection() {
       author: "Hernan A. Bazan",
       title: "CEO & Co-Founder",
       company: "South Rampart Pharma",
-      logo: "./logos/SRP.webp"
+      logo: "./logos/client-55.webp"
     },
     {
       id: 14,
@@ -134,7 +134,7 @@ export default function UnifiedSection() {
       author: "Nicolas G. Bazan",
       title: "Founder & CEO",
       company: "CurVirBiotech",
-      logo: "./logos/CurVirBiotech.webp"
+      logo: "./logos/client-24.webp"
     },
     {
       id: 15,
@@ -143,7 +143,7 @@ export default function UnifiedSection() {
       author: "Andrea Maranger",
       title: "Business Development Manager",
       company: "Bio-Techne",
-      logo: "./logos/Bio-Techne.webp"
+      logo: "./logos/client-12.webp"
     },
     {
       id: 16,
@@ -152,7 +152,7 @@ export default function UnifiedSection() {
       author: "Liz Macfadyen",
       title: "PR, Marketing, and Communications Manager",
       company: "Inivata",
-      logo: "./logos/Inivata.webp"
+      logo: "./logos/client-30.webp"
     },
     {
       id: 17,
@@ -161,7 +161,7 @@ export default function UnifiedSection() {
       author: "Kathy Harrison",
       title: "CEO",
       company: "Dimerix",
-      logo: "./logos/Dimerix.webp"
+      logo: "./logos/client-25.webp"
     },
     {
       id: 18,
@@ -170,7 +170,7 @@ export default function UnifiedSection() {
       author: "Nick Edmunds",
       title: "Chief Technology Officer",
       company: "Mission Therapeutics",
-      logo: "./logos/Mission Tx.webp"
+      logo: "./logos/client-41.webp"
     },
     {
       id: 19,
@@ -179,7 +179,7 @@ export default function UnifiedSection() {
       author: "Kevin Green",
       title: "VP, Business Development",
       company: "Bioniz",
-      logo: "./logos/Bioniz.webp"
+      logo: "./logos/client-14.webp"
     },
     {
       id: 20,
@@ -188,7 +188,7 @@ export default function UnifiedSection() {
       author: "William V. Williams",
       title: "President & CEO",
       company: "BriaCell",
-      logo: "./logos/BriaCell.webp"
+      logo: "./logos/client-15.webp"
     },
     {
       id: 21,
@@ -197,7 +197,7 @@ export default function UnifiedSection() {
       author: "Charlotte Davis",
       title: "Internal Operations Manager",
       company: "Chimera Bioengineering",
-      logo: "./logos/Chimera Bio.webp"
+      logo: "./logos/client-20.webp"
     },
     {
       id: 22,
@@ -206,7 +206,7 @@ export default function UnifiedSection() {
       author: "Anker Lundemose",
       title: "Chief Executive Officer",
       company: "Mission Therapeutics",
-      logo: "./logos/Mission Tx.webp"
+      logo: "./logos/client-41.webp"
     },
     {
       id: 23,
@@ -215,7 +215,7 @@ export default function UnifiedSection() {
       author: "Ada Kim",
       title: "Marketing Manager",
       company: "Tecan",
-      logo: "./logos/Tecan.webp"
+      logo: "./logos/client-59.webp"
     },
     {
       id: 24,
@@ -224,7 +224,7 @@ export default function UnifiedSection() {
       author: "Claire Thrasher",
       title: "Associate",
       company: "Unither",
-      logo: "./logos/Unither.webp"
+      logo: "./logos/client-60.webp"
     },
     {
       id: 25,
@@ -233,7 +233,7 @@ export default function UnifiedSection() {
       author: "Deepak Lyar",
       title: "Post-doctoral Scientist",
       company: "Arbele",
-      logo: "./logos/Arbele.webp"
+      logo: "./logos/client-07.webp"
     },
     {
       id: 26,
@@ -242,7 +242,7 @@ export default function UnifiedSection() {
       author: "Shunqi Yan",
       title: "Vice President, Head of CMC",
       company: "Arthrosi Therapeutics",
-      logo: "./logos/Arthrosi.webp"
+      logo: "./logos/client-09.webp"
     }
   ];
 

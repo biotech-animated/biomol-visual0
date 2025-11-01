@@ -89,7 +89,7 @@ export default function UnifiedSection() {
       author: "Melinda Langdon",
       title: "Director of Marketing and Communications",
       company: "Ivy Brain Tumor Center",
-      logo: "./logos/client-36.png"
+      logo: "./logos/client-36.webp"
     },
     {
       id: 10,
